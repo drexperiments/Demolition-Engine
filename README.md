@@ -25,7 +25,7 @@ this is the fan censored edition of demolititon
 - Lots of other ----
 
 # HOW TO COMPILE!
-## Copy this ---- into cmd/powersheck
+## Copy this ---- into cmd/powershell
 
 ```
 haxelib install lime
