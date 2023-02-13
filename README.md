@@ -2,7 +2,7 @@
 
 ![Repo size](https://img.shields.io/github/repo-size/DEMOLITIONDON96/Demolition-Engine)
 
-This engine is scrapped, not gonna bother continuing on this pile of garbage, however, you all can, and I honestly don't care anymore, making a rewrite of this engine anyways in the near future.
+this is the fan censored edition of demolititon
 
 ## Origins of Engine:
 
