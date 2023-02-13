@@ -47,7 +47,7 @@ class Conductor
 				return windowNames[i];
 			}
 		}
-		return 'shit';
+		return '----';
 		}else{
 			var timingWindows:Array<Int> = [ClientPrefs.sickWindow, ClientPrefs.goodWindow, ClientPrefs.badWindow];
 			var windowNames:Array<String> = ['sick', 'good', 'bad'];
@@ -60,7 +60,7 @@ class Conductor
 				return windowNames[i];
 			}
 		}
-		return 'shit';
+		return '----';
 		}
 	}
 	public static function mapBPMChanges(song:SwagSong)

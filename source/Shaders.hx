@@ -16,14 +16,14 @@ typedef ShaderEffect = {
 class BuildingEffect {
   public var shader:BuildingShader = new BuildingShader();
   public function new(){
-    shader.alphaShit.value = [0];
+    shader.alpha----.value = [0];
   }
   public function addAlpha(alpha:Float){
-    trace(shader.alphaShit.value[0]);
-    shader.alphaShit.value[0]+=alpha;
+    trace(shader.alpha----.value[0]);
+    shader.alpha----.value[0]+=alpha;
   }
   public function setAlpha(alpha:Float){
-    shader.alphaShit.value[0]=alpha;
+    shader.alpha----.value[0]=alpha;
   }
 }
 
@@ -31,13 +31,13 @@ class BuildingShader extends FlxShader
 {
   @:glFragmentSource('
     #pragma header
-    uniform float alphaShit;
+    uniform float alpha----;
     void main()
     {
 
       vec4 color = flixel_texture2D(bitmap,openfl_TextureCoordv);
       if (color.a > 0.0)
-        color-=alphaShit;
+        color-=alpha----;
 
       gl_FragColor = color;
     }
@@ -66,7 +66,7 @@ class ChromaticAberrationShader extends FlxShader
 			toUse.r = col1.r;
 			toUse.g = col2.g;
 			toUse.b = col3.b;
-			//float someshit = col4.r + col4.g + col4.b;
+			//float some---- = col4.r + col4.g + col4.b;
 
 			gl_FragColor = toUse;
 		}')
@@ -691,7 +691,7 @@ void main() {
     
     //Define the plane
     vec3 planePosition = vec3(0.0, 0.0, dept);
-    vec3 planeRotation = vec3(xrot, yrot, zrot);//this the shit you needa change
+    vec3 planeRotation = vec3(xrot, yrot, zrot);//this the ---- you needa change
     vec2 planeDimension = vec2(-screenAspect, 1.0);
     
     vec2 uv = raytraceTexturedQuad(vec3(0), dir, planePosition, planeRotation, planeDimension);
@@ -720,9 +720,9 @@ void main() {
 
 //Boing! by ThaeHan
 
-class FuckingTriangleEffect extends Effect{
+class ----ingTriangleEffect extends Effect{
 	
-	public var shader:FuckingTriangle = new FuckingTriangle();
+	public var shader:----ingTriangle = new ----ingTriangle();
 	
 	public function new(rotx:Float, roty:Float){
 		shader.rotX.value = [rotx];
@@ -733,7 +733,7 @@ class FuckingTriangleEffect extends Effect{
 }
 
 
-class FuckingTriangle extends FlxShader{
+class ----ingTriangle extends FlxShader{
 	
 	@:glFragmentSource('
 	
@@ -1509,7 +1509,7 @@ class VhsShader extends FlxShader {
     
     float rand(vec2 co)
     {
-        //no highp, crashes bullshit.
+        //no highp, crashes bull----.
         float a = 12.9898;
         float b = 78.233;
         float c = 43758.5453;

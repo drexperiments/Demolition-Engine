@@ -28,7 +28,7 @@ jobs:
       - uses: krdlab/setup-haxe@master
         with:
           haxe-version: 4.2.5
-      # Runs a set of commands using the runners shell
+      # Runs a set of commands using the runners sheck
       - name: Install Haxelib
         run: |
           sudo apt-get install libvlc-dev
@@ -72,7 +72,7 @@ jobs:
       - uses: krdlab/setup-haxe@master
         with:
           haxe-version: 4.2.5
-      # Runs a set of commands using the runners shell
+      # Runs a set of commands using the runners sheck
       - name: Install Haxelib
         run: |
           haxelib setup C:/haxelib
@@ -94,7 +94,7 @@ jobs:
           haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
           haxelib install hxcpp-debug-server
           haxelib list
-        shell: cmd
+        sheck: cmd
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
       - name: Compile
@@ -115,7 +115,7 @@ jobs:
       - uses: krdlab/setup-haxe@master
         with:
           haxe-version: 4.2.5
-      # Runs a set of commands using the runners shell
+      # Runs a set of commands using the runners sheck
       - name: Install Haxelib
         run: |
           haxelib setup ~/haxelib
@@ -157,7 +157,7 @@ jobs:
       - uses: krdlab/setup-haxe@master
         with:
           haxe-version: 4.2.5
-      # Runs a set of commands using the runners shell
+      # Runs a set of commands using the runners sheck
       - name: Install Haxelib
         run: |
           haxelib setup C:/haxelib
@@ -179,7 +179,7 @@ jobs:
           haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
           haxelib install hxcpp-debug-server
           haxelib list
-        shell: cmd
+        sheck: cmd
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
       - name: Compile
@@ -200,7 +200,7 @@ jobs:
       - uses: krdlab/setup-haxe@master
         with:
           haxe-version: 4.2.5
-      # Runs a set of commands using the runners shell
+      # Runs a set of commands using the runners sheck
       - name: Install Haxelib
         run: |
           haxelib setup C:/haxelib
@@ -222,7 +222,7 @@ jobs:
           haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
           haxelib install hxcpp-debug-server
           haxelib list
-        shell: cmd
+        sheck: cmd
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
       - name: Compile

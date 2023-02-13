@@ -297,11 +297,11 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		descText.screenCenter(Y);
 		descText.y += 270;
 
-		var bullShit:Int = 0;
+		var bull----:Int = 0;
 
 		for (item in grpOptions.members) {
-			item.targetY = bullShit - curSelected;
-			bullShit++;
+			item.targetY = bull---- - curSelected;
+			bull----++;
 
 			item.alpha = 0.6;
 			if (item.targetY == 0) {

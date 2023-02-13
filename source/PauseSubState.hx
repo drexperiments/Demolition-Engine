@@ -18,7 +18,7 @@ import flixel.util.FlxStringUtil;
 
 class PauseSubState extends MusicBeatSubstate
 {
-	var grpMenuShit:FlxTypedGroup<Alphabet>;
+	var grpMenu----:FlxTypedGroup<Alphabet>;
 
 	var menuItems:Array<String> = [];
 	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Options', 'Change Difficulty', 'Exit to menu'];
@@ -180,15 +180,15 @@ class PauseSubState extends MusicBeatSubstate
 		FlxTween.tween(charterCredit, {alpha: 1, y: charterCredit.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
 		FlxTween.tween(blueballedTxt, {alpha: 1, y: blueballedTxt.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 1.1});
 
-		grpMenuShit = new FlxTypedGroup<Alphabet>();
-		add(grpMenuShit);
+		grpMenu---- = new FlxTypedGroup<Alphabet>();
+		add(grpMenu----);
 
 		for (i in 0...menuItems.length)
 		{
 			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, menuItems[i], true, false);
 			songText.isMenuItem = true;
 			songText.targetY = i;
-			grpMenuShit.add(songText);
+			grpMenu----.add(songText);
 		}
 
 		changeSelection();
@@ -386,12 +386,12 @@ class PauseSubState extends MusicBeatSubstate
 		if (curSelected >= menuItems.length)
 			curSelected = 0;
 
-		var bullShit:Int = 0;
+		var bull----:Int = 0;
 
-		for (item in grpMenuShit.members)
+		for (item in grpMenu----.members)
 		{
-			item.targetY = bullShit - curSelected;
-			bullShit++;
+			item.targetY = bull---- - curSelected;
+			bull----++;
 
 			item.alpha = 0.6;
 			// item.setGraphicSize(Std.int(item.width * 0.8));
@@ -411,10 +411,10 @@ class PauseSubState extends MusicBeatSubstate
 	}
 
 	function regenMenu():Void {
-		for (i in 0...grpMenuShit.members.length) {
-			var obj = grpMenuShit.members[0];
+		for (i in 0...grpMenu----.members.length) {
+			var obj = grpMenu----.members[0];
 			obj.kill();
-			grpMenuShit.remove(obj, true);
+			grpMenu----.remove(obj, true);
 			obj.destroy();
 		}
 
@@ -422,7 +422,7 @@ class PauseSubState extends MusicBeatSubstate
 			var item = new Alphabet(0, 70 * i + 30, menuItems[i], true, false);
 			item.isMenuItem = true;
 			item.targetY = i;
-			grpMenuShit.add(item);
+			grpMenu----.add(item);
 
 			if(menuItems[i] == 'Skip Time')
 			{

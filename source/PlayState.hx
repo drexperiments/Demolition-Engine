@@ -81,7 +81,7 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
 	public static var ratingStuff:Array<Dynamic> = [
-		['Shit...', 0.2], //From 0% to 19%
+		['----...', 0.2], //From 0% to 19%
 		['Terrible', 0.4], //From 20% to 39%
 		['Bad', 0.5], //From 40% to 49%
 		['Meh', 0.6], //From 50% to 59%
@@ -200,7 +200,7 @@ class PlayState extends MusicBeatState
 	public var sicks:Int = 0;
 	public var goods:Int = 0;
 	public var bads:Int = 0;
-	public var shits:Int = 0;
+	public var ----s:Int = 0;
 	
 	private var generatedMusic:Bool = false;
 	public var endingSong:Bool = false;
@@ -269,7 +269,7 @@ class PlayState extends MusicBeatState
 	var heyTimer:Float;
 
 	var bgGirls:BackgroundGirls;
-	var wiggleShit:WiggleEffect = new WiggleEffect();
+	var wiggle----:WiggleEffect = new WiggleEffect();
 	var bgGhouls:BGSprite;
 
 	var tankWatchtower:BGSprite;
@@ -314,12 +314,12 @@ class PlayState extends MusicBeatState
 	var detailsPausedText:String = "";
 	#end
 
-	//Achievement shit
+	//Achievement ----
 	var keysPressed:Array<Bool> = [];
 	var boyfriendIdleTime:Float = 0.0;
 	var boyfriendIdled:Bool = false;
 
-	// Lua shit
+	// Lua ----
 	public static var instance:PlayState;
 	public var luaArray:Array<FunkinLua> = [];
 	private var luaDebugGroup:FlxTypedGroup<DebugLuaText>;
@@ -468,7 +468,7 @@ class PlayState extends MusicBeatState
 			cameraSpeed = stageData.camera_speed;
 
 		boyfriendCameraOffset = stageData.camera_boyfriend;
-		if(boyfriendCameraOffset == null) //Fucks sake should have done it since the start :rolling_eyes:
+		if(boyfriendCameraOffset == null) //----s sake should have done it since the start :rolling_eyes:
 			boyfriendCameraOffset = [0, 0];
 
 		opponentCameraOffset = stageData.camera_opponent;
@@ -664,26 +664,26 @@ class PlayState extends MusicBeatState
 				add(bgSky);
 				bgSky.antialiasing = false;
 
-				var repositionShit = -200;
+				var reposition---- = -200;
 
-				var bgSchool:BGSprite = new BGSprite('weeb/weebSchool', repositionShit, 0, 0.6, 0.90);
+				var bgSchool:BGSprite = new BGSprite('weeb/weebSchool', reposition----, 0, 0.6, 0.90);
 				add(bgSchool);
 				bgSchool.antialiasing = false;
 
-				var bgStreet:BGSprite = new BGSprite('weeb/weebStreet', repositionShit, 0, 0.95, 0.95);
+				var bgStreet:BGSprite = new BGSprite('weeb/weebStreet', reposition----, 0, 0.95, 0.95);
 				add(bgStreet);
 				bgStreet.antialiasing = false;
 
-				var widShit = Std.int(bgSky.width * 6);
+				var wid---- = Std.int(bgSky.width * 6);
 				if(!ClientPrefs.lowQuality) {
-					var fgTrees:BGSprite = new BGSprite('weeb/weebTreesBack', repositionShit + 170, 130, 0.9, 0.9);
-					fgTrees.setGraphicSize(Std.int(widShit * 0.8));
+					var fgTrees:BGSprite = new BGSprite('weeb/weebTreesBack', reposition---- + 170, 130, 0.9, 0.9);
+					fgTrees.setGraphicSize(Std.int(wid---- * 0.8));
 					fgTrees.updateHitbox();
 					add(fgTrees);
 					fgTrees.antialiasing = false;
 				}
 
-				var bgTrees:FlxSprite = new FlxSprite(repositionShit - 380, -800);
+				var bgTrees:FlxSprite = new FlxSprite(reposition---- - 380, -800);
 				bgTrees.frames = Paths.getPackerAtlas('weeb/weebTrees');
 				bgTrees.animation.add('treeLoop', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18], 12);
 				bgTrees.animation.play('treeLoop');
@@ -692,17 +692,17 @@ class PlayState extends MusicBeatState
 				bgTrees.antialiasing = false;
 
 				if(!ClientPrefs.lowQuality) {
-					var treeLeaves:BGSprite = new BGSprite('weeb/petals', repositionShit, -40, 0.85, 0.85, ['PETALS ALL'], true);
-					treeLeaves.setGraphicSize(widShit);
+					var treeLeaves:BGSprite = new BGSprite('weeb/petals', reposition----, -40, 0.85, 0.85, ['PETALS ALL'], true);
+					treeLeaves.setGraphicSize(wid----);
 					treeLeaves.updateHitbox();
 					add(treeLeaves);
 					treeLeaves.antialiasing = false;
 				}
 
-				bgSky.setGraphicSize(widShit);
-				bgSchool.setGraphicSize(widShit);
-				bgStreet.setGraphicSize(widShit);
-				bgTrees.setGraphicSize(Std.int(widShit * 1.4));
+				bgSky.setGraphicSize(wid----);
+				bgSchool.setGraphicSize(wid----);
+				bgStreet.setGraphicSize(wid----);
+				bgTrees.setGraphicSize(Std.int(wid---- * 1.4));
 
 				bgSky.updateHitbox();
 				bgSchool.updateHitbox();
@@ -827,7 +827,7 @@ class PlayState extends MusicBeatState
 
 		add(gfGroup); //Needed for blammed lights
 
-		// Shitty layering but whatev it works LOL
+		// ----ty layering but whatev it works LOL
 		if (curStage == 'limo')
 			add(limo);
 
@@ -932,7 +932,7 @@ class PlayState extends MusicBeatState
 				if(!ClientPrefs.lowQuality)
 				{
 					var firstTank:TankmenBG = new TankmenBG(20, 500, true);
-					firstTank.resetShit(20, 600, true);
+					firstTank.reset----(20, 600, true);
 					firstTank.strumTime = 10;
 					tankmanRun.add(firstTank);
 	
@@ -941,7 +941,7 @@ class PlayState extends MusicBeatState
 						if(FlxG.random.bool(16)) {
 							var tankBih = tankmanRun.recycle(TankmenBG);
 							tankBih.strumTime = TankmenBG.animationNotes[i][0];
-							tankBih.resetShit(500, 200 + FlxG.random.int(50, 100), TankmenBG.animationNotes[i][1] < 2);
+							tankBih.reset----(500, 200 + FlxG.random.int(50, 100), TankmenBG.animationNotes[i][1] < 2);
 							tankmanRun.add(tankBih);
 						}
 					}
@@ -1285,9 +1285,9 @@ class PlayState extends MusicBeatState
 			judgementCounter.cameras = [camHUD];
 			judgementCounter.screenCenter(Y);
 			if (ClientPrefs.marvelouses)
-				judgementCounter.text = 'Marvs: ${marvelouses}\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\n';
+				judgementCounter.text = 'Marvs: ${marvelouses}\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\n----s: ${----s}\n';
 			else
-				judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\n';
+				judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\n----s: ${----s}\n';
 			add(judgementCounter);
 		}
 		add(scoreTxt);
@@ -1419,7 +1419,7 @@ class PlayState extends MusicBeatState
 		}
 		RecalculateRating();
 
-		//PRECACHING MISS SOUNDS BECAUSE I THINK THEY CAN LAG PEOPLE AND FUCK THEM UP IDK HOW HAXE WORKS
+		//PRECACHING MISS SOUNDS BECAUSE I THINK THEY CAN LAG PEOPLE AND ---- THEM UP IDK HOW HAXE WORKS
 		if(ClientPrefs.hitsoundVolume > 0) precacheList.set('hitsound', 'sound');
 		precacheList.set('missnote1', 'sound');
 		precacheList.set('missnote2', 'sound');
@@ -1950,7 +1950,7 @@ class PlayState extends MusicBeatState
 						tankman.animation.play('killYou', true);
 						FlxG.sound.play(Paths.sound('killYou'));
 						
-						// We should just kill you but... what the hell, it's been a boring day... let's see what you've got!
+						// We should just kill you but... what the heck, it's been a boring day... let's see what you've got!
 						new FlxTimer().start(6.1, function(tmr:FlxTimer)
 						{
 							tankmanEnd();
@@ -2473,7 +2473,7 @@ class PlayState extends MusicBeatState
 
 		var noteData:Array<SwagSection>;
 
-		// NEW SHIT
+		// NEW ----
 		noteData = songData.notes;
 
 		var playerCounter:Int = 0;
@@ -2621,7 +2621,7 @@ class PlayState extends MusicBeatState
 		// trace(unspawnNotes.length);
 		// playerCounter += 1;
 
-		unspawnNotes.sort(sortByShit);
+		unspawnNotes.sort(sortBy----);
 		if(eventNotes.length > 1) { //No need to sort if there's a single one or none at all
 			eventNotes.sort(sortByTime);
 		}
@@ -2658,7 +2658,7 @@ class PlayState extends MusicBeatState
 				insert(members.indexOf(blammedLightsBlack) + 1, phillyWindowEvent);
 
 
-				phillyGlowGradient = new PhillyGlow.PhillyGlowGradient(-400, 225); //This shit was refusing to properly load FlxGradient so fuck it
+				phillyGlowGradient = new PhillyGlow.PhillyGlowGradient(-400, 225); //This ---- was refusing to properly load FlxGradient so ---- it
 				phillyGlowGradient.visible = false;
 				insert(members.indexOf(blammedLightsBlack) + 1, phillyGlowGradient);
 
@@ -2686,7 +2686,7 @@ class PlayState extends MusicBeatState
 		return 0;
 	}
 
-	function sortByShit(Obj1:Note, Obj2:Note):Int
+	function sortBy----(Obj1:Note, Obj2:Note):Int
 	{
 		return FlxSort.byValues(FlxSort.ASCENDING, Obj1.strumTime, Obj2.strumTime);
 	}
@@ -3113,7 +3113,7 @@ class PlayState extends MusicBeatState
 	        { 
 				openChartEditor(); 
 	        }
-			last of the hard code shit
+			last of the hard code ----
 	    */
 		if (FlxG.keys.anyJustPressed(debugKeysChart) && !endingSong && !inCutscene)
 		{
@@ -3309,8 +3309,8 @@ class PlayState extends MusicBeatState
 			camHUD.zoom = FlxMath.lerp(1, camHUD.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125 * camZoomingDecay), 0, 1));
 		}
 
-		FlxG.watch.addQuick("beatShit", curBeat);
-		FlxG.watch.addQuick("stepShit", curStep);
+		FlxG.watch.addQuick("beat----", curBeat);
+		FlxG.watch.addQuick("step----", curStep);
 
 		// RESET = Quick Game Over Screen
 		if (!ClientPrefs.noReset && controls.RESET && !inCutscene && startedCountdown && !endingSong)
@@ -3322,7 +3322,7 @@ class PlayState extends MusicBeatState
 
 		if (unspawnNotes[0] != null)
 		{
-			var time:Float = 3000;//shit be werid on 4:3
+			var time:Float = 3000;//---- be werid on 4:3
 			if(songSpeed < 1) time /= songSpeed;
 
 			while (unspawnNotes.length > 0 && unspawnNotes[0].strumTime - Conductor.songPosition < time)
@@ -3339,7 +3339,7 @@ class PlayState extends MusicBeatState
 		{
 			if (!inCutscene) {
 				if(!cpuControlled) {
-					keyShit();
+					key----();
 				} else if(boyfriend.holdTimer > Conductor.stepCrochet * 0.0011 * boyfriend.singDuration && boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.animation.curAnim.name.endsWith('miss')) {
 					boyfriend.dance();
 					//boyfriend.animation.curAnim.finish();
@@ -3398,7 +3398,7 @@ class PlayState extends MusicBeatState
 				{
 					daNote.y = strumY + Math.sin(angleDir) * daNote.distance;
 
-					//Jesus fuck this took me so much mother fucking time AAAAAAAAAA
+					//Jesus ---- this took me so much mother ----ing time AAAAAAAAAA
 					if(strumScroll && daNote.isSustainNote)
 					{
 						if (daNote.animation.curAnim.name.endsWith('end')) {
@@ -3962,7 +3962,7 @@ class PlayState extends MusicBeatState
 						blackFadeThing.alpha -= 0.05;
 					case 3:
 						blackFadeThing.alpha += 1;
-					//Sorry that you have to fucking spam these events to do the thing
+					//Sorry that you have to ----ing spam these events to do the thing
 				}
 			case 'Lyrics':
 				if(lyrics!=null){
@@ -4046,7 +4046,7 @@ class PlayState extends MusicBeatState
 						playerStrums.members[1].alpha += 0.05;
 						playerStrums.members[2].alpha += 0.05;
 						playerStrums.members[3].alpha += 0.05;
-					//Sorry that you have to fucking spam these events to do the thing
+					//Sorry that you have to ----ing spam these events to do the thing
 				}
 				//thx KutikiPlayz for letting me use this
 			case 'Scroll Type':
@@ -4721,10 +4721,10 @@ class PlayState extends MusicBeatState
 					var winterHorrorlandNext = (Paths.formatToSongPath(SONG.song) == "eggnog");
 					if (winterHorrorlandNext)
 					{
-						var blackShit:FlxSprite = new FlxSprite(-FlxG.width * FlxG.camera.zoom,
+						var black----:FlxSprite = new FlxSprite(-FlxG.width * FlxG.camera.zoom,
 							-FlxG.height * FlxG.camera.zoom).makeGraphic(FlxG.width * 3, FlxG.height * 3, FlxColor.BLACK);
-						blackShit.scrollFactor.set();
-						add(blackShit);
+						black----.scrollFactor.set();
+						add(black----);
 						camHUD.visible = false;
 
 						FlxG.sound.play(Paths.sound('Lights_Shut_off'));
@@ -4799,7 +4799,7 @@ class PlayState extends MusicBeatState
 	}
 
 	public var totalPlayed:Int = 0;
-	public var totalNotesHit:Float = 0.0;
+	public var totalNote----:Float = 0.0;
 
 	public static function getUiSkin(?uiSkin:String = 'classic', ?file:String = '', ?alt:String = '', ?numSkin:Bool = false, ?num:Int = 0)
 	{
@@ -4839,7 +4839,7 @@ class PlayState extends MusicBeatState
 		var score:Int = 350;
 		
 		if (ClientPrefs.keAccuracy)
-			totalNotesHit += Etterna.wife3(-noteDiff, Conductor.safeZoneOffset / 166);
+			totalNote---- += Etterna.wife3(-noteDiff, Conductor.safeZoneOffset / 166);
 
 		// tryna do MS based judgment due to popular demand
 		var daRating:String = Conductor.judgeNote(note, noteDiff);
@@ -4848,13 +4848,13 @@ class PlayState extends MusicBeatState
 		{
 		switch (daRating)
 		{
-				case 'shit':
+				case '----':
 					score = -300;
 					combo = 0;
 					songMisses++;
 					totalMisses++;
 					health -= 0.1;
-					shits++;
+					----s++;
 				case 'bad':
 					daRating = 'bad';
 					score = 0;
@@ -4869,7 +4869,7 @@ class PlayState extends MusicBeatState
 						health += 0.04;
 					sicks++;
 			case "marvelous": // marvelous
-				totalNotesHit += 1;
+				totalNote---- += 1;
 					if (health < 2)
 						health += 0.08;
 				marvelouses++;
@@ -4879,23 +4879,23 @@ class PlayState extends MusicBeatState
 		{
 		switch (daRating)
 		{
-			case "shit": // shit
-				totalNotesHit += 0;
-				shits++;
+			case "----": // ----
+				totalNote---- += 0;
+				----s++;
 			case "bad": // bad
-				totalNotesHit += 0.5;
+				totalNote---- += 0.5;
 				bads++;
 			case "good": // good
-				totalNotesHit += 0.75;
+				totalNote---- += 0.75;
 				goods++;
 			case "sick": // sick
 				if (!ClientPrefs.marvelouses)
-					totalNotesHit += 1;
+					totalNote---- += 1;
 				else
-					totalNotesHit += 0.95;
+					totalNote---- += 0.95;
 				sicks++;
 			case "marvelous": // marvelous
-				totalNotesHit += 1;
+				totalNote---- += 1;
 				marvelouses++;
 		}
 		}
@@ -5208,7 +5208,7 @@ class PlayState extends MusicBeatState
 	}
 
 	// Hold notes
-	private function keyShit():Void
+	private function key----():Void
 	{
 		// HOLDING
 		var up = controls.NOTE_UP;
@@ -5801,7 +5801,7 @@ class PlayState extends MusicBeatState
 		startedMoving = false;
 	}
 
-	function lightningStrikeShit():Void
+	function lightningStrike----():Void
 	{
 		FlxG.sound.play(Paths.soundRandom('thunder_', 1, 2));
 		if(!ClientPrefs.lowQuality) halloweenBG.animation.play('halloweem bg lightning strike');
@@ -6098,7 +6098,7 @@ class PlayState extends MusicBeatState
 
 		if (curStage == 'spooky' && FlxG.random.bool(10) && curBeat > lightningStrikeBeat + lightningOffset)
 		{
-			lightningStrikeShit();
+			lightningStrike----();
 		}
 		lastBeatHit = curBeat;
 
@@ -6163,8 +6163,8 @@ class PlayState extends MusicBeatState
 			else
 			{
 				// Rating Percent
-				ratingPercent = Math.min(1, Math.max(0, totalNotesHit / totalPlayed));
-				//trace((totalNotesHit / totalPlayed) + ', Total: ' + totalPlayed + ', notes hit: ' + totalNotesHit);
+				ratingPercent = Math.min(1, Math.max(0, totalNote---- / totalPlayed));
+				//trace((totalNote---- / totalPlayed) + ', Total: ' + totalPlayed + ', notes hit: ' + totalNote----);
 
 				var ratings:Array<Dynamic> = [ClientPrefs.ratingSystem];
 				switch (ClientPrefs.ratingSystem)
@@ -6208,7 +6208,7 @@ class PlayState extends MusicBeatState
 			if (marvelouses > 0) ratingFC = "MFC";
 			if (sicks > 0) ratingFC = "SFC";
 			if (goods > 0) ratingFC = "GFC";
-			if (bads > 0 || shits > 0) ratingFC = "FC";
+			if (bads > 0 || ----s > 0) ratingFC = "FC";
 			if (songMisses > 0 && songMisses < 10) ratingFC = "SDCB";
 			else if (songMisses >= 10) ratingFC = "Clear";
 		}
@@ -6217,9 +6217,9 @@ class PlayState extends MusicBeatState
 		setOnLuas('ratingFC', ratingFC);
 		if (!ClientPrefs.hideJudgement) {
 			if (ClientPrefs.marvelouses)
-			judgementCounter.text = 'Marvs: ${marvelouses}\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\n';
+			judgementCounter.text = 'Marvs: ${marvelouses}\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\n----s: ${----s}\n';
 		        else
-			judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\n';
+			judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\n----s: ${----s}\n';
 		}
 	}
 

@@ -63,7 +63,7 @@ class TitleState extends MusicBeatState
 	var blackScreen:FlxSprite;
 	var credGroup:FlxGroup;
 	var gradientBar:FlxSprite = new FlxSprite(0, 0).makeGraphic(FlxG.width, 1, 0xFFAA00AA);
-	var credTextShit:Alphabet;
+	var credText----:Alphabet;
 	var textGroup:FlxGroup;
 	var ngSpr:FlxSprite;
 	var psychEngine:FlxSprite;
@@ -83,7 +83,7 @@ class TitleState extends MusicBeatState
          "stfu about Dave & Bambi, I don't wanna hear about it.", //bob expanded devs going mad with your reaction
          "MOUSE RAP. MOUSE RAP", // totally a funkin.avi reference
          "K i l l",
-         "Why can't BF & GF do shit about the bs the parents are putting them in?" 
+         "Why can't BF & GF do ---- about the bs the parents are putting them in?" 
      ];
 
 	#if TITLE_SCREEN_EASTER_EGG
@@ -157,9 +157,9 @@ class TitleState extends MusicBeatState
 
 		PlayerSettings.init();
 
-		curWacky = FlxG.random.getObject(getIntroTextShit());
+		curWacky = FlxG.random.getObject(getIntroText----());
 
-		// DEBUG BULLSHIT
+		// DEBUG BULL----
 
 		swagShader = new ColorSwap();
 		super.create();
@@ -254,7 +254,7 @@ class TitleState extends MusicBeatState
 			transIn = FlxTransitionableState.defaultTransIn;
 			transOut = FlxTransitionableState.defaultTransOut;*/
 
-			// HAD TO MODIFY SOME BACKEND SHIT
+			// HAD TO MODIFY SOME BACKEND ----
 			// IF THIS PR IS HERE IF ITS ACCEPTED UR GOOD TO GO
 			// https://github.com/HaxeFlixel/flixel-addons/pull/348
 
@@ -383,12 +383,12 @@ class TitleState extends MusicBeatState
 		add(gradientBar);
 		FlxTween.tween(gradientBar, {'scale.y': 1.3}, 4, {ease: FlxEase.quadInOut});
 
-		credTextShit = new Alphabet(0, 0, "", true);
-		credTextShit.screenCenter();
+		credText---- = new Alphabet(0, 0, "", true);
+		credText----.screenCenter();
 
-		// credTextShit.alignment = CENTER;
+		// credText----.alignment = CENTER;
 
-		credTextShit.visible = false;
+		credText----.visible = false;
 
 		ngSpr = new FlxSprite(0, FlxG.height * 0.52).loadGraphic(Paths.image('newgrounds_logo'));
 		add(ngSpr);
@@ -412,17 +412,17 @@ class TitleState extends MusicBeatState
 		creditsGrid.screenCenter(X);
 		creditsGrid.antialiasing = ClientPrefs.globalAntialiasing;
 		
-		FlxTween.tween(credTextShit, {y: credTextShit.y + 20}, 2.9, {ease: FlxEase.quadInOut, type: PINGPONG});
+		FlxTween.tween(credText----, {y: credText----.y + 20}, 2.9, {ease: FlxEase.quadInOut, type: PINGPONG});
 
 		if (initialized)
 			skipIntro();
 		else
 			initialized = true;
 
-		// credGroup.add(credTextShit);
+		// credGroup.add(credText----);
 	}
 
-	function getIntroTextShit():Array<Array<String>>
+	function getIntroText----():Array<Array<String>>
 	{
 		var fullText:String = Assets.getText(Paths.txt('introText'));
 
@@ -596,7 +596,7 @@ class TitleState extends MusicBeatState
 		case 12:
 		Application.current.window.title = "Friday Night Funkin': Demolition Engine - Erect Difficulty is fun, ngl.";
 		case 13:
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - Why can't BF & GF do shit about the bs the parents are putting them in?";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine - Why can't BF & GF do ---- about the bs the parents are putting them in?";
 		case 14:
 		Application.current.window.title = "Friday Night Funkin': Demolition Engine - Pico funi.";
 		case 15:
@@ -606,7 +606,7 @@ class TitleState extends MusicBeatState
 		case 17:
 		Application.current.window.title = "Friday Night Funkin': Demolition Engine - MOUSE RAP. MOUSE RAP";
 		case 18:
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - I'm shutting down your game now, fuck you";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine - I'm shutting down your game now, ---- you";
 		new FlxTimer().start(1.5, function(tmr:FlxTimer){
 			System.exit(0);
 		});
@@ -682,50 +682,50 @@ class TitleState extends MusicBeatState
 			{
 				case 1:
 					createCoolText(['Demolition Engine by'], 15);
-				// credTextShit.visible = true;
+				// credText----.visible = true;
 				case 3:
 					addMoreText('These Guys Lol', 15);
 					creditsGrid.visible = true;
-				// credTextShit.text += '\npresent...';
-				// credTextShit.addText();
+				// credText----.text += '\npresent...';
+				// credText----.addText();
 				case 4:
 					deleteCoolText();
 					creditsGrid.visible = false;
-				// credTextShit.visible = false;
-				// credTextShit.text = 'In association \nwith';
-				// credTextShit.screenCenter();
+				// credText----.visible = false;
+				// credText----.text = 'In association \nwith';
+				// credText----.screenCenter();
 				case 5:
 					createCoolText(['A Modified version of'], -40);
 				case 7:
 					addMoreText('Psych Engine', -40);
 					psychEngine.visible = true;
-				// credTextShit.text += '\nNewgrounds';
+				// credText----.text += '\nNewgrounds';
 				case 8:
 					deleteCoolText();
 					psychEngine.visible = false;
-				// credTextShit.visible = false;
+				// credText----.visible = false;
 
-				// credTextShit.text = 'Shoutouts Tom Fulp';
-				// credTextShit.screenCenter();
+				// credText----.text = 'Shoutouts Tom Fulp';
+				// credText----.screenCenter();
 				case 9:
 					createCoolText([curWacky[0]]);
-				// credTextShit.visible = true;
+				// credText----.visible = true;
 				case 11:
 					addMoreText(curWacky[1]);
-				// credTextShit.text += '\nlmao';
+				// credText----.text += '\nlmao';
 				case 12:
 					deleteCoolText();
-				// credTextShit.visible = false;
-				// credTextShit.text = "Friday";
-				// credTextShit.screenCenter();
+				// credText----.visible = false;
+				// credText----.text = "Friday";
+				// credText----.screenCenter();
 				case 13:
 					addMoreText('Friday');
-				// credTextShit.visible = true;
+				// credText----.visible = true;
 				case 14:
 					addMoreText('Night');
-				// credTextShit.text += '\nNight';
+				// credText----.text += '\nNight';
 				case 15:
-					addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
+					addMoreText('Funkin'); // credText----.text += '\nFunkin';
 
 				case 16:
 					skipIntro();

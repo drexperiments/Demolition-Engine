@@ -95,7 +95,7 @@ class ChartingState extends MusicBeatState
 		['Alt Idle Animation', "Sets a specified suffix after the idle animation name.\nYou can use this to trigger 'idle-alt' if you set\nValue 2 to -alt\n\nValue 1: Character to set (Dad, BF or GF)\nValue 2: New suffix (Leave it blank to disable)"],
 		['Screen Shake', "Value 1: Camera shake\nValue 2: HUD shake\n\nEvery value works as the following example: \"1, 0.05\".\nThe first number (1) is the duration.\nThe second number (0.05) is the intensity."],
 		['Change Character', "Value 1: Character to change (Dad, BF, GF)\nValue 2: New character's name"],
-		['Fade Character', "0 = -0.05 Dad Alpha Value\n1 = -0.05 BF Alpha Value\n2 = +0.05 Dad Alpha Value\n3 = +0.05 BF Alpha Value\n(i'm so sorry for the spam shit)"],
+		['Fade Character', "0 = -0.05 Dad Alpha Value\n1 = -0.05 BF Alpha Value\n2 = +0.05 Dad Alpha Value\n3 = +0.05 BF Alpha Value\n(i'm so sorry for the spam ----)"],
 		['Screen Fade', "Funi Screen Fade\n0 = Invisible\n1 = add 0.05 to Visibility\n2 = remove 0.05 to Visibility\n3 = Visible\n(i'm sorry you have to spam 1 & 2)"],
 		['Lyrics',"Value 1: Lyrics\nValue 2: Color (white is default)"],
 		['Flash Background', "Flashes Between Stage and Characters\nValue 1: Time it takes to fade away\nValue 2: Insert a HEX Color ID\n \nIf left empty, Default is:\nFade Time: 0.3, HEX Color ID: #FFFFFF"],
@@ -130,7 +130,7 @@ class ChartingState extends MusicBeatState
 	var strumLineNotes:FlxTypedGroup<StrumNote>;
 	var curSong:String = 'Dadbattle';
 	var amountSteps:Int = 0;
-	var bullshitUI:FlxGroup;
+	var bull----UI:FlxGroup;
 
 	var highlight:FlxSprite;
 
@@ -233,7 +233,7 @@ class ChartingState extends MusicBeatState
 				notes: [],
 				events: [],
 				bpm: 150.0, //BPM
-				needsVoices: true, //Voices shit
+				needsVoices: true, //Voices ----
 				arrowSkin: '', //Arrow skin
 				splashSkin: 'noteSplashes',//idk it would crash if i didn't
 				player1: 'bf', //bf
@@ -459,7 +459,7 @@ class ChartingState extends MusicBeatState
 
 		var loadAutosaveBtn:FlxButton = new FlxButton(reloadSongJson.x, reloadSongJson.y + 20, 'Load Autosave', function()
 		{
-			PlayState.SONG = Song.parseJSONshit(FlxG.save.data.autosave);
+			PlayState.SONG = Song.parseJSON----(FlxG.save.data.autosave);
 			MusicBeatState.resetState();
 		});
 
@@ -1390,19 +1390,19 @@ class ChartingState extends MusicBeatState
 
 	function generateUI():Void
 	{
-		while (bullshitUI.members.length > 0)
+		while (bull----UI.members.length > 0)
 		{
-			bullshitUI.remove(bullshitUI.members[0], true);
+			bull----UI.remove(bull----UI.members[0], true);
 		}
 
-		// general shit
+		// general ----
 		var title:FlxText = new FlxText(UI_box.x + 20, UI_box.y + 20, 0);
-		bullshitUI.add(title);
+		bull----UI.add(title);
 		/* 
 			var loopCheck = new FlxUICheckBox(UI_box.x + 10, UI_box.y + 50, null, null, "Loops", 100, ['loop check']);
 			loopCheck.checked = curNoteSelected.doesLoop;
 			tooltips.add(loopCheck, {title: 'Section looping', body: "Whether or not it's a simon says style section", style: tooltipType});
-			bullshitUI.add(loopCheck);
+			bull----UI.add(loopCheck);
 
 		 */
 	}
@@ -1429,7 +1429,7 @@ class ChartingState extends MusicBeatState
 
 				case 'Change BPM':
 					_song.notes[curSection].changeBPM = check.checked;
-					FlxG.log.add('changed bpm shit');
+					FlxG.log.add('changed bpm ----');
 				case "Alt Animation":
 					_song.notes[curSection].altAnim = check.checked;
 			}
@@ -1510,7 +1510,7 @@ class ChartingState extends MusicBeatState
 	var updatedSection:Bool = false;
 
 	/* this function got owned LOL
-		function lengthBpmBullshit():Float
+		function lengthBpmBull----():Float
 		{
 			if (_song.notes[curSection].changeBPM)
 				return _song.notes[curSection].lengthInSteps * (_song.notes[curSection].bpm / _song.bpm);
@@ -1565,7 +1565,7 @@ class ChartingState extends MusicBeatState
 			{
 				//trace(curStep);
 				//trace((_song.notes[curSection].lengthInSteps) * (curSection + 1));
-				//trace('DUMBSHIT');
+				//trace('DUMB----');
 
 				if (_song.notes[curSection + 1] == null)
 				{
@@ -1782,7 +1782,7 @@ class ChartingState extends MusicBeatState
 				}
 			}
 
-			//ARROW VORTEX SHIT NO DEADASS
+			//ARROW VORTEX ---- NO DEADASS
 			
 			
 			
@@ -2092,7 +2092,7 @@ class ChartingState extends MusicBeatState
 			var leVocals:String = Paths.getPath(currentSongName + '/Voices.' + Paths.SOUND_EXT, SOUND, 'songs');
 			if (OpenFlAssets.exists(leVocals)) { //Vanilla voices
 				audioBuffers[1] = AudioBuffer.fromFile('./' + leVocals.substr(6));
-				//trace('Voices found, LETS FUCKING GOOOO');
+				//trace('Voices found, LETS ----ING GOOOO');
 			}
 		#if MODS_ALLOWED
 		}
@@ -2241,7 +2241,7 @@ class ChartingState extends MusicBeatState
 		updateGrid();
 
 		FlxG.sound.music.pause();
-		// Basically old shit from changeSection???
+		// Basically old ---- from changeSection???
 		FlxG.sound.music.time = sectionStartTime();
 
 		if (songBeginning)
@@ -2279,7 +2279,7 @@ class ChartingState extends MusicBeatState
 					var daLength:Float = 0;
 					while (daNum <= sec)
 					{
-						daLength += lengthBpmBullshit();
+						daLength += lengthBpmBull----();
 						daNum++;
 				}*/
 
@@ -2412,7 +2412,7 @@ class ChartingState extends MusicBeatState
 			Conductor.changeBPM(daBPM);
 		}
 
-		/* // PORT BULLSHIT, INCASE THERE'S NO SUSTAIN DATA FOR A NOTE
+		/* // PORT BULL----, INCASE THERE'S NO SUSTAIN DATA FOR A NOTE
 			for (sec in 0..._song.notes.length)
 			{
 				for (notesse in 0..._song.notes[sec].sectionNotes.length)
@@ -2827,7 +2827,7 @@ class ChartingState extends MusicBeatState
 	function loadJson(song:String):Void
 	{
 		//make it look sexier if possible
-		//null fix shit, i hate it
+		//null fix ----, i hate it
 		if (CoolUtil.difficulties[PlayState.storyDifficulty] != CoolUtil.defaultDifficulty /* 'Normal' */
 			&& CoolUtil.difficulties[PlayState.storyDifficulty] != null)
 		{
@@ -2854,7 +2854,7 @@ class ChartingState extends MusicBeatState
 	private function saveLevel()
 	{
 		_song.events.sort(sortByTime);
-		/*var songShit:Dynamic = {
+		/*var song----:Dynamic = {
 			
 		}*/
 		var json = {

@@ -87,14 +87,14 @@ class FunkinLua {
 		accessedProps = new Map<String, Dynamic>();
 		#end
 
-		// Lua shit
+		// Lua ----
 		set('Function_Stop', Function_Stop);
 		set('Function_Continue', Function_Continue);
 		set('luaDebugMode', false);
 		set('luaDeprecatedWarnings', true);
 		set('inChartEditor', false);
 
-		// Song/Week shit
+		// Song/Week ----
 		set('curBpm', Conductor.bpm);
 		set('bpm', PlayState.SONG.bpm);
 		set('scrollSpeed', PlayState.SONG.speed);
@@ -122,7 +122,7 @@ class FunkinLua {
 		set('screenWidth', FlxG.width);
 		set('screenHeight', FlxG.height);
 
-		// Window shit so modcharts are less painful
+		// Window ---- so modcharts are less painful
  		set('windowX', PlayState.instance.window.x);
  		set('windowY', PlayState.instance.window.y);
  		set('windowW', PlayState.instance.window.width);
@@ -168,7 +168,7 @@ class FunkinLua {
 		set('defaultGirlfriendX', PlayState.instance.GF_X);
 		set('defaultGirlfriendY', PlayState.instance.GF_Y);
 
-		// Character shit
+		// Character ----
 		set('boyfriendName', PlayState.SONG.player1);
 		set('dadName', PlayState.SONG.player2);
 		set('gfName', PlayState.SONG.gfVersion);
@@ -402,7 +402,7 @@ class FunkinLua {
 			return Reflect.setProperty(Type.resolveClass(classVar), variable, value);
 		});
 
-		//shitass stuff for epic coders like me B)  *image of obama giving himself a medal*
+		//----ass stuff for epic coders like me B)  *image of obama giving himself a medal*
 		Lua_helper.add_callback(lua, "getObjectOrder", function(obj:String) {
 			if(PlayState.instance.modchartSprites.exists(obj))
 			{
@@ -449,7 +449,7 @@ class FunkinLua {
 		});
 		// gay ass tweens
 		Lua_helper.add_callback(lua, "doTweenAdvanced", function(tagNVars:Array<String>, property:String, value:Dynamic, duration:Float, ease:String) {
- 			var penisExam:Dynamic = tweenShit(tagNVars[0], tagNVars[1]);
+ 			var penisExam:Dynamic = tween----(tagNVars[0], tagNVars[1]);
  			var gayAssAnon = {}
  			Reflect.setField(gayAssAnon, property, value);
  			if(penisExam != null) {
@@ -460,7 +460,7 @@ class FunkinLua {
  					}
 															    
 		Lua_helper.add_callback(lua, "doTweenX", function(tag:String, vars:String, value:Dynamic, duration:Float, ease:String) {
-			var penisExam:Dynamic = tweenShit(tag, vars);
+			var penisExam:Dynamic = tween----(tag, vars);
 			if(penisExam != null) {
 				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(penisExam, {x: value}, duration, {ease: getFlxEaseByString(ease),
 					onComplete: function(twn:FlxTween) {
@@ -473,7 +473,7 @@ class FunkinLua {
 			}
 		});
 		Lua_helper.add_callback(lua, "doTweenY", function(tag:String, vars:String, value:Dynamic, duration:Float, ease:String) {
-			var penisExam:Dynamic = tweenShit(tag, vars);
+			var penisExam:Dynamic = tween----(tag, vars);
 			if(penisExam != null) {
 				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(penisExam, {y: value}, duration, {ease: getFlxEaseByString(ease),
 					onComplete: function(twn:FlxTween) {
@@ -487,7 +487,7 @@ class FunkinLua {
 		});
 
         Lua_helper.add_callback(lua, "doTweenScale", function(tag:String, vars:String, x:Dynamic = 1, y:Dynamic = 1, duration:Float, ease:String) {
-			var penisExam:Dynamic = tweenShit(tag, vars);
+			var penisExam:Dynamic = tween----(tag, vars);
 			if(penisExam != null) {
 				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(penisExam, {"scale.x": x, "scale.y": y}, duration, {ease: getFlxEaseByString(ease),
 					onComplete: function(twn:FlxTween) {
@@ -501,7 +501,7 @@ class FunkinLua {
 		});
 
 		Lua_helper.add_callback(lua, "doTweenAngle", function(tag:String, vars:String, value:Dynamic, duration:Float, ease:String) {
-			var penisExam:Dynamic = tweenShit(tag, vars);
+			var penisExam:Dynamic = tween----(tag, vars);
 			if(penisExam != null) {
 				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(penisExam, {angle: value}, duration, {ease: getFlxEaseByString(ease),
 					onComplete: function(twn:FlxTween) {
@@ -514,7 +514,7 @@ class FunkinLua {
 			}
 		});
 		Lua_helper.add_callback(lua, "doTweenAlpha", function(tag:String, vars:String, value:Dynamic, duration:Float, ease:String) {
-			var penisExam:Dynamic = tweenShit(tag, vars);
+			var penisExam:Dynamic = tween----(tag, vars);
 			if(penisExam != null) {
 				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(penisExam, {alpha: value}, duration, {ease: getFlxEaseByString(ease),
 					onComplete: function(twn:FlxTween) {
@@ -527,7 +527,7 @@ class FunkinLua {
 			}
 		});
 		Lua_helper.add_callback(lua, "doTweenZoom", function(tag:String, vars:String, value:Dynamic, duration:Float, ease:String) {
-			var penisExam:Dynamic = tweenShit(tag, vars);
+			var penisExam:Dynamic = tween----(tag, vars);
 			if(penisExam != null) {
 				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(penisExam, {zoom: value}, duration, {ease: getFlxEaseByString(ease),
 					onComplete: function(twn:FlxTween) {
@@ -540,7 +540,7 @@ class FunkinLua {
 			}
 		});
 		Lua_helper.add_callback(lua, "doTweenColor", function(tag:String, vars:String, targetColor:String, duration:Float, ease:String) {
-			var penisExam:Dynamic = tweenShit(tag, vars);
+			var penisExam:Dynamic = tween----(tag, vars);
 			if(penisExam != null) {
 				var color:Int = Std.parseInt(targetColor);
 				if(!targetColor.startsWith('0x')) color = Std.parseInt('0xff' + targetColor);
@@ -558,7 +558,7 @@ class FunkinLua {
 			}
 		});
 
-		//Tween shit, but for strums
+		//Tween ----, but for strums
 		Lua_helper.add_callback(lua, "noteTweenX", function(tag:String, note:Int, value:Dynamic, duration:Float, ease:String) {
 			cancelTween(tag);
 			if(note < 0) note = 0;
@@ -1123,17 +1123,17 @@ class FunkinLua {
 		});
 		Lua_helper.add_callback(lua, "addLuaSprite", function(tag:String, front:Bool = false) {
 			if(PlayState.instance.modchartSprites.exists(tag)) {
-				var shit:ModchartSprite = PlayState.instance.modchartSprites.get(tag);
-				if(!shit.wasAdded) {
+				var ----:ModchartSprite = PlayState.instance.modchartSprites.get(tag);
+				if(!----.wasAdded) {
 					if(front)
 					{
-						getInstance().add(shit);
+						getInstance().add(----);
 					}
 					else
 					{
 						if(PlayState.instance.isDead)
 						{
-							GameOverSubstate.instance.insert(GameOverSubstate.instance.members.indexOf(GameOverSubstate.instance.boyfriend), shit);
+							GameOverSubstate.instance.insert(GameOverSubstate.instance.members.indexOf(GameOverSubstate.instance.boyfriend), ----);
 						}
 						else
 						{
@@ -1143,19 +1143,19 @@ class FunkinLua {
 							} else if(PlayState.instance.members.indexOf(PlayState.instance.dadGroup) < position) {
 								position = PlayState.instance.members.indexOf(PlayState.instance.dadGroup);
 							}
-							PlayState.instance.insert(position, shit);
+							PlayState.instance.insert(position, ----);
 						}
 					}
-					shit.wasAdded = true;
+					----.wasAdded = true;
 					//trace('added a thing: ' + tag);
 				}
 			}
 		});
 		Lua_helper.add_callback(lua, "setGraphicSize", function(obj:String, x:Int, y:Int = 0) {
 			if(PlayState.instance.modchartSprites.exists(obj)) {
-				var shit:ModchartSprite = PlayState.instance.modchartSprites.get(obj);
-				shit.setGraphicSize(x, y);
-				shit.updateHitbox();
+				var ----:ModchartSprite = PlayState.instance.modchartSprites.get(obj);
+				----.setGraphicSize(x, y);
+				----.updateHitbox();
 				return;
 			}
 
@@ -1169,9 +1169,9 @@ class FunkinLua {
 		});
 		Lua_helper.add_callback(lua, "scaleObject", function(obj:String, x:Float, y:Float) {
 			if(PlayState.instance.modchartSprites.exists(obj)) {
-				var shit:ModchartSprite = PlayState.instance.modchartSprites.get(obj);
-				shit.scale.set(x, y);
-				shit.updateHitbox();
+				var ----:ModchartSprite = PlayState.instance.modchartSprites.get(obj);
+				----.scale.set(x, y);
+				----.updateHitbox();
 				return;
 			}
 
@@ -1185,8 +1185,8 @@ class FunkinLua {
 		});
 		Lua_helper.add_callback(lua, "updateHitbox", function(obj:String) {
 			if(PlayState.instance.modchartSprites.exists(obj)) {
-				var shit:ModchartSprite = PlayState.instance.modchartSprites.get(obj);
-				shit.updateHitbox();
+				var ----:ModchartSprite = PlayState.instance.modchartSprites.get(obj);
+				----.updateHitbox();
 				return;
 			}
 
@@ -1352,9 +1352,9 @@ class FunkinLua {
 			luaTrace('Trying to load dialogue: ' + path);
 
 			if(FileSystem.exists(path)) {
-				var shit:DialogueFile = DialogueBoxPsych.parseDialogue(path);
-				if(shit.dialogue.length > 0) {
-					PlayState.instance.startDialogue(shit, music);
+				var ----:DialogueFile = DialogueBoxPsych.parseDialogue(path);
+				if(----.dialogue.length > 0) {
+					PlayState.instance.startDialogue(----, music);
 					luaTrace('Successfully loaded dialogue');
 				} else {
 					luaTrace('Your dialogue file is badly formatted!');
@@ -1621,10 +1621,10 @@ class FunkinLua {
 
 		Lua_helper.add_callback(lua, "addLuaText", function(tag:String) {
 			if(PlayState.instance.modchartTexts.exists(tag)) {
-				var shit:ModchartText = PlayState.instance.modchartTexts.get(tag);
-				if(!shit.wasAdded) {
-					getInstance().add(shit);
-					shit.wasAdded = true;
+				var ----:ModchartText = PlayState.instance.modchartTexts.get(tag);
+				if(!----.wasAdded) {
+					getInstance().add(----);
+					----.wasAdded = true;
 					//trace('added a thing: ' + tag);
 				}
 			}
@@ -1690,7 +1690,7 @@ class FunkinLua {
 			return Paths.getTextFromFile(path, ignoreModFolders);
 		});
 
-		// DEPRECATED, DONT MESS WITH THESE SHITS, ITS JUST THERE FOR BACKWARD COMPATIBILITY
+		// DEPRECATED, DONT MESS WITH THESE ----S, ITS JUST THERE FOR BACKWARD COMPATIBILITY
 		Lua_helper.add_callback(lua, "luaSpriteMakeGraphic", function(tag:String, width:Int, height:Int, color:String) {
 			luaTrace("luaSpriteMakeGraphic is deprecated! Use makeGraphic instead", false, true);
 			if(PlayState.instance.modchartSprites.exists(tag)) {
@@ -1749,9 +1749,9 @@ class FunkinLua {
 		Lua_helper.add_callback(lua, "scaleLuaSprite", function(tag:String, x:Float, y:Float) {
 			luaTrace("scaleLuaSprite is deprecated! Use scaleObject instead", false, true);
 			if(PlayState.instance.modchartSprites.exists(tag)) {
-				var shit:ModchartSprite = PlayState.instance.modchartSprites.get(tag);
-				shit.scale.set(x, y);
-				shit.updateHitbox();
+				var ----:ModchartSprite = PlayState.instance.modchartSprites.get(tag);
+				----.scale.set(x, y);
+				----.updateHitbox();
 			}
 		});
 		Lua_helper.add_callback(lua, "getPropertyLuaSprite", function(tag:String, variable:String) {
@@ -1793,7 +1793,7 @@ class FunkinLua {
 			FlxG.sound.music.fadeOut(duration, toValue);
 			luaTrace('musicFadeOut is deprecated! Use soundFadeOut instead.', false, true);
 		});
-				//SHADER SHIT
+				//SHADER ----
 		if (ClientPrefs.funiShaders)
 		{
 		Lua_helper.add_callback(lua, "addChromaticAbberationEffect", function(camera:String,chromeOffset:Float = 0.005) {
@@ -1965,7 +1965,7 @@ class FunkinLua {
 		}
 	}
 	
-	function tweenShit(tag:String, vars:String) {
+	function tween----(tag:String, vars:String) {
 		cancelTween(tag);
 		var variables:Array<String> = vars.replace(' ', '').split('.');
 		var sexyProp:Dynamic = Reflect.getProperty(getInstance(), variables[0]);
@@ -1991,7 +1991,7 @@ class FunkinLua {
 		}
 	}
 
-	//Better optimized than using some getProperty shit or idk
+	//Better optimized than using some getProperty ---- or idk
 	function getFlxEaseByString(?ease:String = '') {
 		switch(ease.toLowerCase().trim()) {
 			case 'backin': return FlxEase.backIn;
@@ -2211,7 +2211,7 @@ class FunkinLua {
 	package.loaded.ffi = nil;
 	package.preload.ffi = nil;
 
-	"; // Fuck this, I can't figure out linc_lua, so I'mma set everything in Lua itself - Super
+	"; // ---- this, I can't figure out linc_lua, so I'mma set everything in Lua itself - Super
 }
 
 class ModchartSprite extends FlxSprite

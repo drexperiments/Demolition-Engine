@@ -177,7 +177,7 @@ class FreeplayState extends MusicBeatState
 
 		var swag:Alphabet = new Alphabet(1, 0, "swag");
 
-		// JUST DOIN THIS SHIT FOR TESTING!!!
+		// JUST DOIN THIS ---- FOR TESTING!!!
 		/* 
 			var md:String = Markdown.markdownToHtml(Assets.getText('CHANGELOG.md'));
 
@@ -482,7 +482,7 @@ class FreeplayState extends MusicBeatState
 		intendedRating = Highscore.getRating(songs[curSelected].songName, curDifficulty);
 		#end
 
-		var bullShit:Int = 0;
+		var bull----:Int = 0;
 
 		for (i in 0...iconArray.length)
 		{
@@ -493,8 +493,8 @@ class FreeplayState extends MusicBeatState
 
 		for (item in grpSongs.members)
 		{
-			item.targetY = bullShit - curSelected;
-			bullShit++;
+			item.targetY = bull---- - curSelected;
+			bull----++;
 
 			item.alpha = 0.6;
 			// item.setGraphicSize(Std.int(item.width * 0.8));
@@ -511,7 +511,7 @@ class FreeplayState extends MusicBeatState
 
 		CoolUtil.difficulties = CoolUtil.defaultDifficulties.copy();
 		var diffStr:String = WeekData.getCurrentWeek().difficulties;
-		if(diffStr != null) diffStr = diffStr.trim(); //Fuck you HTML5
+		if(diffStr != null) diffStr = diffStr.trim(); //---- you HTML5
 
 		if(diffStr != null && diffStr.length > 0)
 		{

@@ -30,7 +30,7 @@ using StringTools;
 class FreeplayCategoryState extends MusicBeatState
 {
         var vanillaGame:FlxSprite;
-        var exclusiveShit:FlxSprite;
+        var exclusive----:FlxSprite;
         var modsMusic:FlxSprite;
         var selectorBox:FlxSprite;
   
@@ -55,9 +55,9 @@ class FreeplayCategoryState extends MusicBeatState
 		add(bg);
 		bg.screenCenter();
           
-                exclusiveShit = new FlxSprite().loadGraphic(Paths.image('bonusBanner'));
-                exclusiveShit.antialiasing = ClientPrefs.globalAntialiasing;
-                add(exclusiveShit);
+                exclusive---- = new FlxSprite().loadGraphic(Paths.image('bonusBanner'));
+                exclusive----.antialiasing = ClientPrefs.globalAntialiasing;
+                add(exclusive----);
           
                 modsMusic = new FlxSprite().loadGraphic(Paths.image('modsMenuBanner'));
                 modsMusic.antialiasing = ClientPrefs.globalAntialiasing;

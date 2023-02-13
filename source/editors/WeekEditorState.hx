@@ -114,7 +114,7 @@ class WeekEditorState extends MusicBeatState
 		add(txtWeekTitle);
 
 		addEditorBox();
-		reloadAllShit();
+		reloadAll----();
 
 		FlxG.mouse.visible = true;
 
@@ -270,7 +270,7 @@ class WeekEditorState extends MusicBeatState
 	}
 
 	//Used on onCreate and when you load a week
-	function reloadAllShit() {
+	function reloadAll----() {
 		var weekString:String = weekFile.songs[0][0];
 		for (i in 1...weekFile.songs.length) {
 			weekString += ', ' + weekFile.songs[i][0];
@@ -428,7 +428,7 @@ class WeekEditorState extends MusicBeatState
 			weekFile = loadedWeek;
 			loadedWeek = null;
 
-			reloadAllShit();
+			reloadAll----();
 		}
 
 		var blockInput:Bool = false;
@@ -759,7 +759,7 @@ class WeekEditorFreeplayState extends MusicBeatState
 		if (curSelected >= weekFile.songs.length)
 			curSelected = 0;
 
-		var bullShit:Int = 0;
+		var bull----:Int = 0;
 		for (i in 0...iconArray.length)
 		{
 			iconArray[i].alpha = 0.6;
@@ -769,8 +769,8 @@ class WeekEditorFreeplayState extends MusicBeatState
 
 		for (item in grpSongs.members)
 		{
-			item.targetY = bullShit - curSelected;
-			bullShit++;
+			item.targetY = bull---- - curSelected;
+			bull----++;
 
 			item.alpha = 0.6;
 			// item.setGraphicSize(Std.int(item.width * 0.8));

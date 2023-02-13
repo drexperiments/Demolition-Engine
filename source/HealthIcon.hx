@@ -53,7 +53,7 @@ class HealthIcon extends FlxSprite
 					iconOffsets[0] = (width - 750) / 5; //Normal
 					iconOffsets[1] = (width - 750) / 5; //Losing
 					iconOffsets[2] = (width - 750) / 5; //Winning
-					iconOffsets[3] = (width - 750) / 5; //U Fucking Suck Lmao
+					iconOffsets[3] = (width - 750) / 5; //U ----ing Suck Lmao
 					iconOffsets[4] = (width - 750) / 5; //Max HP
 				case 450:
 					finalWidth = 3;

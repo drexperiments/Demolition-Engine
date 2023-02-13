@@ -95,7 +95,7 @@ class FlxVideo extends FlxBasic {
 
 	function fixVolume(e:Event)
 	{
-		// shitty volume fix
+		// ----ty volume fix
 		vlcBitmap.volume = 0;
 		if(!FlxG.sound.muted && FlxG.sound.volume > 0.01) { //Kind of fixes the volume being too low when you decrease it
 			vlcBitmap.volume = FlxG.sound.volume * 0.5 + 0.5;

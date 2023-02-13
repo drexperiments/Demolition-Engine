@@ -86,18 +86,18 @@ class CreditsState extends MusicBeatState
 			['Demolition Engine Team'],
 			['DEMOLITIONDON96',		'demolitiondon96',	'Creator of the Engine',			'https://youtube.com/c/DEMOLITIONDON96',	'03C6FC'],
 			['Jsa010',       	'jsa010',	        "Secondary Coder of the Engine", 'https://twitter.com/_Jsa010_',   	'FF0000'],
-			['Tony Time!',				'matt',				'Epic Coder \n(Did Lots of Cool Shit)',											'https://github.com/TonyTimee',			'444444'],
+			['Tony Time!',				'matt',				'Epic Coder \n(Did Lots of Cool ----)',											'https://github.com/TonyTimee',			'444444'],
 			['Cherif107',	'missing-icon',	'Cool Coder\nNice Guy',		'https://github.com/Cherif107',		'FFFFFF'],
 			['PrismLight', 'prism', 'Minor Code',	'https://github.com/PrismLight', 	'3B3B3B',],
 			['Theoyeah',	'theoyeah credit',		'Help with some code',	'https://github.com/Theoyeah',		'FFFFFF'],
 			[''],
 			['Extra Code'],
-			['Wither362',  'wither362',	'.mp3 & .wav file support\n(and for allowing me to add in some cool shit they made)',   'https://www.youtube.com/channel/UCsVr-qBLxT0uSWH037BmlHw',   '009BF4'],
+			['Wither362',  'wither362',	'.mp3 & .wav file support\n(and for allowing me to add in some cool ---- they made)',   'https://www.youtube.com/channel/UCsVr-qBLxT0uSWH037BmlHw',   '009BF4'],
 			['8bitjake',	'missing-icon',	'Hold Pieces Fix for Sidescroll Modcharts',	'https://github.com/ShadowMario/FNF-PsychEngine/pull/8676',		'FFFFFF'],
-			['AlexDrar',		'missing-icon',	'Hard Code Song Shit',		'https://github.com/mayo78/PSYCHDISCUSSIONS/discussions/85',			'FFFFFF'],
+			['AlexDrar',		'missing-icon',	'Hard Code Song ----',		'https://github.com/mayo78/PSYCHDISCUSSIONS/discussions/85',			'FFFFFF'],
 			['Snow White Muffins',		'missing-icon',	'Moving Main Menu Code',		'https://www.youtube.com/watch?v=QZQJ701tAqQ',			'FFFFFF'],
 			['KutikiPlayz',	'missing-icon',		'Scroll Type Event',		'https://github.com/KutikiPlayz',		'FFFFFF'],
-			['SaadTheDrip',	'missing-icon',		'open browser shit',		'https://github.com/mayo78/PSYCHDISCUSSIONS/discussions/611',		'FFFFFF'],
+			['SaadTheDrip',	'missing-icon',		'open browser ----',		'https://github.com/mayo78/PSYCHDISCUSSIONS/discussions/611',		'FFFFFF'],
 			[''],
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',							'https://twitter.com/Shadow_Mario_',	'444444'],
@@ -303,14 +303,14 @@ class CreditsState extends MusicBeatState
 			});
 		}
 
-		var bullShit:Int = 0;
+		var bull----:Int = 0;
 
 		for (item in grpOptions.members)
 		{
-			item.targetY = bullShit - curSelected;
-			bullShit++;
+			item.targetY = bull---- - curSelected;
+			bull----++;
 
-			if(!unselectableCheck(bullShit-1)) {
+			if(!unselectableCheck(bull-----1)) {
 				item.alpha = 0.6;
 				if (item.targetY == 0) {
 					item.alpha = 1;

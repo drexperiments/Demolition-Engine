@@ -80,17 +80,17 @@ class Prompt extends MusicBeatSubstate
 		add(buttonAccept);
 		add(buttonNo);
 		//add(buttons);
-		var textshit:FlxText = new FlxText(buttonNo.width*2, panel.y, 300, theText, 16);
-		textshit.alignment = 'center';
-		add(textshit);
-		textshit.screenCenter();
+		var text----:FlxText = new FlxText(buttonNo.width*2, panel.y, 300, theText, 16);
+		text----.alignment = 'center';
+		add(text----);
+		text----.screenCenter();
 		buttonAccept.screenCenter();
 		buttonNo.screenCenter();
 		buttonAccept.x -= buttonNo.width/1.5;
 		buttonAccept.y = panel.y + panel.height-30;
 		buttonNo.x += buttonNo.width/1.5;
 		buttonNo.y = panel.y + panel.height-30;
-		textshit.scrollFactor.set();
+		text----.scrollFactor.set();
 		}
 	}
 	/*
@@ -138,7 +138,7 @@ class Prompt extends MusicBeatSubstate
 		panel.pixels.fillRect(new Rectangle(0, 190, panel.width, 5), 0x0);
 		
 		// Why did i do this? Because i'm a lmao stupid, of course
-		// also i wanted to understand better how fillRect works so i did this shit lol???
+		// also i wanted to understand better how fillRect works so i did this ---- lol???
 		panel.pixels.fillRect(new Rectangle(0, 0, cornerSize, cornerSize), 0x0);														 //top left
 		drawCircleCornerOnSelector(panel,false, false,color);
 		panel.pixels.fillRect(new Rectangle(panel.width - cornerSize, 0, cornerSize, cornerSize), 0x0);							 //top right

@@ -142,7 +142,7 @@ PYBIND11_NAMESPACE_END(detail)
 
         {
             py::scoped_ostream_redirect output;
-            std::cout << "Hello, World!"; // Python stdout
+            std::cout << "hecko, World!"; // Python stdout
         } // <-- return std::cout to normal
 
     You can explicitly pass the c++ stream and the python object,
@@ -153,7 +153,7 @@ PYBIND11_NAMESPACE_END(detail)
         {
             py::scoped_ostream_redirect output{
                 std::cerr, py::module::import("sys").attr("stderr")};
-            std::cout << "Hello, World!";
+            std::cout << "hecko, World!";
         }
  \endrst */
 class scoped_ostream_redirect {

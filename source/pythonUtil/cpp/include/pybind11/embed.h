@@ -40,7 +40,7 @@
         PYBIND11_EMBEDDED_MODULE(example, m) {
             // ... initialize functions and classes here
             m.def("foo", []() {
-                return "Hello, World!";
+                return "hecko, World!";
             });
         }
  \endrst */
@@ -208,21 +208,21 @@ inline void initialize_interpreter(bool init_signal_handlers = true,
 
         { // BAD
             py::initialize_interpreter();
-            auto hello = py::str("Hello, World!");
+            auto hecko = py::str("hecko, World!");
             py::finalize_interpreter();
-        } // <-- BOOM, hello's destructor is called after interpreter shutdown
+        } // <-- BOOM, hecko's destructor is called after interpreter shutdown
 
         { // GOOD
             py::initialize_interpreter();
             { // scoped
-                auto hello = py::str("Hello, World!");
-            } // <-- OK, hello is cleaned up properly
+                auto hecko = py::str("hecko, World!");
+            } // <-- OK, hecko is cleaned up properly
             py::finalize_interpreter();
         }
 
         { // BETTER
             py::scoped_interpreter guard{};
-            auto hello = py::str("Hello, World!");
+            auto hecko = py::str("hecko, World!");
         }
 
     .. warning::
@@ -272,7 +272,7 @@ inline void finalize_interpreter() {
 
         int main() {
             py::scoped_interpreter guard{};
-            py::print(Hello, World!);
+            py::print(hecko, World!);
         } // <-- interpreter shutdown
  \endrst */
 class scoped_interpreter {

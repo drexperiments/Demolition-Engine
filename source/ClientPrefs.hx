@@ -79,7 +79,7 @@ class ClientPrefs {
 		'blindness' => false,
 		'mirror' => false,
 		'noholds' => false,
-		'endless' => false //you got to be fucking out of your mind to play this, haha sonic.exe, love that mod
+		'endless' => false //you got to be ----ing out of your mind to play this, haha sonic.exe, love that mod
 	];
 
 	public static var comboOffset:Array<Int> = [0, 0, 0, 0];

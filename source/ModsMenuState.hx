@@ -107,7 +107,7 @@ class ModsMenuState extends MusicBeatState
 		}
 
 		// FIND MOD FOLDERS
-		var boolshit = true;
+		var bool---- = true;
 		if (FileSystem.exists("modsList.txt")){
 			for (folder in Paths.getModDirectories())
 			{
@@ -279,7 +279,7 @@ class ModsMenuState extends MusicBeatState
 				trace('Trying to delete directory ' + path);
 				try
 				{
-					FileSystem.deleteFile(path); //FUCK YOU HAXE WHY DONT YOU WORK WAAAAAAAAAAAAH
+					FileSystem.deleteFile(path); //---- YOU HAXE WHY DONT YOU WORK WAAAAAAAAAAAAH
 
 					var icon = mods[curSelected].icon;
 					var alphabet = mods[curSelected].alphabet;
@@ -623,7 +623,7 @@ class ModsMenuState extends MusicBeatState
 		selector.pixels.fillRect(new Rectangle(0, 190, selector.width, 5), 0x0);
 
 		// Why did i do this? Because i'm a lmao stupid, of course
-		// also i wanted to understand better how fillRect works so i did this shit lol???
+		// also i wanted to understand better how fillRect works so i did this ---- lol???
 		selector.pixels.fillRect(new Rectangle(0, 0, cornerSize, cornerSize), 0x0);														 //top left
 		drawCircleCornerOnSelector(false, false);
 		selector.pixels.fillRect(new Rectangle(selector.width - cornerSize, 0, cornerSize, cornerSize), 0x0);							 //top right
@@ -736,7 +736,7 @@ class ModMetadata
 			var rawJson:String = File.getContent(path);
 			if(rawJson != null && rawJson.length > 0) {
 				var stuff:Dynamic = Json.parse(rawJson);
-					//using reflects cuz for some odd reason my haxe hates the stuff.var shit
+					//using reflects cuz for some odd reason my haxe hates the stuff.var ----
 					var colors:Array<Int> = Reflect.getProperty(stuff, "color");
 					var description:String = Reflect.getProperty(stuff, "description");
 					var name:String = Reflect.getProperty(stuff, "name");

@@ -70,7 +70,7 @@ class Achievements {
 			}
 		}
 
-		// You might be asking "Why didn't you just fucking load it directly dumbass??"
+		// You might be asking "Why didn't you just ----ing load it directly dumbass??"
 		// Well, Mr. Smartass, consider that this class was made for Mind Games Mod's demo,
 		// i'm obviously going to change the "Psyche" achievement's objective so that you have to complete the entire week
 		// with no misses instead of just Psychic once the full release is out. So, for not having the rest of your achievements lost on

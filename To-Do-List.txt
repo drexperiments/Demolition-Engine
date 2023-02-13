@@ -1,11 +1,11 @@
-Shit People Probably Want Most:
+---- People Probably Want Most:
 - Music Player Menu (may just steal from Bedrock Engine Again LMAO)
 - Modchart Editor
 - Note Skin Maker
 - Softcoded Menus????
 - extra keys???????
 - Discord RPC
-- Make Hell Charts
+- Make heck Charts
 - Update Menu Assets
 - Freeze Note???
 - Experiment with Pixel Notes

@@ -385,17 +385,17 @@ class StoryMenuState extends MusicBeatState
 		txtWeekTitle.text = leName.toUpperCase();
 		txtWeekTitle.x = FlxG.width - (txtWeekTitle.width + 10);
 
-		var bullShit:Int = 0;
+		var bull----:Int = 0;
 
 		var unlocked:Bool = !weekIsLocked(leWeek.fileName);
 		for (item in grpWeekText.members)
 		{
-			item.targetY = bullShit - curWeek;
+			item.targetY = bull---- - curWeek;
 			if (item.targetY == Std.int(0) && unlocked)
 				item.alpha = 1;
 			else
 				item.alpha = 0.6;
-			bullShit++;
+			bull----++;
 		}
 
 		bgSprite.visible = true;
@@ -409,7 +409,7 @@ class StoryMenuState extends MusicBeatState
 
 		CoolUtil.difficulties = CoolUtil.defaultDifficulties.copy();
 		var diffStr:String = WeekData.getCurrentWeek().difficulties;
-		if(diffStr != null) diffStr = diffStr.trim(); //Fuck you HTML5
+		if(diffStr != null) diffStr = diffStr.trim(); //---- you HTML5
 		difficultySelectors.visible = unlocked;
 
 		if(diffStr != null && diffStr.length > 0)

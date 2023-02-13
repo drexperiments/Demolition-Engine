@@ -235,18 +235,18 @@ class CharacterEditorState extends MusicBeatState
 			bgLayer.add(bgSky);
 			bgSky.antialiasing = false;
 
-			var repositionShit = -200 + OFFSET_X - playerXDifference;
+			var reposition---- = -200 + OFFSET_X - playerXDifference;
 
-			var bgSchool:BGSprite = new BGSprite('weeb/weebSchool', repositionShit, -playerYDifference + 6, 0.6, 0.90);
+			var bgSchool:BGSprite = new BGSprite('weeb/weebSchool', reposition----, -playerYDifference + 6, 0.6, 0.90);
 			bgLayer.add(bgSchool);
 			bgSchool.antialiasing = false;
 
-			var bgStreet:BGSprite = new BGSprite('weeb/weebStreet', repositionShit, -playerYDifference, 0.95, 0.95);
+			var bgStreet:BGSprite = new BGSprite('weeb/weebStreet', reposition----, -playerYDifference, 0.95, 0.95);
 			bgLayer.add(bgStreet);
 			bgStreet.antialiasing = false;
 
-			var widShit = Std.int(bgSky.width * 6);
-			var bgTrees:FlxSprite = new FlxSprite(repositionShit - 380, -800 - playerYDifference);
+			var wid---- = Std.int(bgSky.width * 6);
+			var bgTrees:FlxSprite = new FlxSprite(reposition---- - 380, -800 - playerYDifference);
 			bgTrees.frames = Paths.getPackerAtlas('weeb/weebTrees');
 			bgTrees.animation.add('treeLoop', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18], 12);
 			bgTrees.animation.play('treeLoop');
@@ -254,10 +254,10 @@ class CharacterEditorState extends MusicBeatState
 			bgLayer.add(bgTrees);
 			bgTrees.antialiasing = false;
 
-			bgSky.setGraphicSize(widShit);
-			bgSchool.setGraphicSize(widShit);
-			bgStreet.setGraphicSize(widShit);
-			bgTrees.setGraphicSize(Std.int(widShit * 1.4));
+			bgSky.setGraphicSize(wid----);
+			bgSchool.setGraphicSize(wid----);
+			bgStreet.setGraphicSize(wid----);
+			bgTrees.setGraphicSize(Std.int(wid---- * 1.4));
 
 			bgSky.updateHitbox();
 			bgSchool.updateHitbox();

@@ -355,7 +355,7 @@ class Paths
 		return path.toLowerCase().replace(' ', '-');
 	}
 
-	// completely rewritten asset loading? fuck!
+	// completely rewritten asset loading? ----!
 	public static var currentTrackedAssets:Map<String, FlxGraphic> = [];
 	public static function returnGraphic(key:String, ?library:String) {
 		#if MODS_ALLOWED

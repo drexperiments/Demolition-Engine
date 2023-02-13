@@ -34,7 +34,7 @@ class ControlsSubState extends MusicBeatSubstate {
 	private static var defaultKey:String = 'Reset to Default Keys';
 	private var bindLength:Int = 0;
 
-	var optionShit:Array<Dynamic> = [
+	var option----:Array<Dynamic> = [
 		['NOTES'],
 		['Left', 'note_left'],
 		['Down', 'note_down'],
@@ -80,17 +80,17 @@ class ControlsSubState extends MusicBeatSubstate {
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
 
-		optionShit.push(['']);
-		optionShit.push([defaultKey]);
+		option----.push(['']);
+		option----.push([defaultKey]);
 
-		for (i in 0...optionShit.length) {
+		for (i in 0...option----.length) {
 			var isCentered:Bool = false;
-			var isDefaultKey:Bool = (optionShit[i][0] == defaultKey);
+			var isDefaultKey:Bool = (option----[i][0] == defaultKey);
 			if(unselectableCheck(i, true)) {
 				isCentered = true;
 			}
 
-			var optionText:Alphabet = new Alphabet(0, (10 * i), optionShit[i][0], (!isCentered || isDefaultKey), false);
+			var optionText:Alphabet = new Alphabet(0, (10 * i), option----[i][0], (!isCentered || isDefaultKey), false);
 			optionText.isMenuItem = true;
 			if(isCentered) {
 				optionText.screenCenter(X);
@@ -133,7 +133,7 @@ class ControlsSubState extends MusicBeatSubstate {
 			}
 
 			if(controls.ACCEPT && nextAccept <= 0) {
-				if(optionShit[curSelected][0] == defaultKey) {
+				if(option----[curSelected][0] == defaultKey) {
 					ClientPrefs.keyBinds = ClientPrefs.defaultKeys.copy();
 					reloadKeys();
 					changeSelection();
@@ -152,14 +152,14 @@ class ControlsSubState extends MusicBeatSubstate {
 		} else {
 			var keyPressed:Int = FlxG.keys.firstJustPressed();
 			if (keyPressed > -1) {
-				var keysArray:Array<FlxKey> = ClientPrefs.keyBinds.get(optionShit[curSelected][1]);
+				var keysArray:Array<FlxKey> = ClientPrefs.keyBinds.get(option----[curSelected][1]);
 				keysArray[curAlt ? 1 : 0] = keyPressed;
 
 				var opposite:Int = (curAlt ? 0 : 1);
 				if(keysArray[opposite] == keysArray[1 - opposite]) {
 					keysArray[opposite] = NONE;
 				}
-				ClientPrefs.keyBinds.set(optionShit[curSelected][1], keysArray);
+				ClientPrefs.keyBinds.set(option----[curSelected][1], keysArray);
 
 				reloadKeys();
 				FlxG.sound.play(Paths.sound('confirmMenu'));
@@ -188,7 +188,7 @@ class ControlsSubState extends MusicBeatSubstate {
 	function getInputTextNum() {
 		var num:Int = 0;
 		for (i in 0...curSelected) {
-			if(optionShit[i].length > 1) {
+			if(option----[i].length > 1) {
 				num++;
 			}
 		}
@@ -199,12 +199,12 @@ class ControlsSubState extends MusicBeatSubstate {
 		do {
 			curSelected += change;
 			if (curSelected < 0)
-				curSelected = optionShit.length - 1;
-			if (curSelected >= optionShit.length)
+				curSelected = option----.length - 1;
+			if (curSelected >= option----.length)
 				curSelected = 0;
 		} while(unselectableCheck(curSelected));
 
-		var bullShit:Int = 0;
+		var bull----:Int = 0;
 
 		for (i in 0...grpInputs.length) {
 			grpInputs[i].alpha = 0.6;
@@ -214,10 +214,10 @@ class ControlsSubState extends MusicBeatSubstate {
 		}
 
 		for (item in grpOptions.members) {
-			item.targetY = bullShit - curSelected;
-			bullShit++;
+			item.targetY = bull---- - curSelected;
+			bull----++;
 
-			if(!unselectableCheck(bullShit-1)) {
+			if(!unselectableCheck(bull-----1)) {
 				item.alpha = 0.6;
 				if (item.targetY == 0) {
 					item.alpha = 1;
@@ -266,14 +266,14 @@ class ControlsSubState extends MusicBeatSubstate {
 	}
 
 	private function unselectableCheck(num:Int, ?checkDefaultKey:Bool = false):Bool {
-		if(optionShit[num][0] == defaultKey) {
+		if(option----[num][0] == defaultKey) {
 			return checkDefaultKey;
 		}
-		return optionShit[num].length < 2 && optionShit[num][0] != defaultKey;
+		return option----[num].length < 2 && option----[num][0] != defaultKey;
 	}
 
 	private function addBindTexts(optionText:Alphabet, num:Int) {
-		var keys:Array<Dynamic> = ClientPrefs.keyBinds.get(optionShit[num][1]);
+		var keys:Array<Dynamic> = ClientPrefs.keyBinds.get(option----[num][1]);
 		var text1 = new AttachedText(InputFormatter.getKeyName(keys[0]), 400, -55);
 		text1.setPosition(optionText.x + 400, optionText.y - 55);
 		text1.sprTracker = optionText;
@@ -310,7 +310,7 @@ class ControlsSubState extends MusicBeatSubstate {
 		}
 
 
-		var bullShit:Int = 0;
+		var bull----:Int = 0;
 		for (i in 0...grpInputs.length) {
 			grpInputs[i].alpha = 0.6;
 		}
@@ -319,10 +319,10 @@ class ControlsSubState extends MusicBeatSubstate {
 		}
 
 		for (item in grpOptions.members) {
-			item.targetY = bullShit - curSelected;
-			bullShit++;
+			item.targetY = bull---- - curSelected;
+			bull----++;
 
-			if(!unselectableCheck(bullShit-1)) {
+			if(!unselectableCheck(bull-----1)) {
 				item.alpha = 0.6;
 				if (item.targetY == 0) {
 					item.alpha = 1;

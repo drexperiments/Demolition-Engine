@@ -147,7 +147,7 @@ function eventEarlyTrigger(name)
 	This makes the "Kill Henchmen" event be triggered 280 miliseconds earlier so that the kill sound is perfectly timed with the song
 	]]--
 
-	-- write your shit under this line, the new return value will override the ones hardcoded on the engine
+	-- write your ---- under this line, the new return value will override the ones hardcoded on the engine
 end
 
 
@@ -167,7 +167,7 @@ function onCheckForAchievement(name)
 	
 	--EX:
 --[[
-  if name == 'sick-full-combo' and getProperty('bads') == 0 and getProperty('goods') == 0 and getProperty('shits') == 0 and getProperty('endingSong') then
+  if name == 'sick-full-combo' and getProperty('bads') == 0 and getProperty('goods') == 0 and getProperty('----s') == 0 and getProperty('endingSong') then
     return Function_Continue
   end
   if name == 'bad-health-finish' and getProperty('health') < 0.01 and getProperty('endingSong') then

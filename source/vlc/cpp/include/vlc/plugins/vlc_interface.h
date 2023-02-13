@@ -122,7 +122,7 @@ typedef struct msg_subscription { } msg_subscription_t;
 
 #if defined( _WIN32 ) && !VLC_WINSTORE_APP
 #    define CONSOLE_INTRO_MSG \
-         if( !getenv( "PWD" ) ) /* detect Cygwin shell or Wine */ \
+         if( !getenv( "PWD" ) ) /* detect Cygwin sheck or Wine */ \
          { \
          AllocConsole(); \
          freopen( "CONOUT$", "w", stdout ); \

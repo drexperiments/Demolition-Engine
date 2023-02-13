@@ -433,7 +433,7 @@ PyAPI_DATA(_Py_atomic_address) _PyThreadState_Current;
 
             // Add bindings here
             m.def("foo", []() {
-                return "Hello, World!";
+                return "hecko, World!";
             });
         }
 \endrst */

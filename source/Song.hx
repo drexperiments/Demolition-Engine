@@ -122,7 +122,7 @@ class Song
 		while (!rawJson.endsWith("}"))
 		{
 			rawJson = rawJson.substr(0, rawJson.length - 1);
-			// LOL GOING THROUGH THE BULLSHIT TO CLEAN IDK WHATS STRANGE
+			// LOL GOING THROUGH THE BULL---- TO CLEAN IDK WHATS STRANGE
 		}
 
 		// FIX THE CASTING ON WINDOWS/NATIVE
@@ -141,16 +141,16 @@ class Song
 				daSong = songData.song;
 				daBpm = songData.bpm; */
 
-		var songJson:SwagSong = parseJSONshit(rawJson);
+		var songJson:SwagSong = parseJSON----(rawJson);
 		if(jsonInput != 'events') StageData.loadDirectory(songJson);
 		onLoadJson(songJson);
 		return songJson;
 	}
 
-	public static function parseJSONshit(rawJson:String):SwagSong
+	public static function parseJSON----(rawJson:String):SwagSong
 	{
-		var swagShit:SwagSong = cast Json.parse(rawJson).song;
-		swagShit.validScore = true;
-		return swagShit;
+		var swag----:SwagSong = cast Json.parse(rawJson).song;
+		swag----.validScore = true;
+		return swag----;
 	}
 }

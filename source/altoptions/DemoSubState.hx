@@ -58,7 +58,7 @@ class DemoSubState extends BaseOptionsMenu
 		addOption(option);
 
 		var option:Option = new Option('Enable Anti Mash',
-		"If Checked, Anti Mash Is Enabled IDK WHAT THIS DOES\nITS BEEN 10 FUCKING YEARS PLZ\nDEMO LET ME OUT :(",
+		"If Checked, Anti Mash Is Enabled IDK WHAT THIS DOES\nITS BEEN 10 ----ING YEARS PLZ\nDEMO LET ME OUT :(",
 		'antiMash',
 		'bool',
 		true);

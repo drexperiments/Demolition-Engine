@@ -200,7 +200,7 @@ class EditorPlayState extends MusicBeatState
 		
 		var noteData:Array<SwagSection>;
 
-		// NEW SHIT
+		// NEW ----
 		noteData = songData.notes;
 
 		var playerCounter:Int = 0;
@@ -290,7 +290,7 @@ class EditorPlayState extends MusicBeatState
 			daBeats += 1;
 		}
 
-		unspawnNotes.sort(sortByShit);
+		unspawnNotes.sort(sortBy----);
 		generatedMusic = true;
 	}
 
@@ -305,7 +305,7 @@ class EditorPlayState extends MusicBeatState
 		vocals.play();
 	}
 
-	function sortByShit(Obj1:Note, Obj2:Note):Int
+	function sortBy----(Obj1:Note, Obj2:Note):Int
 	{
 		return FlxSort.byValues(FlxSort.ASCENDING, Obj1.strumTime, Obj2.strumTime);
 	}
@@ -364,7 +364,7 @@ class EditorPlayState extends MusicBeatState
 					daNote.active = true;
 				}*/
 
-				// i am so fucking sorry for this if condition
+				// i am so ----ing sorry for this if condition
 				var strumX:Float = 0;
 				var strumY:Float = 0;
 				if(daNote.mustPress) {
@@ -386,7 +386,7 @@ class EditorPlayState extends MusicBeatState
 					if (ClientPrefs.downScroll) {
 						daNote.y = (strumY + 0.45 * (Conductor.songPosition - daNote.strumTime) * roundedSpeed);
 						if (daNote.isSustainNote) {
-							//Jesus fuck this took me so much mother fucking time AAAAAAAAAA
+							//Jesus ---- this took me so much mother ----ing time AAAAAAAAAA
 							if (daNote.animation.curAnim.name.endsWith('end')) {
 								daNote.y += 10.5 * (fakeCrochet / 400) * 1.5 * roundedSpeed + (46 * (roundedSpeed - 1));
 								daNote.y -= 46 * (1 - (fakeCrochet / 600)) * roundedSpeed;
@@ -486,7 +486,7 @@ class EditorPlayState extends MusicBeatState
 			});
 		}
 
-		keyShit();
+		key----();
 		scoreTxt.text = 'Hits: ' + songHits + ' | Misses: ' + songMisses;
 		beatTxt.text = 'Beat: ' + curBeat;
 		stepTxt.text = 'Step: ' + curStep;
@@ -644,7 +644,7 @@ class EditorPlayState extends MusicBeatState
 		return -1;
 	}
 
-	private function keyShit():Void
+	private function key----():Void
 	{
 		// HOLDING
 		var up = controls.NOTE_UP;
@@ -784,7 +784,7 @@ class EditorPlayState extends MusicBeatState
 
 		if (noteDiff > Conductor.safeZoneOffset * 0.75)
 		{
-			daRating = 'shit';
+			daRating = '----';
 			//score = 50;
 		}
 		else if (noteDiff > Conductor.safeZoneOffset * 0.5)
@@ -812,16 +812,16 @@ class EditorPlayState extends MusicBeatState
 				daRating = 'bad';
 			*/
 
-		var pixelShitPart1:String = "";
-		var pixelShitPart2:String = '';
+		var pixel----Part1:String = "";
+		var pixel----Part2:String = '';
 
 		if (PlayState.isPixelStage)
 		{
-			pixelShitPart1 = 'pixelUI/';
-			pixelShitPart2 = '-pixel';
+			pixel----Part1 = 'pixelUI/';
+			pixel----Part2 = '-pixel';
 		}
 
-		rating.loadGraphic(Paths.image(pixelShitPart1 + daRating + pixelShitPart2));
+		rating.loadGraphic(Paths.image(pixel----Part1 + daRating + pixel----Part2));
 		rating.screenCenter();
 		rating.x = coolText.x - 40;
 		rating.y -= 60;
@@ -832,7 +832,7 @@ class EditorPlayState extends MusicBeatState
 		rating.x += ClientPrefs.comboOffset[0];
 		rating.y -= ClientPrefs.comboOffset[1];
 
-		var comboSpr:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixelShitPart1 + 'combo' + pixelShitPart2));
+		var comboSpr:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixel----Part1 + 'combo' + pixel----Part2));
 		comboSpr.screenCenter();
 		comboSpr.x = coolText.x;
 		comboSpr.acceleration.y = 600;
@@ -872,7 +872,7 @@ class EditorPlayState extends MusicBeatState
 		var daLoop:Int = 0;
 		for (i in seperatedScore)
 		{
-			var numScore:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixelShitPart1 + 'num' + Std.int(i) + pixelShitPart2));
+			var numScore:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixel----Part1 + 'num' + Std.int(i) + pixel----Part2));
 			numScore.screenCenter();
 			numScore.x = coolText.x + (43 * daLoop) - 90;
 			numScore.y += 80;
@@ -982,7 +982,7 @@ class EditorPlayState extends MusicBeatState
 	}
 
 
-	// Note splash shit, duh
+	// Note splash ----, duh
 	function spawnNoteSplashOnNote(note:Note) {
 		if(ClientPrefs.noteSplashes && note != null) {
 			var strum:StrumNote = playerStrums.members[note.noteData];

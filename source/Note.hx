@@ -30,7 +30,7 @@ class Note extends FlxSprite
 	public var ignoreNote:Bool = false;
 	public var noIgnoreNote:Bool = false;
 	public var hitByOpponent:Bool = false;
-	public var noteWasHit:Bool = false;
+	public var noteWa----:Bool = false;
 	public var prevNote:Note;
 
 	public var sustainLength:Float = 0;
@@ -54,7 +54,7 @@ class Note extends FlxSprite
 	public static var BLUE_NOTE:Int = 1;
 	public static var RED_NOTE:Int = 3;
 
-	// Lua shit
+	// Lua ----
 	public var noteSplashDisabled:Bool = false;
 	public var noteSplashTexture:String = null;
 	public var noteSplashHue:Float = 0;
@@ -74,7 +74,7 @@ class Note extends FlxSprite
 	public var hitHealth:Float = 0.023;
 	public var missHealth:Float = 0.0475;
 	public var rating:String = 'unknown';
-	public var ratingMod:Float = 0; //9 = unknown, 0.25 = shit, 0.5 = bad, 0.75 = good, 1 = sick
+	public var ratingMod:Float = 0; //9 = unknown, 0.25 = ----, 0.5 = bad, 0.75 = good, 1 = sick
 	public var ratingDisabled:Bool = false;
 
 	public var texture(default, set):String = null;
@@ -255,7 +255,7 @@ class Note extends FlxSprite
 					skin = 'Skins/SpiritNotes';
 					antialias = false;*/
 				//}
-				//bitch, this shit doesn't work for shit on pixel stages :(
+				//bitch, this ---- doesn't work for ---- on pixel stages :(
 		}
 		//saving it :)
 		x += (ClientPrefs.middleScroll ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X) + 50;
