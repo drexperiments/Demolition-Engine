@@ -22,10 +22,10 @@ this is the fan censored edition of demolititon
 - Bonus Content????
 - More Options in Settings
 - More Modchart Options
-- Lots of other ----
+- Lots of other things
 
 # HOW TO COMPILE!
-## Copy this ---- into cmd/powershell
+## Copy this into cmd/powershell
 
 ```
 haxelib install lime
