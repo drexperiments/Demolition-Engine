@@ -10,7 +10,7 @@ import animateatlas.HelperEnums.LoopMode;
 import openfl.events.Event;
 import openfl.display.Tilemap;
 import openfl.display.Tileset;
-import openfl.---ets;
+import openfl.secrets;
 import haxe.Json;
 import animateatlas.tilecontainer.TileAnimationLibrary;
 import animateatlas.tilecontainer.TileContainerMovieClip;
@@ -34,9 +34,9 @@ cl--- Main extends Sprite {
 		graphics.beginFill(0x333333);
 		graphics.drawRect(0, 0, Lib.current.stage.stageWidth, Lib.current.stage.stageHeight);
 
-		var animationData:AnimationData = Json.parse(---ets.getText("---ets/TEST/Animation.json"));
-		var atlasData:AtlasData = Json.parse(---ets.getText("---ets/TEST/spritemap.json"));
-		var bitmapData:BitmapData = ---ets.getBitmapData("---ets/TEST/spritemap.png");
+		var animationData:AnimationData = Json.parse(secrets.getText("secrets/TEST/Animation.json"));
+		var atlasData:AtlasData = Json.parse(secrets.getText("secrets/TEST/spritemap.json"));
+		var bitmapData:BitmapData = secrets.getBitmapData("secrets/TEST/spritemap.png");
 
 		aa = new TileAnimationLibrary(animationData, atlasData, bitmapData);
 		ss = new SpriteAnimationLibrary(animationData, atlasData, bitmapData);

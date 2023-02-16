@@ -16,7 +16,7 @@ import flixel.addons.ui.FlxUIText;
 import flixel.addons.ui.FlxUIButton;
 import flixel.addons.ui.FlxUISpriteButton;
 import flixel.addons.ui.FlxUI9SliceSprite;
-import flixel.addons.ui.FlxUI---ets;
+import flixel.addons.ui.FlxUIsecrets;
 import flixel.addons.ui.StrNameLabel;
 import flixel.addons.ui.FlxUI;
 
@@ -180,7 +180,7 @@ cl--- FlxUIDropDownMenuCustom extends FlxUIGroup implements IFlxUIWidget impleme
 		if (dropPanel == null)
 		{
 			var rect = new Rectangle(0, 0, header.background.width, header.background.height);
-			dropPanel = new FlxUI9SliceSprite(0, 0, FlxUI---ets.IMG_BOX, rect, [1, 1, 14, 14]);
+			dropPanel = new FlxUI9SliceSprite(0, 0, FlxUIsecrets.IMG_BOX, rect, [1, 1, 14, 14]);
 		}
 
 		if (DataList != null)
@@ -362,7 +362,7 @@ cl--- FlxUIDropDownMenuCustom extends FlxUIGroup implements IFlxUIWidget impleme
 
 		t.name = Name;
 
-		t.loadGraphicSlice9([FlxUI---ets.IMG_INVIS, FlxUI---ets.IMG_HILIGHT, FlxUI---ets.IMG_HILIGHT], Std.int(header.background.width),
+		t.loadGraphicSlice9([FlxUIsecrets.IMG_INVIS, FlxUIsecrets.IMG_HILIGHT, FlxUIsecrets.IMG_HILIGHT], Std.int(header.background.width),
 			Std.int(header.background.height), [[1, 1, 3, 3], [1, 1, 3, 3], [1, 1, 3, 3]], FlxUI9SliceSprite.TILE_NONE);
 		t.labelOffsets[FlxButton.PRESSED].y -= 1; // turn off the 1-pixel depress on click
 
@@ -568,15 +568,15 @@ cl--- FlxUIDropDownHeader extends FlxUIGroup
 		// Background
 		if (background == null)
 		{
-			background = new FlxUI9SliceSprite(0, 0, FlxUI---ets.IMG_BOX, new Rectangle(0, 0, Width, 20), [1, 1, 14, 14]);
+			background = new FlxUI9SliceSprite(0, 0, FlxUIsecrets.IMG_BOX, new Rectangle(0, 0, Width, 20), [1, 1, 14, 14]);
 		}
 
 		// Button
 		if (button == null)
 		{
-			button = new FlxUISpriteButton(0, 0, new FlxSprite(0, 0, FlxUI---ets.IMG_DROPDOWN));
-			button.loadGraphicSlice9([FlxUI---ets.IMG_BUTTON_THIN], 80, 20, [FlxStringUtil.toIntArray(FlxUI---ets.SLICE9_BUTTON)],
-				FlxUI9SliceSprite.TILE_NONE, -1, false, FlxUI---ets.IMG_BUTTON_SIZE, FlxUI---ets.IMG_BUTTON_SIZE);
+			button = new FlxUISpriteButton(0, 0, new FlxSprite(0, 0, FlxUIsecrets.IMG_DROPDOWN));
+			button.loadGraphicSlice9([FlxUIsecrets.IMG_BUTTON_THIN], 80, 20, [FlxStringUtil.toIntArray(FlxUIsecrets.SLICE9_BUTTON)],
+				FlxUI9SliceSprite.TILE_NONE, -1, false, FlxUIsecrets.IMG_BUTTON_SIZE, FlxUIsecrets.IMG_BUTTON_SIZE);
 		}
 		button.resize(background.height, background.height);
 		button.x = background.x + background.width - button.width;

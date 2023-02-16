@@ -3,7 +3,7 @@ import flixel.util.FlxDestroyUtil;
 import openfl.geom.Rectangle;
 import flixel.math.FlxPoint;
 import flixel.math.FlxRect;
-import openfl.---ets;
+import openfl.secrets;
 import haxe.Json;
 import openfl.display.BitmapData;
 import animateatlas.JSONData.AtlasData;

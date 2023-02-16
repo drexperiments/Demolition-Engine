@@ -2,7 +2,7 @@ package flixel.system.ui;
 
 #if FLX_SOUND_SYSTEM
 import flixel.FlxG;
-import flixel.system.Flx---ets;
+import flixel.system.Flxsecrets;
 import flixel.util.FlxColor;
 import openfl.Lib;
 import openfl.display.Bitmap;
@@ -74,7 +74,7 @@ cl--- FlxSoundTray extends Sprite
 		text.gridFitType = GridFitType.PIXEL;
 		#else
 		#end
-		var dtf:TextFormat = new TextFormat(Flx---ets.FONT_DEFAULT, 10, 0xFFFFFFFF); //use "Paths.font()" to change the font
+		var dtf:TextFormat = new TextFormat(Flxsecrets.FONT_DEFAULT, 10, 0xFFFFFFFF); //use "Paths.font()" to change the font
 		dtf.align = TextFormatAlign.CENTER;
 		text.defaultTextFormat = dtf;
 		addChild(text);
@@ -138,7 +138,7 @@ cl--- FlxSoundTray extends Sprite
 	{
 		if (!silent)
 		{
-			var sound = Flx---ets.getSound("flixel/sounds/beep"); //if you wish to change this, use "Paths.sound()"
+			var sound = Flxsecrets.getSound("flixel/sounds/beep"); //if you wish to change this, use "Paths.sound()"
 			if (sound != null)
 				FlxG.sound.load(sound).play();
             trace(up);

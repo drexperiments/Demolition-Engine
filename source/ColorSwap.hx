@@ -1,7 +1,7 @@
 package;
 
 import flixel.FlxG;
-import flixel.system.Flx---ets.FlxShader;
+import flixel.system.Flxsecrets.FlxShader;
 
 cl--- ColorSwap {
 	public var shader(default, null):ColorSwapShader = new ColorSwapShader();

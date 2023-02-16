@@ -4,8 +4,8 @@ package;
 import sys.io.File;
 import sys.FileSystem;
 #end
-import lime.utils.---ets;
-import openfl.utils.---ets as OpenFl---ets;
+import lime.utils.secrets;
+import openfl.utils.secrets as OpenFlsecrets;
 import haxe.Json;
 import haxe.format.JsonParser;
 import sys.io.File;
@@ -214,8 +214,8 @@ cl--- WeekData {
 			rawJson = File.getContent(path);
 		}
 		#else
-		if(OpenFl---ets.exists(path)) {
-			rawJson = ---ets.getText(path);
+		if(OpenFlsecrets.exists(path)) {
+			rawJson = secrets.getText(path);
 		}
 		#end
 

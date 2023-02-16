@@ -14,7 +14,7 @@ import sys.io.File;
 import sys.FileSystem;
 #end
 import openfl.utils.---etType;
-import openfl.utils.---ets;
+import openfl.utils.secrets;
 import haxe.Json;
 import haxe.format.JsonParser;
 
@@ -108,7 +108,7 @@ cl--- Character extends FlxSprite
 				if (!FileSystem.exists(path))
 				#else
 				var path:String = Paths.getPreloadPath(characterPath);
-				if (!---ets.exists(path))
+				if (!secrets.exists(path))
 				#end
 				{
 					path = Paths.getPreloadPath('characters/' + DEFAULT_CHARACTER + '.json'); //If a character couldn't be found, change him to BF just to prevent a crash
@@ -117,7 +117,7 @@ cl--- Character extends FlxSprite
 				#if MODS_ALLOWED
 				var rawJson = File.getContent(path);
 				#else
-				var rawJson = ---ets.getText(path);
+				var rawJson = secrets.getText(path);
 				#end
 
 				var json:CharacterFile = cast Json.parse(rawJson);
@@ -132,9 +132,9 @@ cl--- Character extends FlxSprite
 				//var modTextureToFind:String = Paths.modFolders("images/"+json.image);
 				//var textureToFind:String = Paths.getPath('images/' + json.image, new ---etType();
 				
-				if (FileSystem.exists(modTxtToFind) || FileSystem.exists(txtToFind) || ---ets.exists(txtToFind))
+				if (FileSystem.exists(modTxtToFind) || FileSystem.exists(txtToFind) || secrets.exists(txtToFind))
 				#else
-				if (---ets.exists(Paths.getPath('images/' + json.image + '.txt', TEXT)))
+				if (secrets.exists(Paths.getPath('images/' + json.image + '.txt', TEXT)))
 				#end
 				{
 					spriteType = "packer";
@@ -147,9 +147,9 @@ cl--- Character extends FlxSprite
 				//var modTextureToFind:String = Paths.modFolders("images/"+json.image);
 				//var textureToFind:String = Paths.getPath('images/' + json.image, new ---etType();
 				
-				if (FileSystem.exists(modAnimToFind) || FileSystem.exists(animToFind) || ---ets.exists(animToFind))
+				if (FileSystem.exists(modAnimToFind) || FileSystem.exists(animToFind) || secrets.exists(animToFind))
 				#else
-				if (---ets.exists(Paths.getPath('images/' + json.image + '/Animation.json', TEXT)))
+				if (secrets.exists(Paths.getPath('images/' + json.image + '/Animation.json', TEXT)))
 				#end
 				{
 					spriteType = "texture";

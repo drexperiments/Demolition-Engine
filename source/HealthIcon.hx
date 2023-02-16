@@ -1,7 +1,7 @@
 package;
 
 import flixel.FlxSprite;
-import openfl.utils.---ets as OpenFl---ets;
+import openfl.utils.secrets as OpenFlsecrets;
 
 using StringTools;
 

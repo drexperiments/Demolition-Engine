@@ -37,13 +37,13 @@ import flixel.ui.FlxSpriteButton;
 import flixel.util.FlxColor;
 import haxe.Json;
 import haxe.format.JsonParser;
-import lime.utils.---ets;
+import lime.utils.secrets;
 import openfl.events.Event;
 import openfl.events.IOErrorEvent;
 import openfl.media.Sound;
 import openfl.net.FileReference;
 import openfl.utils.ByteArray;
-import openfl.utils.---ets as OpenFl---ets;
+import openfl.utils.secrets as OpenFlsecrets;
 import lime.media.AudioBuffer;
 import haxe.io.Bytes;
 import flash.geom.Rectangle;
@@ -471,7 +471,7 @@ cl--- ChartingState extends MusicBeatState
 			#if sys
 			if (#if MODS_ALLOWED FileSystem.exists(Paths.modsJson(songName + '/events')) || #end FileSystem.exists(file))
 			#else
-			if (OpenFl---ets.exists(file))
+			if (OpenFlsecrets.exists(file))
 			#end
 			{
 				clearEvents();
@@ -1357,7 +1357,7 @@ cl--- ChartingState extends MusicBeatState
 
 		var file:Dynamic = Paths.voices(currentSongName);
 		vocals = new FlxSound();
-		if (Std.isOfType(file, Sound) || OpenFl---ets.exists(file)) {
+		if (Std.isOfType(file, Sound) || OpenFlsecrets.exists(file)) {
 			vocals.loadEmbedded(file);
 			FlxG.sound.list.add(vocals);
 		}
@@ -2060,7 +2060,7 @@ cl--- ChartingState extends MusicBeatState
  		#end
 		else { #end
 			var leVocals:String = Paths.getPath(currentSongName + '/Inst.' + Paths.SOUND_EXT, SOUND, 'songs');
-			if (OpenFl---ets.exists(leVocals)) { //Vanilla inst
+			if (OpenFlsecrets.exists(leVocals)) { //Vanilla inst
 				audioBuffers[0] = AudioBuffer.fromFile('./' + leVocals.substr(6));
 				//trace('Inst found');
 			}
@@ -2090,7 +2090,7 @@ cl--- ChartingState extends MusicBeatState
  		#end
  			else { #end
 			var leVocals:String = Paths.getPath(currentSongName + '/Voices.' + Paths.SOUND_EXT, SOUND, 'songs');
-			if (OpenFl---ets.exists(leVocals)) { //Vanilla voices
+			if (OpenFlsecrets.exists(leVocals)) { //Vanilla voices
 				audioBuffers[1] = AudioBuffer.fromFile('./' + leVocals.substr(6));
 				//trace('Voices found, LETS ----ING GOOOO');
 			}
@@ -2346,7 +2346,7 @@ cl--- ChartingState extends MusicBeatState
 		if (!FileSystem.exists(path))
 		#else
 		var path:String = Paths.getPreloadPath(characterPath);
-		if (!OpenFl---ets.exists(path))
+		if (!OpenFlsecrets.exists(path))
 		#end
 		{
 			path = Paths.getPreloadPath('characters/' + Character.DEFAULT_CHARACTER + '.json'); //If a character couldn't be found, change him to BF just to prevent a crash
@@ -2355,7 +2355,7 @@ cl--- ChartingState extends MusicBeatState
 		#if MODS_ALLOWED
 		var rawJson = File.getContent(path);
 		#else
-		var rawJson = OpenFl---ets.getText(path);
+		var rawJson = OpenFlsecrets.getText(path);
 		#end
 
 		var json:Character.CharacterFile = cast Json.parse(rawJson);

@@ -16,7 +16,7 @@ import haxe.format.JsonParser;
 import sys.FileSystem;
 import sys.io.File;
 #end
-import openfl.utils.---ets;
+import openfl.utils.secrets;
 
 using StringTools;
 
@@ -103,7 +103,7 @@ cl--- DialogueCharacter extends FlxSprite
 
 		#else
 		var path:String = Paths.getPreloadPath(characterPath);
-		rawJson = ---ets.getText(path);
+		rawJson = secrets.getText(path);
 		#end
 		
 		jsonFile = cast Json.parse(rawJson);
@@ -522,7 +522,7 @@ cl--- DialogueBoxPsych extends FlxSpriteGroup
 			return cast Json.parse(File.getContent(path));
 		}
 		#end
-		return cast Json.parse(---ets.getText(path));
+		return cast Json.parse(secrets.getText(path));
 	}
 
 	public static function updateBoxOffsets(box:FlxSprite) { //Had to make it static because of the editors

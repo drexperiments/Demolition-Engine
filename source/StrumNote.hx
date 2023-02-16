@@ -38,31 +38,31 @@ cl--- StrumNote extends FlxSprite
 		super(x, y);
 
 		var skin:String;
-		skin = 'NOTE_---ets';
+		skin = 'NOTE_secrets';
 		
 		if(PlayState.SONG.arrowSkin != null && PlayState.SONG.arrowSkin.length > 1) skin = PlayState.SONG.arrowSkin;
 		switch(char)
 		{
 			case 'dad':
-				skin = 'Skins/DADNOTE_---ets';
+				skin = 'Skins/DADNOTE_secrets';
 				doAntialiasing = true; //same as before
 			case 'gf' | 'gf-opponent' | 'gf-car' | 'gf-christmas':
-				skin = 'Skins/gfNOTE_---ets';
+				skin = 'Skins/gfNOTE_secrets';
 				doAntialiasing = true;
 			case 'mom' | 'mom-car':
-				skin = 'Skins/MOMNOTE_---ets';
+				skin = 'Skins/MOMNOTE_secrets';
 				doAntialiasing = true;
 			case 'parents-christmas':
-				skin = 'Skins/ParentsNOTE_---ets';
+				skin = 'Skins/ParentsNOTE_secrets';
 				doAntialiasing = true;
 			case 'pico' | 'pico-player':
-				skin = 'Skins/picoNOTE_---ets';
+				skin = 'Skins/picoNOTE_secrets';
 				doAntialiasing = true;
 			case 'monster' | 'monster-christmas':
-				skin = 'Skins/LemonboiNOTE_---ets';
+				skin = 'Skins/LemonboiNOTE_secrets';
 				doAntialiasing = true;
 			case 'spooky':
-				skin = 'Skins/SpookyNOTE_---ets';
+				skin = 'Skins/SpookyNOTE_secrets';
 				doAntialiasing = true;
 			case 'bf-pixel-opponent' /*| 'bf-pixel'*/:
 				/*if(PlayState.isPixelStage) {

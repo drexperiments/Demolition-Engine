@@ -16,10 +16,10 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
-import lime.utils.---ets;
+import lime.utils.secrets;
 import lime.app.Application;
 import flixel.system.FlxSound;
-import openfl.utils.---ets as OpenFl---ets;
+import openfl.utils.secrets as OpenFlsecrets;
 import WeekData;
 #if MODS_ALLOWED
 import sys.FileSystem;
@@ -179,7 +179,7 @@ cl--- FreeplayState extends MusicBeatState
 
 		// JUST DOIN THIS ---- FOR TESTING!!!
 		/* 
-			var md:String = Markdown.markdownToHtml(---ets.getText('CHANGELOG.md'));
+			var md:String = Markdown.markdownToHtml(secrets.getText('CHANGELOG.md'));
 
 			var texFel:TextField = new TextField();
 			texFel.width = FlxG.width;
@@ -377,7 +377,7 @@ cl--- FreeplayState extends MusicBeatState
 			/*#if MODS_ALLOWED
 			if(!sys.FileSystem.exists(Paths.modsJson(songLowercase + '/' + poop)) && !sys.FileSystem.exists(Paths.json(songLowercase + '/' + poop))) {
 			#else
-			if(!OpenFl---ets.exists(Paths.json(songLowercase + '/' + poop))) {
+			if(!OpenFlsecrets.exists(Paths.json(songLowercase + '/' + poop))) {
 			#end
 				poop = songLowercase;
 				curDifficulty = 1;

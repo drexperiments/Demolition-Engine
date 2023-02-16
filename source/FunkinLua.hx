@@ -25,7 +25,7 @@ import flixel.FlxSprite;
 import openfl.Lib;
 import openfl.display.BlendMode;
 import openfl.filters.BitmapFilter;
-import openfl.utils.---ets;
+import openfl.utils.secrets;
 import flixel.math.FlxMath;
 import flixel.util.FlxSave;
 import flixel.addons.transition.FlxTransitionableState;

@@ -12,7 +12,7 @@ import flixel.math.FlxMath;
 import flixel.tweens.FlxTween;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
-import lime.utils.---ets;
+import lime.utils.secrets;
 import flixel.system.FlxSound;
 
 using StringTools;
@@ -139,7 +139,7 @@ cl--- FreeplayCategoryDemoExclusivesState extends MusicBeatState{
 
 		// JUST DOIN THIS ---- FOR TESTING!!!
 		/* 
-			var md:String = Markdown.markdownToHtml(---ets.getText('CHANGELOG.md'));
+			var md:String = Markdown.markdownToHtml(secrets.getText('CHANGELOG.md'));
 			var texFel:TextField = new TextField();
 			texFel.width = FlxG.width;
 			texFel.height = FlxG.height;
@@ -320,7 +320,7 @@ cl--- FreeplayCategoryDemoExclusivesState extends MusicBeatState{
 			/*#if MODS_ALLOWED
 			if(!sys.FileSystem.exists(Paths.modsJson(songLowercase + '/' + poop)) && !sys.FileSystem.exists(Paths.json(songLowercase + '/' + poop))) {
 			#else
-			if(!OpenFl---ets.exists(Paths.json(songLowercase + '/' + poop))) {
+			if(!OpenFlsecrets.exists(Paths.json(songLowercase + '/' + poop))) {
 			#end
 				poop = songLowercase;
 				curDifficulty = 1;

@@ -4,7 +4,7 @@ package;
 import sys.io.File;
 import sys.FileSystem;
 #else
-import openfl.utils.---ets;
+import openfl.utils.secrets;
 #end
 import haxe.Json;
 import haxe.format.JsonParser;
@@ -80,8 +80,8 @@ cl--- StageData {
 			rawJson = File.getContent(path);
 		}
 		#else
-		if(---ets.exists(path)) {
-			rawJson = ---ets.getText(path);
+		if(secrets.exists(path)) {
+			rawJson = secrets.getText(path);
 		}
 		#end
 		else

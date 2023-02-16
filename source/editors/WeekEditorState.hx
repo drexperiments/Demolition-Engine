@@ -13,7 +13,7 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import lime.app.Application;
 import flixel.system.FlxSound;
-import openfl.utils.---ets;
+import openfl.utils.secrets;
 import flixel.addons.ui.FlxInputText;
 import flixel.addons.ui.FlxUI9SliceSprite;
 import flixel.addons.ui.FlxUI;
@@ -60,7 +60,7 @@ cl--- WeekEditorState extends MusicBeatState
 		txtWeekTitle.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, RIGHT);
 		txtWeekTitle.alpha = 0.7;
 		
-		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_---ets');
+		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_secrets');
 		var bgYellow:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 386, 0xFFF9CF51);
 		bgSprite = new FlxSprite(0, 56);
 		bgSprite.antialiasing = ClientPrefs.globalAntialiasing;
@@ -336,7 +336,7 @@ cl--- WeekEditorState extends MusicBeatState
 		var isMissing:Bool = true;
 		if(---etName != null && ---etName.length > 0) {
 			if( #if MODS_ALLOWED FileSystem.exists(Paths.modsImages('menubackgrounds/menu_' + ---etName)) || #end
-			---ets.exists(Paths.getPath('images/menubackgrounds/menu_' + ---etName + '.png', IMAGE), IMAGE)) {
+			secrets.exists(Paths.getPath('images/menubackgrounds/menu_' + ---etName + '.png', IMAGE), IMAGE)) {
 				bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_' + ---etName));
 				isMissing = false;
 			}
@@ -355,7 +355,7 @@ cl--- WeekEditorState extends MusicBeatState
 		var isMissing:Bool = true;
 		if(---etName != null && ---etName.length > 0) {
 			if( #if MODS_ALLOWED FileSystem.exists(Paths.modsImages('storymenu/' + ---etName)) || #end
-			---ets.exists(Paths.getPath('images/storymenu/' + ---etName + '.png', IMAGE), IMAGE)) {
+			secrets.exists(Paths.getPath('images/storymenu/' + ---etName + '.png', IMAGE), IMAGE)) {
 				weekThing.loadGraphic(Paths.image('storymenu/' + ---etName));
 				isMissing = false;
 			}

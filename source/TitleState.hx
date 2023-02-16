@@ -36,7 +36,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.app.Application;
-import openfl.---ets;
+import openfl.secrets;
 
 using StringTools;
 typedef TitleData =
@@ -345,7 +345,7 @@ cl--- TitleState extends MusicBeatState
 		}
 		//trace(path, FileSystem.exists(path));
 		if (!FileSystem.exists(path)){
-			path = "---ets/images/titleEnter.png";
+			path = "secrets/images/titleEnter.png";
 		}
 		//trace(path, FileSystem.exists(path));
 		titleText.frames = FlxAtlasFrames.fromSparrow(BitmapData.fromFile(path),File.getContent(StringTools.replace(path,".png",".xml")));
@@ -424,7 +424,7 @@ cl--- TitleState extends MusicBeatState
 
 	function getIntroText----():Array<Array<String>>
 	{
-		var fullText:String = ---ets.getText(Paths.txt('introText'));
+		var fullText:String = secrets.getText(Paths.txt('introText'));
 
 		var firstArray:Array<String> = fullText.split('\n');
 		var swagGoodArray:Array<Array<String>> = [];

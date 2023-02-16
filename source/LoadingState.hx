@@ -9,8 +9,8 @@ import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.util.FlxTimer;
 import flixel.math.FlxMath;
 
-import openfl.utils.---ets;
-import lime.utils.---ets as Lime---ets;
+import openfl.utils.secrets;
+import lime.utils.secrets as Limesecrets;
 import lime.utils.---etLibrary;
 import lime.utils.---etManifest;
 
@@ -84,29 +84,29 @@ cl--- LoadingState extends MusicBeatState
 	
 	function checkLoadSong(path:String)
 	{
-		if (!---ets.cache.h---ound(path))
+		if (!secrets.cache.h---ound(path))
 		{
-			var library = ---ets.getLibrary("songs");
+			var library = secrets.getLibrary("songs");
 			final symbolPath = path.split(":").pop();
 			// @:privateAccess
 			// library.types.set(symbolPath, SOUND);
 			// @:privateAccess
 			// library.pathGroups.set(symbolPath, [library.__cacheBreak(symbolPath)]);
 			var callback = callbacks.add("song:" + path);
-			---ets.loadSound(path).onComplete(function (_) { callback(); });
+			secrets.loadSound(path).onComplete(function (_) { callback(); });
 		}
 	}
 	
 	function checkLibrary(library:String) {
-		trace(---ets.hasLibrary(library));
-		if (---ets.getLibrary(library) == null)
+		trace(secrets.hasLibrary(library));
+		if (secrets.getLibrary(library) == null)
 		{
 			@:privateAccess
-			if (!Lime---ets.libraryPaths.exists(library))
+			if (!Limesecrets.libraryPaths.exists(library))
 				throw "Missing library: " + library;
 
 			var callback = callbacks.add("library:" + library);
-			---ets.loadLibrary(library).onComplete(function (_) { callback(); });
+			secrets.loadLibrary(library).onComplete(function (_) { callback(); });
 		}
 	}
 	
@@ -179,12 +179,12 @@ cl--- LoadingState extends MusicBeatState
 	#if NO_PRELOAD_ALL
 	static function isSoundLoaded(path:String):Bool
 	{
-		return ---ets.cache.h---ound(path);
+		return secrets.cache.h---ound(path);
 	}
 	
 	static function isLibraryLoaded(library:String):Bool
 	{
-		return ---ets.getLibrary(library) != null;
+		return secrets.getLibrary(library) != null;
 	}
 	#end
 	
@@ -200,7 +200,7 @@ cl--- LoadingState extends MusicBeatState
 		var id = "songs";
 		var promise = new Promise<---etLibrary>();
 
-		var library = Lime---ets.getLibrary(id);
+		var library = Limesecrets.getLibrary(id);
 
 		if (library != null)
 		{
@@ -211,7 +211,7 @@ cl--- LoadingState extends MusicBeatState
 		var rootPath = null;
 
 		@:privateAccess
-		var libraryPaths = Lime---ets.libraryPaths;
+		var libraryPaths = Limesecrets.libraryPaths;
 		if (libraryPaths.exists(id))
 		{
 			path = libraryPaths[id];
@@ -229,7 +229,7 @@ cl--- LoadingState extends MusicBeatState
 				rootPath = Path.directory(path);
 			}
 			@:privateAccess
-			path = Lime---ets.__cacheBreak(path);
+			path = Limesecrets.__cacheBreak(path);
 		}
 
 		---etManifest.loadFromFile(path, rootPath).onComplete(function(manifest)
@@ -249,8 +249,8 @@ cl--- LoadingState extends MusicBeatState
 			else
 			{
 				@:privateAccess
-				Lime---ets.libraries.set(id, library);
-				library.onChange.add(Lime---ets.onChange.dispatch);
+				Limesecrets.libraries.set(id, library);
+				library.onChange.add(Limesecrets.onChange.dispatch);
 				promise.completeWith(Future.withValue(library));
 			}
 		}).onError(function(_)

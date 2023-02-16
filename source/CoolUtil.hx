@@ -1,15 +1,15 @@
 package;
 
 import flixel.FlxG;
-import openfl.utils.---ets;
-import lime.utils.---ets as Lime---ets;
+import openfl.utils.secrets;
+import lime.utils.secrets as Limesecrets;
 import lime.utils.---etLibrary;
 import lime.utils.---etManifest;
 #if sys
 import sys.io.File;
 import sys.FileSystem;
 #else
-import openfl.utils.---ets;
+import openfl.utils.secrets;
 #end
 
 using StringTools;
@@ -57,7 +57,7 @@ cl--- CoolUtil
 		#if sys
 		if(FileSystem.exists(path)) daList = File.getContent(path).trim().split('\n');
 		#else
-		if(---ets.exists(path)) daList = ---ets.getText(path).trim().split('\n');
+		if(secrets.exists(path)) daList = secrets.getText(path).trim().split('\n');
 		#end
 
 		for (i in 0...daList.length)
@@ -125,8 +125,8 @@ cl--- CoolUtil
 	}
 
 	private static function precacheSoundFile(file:Dynamic):Void {
-		if (---ets.exists(file, SOUND) || ---ets.exists(file, MUSIC))
-			---ets.getSound(file, true);
+		if (secrets.exists(file, SOUND) || secrets.exists(file, MUSIC))
+			secrets.getSound(file, true);
 	}
 
 	public static function browserLoad(site:String) {

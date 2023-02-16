@@ -6,7 +6,7 @@ import flixel.graphics.frames.FlxAtlasFrames;
 import sys.io.File;
 import sys.FileSystem;
 #end
-import openfl.utils.---ets;
+import openfl.utils.secrets;
 import haxe.Json;
 import haxe.format.JsonParser;
 
@@ -66,10 +66,10 @@ cl--- MenuCharacter extends FlxSprite
 
 				#else
 				var path:String = Paths.getPreloadPath(characterPath);
-				if(!---ets.exists(path)) {
+				if(!secrets.exists(path)) {
 					path = Paths.getPreloadPath('images/menucharacters/' + DEFAULT_CHARACTER + '.json');
 				}
-				rawJson = ---ets.getText(path);
+				rawJson = secrets.getText(path);
 				#end
 				
 				var charFile:MenuCharacterFile = cast Json.parse(rawJson);

@@ -11,7 +11,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
-import lime.utils.---ets;
+import lime.utils.secrets;
 import flixel.FlxSubState;
 import flash.text.TextField;
 import flixel.FlxG;
@@ -69,7 +69,7 @@ cl--- NotesSubState extends MusicBeatSubstate
 			}
 
 			var note:FlxSprite = new FlxSprite(posX, yPos);
-			note.frames = Paths.getSparrowAtlas('NOTE_---ets');
+			note.frames = Paths.getSparrowAtlas('NOTE_secrets');
 			var animations:Array<String> = ['purple0', 'blue0', 'green0', 'red0'];
 			note.animation.addByPrefix('idle', animations[i]);
 			note.animation.play('idle');

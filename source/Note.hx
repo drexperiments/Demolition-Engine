@@ -219,25 +219,25 @@ cl--- Note extends FlxSprite
 		switch(char.toLowerCase())
 		{
 			case 'dad':
-				skin = 'Skins/DADNOTE_---ets';
+				skin = 'Skins/DADNOTE_secrets';
 				antialias = true; //same as before
 			case 'gf' | 'gf-opponent' | 'gf-car' | 'gf-christmas':
-				skin = 'Skins/gfNOTE_---ets';
+				skin = 'Skins/gfNOTE_secrets';
 				antialias = true;
 			case 'mom' | 'mom-car':
-				skin = 'Skins/MOMNOTE_---ets';
+				skin = 'Skins/MOMNOTE_secrets';
 				antialias = true;
 			case 'parents-christmas':
-				skin = 'Skins/ParentsNOTE_---ets';
+				skin = 'Skins/ParentsNOTE_secrets';
 				antialias = true;
 			case 'pico' | 'pico-player':
-				skin = 'Skins/picoNOTE_---ets';
+				skin = 'Skins/picoNOTE_secrets';
 				antialias = true;
 			case 'monster' | 'monster-christmas':
-				skin = 'Skins/LemonboiNOTE_---ets';
+				skin = 'Skins/LemonboiNOTE_secrets';
 				antialias = true;
 			case 'spooky':
-				skin = 'Skins/SpookyNOTE_---ets';
+				skin = 'Skins/SpookyNOTE_secrets';
 				antialias = true;
 			case 'bf-pixel-opponent' /*| 'bf-pixel'*/:
 				/*if(PlayState.isPixelStage) {
@@ -370,7 +370,7 @@ cl--- Note extends FlxSprite
 		
 		var skin:String = texture;
 		if(texture.length < 1) {
-			skin = 'NOTE_---ets';
+			skin = 'NOTE_secrets';
 		}
 
 		var animName:String = null;

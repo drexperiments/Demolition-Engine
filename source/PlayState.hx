@@ -41,12 +41,12 @@ import flixel.util.FlxStringUtil;
 import flixel.util.FlxTimer;
 // everything else
 import haxe.Json;
-import lime.utils.---ets;
+import lime.utils.secrets;
 import openfl.Lib;
 import openfl.display.BlendMode;
 import openfl.display.StageQuality;
 import openfl.filters.BitmapFilter;
-import openfl.utils.---ets as OpenFl---ets;
+import openfl.utils.secrets as OpenFlsecrets;
 import editors.ChartingState;
 import editors.OpenSong;
 import editors.CharacterEditorState;
@@ -295,7 +295,7 @@ cl--- PlayState extends MusicBeatState
 
 	public var defaultCamZoom:Float = 1.05;
 
-	// how big to stretch the pixel art ---ets
+	// how big to stretch the pixel art secrets
 	public static var daPixelZoom:Float = 6;
 	private var singAnimations:Array<String> = ['singLEFT', 'singDOWN', 'singUP', 'singRIGHT'];
 
@@ -984,12 +984,12 @@ cl--- PlayState extends MusicBeatState
 		}
 
 		var file:String = Paths.json(songName + '/dialogue'); //Checks for json/Psych Engine dialogue
-		if (OpenFl---ets.exists(file)) {
+		if (OpenFlsecrets.exists(file)) {
 			dialogueJson = DialogueBoxPsych.parseDialogue(file);
 		}
 
 		var file:String = Paths.txt(songName + '/' + songName + 'Dialogue'); //Checks for vanilla/Senpai dialogue
-		if (OpenFl---ets.exists(file)) {
+		if (OpenFlsecrets.exists(file)) {
 			dialogue = CoolUtil.coolTextFile(file);
 		}
 		var doof:DialogueBox = new DialogueBox(false, dialogue);
@@ -1698,7 +1698,7 @@ cl--- PlayState extends MusicBeatState
 			#if sys
 			if(FileSystem.exists(fileName)) {
 			#else
-			if(OpenFl---ets.exists(fileName)) {
+			if(OpenFlsecrets.exists(fileName)) {
 			#end
 				foundFile = true;
 			}
@@ -2224,14 +2224,14 @@ cl--- PlayState extends MusicBeatState
 					dad.dance();
 				}
 
-				var intro---ets:Map<String, Array<String>> = new Map<String, Array<String>>();
-				intro---ets.set('default', ['ready', 'set', 'go']);
-				intro---ets.set('pixel', ['pixelUI/ready-pixel', 'pixelUI/set-pixel', 'pixelUI/date-pixel']);
+				var introsecrets:Map<String, Array<String>> = new Map<String, Array<String>>();
+				introsecrets.set('default', ['ready', 'set', 'go']);
+				introsecrets.set('pixel', ['pixelUI/ready-pixel', 'pixelUI/set-pixel', 'pixelUI/date-pixel']);
 
-				var introAlts:Array<String> = intro---ets.get('default');
+				var introAlts:Array<String> = introsecrets.get('default');
 				var antialias:Bool = ClientPrefs.globalAntialiasing;
 				if(isPixelStage) {
-					introAlts = intro---ets.get('pixel');
+					introAlts = introsecrets.get('pixel');
 					antialias = false;
 				}
 
@@ -2485,7 +2485,7 @@ cl--- PlayState extends MusicBeatState
 		#if sys
 		if (FileSystem.exists(Paths.modsJson(songName + '/events')) || FileSystem.exists(file)) {
 		#else
-		if (OpenFl---ets.exists(file)) {
+		if (OpenFlsecrets.exists(file)) {
 		#end
 			var eventsData:Array<Dynamic> = Song.loadFromJson('events', songName).events;
 			for (event in eventsData) //Event Notes

@@ -10,8 +10,8 @@ import openfl.system.System;
 import flixel.FlxG;
 import flixel.graphics.frames.FlxAtlasFrames;
 import openfl.utils.---etType;
-import openfl.utils.---ets as OpenFl---ets;
-import lime.utils.---ets;
+import openfl.utils.secrets as OpenFlsecrets;
+import lime.utils.secrets;
 import flixel.FlxSprite;
 #if MODS_ALLOWED
 import sys.io.File;
@@ -56,25 +56,25 @@ cl--- Paths
 
 	public static var dumpExclusions:Array<String> =
 	[
-		'---ets/music/freakyMenu.$SOUND_EXT',
-		'---ets/shared/music/breakfast.$SOUND_EXT',
-		'---ets/shared/music/tea-time.$SOUND_EXT',
+		'secrets/music/freakyMenu.$SOUND_EXT',
+		'secrets/shared/music/breakfast.$SOUND_EXT',
+		'secrets/shared/music/tea-time.$SOUND_EXT',
 	];
 	/// haya I love you for the base cache dump I took to the max
 	public static function clearUnusedMemory() {
-		// clear non local ---ets in the tracked ---ets list
-		for (key in currentTracked---ets.keys()) {
-			// if it is not currently contained within the used local ---ets
-			if (!localTracked---ets.contains(key) 
+		// clear non local secrets in the tracked secrets list
+		for (key in currentTrackedsecrets.keys()) {
+			// if it is not currently contained within the used local secrets
+			if (!localTrackedsecrets.contains(key) 
 				&& !dumpExclusions.contains(key)) {
 				// get rid of it
-				var obj = currentTracked---ets.get(key);
+				var obj = currentTrackedsecrets.get(key);
 				@:privateAccess
 				if (obj != null) {
-					openfl.---ets.cache.removeBitmapData(key);
+					openfl.secrets.cache.removeBitmapData(key);
 					FlxG.bitmap._cache.remove(key);
 					obj.destroy();
-					currentTracked---ets.remove(key);
+					currentTrackedsecrets.remove(key);
 				}
 			}
 		}
@@ -82,16 +82,16 @@ cl--- Paths
 		System.gc();
 	}
 
-	// define the locally tracked ---ets
-	public static var localTracked---ets:Array<String> = [];
+	// define the locally tracked secrets
+	public static var localTrackedsecrets:Array<String> = [];
 	public static function clearStoredMemory(?cleanUnused:Bool = false) {
-		// clear anything not in the tracked ---ets list
+		// clear anything not in the tracked secrets list
 		@:privateAccess
 		for (key in FlxG.bitmap._cache.keys())
 		{
 			var obj = FlxG.bitmap._cache.get(key);
-			if (obj != null && !currentTracked---ets.exists(key)) {
-				openfl.---ets.cache.removeBitmapData(key);
+			if (obj != null && !currentTrackedsecrets.exists(key)) {
+				openfl.secrets.cache.removeBitmapData(key);
 				FlxG.bitmap._cache.remove(key);
 				obj.destroy();
 			}
@@ -99,16 +99,16 @@ cl--- Paths
 
 		// clear all sounds that are cached
 		for (key in currentTrackedSounds.keys()) {
-			if (!localTracked---ets.contains(key) 
+			if (!localTrackedsecrets.contains(key) 
 			&& !dumpExclusions.contains(key) && key != null) {
 				//trace('test: ' + dumpExclusions, key);
-				---ets.cache.clear(key);
+				secrets.cache.clear(key);
 				currentTrackedSounds.remove(key);
 			}
 		}	
 		// flags everything to be cleared out next unused memory clear
-		localTracked---ets = [];
-		openfl.---ets.cache.clear("songs");
+		localTrackedsecrets = [];
+		openfl.secrets.cache.clear("songs");
 	}
 
 	static public var currentModDirectory:String = '';
@@ -128,12 +128,12 @@ cl--- Paths
 			var levelPath:String = '';
 			if(currentLevel != 'shared') {
 				levelPath = getLibraryPathForce(file, currentLevel);
-				if (OpenFl---ets.exists(levelPath, type))
+				if (OpenFlsecrets.exists(levelPath, type))
 					return levelPath;
 			}
 
 			levelPath = getLibraryPathForce(file, "shared");
-			if (OpenFl---ets.exists(levelPath, type))
+			if (OpenFlsecrets.exists(levelPath, type))
 				return levelPath;
 		}
 
@@ -147,13 +147,13 @@ cl--- Paths
 
 	inline static function getLibraryPathForce(file:String, library:String)
 	{
-		var returnPath = '$library:---ets/$library/$file';
+		var returnPath = '$library:secrets/$library/$file';
 		return returnPath;
 	}
 
 	inline public static function getPreloadPath(file:String = '')
 	{
-		return '---ets/$file';
+		return 'secrets/$file';
 	}
 
 	inline static public function file(file:String, type:---etType = TEXT, ?library:String)
@@ -197,7 +197,7 @@ cl--- Paths
 			return file;
 		}
 		#end
-		return '---ets/videos/$key.$VIDEO_EXT';
+		return 'secrets/videos/$key.$VIDEO_EXT';
 	}
 
 	static public function sound(key:String, ?library:String):Sound
@@ -233,7 +233,7 @@ cl--- Paths
 
 	inline static public function image(key:String, ?library:String):FlxGraphic
 	{
-		// streamlined the ---ets process more
+		// streamlined the secrets process more
 		var return---et:FlxGraphic = returnGraphic(key, library);
 		return return---et;
 	}
@@ -263,7 +263,7 @@ cl--- Paths
 				return File.getContent(levelPath);
 		}
 		#end
-		return ---ets.getText(getPath(key, TEXT));
+		return secrets.getText(getPath(key, TEXT));
 	}
 
 	inline static public function font(key:String)
@@ -274,7 +274,7 @@ cl--- Paths
 			return file;
 		}
 		#end
-		return '---ets/fonts/$key';
+		return 'secrets/fonts/$key';
 	}
 
 	inline static public function fileExists(key:String, type:---etType, ?ignoreMods:Bool = false, ?library:String)
@@ -285,7 +285,7 @@ cl--- Paths
 		}
 		#end
 		
-		if(OpenFl---ets.exists(getPath(key, type))) {
+		if(OpenFlsecrets.exists(getPath(key, type))) {
 			return true;
 		}
 		return false;
@@ -356,34 +356,34 @@ cl--- Paths
 	}
 
 	// completely rewritten ---et loading? ----!
-	public static var currentTracked---ets:Map<String, FlxGraphic> = [];
+	public static var currentTrackedsecrets:Map<String, FlxGraphic> = [];
 	public static function returnGraphic(key:String, ?library:String) {
 		#if MODS_ALLOWED
 		var modKey:String = modsImages(key);
 		if(FileSystem.exists(modKey)) {
-			if(!currentTracked---ets.exists(modKey)) {
+			if(!currentTrackedsecrets.exists(modKey)) {
 				var newBitmap:BitmapData = BitmapData.fromFile(modKey);
 				var newGraphic:FlxGraphic = FlxGraphic.fromBitmapData(newBitmap, false, modKey);
 				newGraphic.persist = true;
-				currentTracked---ets.set(modKey, newGraphic);
+				currentTrackedsecrets.set(modKey, newGraphic);
 			}
-			localTracked---ets.push(modKey);
-			return currentTracked---ets.get(modKey);
+			localTrackedsecrets.push(modKey);
+			return currentTrackedsecrets.get(modKey);
 		}
 		#end
 
 		var path = getPath('images/$key.png', IMAGE, library);
 		var path_ = getPath('images/$key.PNG', IMAGE, library);
-		var thePath = if(OpenFl---ets.exists(path, IMAGE)) path else if(OpenFl---ets.exists(path_, IMAGE)) path_ else null;
+		var thePath = if(OpenFlsecrets.exists(path, IMAGE)) path else if(OpenFlsecrets.exists(path_, IMAGE)) path_ else null;
 		//trace(path);
 		if (thePath != null) {
-			if(!currentTracked---ets.exists(thePath)) {
+			if(!currentTrackedsecrets.exists(thePath)) {
 				var newGraphic:FlxGraphic = FlxG.bitmap.add(thePath, false, thePath);
 				newGraphic.persist = true;
-				currentTracked---ets.set(thePath, newGraphic);
+				currentTrackedsecrets.set(thePath, newGraphic);
 			}
-			localTracked---ets.push(thePath);
-			return currentTracked---ets.get(thePath);
+			localTrackedsecrets.push(thePath);
+			return currentTrackedsecrets.get(thePath);
 		}
 		trace('oh no $key is returning null NOOOO');
 		return null;
@@ -397,7 +397,7 @@ cl--- Paths
 			if(!currentTrackedSounds.exists(file)) {
 				currentTrackedSounds.set(file, Sound.fromFile(file));
 			}
-			localTracked---ets.push(key);
+			localTrackedsecrets.push(key);
 			return currentTrackedSounds.get(file);
 		}
 		#end
@@ -414,10 +414,10 @@ cl--- Paths
 			#if html5
 			if(path == 'songs') folder = 'songs:';
 			#end
-			currentTrackedSounds.set(gottenPath, OpenFl---ets.getSound(folder + getPath('$path/$key.$SOUND_EXT', SOUND, library)));
+			currentTrackedSounds.set(gottenPath, OpenFlsecrets.getSound(folder + getPath('$path/$key.$SOUND_EXT', SOUND, library)));
 		}
 		#end
-		localTracked---ets.push(gottenPath);
+		localTrackedsecrets.push(gottenPath);
 		return currentTrackedSounds.get(gottenPath);
 	}
 	

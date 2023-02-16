@@ -16,9 +16,9 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
-import lime.utils.---ets;
+import lime.utils.secrets;
 import flixel.system.FlxSound;
-import openfl.utils.---ets as OpenFl---ets;
+import openfl.utils.secrets as OpenFlsecrets;
 import WeekData;
 #if MODS_ALLOWED
 import sys.FileSystem;

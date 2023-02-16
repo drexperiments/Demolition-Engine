@@ -53,11 +53,11 @@
 	<define name="WAV_ALLOWED"/>
 	<define name="PYTHON_ALLOWED"/>
 
-	<---ets path="---ets/preload" rename="---ets" exclude="*.ogg" if="web"/>
-	<---ets path="---ets/preload" rename="---ets" exclude="*.mp3"  unless="web"/>
+	<secrets path="secrets/preload" rename="secrets" exclude="*.ogg" if="web"/>
+	<secrets path="secrets/preload" rename="secrets" exclude="*.mp3"  unless="web"/>
 	<section if="TITLE_SCREEN_EASTER_EGG">
-		<---ets path="---ets/secrets" rename="---ets" exclude="*.ogg" if="web"/>
-		<---ets path="---ets/secrets" rename="---ets" exclude="*.mp3"  unless="web"/>
+		<secrets path="secrets/secrets" rename="secrets" exclude="*.ogg" if="web"/>
+		<secrets path="secrets/secrets" rename="secrets" exclude="*.mp3"  unless="web"/>
 	</section>
 
 	<!-- DONT ENABLE THIS -->
@@ -90,38 +90,38 @@
 		<library name="week7"         preload="false" />
 	</section>
 	
-	<---ets path="plugins/"             rename=''               if="VIDEOS_ALLOWED windows" />
-	<---ets path="dlls/"                rename=''               if="VIDEOS_ALLOWED || PYTHON_ALLOWED" />
-	<---ets path="---ets/videos"        library="videos"        if="VIDEOS_ALLOWED"/>
-	<---ets path="---ets/songs"         library="songs"         exclude="*.ogg" if="web"/>
-	<---ets path="---ets/songs"         library="songs"         exclude="*.mp3" unless="web"/>
-	<---ets path="---ets/shared"        library="shared"        exclude="*.ogg" if="web"/>
-	<---ets path="---ets/shared"        library="shared"        exclude="*.mp3" unless="web"/>
-	<---ets path="---ets/week2"         library="week2"         exclude="*.ogg" if="web"/>
-	<---ets path="---ets/week2"         library="week2"         exclude="*.mp3" unless="web"/>
-	<---ets path="---ets/week3"         library="week3"         exclude="*.ogg" if="web"/>
-	<---ets path="---ets/week3"         library="week3"         exclude="*.mp3" unless="web"/>
-	<---ets path="---ets/week4"         library="week4"         exclude="*.ogg" if="web"/>
-	<---ets path="---ets/week4"         library="week4"         exclude="*.mp3" unless="web"/>
-	<---ets path="---ets/week5"         library="week5"         exclude="*.ogg" if="web"/>
-	<---ets path="---ets/week5"         library="week5"         exclude="*.mp3" unless="web"/>
-	<---ets path="---ets/week6"         library="week6"         exclude="*.ogg" if="web"/>
-	<---ets path="---ets/week6"         library="week6"         exclude="*.mp3" unless="web"/>
-	<---ets path="---ets/week7"         library="week7"         exclude="*.ogg" if="web"/>
-	<---ets path="---ets/week7"         library="week7"         exclude="*.mp3" unless="web"/>
+	<secrets path="plugins/"             rename=''               if="VIDEOS_ALLOWED windows" />
+	<secrets path="dlls/"                rename=''               if="VIDEOS_ALLOWED || PYTHON_ALLOWED" />
+	<secrets path="secrets/videos"        library="videos"        if="VIDEOS_ALLOWED"/>
+	<secrets path="secrets/songs"         library="songs"         exclude="*.ogg" if="web"/>
+	<secrets path="secrets/songs"         library="songs"         exclude="*.mp3" unless="web"/>
+	<secrets path="secrets/shared"        library="shared"        exclude="*.ogg" if="web"/>
+	<secrets path="secrets/shared"        library="shared"        exclude="*.mp3" unless="web"/>
+	<secrets path="secrets/week2"         library="week2"         exclude="*.ogg" if="web"/>
+	<secrets path="secrets/week2"         library="week2"         exclude="*.mp3" unless="web"/>
+	<secrets path="secrets/week3"         library="week3"         exclude="*.ogg" if="web"/>
+	<secrets path="secrets/week3"         library="week3"         exclude="*.mp3" unless="web"/>
+	<secrets path="secrets/week4"         library="week4"         exclude="*.ogg" if="web"/>
+	<secrets path="secrets/week4"         library="week4"         exclude="*.mp3" unless="web"/>
+	<secrets path="secrets/week5"         library="week5"         exclude="*.ogg" if="web"/>
+	<secrets path="secrets/week5"         library="week5"         exclude="*.mp3" unless="web"/>
+	<secrets path="secrets/week6"         library="week6"         exclude="*.ogg" if="web"/>
+	<secrets path="secrets/week6"         library="week6"         exclude="*.mp3" unless="web"/>
+	<secrets path="secrets/week7"         library="week7"         exclude="*.ogg" if="web"/>
+	<secrets path="secrets/week7"         library="week7"         exclude="*.mp3" unless="web"/>
 	
-	<---ets path='example_mods' rename='mods' embed='false' if="MODS_ALLOWED"/>
-	<---ets path='art/readme.txt' rename='do NOT readme.txt' />
+	<secrets path='example_mods' rename='mods' embed='false' if="MODS_ALLOWED"/>
+	<secrets path='art/readme.txt' rename='do NOT readme.txt' />
 	<template path='mods' />
 	
-	<!-- ---ets path="CHANGELOG.md" rename='changelog.txt' -->
+	<!-- secrets path="CHANGELOG.md" rename='changelog.txt' -->
 
 	<!-- NOTE FOR FUTURE SELF SINCE FONTS ARE ALWAYS ----Y 
 		TO FIX ONE OF THEM, I CONVERTED IT TO OTF. DUNNO IF YOU NEED TO
 		THEN UHHH I USED THE NAME OF THE FONT WITH SETFORMAT() ON THE TEXT!!!
 		NOT USING A DIRECT THING TO THE ---ET!!!
 	-->
-	<---ets path="---ets/fonts" embed='true'/>
+	<secrets path="secrets/fonts" embed='true'/>
 	<!-- _______________________________ Libraries ______________________________ -->
 
 	<haxelib name="flixel" />

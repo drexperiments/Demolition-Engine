@@ -48,7 +48,7 @@ cl--- KadeEngineFPS extends TextField
 		currentFPS = 0;
 		selectable = false;
 		mouseEnabled = false;
-		defaultTextFormat = new TextFormat(openfl.utils.---ets.getFont("---ets/fonts/vcr.ttf").fontName, 14, color);
+		defaultTextFormat = new TextFormat(openfl.utils.secrets.getFont("secrets/fonts/vcr.ttf").fontName, 14, color);
 		text = "FPS: ";
 		width += 200;
 

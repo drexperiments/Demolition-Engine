@@ -1,11 +1,11 @@
 package;
 
 // STOLEN FROM HAXEFLIXEL DEMO AND FROM PSYCH ENGINE 0.5.1 WITH SHADERS LOL
-import flixel.system.Flx---ets.FlxShader;
+import flixel.system.Flxsecrets.FlxShader;
 import openfl.display.BitmapData;
 import openfl.display.Shader;
 import openfl.display.ShaderInput;
-import openfl.utils.---ets;
+import openfl.utils.secrets;
 import flixel.FlxG;
 import openfl.Lib;
 using StringTools;
@@ -456,7 +456,7 @@ cl--- VCRDistortionEffect extends Effect
     shader.vignetteMoving.value = [vignetteMoving];
     shader.glitchModifier.value = [glitchFactor];
     shader.iResolution.value = [Lib.current.stage.stageWidth,Lib.current.stage.stageHeight];
-   // var noise = ---ets.getBitmapData(Paths.image("noise2"));
+   // var noise = secrets.getBitmapData(Paths.image("noise2"));
    // shader.noiseTex.input = noise;
    PlayState.instance.shaderUpdates.push(update);
   }

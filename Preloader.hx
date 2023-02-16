@@ -25,7 +25,7 @@ cl--- Preloader extends FlxBasePreloader
         this._width = Lib.current.stage.stageWidth;
         this._height = Lib.current.stage.stageHeight;
          
-        var ratio:Float = this._width / 2560; //This allows us to scale ---ets depending on the size of the screen.
+        var ratio:Float = this._width / 2560; //This allows us to scale secrets depending on the size of the screen.
          
         logo = new Sprite();
         logo.addChild(new Bitmap(new LogoImage(0,0))); //Sets the graphic of the sprite to a Bitmap object, which uses our embedded BitmapData cl---.
