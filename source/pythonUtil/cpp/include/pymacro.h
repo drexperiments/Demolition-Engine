@@ -24,7 +24,7 @@
 /* Argument must be a char or an int in [-128, 127] or [0, 255]. */
 #define Py_CHARMASK(c) ((unsigned char)((c) & 0xff))
 
-/* Assert a build-time dependency, as an expression.
+/* ---ert a build-time dependency, as an expression.
 
    Your compile will fail if the condition isn't true, or can't be evaluated
    by the compiler. This can be used in an expression: its value is 0.
@@ -33,21 +33,21 @@
 
    #define foo_to_char(foo)  \
        ((char *)(foo)        \
-        + Py_BUILD_ASSERT_EXPR(offsetof(struct foo, string) == 0))
+        + Py_BUILD_---ERT_EXPR(offsetof(struct foo, string) == 0))
 
    Written by Rusty Russell, public domain, http://ccodearchive.net/ */
-#define Py_BUILD_ASSERT_EXPR(cond) \
+#define Py_BUILD_---ERT_EXPR(cond) \
     (sizeof(char [1 - 2*!(cond)]) - 1)
 
-#define Py_BUILD_ASSERT(cond)  do {         \
-        (void)Py_BUILD_ASSERT_EXPR(cond);   \
+#define Py_BUILD_---ERT(cond)  do {         \
+        (void)Py_BUILD_---ERT_EXPR(cond);   \
     } while(0)
 
 /* Get the number of elements in a visible array
 
    This does not work on pointers, or arrays declared as [], or function
    parameters. With correct compiler support, such usage will cause a build
-   error (see Py_BUILD_ASSERT_EXPR).
+   error (see Py_BUILD_---ERT_EXPR).
 
    Written by Rusty Russell, public domain, http://ccodearchive.net/
 
@@ -58,7 +58,7 @@
    &a[0] degrades to a pointer: a different type from an array */
 #define Py_ARRAY_LENGTH(array) \
     (sizeof(array) / sizeof((array)[0]) \
-     + Py_BUILD_ASSERT_EXPR(!__builtin_types_compatible_p(typeof(array), \
+     + Py_BUILD_---ERT_EXPR(!__builtin_types_compatible_p(typeof(array), \
                                                           typeof(&(array)[0]))))
 #else
 #define Py_ARRAY_LENGTH(array) \
@@ -123,7 +123,7 @@
 #elif defined(__clang__) || defined(__INTEL_COMPILER)
 #  define Py_UNREACHABLE() __builtin_unreachable()
 #elif defined(_MSC_VER)
-#  define Py_UNREACHABLE() __assume(0)
+#  define Py_UNREACHABLE() __---ume(0)
 #else
 #  define Py_UNREACHABLE() \
     Py_FatalError("Unreachable C code path reached")

@@ -25,7 +25,7 @@ import openfl.geom.Matrix;
 import openfl.geom.ColorTransform;
 import animateatlas.JSONData.FilterData;
 
-class SpriteSymbol extends Sprite {
+cl--- SpriteSymbol extends Sprite {
 	public var currentLabel(get, never):String;
 	public var currentFrame(get, set):Int;
 	public var type(get, set):String;
@@ -160,7 +160,7 @@ class SpriteSymbol extends Sprite {
 
 			var symbolName:String = elementData.SYMBOL_name;
 
-			if (!_library.hasSymbol(symbolName)) {
+			if (!_library.h---ymbol(symbolName)) {
 				symbolName = SpriteAnimationLibrary.BITMAP_SYMBOL_NAME;
 			}
 

@@ -177,7 +177,7 @@ typedef uint32_t vlc_fourcc_t;
 
 /**
  * Translate a vlc_fourcc into its string representation. This function
- * assumes there is enough room in psz_fourcc to store 4 characters in.
+ * ---umes there is enough room in psz_fourcc to store 4 characters in.
  *
  * \param fcc a vlc_fourcc_t
  * \param psz_fourcc string to store string representation of vlc_fourcc in
@@ -191,7 +191,7 @@ static inline void vlc_fourcc_to_char( vlc_fourcc_t fcc, char *psz_fourcc )
         vlc_fourcc_to_char( (vlc_fourcc_t)(a), (char *)(b) )
 
 /*****************************************************************************
- * Classes declaration
+ * Cl---es declaration
  *****************************************************************************/
 
 /* Internal types */
@@ -518,7 +518,7 @@ static inline unsigned clz (unsigned x)
 
 #define clz8( x ) (clz(x) - ((sizeof(unsigned) - sizeof (uint8_t)) * 8))
 #define clz16( x ) (clz(x) - ((sizeof(unsigned) - sizeof (uint16_t)) * 8))
-/* XXX: this assumes that int is 32-bits or more */
+/* XXX: this ---umes that int is 32-bits or more */
 #define clz32( x ) (clz(x) - ((sizeof(unsigned) - sizeof (uint32_t)) * 8))
 
 /** Count trailing zeroes */

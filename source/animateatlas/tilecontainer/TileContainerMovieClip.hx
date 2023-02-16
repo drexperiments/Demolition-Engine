@@ -5,7 +5,7 @@ import animateatlas.HelperEnums.SymbolType;
 import openfl.display.TileContainer;
 
 @:access(animateatlas.tilecontainer.TileContainerSymbol)
-class TileContainerMovieClip extends TileContainer {
+cl--- TileContainerMovieClip extends TileContainer {
 	public var framerate(get, set):Float;
 	public var currentLabel(get, set):String;
 	public var currentFrame(get, set):Int;

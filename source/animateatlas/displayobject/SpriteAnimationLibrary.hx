@@ -18,7 +18,7 @@ import openfl.errors.ArgumentError;
  * Performance will be REALLY BAD.
  * Consider using TileAnimationLibrary whenever possible.
  */
-class SpriteAnimationLibrary {
+cl--- SpriteAnimationLibrary {
 	public var frameRate:Float;
 
 	private var _atlas:Map<String, SpriteData>;
@@ -57,13 +57,13 @@ class SpriteAnimationLibrary {
 	}
 
 	public function hasAnimation(name:String):Bool {
-		return hasSymbol(name);
+		return h---ymbol(name);
 	}
 
 	public function createAnimation(noAntialiasing:Bool, symbol:String = null):SpriteMovieClip {
 		this.smoothing = !noAntialiasing;
 		symbol = (symbol != null) ? symbol : _defaultSymbolName;
-		if (!hasSymbol(symbol)) {
+		if (!h---ymbol(symbol)) {
 			throw new ArgumentError("Symbol not found: " + symbol);
 		}
 		return new SpriteMovieClip(getSymbol(symbol));
@@ -97,7 +97,7 @@ class SpriteAnimationLibrary {
 		return _atlas.get(name);
 	}
 
-	private function hasSymbol(name:String):Bool {
+	private function h---ymbol(name:String):Bool {
 		return _symbolData.exists(name);
 	}
 

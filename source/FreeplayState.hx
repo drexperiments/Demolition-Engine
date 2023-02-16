@@ -16,10 +16,10 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
-import lime.utils.Assets;
+import lime.utils.---ets;
 import lime.app.Application;
 import flixel.system.FlxSound;
-import openfl.utils.Assets as OpenFlAssets;
+import openfl.utils.---ets as OpenFl---ets;
 import WeekData;
 #if MODS_ALLOWED
 import sys.FileSystem;
@@ -27,7 +27,7 @@ import sys.FileSystem;
 
 using StringTools;
 
-class FreeplayState extends MusicBeatState
+cl--- FreeplayState extends MusicBeatState
 {
 	var songs:Array<SongMetadata> = [];
 
@@ -68,7 +68,7 @@ class FreeplayState extends MusicBeatState
 		DiscordClient.changePresence("In Freeplay", null);
 		#end
 			
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition]";
 
 		for (i in 0...WeekData.weeksList.length) {
 			if(weekIsLocked(WeekData.weeksList[i])) continue;
@@ -179,7 +179,7 @@ class FreeplayState extends MusicBeatState
 
 		// JUST DOIN THIS ---- FOR TESTING!!!
 		/* 
-			var md:String = Markdown.markdownToHtml(Assets.getText('CHANGELOG.md'));
+			var md:String = Markdown.markdownToHtml(---ets.getText('CHANGELOG.md'));
 
 			var texFel:TextField = new TextField();
 			texFel.width = FlxG.width;
@@ -357,13 +357,13 @@ class FreeplayState extends MusicBeatState
 				switch(PlayState.SONG.song)
 				{
 					case 'Atrocity':
-					Application.current.window.title = "Friday Night Funkin': Demolition Engine - Listening to: " + PlayState.SONG.song + " - Composed by: Saster";
+					Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - Listening to: " + PlayState.SONG.song + " - Composed by: Saster";
 					case 'Tutorial' | 'Bopeebo' | 'Fresh' | 'Dad Battle' | 'Spookeez' | 'South' | 'Pico' | 'Philly Nice' | 'Blammed' | 'Satin Panties' | 'High' | 'Milf' | 'Cocoa' | 'Eggnog' | 'Senpai' | 'Roses' | 'Thorns' | 'Ugh' | 'Guns' | 'Stress':
-					Application.current.window.title = "Friday Night Funkin': Demolition Engine - Listening to: " + PlayState.SONG.song + " - Composed by: Kawai Sprite";
+					Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - Listening to: " + PlayState.SONG.song + " - Composed by: Kawai Sprite";
 					case 'Monster' | 'Winter Horrorland':
-					Application.current.window.title = "Friday Night Funkin': Demolition Engine - Listening to: " + PlayState.SONG.song + " - Composed by: Kawai Sprite & Bassetfilms";
+					Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - Listening to: " + PlayState.SONG.song + " - Composed by: Kawai Sprite & bassetfilms";
 					default:
-					Application.current.window.title = "Friday Night Funkin': Demolition Engine - Listening to: " + PlayState.SONG.song;
+					Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - Listening to: " + PlayState.SONG.song;
 				}
 				#end
 			}
@@ -377,7 +377,7 @@ class FreeplayState extends MusicBeatState
 			/*#if MODS_ALLOWED
 			if(!sys.FileSystem.exists(Paths.modsJson(songLowercase + '/' + poop)) && !sys.FileSystem.exists(Paths.json(songLowercase + '/' + poop))) {
 			#else
-			if(!OpenFlAssets.exists(Paths.json(songLowercase + '/' + poop))) {
+			if(!OpenFl---ets.exists(Paths.json(songLowercase + '/' + poop))) {
 			#end
 				poop = songLowercase;
 				curDifficulty = 1;
@@ -560,7 +560,7 @@ class FreeplayState extends MusicBeatState
 	}
 }
 
-class SongMetadata
+cl--- SongMetadata
 {
 	public var songName:String = "";
 	public var week:Int = 0;

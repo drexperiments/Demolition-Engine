@@ -3,7 +3,7 @@
  *****************************************************************************
  * Copyright (C) 2002-2011 VLC authors and VideoLAN
  *
- * Authors: Christophe Massiot <massiot@via.ecp.fr>
+ * Authors: Christophe M---iot <m---iot@via.ecp.fr>
  *
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published by
@@ -188,7 +188,7 @@ static const uint32_t pi_vlc_chan_order_wg4[] =
 /**
  * This function computes the reordering needed to go from pi_chan_order_in to
  * pi_chan_order_out.
- * If pi_chan_order_in or pi_chan_order_out is NULL, it will assume that vlc
+ * If pi_chan_order_in or pi_chan_order_out is NULL, it will ---ume that vlc
  * internal (WG4) order is requested.
  */
 VLC_API unsigned aout_CheckChannelReorder( const uint32_t *, const uint32_t *,

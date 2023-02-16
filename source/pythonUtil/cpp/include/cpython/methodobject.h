@@ -16,14 +16,14 @@ PyAPI_DATA(PyTypeObject) PyCMethod_Type;
          NULL : ((PyCFunctionObject *)func) -> m_self)
 #define PyCFunction_GET_FLAGS(func) \
         (((PyCFunctionObject *)func) -> m_ml -> ml_flags)
-#define PyCFunction_GET_CLASS(func) \
+#define PyCFunction_GET_CL---(func) \
     (((PyCFunctionObject *)func) -> m_ml -> ml_flags & METH_METHOD ? \
-         ((PyCMethodObject *)func) -> mm_class : NULL)
+         ((PyCMethodObject *)func) -> mm_cl--- : NULL)
 
 typedef struct {
     PyObject_HEAD
     PyMethodDef *m_ml; /* Description of the C function to call */
-    PyObject    *m_self; /* Passed as 'self' arg to the C func, can be NULL */
+    PyObject    *m_self; /* P---ed as 'self' arg to the C func, can be NULL */
     PyObject    *m_module; /* The __module__ attribute, can be anything */
     PyObject    *m_weakreflist; /* List of weak references */
     vectorcallfunc vectorcall;
@@ -31,5 +31,5 @@ typedef struct {
 
 typedef struct {
     PyCFunctionObject func;
-    PyTypeObject *mm_class; /* Class that defines this method */
+    PyTypeObject *mm_cl---; /* Cl--- that defines this method */
 } PyCMethodObject;

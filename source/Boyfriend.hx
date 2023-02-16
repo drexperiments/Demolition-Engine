@@ -7,7 +7,7 @@ import flixel.util.FlxTimer;
 
 using StringTools;
 
-class Boyfriend extends Character
+cl--- Boyfriend extends Character
 {
 	public var startedDeath:Bool = false;
 

@@ -14,7 +14,7 @@ the use of objects to ensure they are properly garbage-collected.
 Objects are never allocated statically or on the stack; they must be
 accessed through special macros and functions only.  (Type objects are
 exceptions to the first rule; the standard types are represented by
-statically initialized type objects, although work on type/class unification
+statically initialized type objects, although work on type/cl--- unification
 for Python 2.2 made it possible to have heap-allocated type objects too).
 
 An object has a 'reference count' that is increased or decreased when a
@@ -339,7 +339,7 @@ given type object has a specified feature.
 /* Set if the type object is dynamically allocated */
 #define Py_TPFLAGS_HEAPTYPE (1UL << 9)
 
-/* Set if the type allows subclassing */
+/* Set if the type allows subcl---ing */
 #define Py_TPFLAGS_BASETYPE (1UL << 10)
 
 /* Set if the type implements the vectorcall protocol (PEP 590) */
@@ -379,15 +379,15 @@ given type object has a specified feature.
 // subject itself (rather than a mapped attribute on it):
 #define _Py_TPFLAGS_MATCH_SELF (1UL << 22)
 
-/* These flags are used to determine if a type is a subclass. */
-#define Py_TPFLAGS_LONG_SUBCLASS        (1UL << 24)
-#define Py_TPFLAGS_LIST_SUBCLASS        (1UL << 25)
-#define Py_TPFLAGS_TUPLE_SUBCLASS       (1UL << 26)
-#define Py_TPFLAGS_BYTES_SUBCLASS       (1UL << 27)
-#define Py_TPFLAGS_UNICODE_SUBCLASS     (1UL << 28)
-#define Py_TPFLAGS_DICT_SUBCLASS        (1UL << 29)
-#define Py_TPFLAGS_BASE_EXC_SUBCLASS    (1UL << 30)
-#define Py_TPFLAGS_TYPE_SUBCLASS        (1UL << 31)
+/* These flags are used to determine if a type is a subcl---. */
+#define Py_TPFLAGS_LONG_SUBCL---        (1UL << 24)
+#define Py_TPFLAGS_LIST_SUBCL---        (1UL << 25)
+#define Py_TPFLAGS_TUPLE_SUBCL---       (1UL << 26)
+#define Py_TPFLAGS_BYTES_SUBCL---       (1UL << 27)
+#define Py_TPFLAGS_UNICODE_SUBCL---     (1UL << 28)
+#define Py_TPFLAGS_DICT_SUBCL---        (1UL << 29)
+#define Py_TPFLAGS_BASE_EXC_SUBCL---    (1UL << 30)
+#define Py_TPFLAGS_TYPE_SUBCL---        (1UL << 31)
 
 #define Py_TPFLAGS_DEFAULT  ( \
                  Py_TPFLAGS_HAVE_STACKLESS_EXTENSION | \
@@ -401,7 +401,7 @@ given type object has a specified feature.
  * type struct.
  * Starting with 3.8, binary compatibility of C extensions across
  * feature releases of Python is not supported anymore (except when
- * using the stable ABI, in which all classes are created dynamically,
+ * using the stable ABI, in which all cl---es are created dynamically,
  * using the interpreter's memory layout.)
  * Note that older extensions using the stable ABI set these flags,
  * so the bits must not be repurposed.
@@ -422,10 +422,10 @@ The macro _Py_NewReference(op) initialize reference counts to 1, and
 in special builds (Py_REF_DEBUG, Py_TRACE_REFS) performs additional
 bookkeeping appropriate to the special build.
 
-We assume that the reference count field can never overflow; this can
+We ---ume that the reference count field can never overflow; this can
 be proven when the size of the field is the same as the pointer size, so
 we ignore the possibility.  Provided a C int is at least 32 bits (which
-is implicitly assumed in many parts of this code), that's enough for
+is implicitly ---umed in many parts of this code), that's enough for
 about 2**31 references to an object.
 
 XXX The following became out of date in Python 2.2, but I'm not sure
@@ -680,7 +680,7 @@ normally return a pointer return NULL for failure, functions returning
 an integer return -1 (which could be a legal return value too!), and
 other functions return 0 for success and -1 for failure.
 Callers should always check for errors before using the result.  If
-an error was set, the caller must either explicitly clear it, or pass
+an error was set, the caller must either explicitly clear it, or p---
 the error on to its caller.
 
 Reference Counts
@@ -731,10 +731,10 @@ PyType_HasFeature(PyTypeObject *type, unsigned long feature)
     return ((flags & feature) != 0);
 }
 
-#define PyType_FastSubclass(type, flag) PyType_HasFeature(type, flag)
+#define PyType_FastSubcl---(type, flag) PyType_HasFeature(type, flag)
 
 static inline int _PyType_Check(PyObject *op) {
-    return PyType_FastSubclass(Py_TYPE(op), Py_TPFLAGS_TYPE_SUBCLASS);
+    return PyType_FastSubcl---(Py_TYPE(op), Py_TPFLAGS_TYPE_SUBCL---);
 }
 #define PyType_Check(op) _PyType_Check(_PyObject_CAST(op))
 

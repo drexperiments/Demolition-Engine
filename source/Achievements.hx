@@ -9,7 +9,7 @@ import flixel.text.FlxText;
 
 using StringTools;
 
-class Achievements {
+cl--- Achievements {
 	public static var achievementsStuff:Array<Dynamic> = [ //Name, Description, Achievement save tag, Hidden achievement
 		["Freaky on a Friday Night",	"Play on a Friday... Night.",						'friday_night_play',	 true],
 		["She Calls Me Daddy Too",		"Beat Week 1 on Hard with no Misses.",				'week1_nomiss',			false],
@@ -71,7 +71,7 @@ class Achievements {
 		}
 
 		// You might be asking "Why didn't you just ----ing load it directly dumbass??"
-		// Well, Mr. Smartass, consider that this class was made for Mind Games Mod's demo,
+		// Well, Mr. Smart---, consider that this cl--- was made for Mind Games Mod's demo,
 		// i'm obviously going to change the "Psyche" achievement's objective so that you have to complete the entire week
 		// with no misses instead of just Psychic once the full release is out. So, for not having the rest of your achievements lost on
 		// the full release, we only save the achievements' tag names instead. This also makes me able to rename
@@ -86,7 +86,7 @@ class Achievements {
 	}
 }
 
-class AttachedAchievement extends FlxSprite {
+cl--- AttachedAchievement extends FlxSprite {
 	public var sprTracker:FlxSprite;
 	private var tag:String;
 	public function new(x:Float = 0, y:Float = 0, name:String) {
@@ -121,7 +121,7 @@ class AttachedAchievement extends FlxSprite {
 	}
 }
 
-class AchievementObject extends FlxSpriteGroup {
+cl--- AchievementObject extends FlxSpriteGroup {
 	public var onFinish:Void->Void = null;
 	var alphaTween:FlxTween;
 	public function new(name:String, ?camera:FlxCamera = null)

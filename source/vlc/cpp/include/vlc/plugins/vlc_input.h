@@ -4,7 +4,7 @@
  * Copyright (C) 1999-2006 VLC authors and VideoLAN
  * $Id: b48a256ca4d7be090540a638f0c3040d17410b55 $
  *
- * Authors: Christophe Massiot <massiot@via.ecp.fr>
+ * Authors: Christophe M---iot <m---iot@via.ecp.fr>
  *          Laurent Aimar <fenrir@via.ecp.fr>
  *
  * This program is free software; you can redistribute it and/or modify it
@@ -566,7 +566,7 @@ static inline vout_thread_t *input_GetVout( input_thread_t *p_input )
 }
 
 /**
- * Return the audio output (if any) associated with an input.
+ * Return the audio output (if any) ---ociated with an input.
  * @param p_input an input thread
  * @return NULL on error, or the audio output (which needs to be
  * released with vlc_object_release()).
@@ -578,7 +578,7 @@ static inline audio_output_t *input_GetAout( input_thread_t *p_input )
 }
 
 /**
- * Returns the objects associated to an ES.
+ * Returns the objects ---ociated to an ES.
  *
  * You must release all non NULL object using vlc_object_release.
  * You may set pointer of pointer to NULL to avoid retreiving it.

@@ -1,7 +1,7 @@
 package;
 
 // STOLEN FROM HAXEFLIXEL DEMO LOL
-import flixel.system.FlxAssets.FlxShader;
+import flixel.system.Flx---ets.FlxShader;
 
 enum WiggleEffectType
 {
@@ -12,7 +12,7 @@ enum WiggleEffectType
 	FLAG;
 }
 
-class WiggleEffect
+cl--- WiggleEffect
 {
 	public var shader(default, null):WiggleShader = new WiggleShader();
 	public var effectType(default, set):WiggleEffectType = DREAMY;
@@ -64,7 +64,7 @@ class WiggleEffect
 	}
 }
 
-class WiggleShader extends FlxShader
+cl--- WiggleShader extends FlxShader
 {
 	@:glFragmentSource('
 		#pragma header

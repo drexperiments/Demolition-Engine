@@ -249,7 +249,7 @@ enum pl_locked_state
 /* Helpers */
 #define PL_LOCK playlist_Lock( p_playlist )
 #define PL_UNLOCK playlist_Unlock( p_playlist )
-#define PL_ASSERT_LOCKED playlist_AssertLocked( p_playlist )
+#define PL_---ERT_LOCKED playlist_---ertLocked( p_playlist )
 
 VLC_API playlist_t * pl_Get( vlc_object_t * );
 #define pl_Get( a ) pl_Get( VLC_OBJECT(a) )
@@ -264,7 +264,7 @@ VLC_API playlist_t * pl_Get( vlc_object_t * );
 
 VLC_API void playlist_Lock( playlist_t * );
 VLC_API void playlist_Unlock( playlist_t * );
-VLC_API void playlist_AssertLocked( playlist_t * );
+VLC_API void playlist_---ertLocked( playlist_t * );
 VLC_API void playlist_Deactivate( playlist_t * );
 
 /**
@@ -407,14 +407,14 @@ static  inline input_thread_t * __pl_CurrentInput( vlc_object_t * p_this )
 /** Tell if the playlist is empty */
 static inline bool playlist_IsEmpty( playlist_t *p_playlist )
 {
-    PL_ASSERT_LOCKED;
+    PL_---ERT_LOCKED;
     return p_playlist->items.i_size == 0;
 }
 
 /** Tell the number of items in the current playing context */
 static inline int playlist_CurrentSize( playlist_t *p_playlist )
 {
-    PL_ASSERT_LOCKED;
+    PL_---ERT_LOCKED;
     return p_playlist->current.i_size;
 }
 

@@ -34,15 +34,15 @@
 #    pragma warning(pop)
 #endif
 
-// Eigen prior to 3.2.7 doesn't have proper move constructors--but worse, some classes get implicit
+// Eigen prior to 3.2.7 doesn't have proper move constructors--but worse, some cl---es get implicit
 // move constructors that break things.  We could detect this an explicitly copy, but an extra copy
 // of matrices seems highly undesirable.
-static_assert(EIGEN_VERSION_AT_LEAST(3, 2, 7),
+static_---ert(EIGEN_VERSION_AT_LEAST(3, 2, 7),
               "Eigen support in pybind11 requires Eigen >= 3.2.7");
 
 PYBIND11_NAMESPACE_BEGIN(PYBIND11_NAMESPACE)
 
-// Provide a convenience alias for easier pass-by-ref usage with fully dynamic strides:
+// Provide a convenience alias for easier p----by-ref usage with fully dynamic strides:
 using EigenDStride = Eigen::Stride<Eigen::Dynamic, Eigen::Dynamic>;
 template <typename MatrixType>
 using EigenDRef = Eigen::Ref<MatrixType, 0, EigenDStride>;
@@ -73,7 +73,7 @@ using is_eigen_dense_plain
 template <typename T>
 using is_eigen_sparse = is_template_base_of<Eigen::SparseMatrixBase, T>;
 // Test for objects inheriting from EigenBase<Derived> that aren't captured by the above.  This
-// basically covers anything that can be assigned to a dense matrix but that don't have a typical
+// basically covers anything that can be ---igned to a dense matrix but that don't have a typical
 // matrix data layout that can be copied from their .data().  For example, DiagonalMatrix and
 // SelfAdjointView fall into this category.
 template <typename T>
@@ -261,7 +261,7 @@ eigen_array_cast(typename props::Type const &src, handle base = handle(), bool w
 }
 
 // Takes an lvalue ref to some Eigen type and a (python) base object, creating a numpy array that
-// reference the Eigen object's data with `base` as the python-registered base class (if omitted,
+// reference the Eigen object's data with `base` as the python-registered base cl--- (if omitted,
 // the base will be set to None, and lifetime management is up to the caller).  The numpy array is
 // non-writeable if the given type is const.
 template <typename props, typename Type>
@@ -401,7 +401,7 @@ private:
     Type value;
 };
 
-// Base class for casting reference/map/block/etc. objects back to python.
+// Base cl--- for casting reference/map/block/etc. objects back to python.
 template <typename MapType>
 struct eigen_map_caster {
 private:
@@ -409,7 +409,7 @@ private:
 
 public:
     // Directly referencing a ref/map's data is a bit dangerous (whatever the map/ref points to has
-    // to stay around), but we'll allow it under the assumption that you know what you're doing
+    // to stay around), but we'll allow it under the ---umption that you know what you're doing
     // (and have an appropriate keep_alive in place).  We return a numpy array pointing directly at
     // the ref's data (The numpy array ends up read-only if the ref was to a const matrix type.)
     // Note that this means you need to ensure you don't destroy the object in some other way (e.g.
@@ -506,7 +506,7 @@ public:
 
         if (need_copy) {
             // We need to copy: If we need a mutable reference, or we're not supposed to convert
-            // (either because we're in the no-convert overload pass, or because we're explicitly
+            // (either because we're in the no-convert overload p---, or because we're explicitly
             // instructed not to copy (via `py::arg().noconvert()`) we have to fail loading.
             if (!convert || need_writeable) {
                 return false;
@@ -558,14 +558,14 @@ private:
     using stride_ctor_default = bool_constant<S::InnerStrideAtCompileTime != Eigen::Dynamic
                                               && S::OuterStrideAtCompileTime != Eigen::Dynamic
                                               && std::is_default_constructible<S>::value>;
-    // Otherwise, if there is a two-index constructor, assume it is (outer,inner) like
+    // Otherwise, if there is a two-index constructor, ---ume it is (outer,inner) like
     // Eigen::Stride, and use it:
     template <typename S>
     using stride_ctor_dual
         = bool_constant<!stride_ctor_default<S>::value
                         && std::is_constructible<S, EigenIndex, EigenIndex>::value>;
     // Otherwise, if there is a one-index constructor, and just one of the strides is dynamic, use
-    // it (passing whichever stride is dynamic).
+    // it (p---ing whichever stride is dynamic).
     template <typename S>
     using stride_ctor_outer
         = bool_constant<!any_of<stride_ctor_default<S>, stride_ctor_dual<S>>::value

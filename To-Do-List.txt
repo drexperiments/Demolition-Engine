@@ -6,7 +6,7 @@
 - extra keys???????
 - Discord RPC
 - Make heck Charts
-- Update Menu Assets
+- Update Menu ---ets
 - Freeze Note???
 - Experiment with Pixel Notes
 - Softcode Note Skins (both notes and strums)

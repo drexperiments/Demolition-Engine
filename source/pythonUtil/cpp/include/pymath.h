@@ -183,7 +183,7 @@ PyAPI_FUNC(void) _Py_set_387controlword(unsigned short);
 
 /* Py_OVERFLOWED(X)
  * Return 1 iff a libm function overflowed.  Set errno to 0 before calling
- * a libm function, and invoke this macro after, passing the function
+ * a libm function, and invoke this macro after, p---ing the function
  * result.
  * Caution:
  *    This isn't reliable.  C99 no longer requires libm to set errno under

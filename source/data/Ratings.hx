@@ -1,6 +1,6 @@
 package data;
 
-class Ratings
+cl--- Ratings
 {
 	public static var bedrockRatings:Array<Dynamic> = [
 		["F", 0.41], // 40%

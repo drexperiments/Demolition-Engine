@@ -11,7 +11,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
-import lime.utils.Assets;
+import lime.utils.---ets;
 import flixel.FlxSubState;
 import flash.text.TextField;
 import flixel.FlxG;
@@ -28,7 +28,7 @@ import Controls;
 
 using StringTools;
 
-class OptionsState extends MusicBeatState
+cl--- OptionsState extends MusicBeatState
 {
 	var options:Array<String> = ['Note Colors', 'Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Gameplay', 'Demo Engine Settings' /*'Note Skins'*/];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
@@ -64,7 +64,7 @@ class OptionsState extends MusicBeatState
 		DiscordClient.changePresence("Options Menu", null);
 		#end
 			
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - Settings";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - Settings";
 
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.color = 0xFFea71fd;

@@ -7,7 +7,7 @@
 #define Py_bf_getbuffer 1
 #define Py_bf_releasebuffer 2
 #endif
-#define Py_mp_ass_subscript 3
+#define Py_mp_---_subscript 3
 #define Py_mp_length 4
 #define Py_mp_subscript 5
 #define Py_nb_absolute 6
@@ -43,7 +43,7 @@
 #define Py_nb_subtract 36
 #define Py_nb_true_divide 37
 #define Py_nb_xor 38
-#define Py_sq_ass_item 39
+#define Py_sq_---_item 39
 #define Py_sq_concat 40
 #define Py_sq_contains 41
 #define Py_sq_inplace_concat 42

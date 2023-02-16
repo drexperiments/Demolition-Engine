@@ -84,9 +84,9 @@ struct op_impl {};
 /// Operator implementation generator
 template <op_id id, op_type ot, typename L, typename R>
 struct op_ {
-    template <typename Class, typename... Extra>
-    void execute(Class &cl, const Extra &...extra) const {
-        using Base = typename Class::type;
+    template <typename Cl---, typename... Extra>
+    void execute(Cl--- &cl, const Extra &...extra) const {
+        using Base = typename Cl---::type;
         using L_type = conditional_t<std::is_same<L, self_t>::value, Base, L>;
         using R_type = conditional_t<std::is_same<R, self_t>::value, Base, R>;
         using op = op_impl<id, ot, Base, L_type, R_type>;
@@ -102,9 +102,9 @@ struct op_ {
                    extra...);
 #endif
     }
-    template <typename Class, typename... Extra>
-    void execute_cast(Class &cl, const Extra &...extra) const {
-        using Base = typename Class::type;
+    template <typename Cl---, typename... Extra>
+    void execute_cast(Cl--- &cl, const Extra &...extra) const {
+        using Base = typename Cl---::type;
         using L_type = conditional_t<std::is_same<L, self_t>::value, Base, L>;
         using R_type = conditional_t<std::is_same<R, self_t>::value, Base, R>;
         using op = op_impl<id, ot, Base, L_type, R_type>;

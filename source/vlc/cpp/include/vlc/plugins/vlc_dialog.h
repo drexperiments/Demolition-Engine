@@ -71,7 +71,7 @@ typedef struct dialog_login_t
     const char *title;
     const char *message;
     char **username;
-    char **password;
+    char **p---word;
 } dialog_login_t;
 
 VLC_API void dialog_Login(vlc_object_t *, char **, char **, const char *, const char *, ...) VLC_FORMAT (5, 6);

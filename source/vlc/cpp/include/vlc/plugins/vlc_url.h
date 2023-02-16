@@ -4,7 +4,7 @@
  * Copyright (C) 2002-2006 VLC authors and VideoLAN
  * $Id: 820250f963fbc31ff56ef1e866fe6bd020686ef0 $
  *
- * Authors: Christophe Massiot <massiot@via.ecp.fr>
+ * Authors: Christophe M---iot <m---iot@via.ecp.fr>
  *          Rémi Denis-Courmont <rem # videolan.org>
  *
  * This program is free software; you can redistribute it and/or modify it
@@ -36,7 +36,7 @@ struct vlc_url_t
 {
     char *psz_protocol;
     char *psz_username;
-    char *psz_password;
+    char *psz_p---word;
     char *psz_host;
     unsigned i_port;
     char *psz_path;

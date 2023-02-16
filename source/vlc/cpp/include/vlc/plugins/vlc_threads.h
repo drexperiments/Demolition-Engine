@@ -8,7 +8,7 @@
  * Authors: Jean-Marc Dressler <polux@via.ecp.fr>
  *          Samuel Hocevar <sam@via.ecp.fr>
  *          Gildas Bazin <gbazin@netcourrier.com>
- *          Christophe Massiot <massiot@via.ecp.fr>
+ *          Christophe M---iot <m---iot@via.ecp.fr>
  *
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published by
@@ -420,11 +420,11 @@ static inline void vlc_cleanup_lock (void *lock)
 
 #ifdef __cplusplus
 /**
- * Helper C++ class to lock a mutex.
+ * Helper C++ cl--- to lock a mutex.
  * The mutex is locked when the object is created, and unlocked when the object
  * is destroyed.
  */
-class vlc_mutex_locker
+cl--- vlc_mutex_locker
 {
     private:
         vlc_mutex_t *lock;

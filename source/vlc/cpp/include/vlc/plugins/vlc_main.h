@@ -39,7 +39,7 @@ struct libvlc_int_t
 {
     VLC_COMMON_MEMBERS
 
-    /* Structure storing the action name / key associations */
+    /* Structure storing the action name / key ---ociations */
     const struct hotkey *p_hotkeys;
 };
 

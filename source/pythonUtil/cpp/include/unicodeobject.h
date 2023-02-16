@@ -34,11 +34,11 @@ Copyright (c) Corporation for National Research Initiatives.
  * Copyright (c) 1999 by Fredrik Lundh
  *
  * By obtaining, using, and/or copying this software and/or its
- * associated documentation, you agree that you have read, understood,
+ * ---ociated documentation, you agree that you have read, understood,
  * and will comply with the following terms and conditions:
  *
  * Permission to use, copy, modify, and distribute this software and its
- * associated documentation for any purpose and without fee is hereby
+ * ---ociated documentation for any purpose and without fee is hereby
  * granted, provided that the above copyright notice appears in all
  * copies, and that both that copyright notice and this permission notice
  * appear in supporting documentation, and that the name of Secret Labs
@@ -112,7 +112,7 @@ PyAPI_DATA(PyTypeObject) PyUnicode_Type;
 PyAPI_DATA(PyTypeObject) PyUnicodeIter_Type;
 
 #define PyUnicode_Check(op) \
-                 PyType_FastSubclass(Py_TYPE(op), Py_TPFLAGS_UNICODE_SUBCLASS)
+                 PyType_FastSubcl---(Py_TYPE(op), Py_TPFLAGS_UNICODE_SUBCL---)
 #define PyUnicode_CheckExact(op) Py_IS_TYPE(op, &PyUnicode_Type)
 
 /* --- Constants ---------------------------------------------------------- */
@@ -988,7 +988,7 @@ PyAPI_FUNC(int) PyUnicode_Compare(
     );
 
 /* Compare a Unicode object with C string and return -1, 0, 1 for less than,
-   equal, and greater than, respectively.  It is best to pass only
+   equal, and greater than, respectively.  It is best to p--- only
    ASCII-encoded strings, but the function interprets the input string as
    ISO-8859-1 if it contains non-ASCII characters.
    This function does not raise exceptions. */

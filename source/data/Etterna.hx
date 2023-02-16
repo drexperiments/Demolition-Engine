@@ -3,7 +3,7 @@ package data;
 import PlayState;
 
 // stolen from ke, like you already know that idk????
-class Etterna
+cl--- Etterna
 {
 	// erf constants
 	public static var a1 = 0.254829592;

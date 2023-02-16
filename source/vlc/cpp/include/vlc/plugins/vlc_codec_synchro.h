@@ -4,7 +4,7 @@
  * Copyright (C) 1999-2005 VLC authors and VideoLAN
  * $Id: ee6c86af8dc8baaac7c2a9068a9dc8fa6cf7fe64 $
  *
- * Authors: Christophe Massiot <massiot@via.ecp.fr>
+ * Authors: Christophe M---iot <m---iot@via.ecp.fr>
  *          Jean-Marc Dressler <polux@via.ecp.fr>
  *          Stéphane Borel <stef@via.ecp.fr>
  *

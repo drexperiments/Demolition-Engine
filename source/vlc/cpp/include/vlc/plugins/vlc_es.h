@@ -390,7 +390,7 @@ VLC_API void es_format_InitFromVideo( es_format_t *, const video_format_t * );
 VLC_API int es_format_Copy( es_format_t *p_dst, const es_format_t *p_src );
 
 /**
- * This function will clean up a es_format_t and release all associated
+ * This function will clean up a es_format_t and release all ---ociated
  * resources.
  * You can call it multiple times on the same structure.
  */

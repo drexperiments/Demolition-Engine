@@ -21,14 +21,14 @@ PYBIND11_NAMESPACE_BEGIN(PYBIND11_NAMESPACE)
 
 /// Annotation for methods
 struct is_method {
-    handle class_;
-    explicit is_method(const handle &c) : class_(c) {}
+    handle cl---_;
+    explicit is_method(const handle &c) : cl---_(c) {}
 };
 
 /// Annotation for operators
 struct is_operator {};
 
-/// Annotation for classes that cannot be subclassed
+/// Annotation for cl---es that cannot be subcl---ed
 struct is_final {};
 
 /// Annotation for parent scope
@@ -49,18 +49,18 @@ struct name {
     explicit name(const char *value) : value(value) {}
 };
 
-/// Annotation indicating that a function is an overload associated with a given "sibling"
+/// Annotation indicating that a function is an overload ---ociated with a given "sibling"
 struct sibling {
     handle value;
     explicit sibling(const handle &value) : value(value.ptr()) {}
 };
 
-/// Annotation indicating that a class derives from another given type
+/// Annotation indicating that a cl--- derives from another given type
 template <typename T>
 struct base {
 
     PYBIND11_DEPRECATED(
-        "base<T>() was deprecated in favor of specifying 'T' as a template argument to class_")
+        "base<T>() was deprecated in favor of specifying 'T' as a template argument to cl---_")
     base() {} // NOLINT(modernize-use-equals-default): breaks MSVC 2015 when adding an attribute
 };
 
@@ -68,25 +68,25 @@ struct base {
 template <size_t Nurse, size_t Patient>
 struct keep_alive {};
 
-/// Annotation indicating that a class is involved in a multiple inheritance relationship
+/// Annotation indicating that a cl--- is involved in a multiple inheritance relationship
 struct multiple_inheritance {};
 
-/// Annotation which enables dynamic attributes, i.e. adds `__dict__` to a class
+/// Annotation which enables dynamic attributes, i.e. adds `__dict__` to a cl---
 struct dynamic_attr {};
 
 /// Annotation which enables the buffer protocol for a type
 struct buffer_protocol {};
 
-/// Annotation which requests that a special metaclass is created for a type
-struct metaclass {
+/// Annotation which requests that a special metacl--- is created for a type
+struct metacl--- {
     handle value;
 
-    PYBIND11_DEPRECATED("py::metaclass() is no longer required. It's turned on by default now.")
+    PYBIND11_DEPRECATED("py::metacl---() is no longer required. It's turned on by default now.")
     // NOLINTNEXTLINE(modernize-use-equals-default): breaks MSVC 2015 when adding an attribute
-    metaclass() {}
+    metacl---() {}
 
-    /// Override pybind11's default metaclass
-    explicit metaclass(handle value) : value(value) {}
+    /// Override pybind11's default metacl---
+    explicit metacl---(handle value) : value(value) {}
 };
 
 /// Specifies a custom callback with signature `void (PyHeapTypeObject*)` that
@@ -96,7 +96,7 @@ struct metaclass {
 ///
 /// Note: This is an advanced interface, and uses of it may require changes to
 /// work with later versions of pybind11.  You may wish to consult the
-/// implementation of `make_new_python_type` in `detail/classes.h` to understand
+/// implementation of `make_new_python_type` in `detail/cl---es.h` to understand
 /// the context in which the callback will be run.
 struct custom_type_setup {
     using callback = std::function<void(PyHeapTypeObject *heap_type)>;
@@ -106,7 +106,7 @@ struct custom_type_setup {
     callback value;
 };
 
-/// Annotation that marks a class as local to the module:
+/// Annotation that marks a cl--- as local to the module:
 struct module_local {
     const bool value;
     constexpr explicit module_local(bool v = true) : value(v) {}
@@ -146,7 +146,7 @@ struct call_guard<> {
 
 template <typename T>
 struct call_guard<T> {
-    static_assert(std::is_default_constructible<T>::value,
+    static_---ert(std::is_default_constructible<T>::value,
                   "The guard type must be default constructible");
 
     using type = T;
@@ -175,7 +175,7 @@ void keep_alive_impl(size_t Nurse, size_t Patient, function_call &call, handle r
 struct argument_record {
     const char *name;  ///< Argument name
     const char *descr; ///< Human-readable version of the argument value
-    handle value;      ///< Associated Python object
+    handle value;      ///< ---ociated Python object
     bool convert : 1;  ///< True if the argument is allowed to convert when loading
     bool none : 1;     ///< True if None is allowed when loading
 
@@ -212,7 +212,7 @@ struct function_record {
     /// Pointer to custom destructor for 'data' (if needed)
     void (*free_data)(function_record *ptr) = nullptr;
 
-    /// Return value policy associated with this function
+    /// Return value policy ---ociated with this function
     return_value_policy policy = return_value_policy::automatic;
 
     /// True if name == '__init__'
@@ -252,7 +252,7 @@ struct function_record {
     /// Python method object
     PyMethodDef *def = nullptr;
 
-    /// Python handle to the parent scope (a class or a module)
+    /// Python handle to the parent scope (a cl--- or a module)
     handle scope;
 
     /// Python handle to the sibling function representing an overload chain
@@ -262,7 +262,7 @@ struct function_record {
     function_record *next = nullptr;
 };
 
-/// Special data structure which (temporarily) holds metadata about a bound class
+/// Special data structure which (temporarily) holds metadata about a bound cl---
 struct type_record {
     PYBIND11_NOINLINE type_record()
         : multiple_inheritance(false), dynamic_attr(false), buffer_protocol(false),
@@ -271,7 +271,7 @@ struct type_record {
     /// Handle to the parent scope
     handle scope;
 
-    /// Name of the class
+    /// Name of the cl---
     const char *name = nullptr;
 
     // Pointer to RTTI type_info data structure
@@ -286,23 +286,23 @@ struct type_record {
     /// How large is the type's holder?
     size_t holder_size = 0;
 
-    /// The global operator new can be overridden with a class-specific variant
+    /// The global operator new can be overridden with a cl----specific variant
     void *(*operator_new)(size_t) = nullptr;
 
-    /// Function pointer to class_<..>::init_instance
+    /// Function pointer to cl---_<..>::init_instance
     void (*init_instance)(instance *, const void *) = nullptr;
 
-    /// Function pointer to class_<..>::dealloc
+    /// Function pointer to cl---_<..>::dealloc
     void (*dealloc)(detail::value_and_holder &) = nullptr;
 
-    /// List of base classes of the newly created type
+    /// List of base cl---es of the newly created type
     list bases;
 
     /// Optional docstring
     const char *doc = nullptr;
 
-    /// Custom metaclass (optional)
-    handle metaclass;
+    /// Custom metacl--- (optional)
+    handle metacl---;
 
     /// Custom type setup.
     custom_type_setup::callback custom_type_setup_callback;
@@ -310,19 +310,19 @@ struct type_record {
     /// Multiple inheritance marker
     bool multiple_inheritance : 1;
 
-    /// Does the class manage a __dict__?
+    /// Does the cl--- manage a __dict__?
     bool dynamic_attr : 1;
 
-    /// Does the class implement the buffer protocol?
+    /// Does the cl--- implement the buffer protocol?
     bool buffer_protocol : 1;
 
     /// Is the default (unique_ptr) holder type used?
     bool default_holder : 1;
 
-    /// Is the class definition local to the module shared object?
+    /// Is the cl--- definition local to the module shared object?
     bool module_local : 1;
 
-    /// Is the class inheritable from python classes?
+    /// Is the cl--- inheritable from python cl---es?
     bool is_final : 1;
 
     PYBIND11_NOINLINE void add_base(const std::type_info &base, void *(*caster)(void *) ) {
@@ -365,7 +365,7 @@ struct is_new_style_constructor {};
 
 /**
  * Partial template specializations to process custom attributes provided to
- * cpp_function_ and class_. These are either used to initialize the respective
+ * cpp_function_ and cl---_. These are either used to initialize the respective
  * fields in the type_record and function_record data structures or executed at
  * runtime to deal with custom call policies (e.g. keep_alive).
  */
@@ -408,7 +408,7 @@ struct process_attribute<return_value_policy> : process_attribute_default<return
     static void init(const return_value_policy &p, function_record *r) { r->policy = p; }
 };
 
-/// Process an attribute which indicates that this is an overloaded function associated with a
+/// Process an attribute which indicates that this is an overloaded function ---ociated with a
 /// given sibling
 template <>
 struct process_attribute<sibling> : process_attribute_default<sibling> {
@@ -420,7 +420,7 @@ template <>
 struct process_attribute<is_method> : process_attribute_default<is_method> {
     static void init(const is_method &s, function_record *r) {
         r->is_method = true;
-        r->scope = s.class_;
+        r->scope = s.cl---_;
     }
 };
 
@@ -530,11 +530,11 @@ struct process_attribute<pos_only> : process_attribute_default<pos_only> {
         if (r->nargs_pos_only > r->nargs_pos) {
             pybind11_fail("pos_only(): cannot follow a py::args() argument");
         }
-        // It also can't follow a kw_only, but a static_assert in pybind11.h checks that
+        // It also can't follow a kw_only, but a static_---ert in pybind11.h checks that
     }
 };
 
-/// Process a parent class attribute.  Single inheritance only (class_ itself already guarantees
+/// Process a parent cl--- attribute.  Single inheritance only (cl---_ itself already guarantees
 /// that)
 template <typename T>
 struct process_attribute<T, enable_if_t<is_pyobject<T>::value>>
@@ -542,7 +542,7 @@ struct process_attribute<T, enable_if_t<is_pyobject<T>::value>>
     static void init(const handle &h, type_record *r) { r->bases.append(h); }
 };
 
-/// Process a parent class attribute (deprecated, does not support multiple inheritance)
+/// Process a parent cl--- attribute (deprecated, does not support multiple inheritance)
 template <typename T>
 struct process_attribute<base<T>> : process_attribute_default<base<T>> {
     static void init(const base<T> &, type_record *r) { r->add_base(typeid(T), nullptr); }
@@ -579,8 +579,8 @@ struct process_attribute<buffer_protocol> : process_attribute_default<buffer_pro
 };
 
 template <>
-struct process_attribute<metaclass> : process_attribute_default<metaclass> {
-    static void init(const metaclass &m, type_record *r) { r->metaclass = m.value; }
+struct process_attribute<metacl---> : process_attribute_default<metacl---> {
+    static void init(const metacl--- &m, type_record *r) { r->metacl--- = m.value; }
 };
 
 template <>

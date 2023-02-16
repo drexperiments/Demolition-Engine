@@ -11,7 +11,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
-import lime.utils.Assets;
+import lime.utils.---ets;
 import flixel.FlxSubState;
 import flash.text.TextField;
 import flixel.FlxG;
@@ -27,14 +27,14 @@ import Controls;
 
 using StringTools;
 
-class DemoSubState extends BaseOptionsMenu
+cl--- DemoSubState extends BaseOptionsMenu
 {
 	public function new()
 	{
 		title = 'Demo Settings Menu';
 		rpcTitle = 'Demo Settings Menu'; //for Discord Rich Presence
 
-		//bedrock can kiss my ass XD
+		//bedrock can kiss my --- XD
 		var option:Option = new Option('Rating System:',
 		    "What should your Rating System be?", 
 			'ratingSystem', 
@@ -115,7 +115,7 @@ class DemoSubState extends BaseOptionsMenu
 		'uiSkin', 
 		'string', 
 		'Demolition',
-			['Demolition', 'Classic', 'BEAT!', 'BEAT! Gradient', 'Bedrock', 'Matt :)']);
+			['Demolition', 'Cl---ic', 'BEAT!', 'BEAT! Gradient', 'Bedrock', 'Matt :)']);
 		addOption(option);
 		
 		var option:Option = new Option('Simplify Score Text',
@@ -144,8 +144,8 @@ class DemoSubState extends BaseOptionsMenu
 			'What Should The FreePlay Be',
 			'itemType',
 			'string',
-		    'Classic',
-			['Classic', 'Vertical', 'C-Shape', 'D-Shape']);
+		    'Cl---ic',
+			['Cl---ic', 'Vertical', 'C-Shape', 'D-Shape']);
 		addOption(option);
 
 	    var option:Option = new Option('Long Health Bar',

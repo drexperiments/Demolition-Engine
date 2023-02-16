@@ -4,7 +4,7 @@
  * Copyright (C) 2002-2008 VLC authors and VideoLAN
  * $Id: 87d8229baee6c6e09e9fe11e1ee4c4761d749af4 $
  *
- * Authors: Christophe Massiot <massiot@via.ecp.fr>
+ * Authors: Christophe M---iot <m---iot@via.ecp.fr>
  *          Laurent Aimar <fenrir@via.ecp.fr>
  *          Eric Petit <titer@videolan.org>
  *          Jean-Paul Saman <jpsaman #_at_# m2x.nl>
@@ -80,7 +80,7 @@ struct sout_access_out_t
 
 enum access_out_query_e
 {
-    ACCESS_OUT_CONTROLS_PACE, /* arg1=bool *, can fail (assume true) */
+    ACCESS_OUT_CONTROLS_PACE, /* arg1=bool *, can fail (---ume true) */
 };
 
 VLC_API sout_access_out_t * sout_AccessOutNew( vlc_object_t *, const char *psz_access, const char *psz_name ) VLC_USED;

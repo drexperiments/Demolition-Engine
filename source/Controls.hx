@@ -117,7 +117,7 @@ enum KeyboardScheme
  * A list of actions that a player would invoke via some input device.
  * Uses FlxActions to funnel various inputs to a single action.
  */
-class Controls extends FlxActionSet
+cl--- Controls extends FlxActionSet
 {
 	var _ui_up = new FlxActionDigital(Action.UI_UP);
 	var _ui_left = new FlxActionDigital(Action.UI_LEFT);
@@ -436,7 +436,7 @@ class Controls extends FlxActionSet
 	}
 
 	/**
-	 * Calls a function passing each action bound by the specified control
+	 * Calls a function p---ing each action bound by the specified control
 	 * @param control
 	 * @param func
 	 * @return ->Void)

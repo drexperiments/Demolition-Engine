@@ -51,7 +51,7 @@ vlc_tls_t *vlc_tls_SessionCreate (vlc_tls_creds_t *, int fd, const char *host);
 int vlc_tls_SessionHandshake (vlc_tls_t *, const char *host, const char *serv);
 VLC_API void vlc_tls_SessionDelete (vlc_tls_t *);
 
-/* NOTE: It is assumed that a->sock.p_sys = a */
+/* NOTE: It is ---umed that a->sock.p_sys = a */
 # define tls_Send( a, b, c ) (((vlc_tls_t *)a)->sock.pf_send (a, b, c))
 
 # define tls_Recv( a, b, c ) (((vlc_tls_t *)a)->sock.pf_recv (a, b, c))

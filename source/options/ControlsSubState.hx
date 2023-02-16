@@ -11,7 +11,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
-import lime.utils.Assets;
+import lime.utils.---ets;
 import flixel.FlxSubState;
 import flash.text.TextField;
 import flixel.FlxG;
@@ -27,7 +27,7 @@ import Controls;
 
 using StringTools;
 
-class ControlsSubState extends MusicBeatSubstate {
+cl--- ControlsSubState extends MusicBeatSubstate {
 	private static var curSelected:Int = -1;
 	private static var curAlt:Bool = false;
 

@@ -25,7 +25,7 @@ import flixel.FlxSprite;
 import openfl.Lib;
 import openfl.display.BlendMode;
 import openfl.filters.BitmapFilter;
-import openfl.utils.Assets;
+import openfl.utils.---ets;
 import flixel.math.FlxMath;
 import flixel.util.FlxSave;
 import flixel.addons.transition.FlxTransitionableState;
@@ -44,7 +44,7 @@ import Discord;
 
 using StringTools;
 
-class FunkinLua {
+cl--- FunkinLua {
 	public static var Function_Stop:Dynamic = 1;
 	public static var Function_Continue:Dynamic = 0;
 
@@ -128,7 +128,7 @@ class FunkinLua {
  		set('windowW', PlayState.instance.window.width);
  		set('windowH', PlayState.instance.window.height);
 
-		// PlayState cringe ass nae nae bullcrap
+		// PlayState cringe --- nae nae bullcrap
 		set('curBeat', 0);
 		set('curStep', 0);
 
@@ -379,30 +379,30 @@ class FunkinLua {
 			Reflect.getProperty(getInstance(), obj).remove(Reflect.getProperty(getInstance(), obj)[index]);
 		});
 
-		Lua_helper.add_callback(lua, "getPropertyFromClass", function(classVar:String, variable:String) {
+		Lua_helper.add_callback(lua, "getPropertyFromCl---", function(cl---Var:String, variable:String) {
 			var killMe:Array<String> = variable.split('.');
 			if(killMe.length > 1) {
-				var coverMeInPiss:Dynamic = Reflect.getProperty(Type.resolveClass(classVar), killMe[0]);
+				var coverMeInPiss:Dynamic = Reflect.getProperty(Type.resolveCl---(cl---Var), killMe[0]);
 				for (i in 1...killMe.length-1) {
 					coverMeInPiss = Reflect.getProperty(coverMeInPiss, killMe[i]);
 				}
 				return Reflect.getProperty(coverMeInPiss, killMe[killMe.length-1]);
 			}
-			return Reflect.getProperty(Type.resolveClass(classVar), variable);
+			return Reflect.getProperty(Type.resolveCl---(cl---Var), variable);
 		});
-		Lua_helper.add_callback(lua, "setPropertyFromClass", function(classVar:String, variable:String, value:Dynamic) {
+		Lua_helper.add_callback(lua, "setPropertyFromCl---", function(cl---Var:String, variable:String, value:Dynamic) {
 			var killMe:Array<String> = variable.split('.');
 			if(killMe.length > 1) {
-				var coverMeInPiss:Dynamic = Reflect.getProperty(Type.resolveClass(classVar), killMe[0]);
+				var coverMeInPiss:Dynamic = Reflect.getProperty(Type.resolveCl---(cl---Var), killMe[0]);
 				for (i in 1...killMe.length-1) {
 					coverMeInPiss = Reflect.getProperty(coverMeInPiss, killMe[i]);
 				}
 				return Reflect.setProperty(coverMeInPiss, killMe[killMe.length-1], value);
 			}
-			return Reflect.setProperty(Type.resolveClass(classVar), variable, value);
+			return Reflect.setProperty(Type.resolveCl---(cl---Var), variable, value);
 		});
 
-		//----ass stuff for epic coders like me B)  *image of obama giving himself a medal*
+		//------- stuff for epic coders like me B)  *image of obama giving himself a medal*
 		Lua_helper.add_callback(lua, "getObjectOrder", function(obj:String) {
 			if(PlayState.instance.modchartSprites.exists(obj))
 			{
@@ -447,13 +447,13 @@ class FunkinLua {
 			}
 			luaTrace("Object " + obj + " doesn't exist!");
 		});
-		// gay ass tweens
+		// gay --- tweens
 		Lua_helper.add_callback(lua, "doTweenAdvanced", function(tagNVars:Array<String>, property:String, value:Dynamic, duration:Float, ease:String) {
  			var penisExam:Dynamic = tween----(tagNVars[0], tagNVars[1]);
- 			var gayAssAnon = {}
- 			Reflect.setField(gayAssAnon, property, value);
+ 			var gay---Anon = {}
+ 			Reflect.setField(gay---Anon, property, value);
  			if(penisExam != null) {
- 				PlayState.instance.modchartTweens.set(tagNVars[0], FlxTween.tween(penisExam, gayAssAnon, duration, {ease: getFlxEaseByString(ease),
+ 				PlayState.instance.modchartTweens.set(tagNVars[0], FlxTween.tween(penisExam, gay---Anon, duration, {ease: getFlxEaseByString(ease),
  					onComplete: function(twn:FlxTween) {
  						PlayState.instance.callOnLuas('onTweenCompleted', [tagNVars[0]]);
  						PlayState.instance.modchartTweens.remove(tagNVars[0]);
@@ -712,9 +712,9 @@ class FunkinLua {
 
 		/*Lua_helper.add_callback(lua, "getPropertyAdvanced", function(varsStr:String) {
 			var variables:Array<String> = varsStr.replace(' ', '').split(',');
-			var leClass:Class<Dynamic> = Type.resolveClass(variables[0]);
+			var leCl---:Cl---<Dynamic> = Type.resolveCl---(variables[0]);
 			if(variables.length > 2) {
-				var curProp:Dynamic = Reflect.getProperty(leClass, variables[1]);
+				var curProp:Dynamic = Reflect.getProperty(leCl---, variables[1]);
 				if(variables.length > 3) {
 					for (i in 2...variables.length-1) {
 						curProp = Reflect.getProperty(curProp, variables[i]);
@@ -722,15 +722,15 @@ class FunkinLua {
 				}
 				return Reflect.getProperty(curProp, variables[variables.length-1]);
 			} else if(variables.length == 2) {
-				return Reflect.getProperty(leClass, variables[variables.length-1]);
+				return Reflect.getProperty(leCl---, variables[variables.length-1]);
 			}
 			return null;
 		});
 		Lua_helper.add_callback(lua, "setPropertyAdvanced", function(varsStr:String, value:Dynamic) {
 			var variables:Array<String> = varsStr.replace(' ', '').split(',');
-			var leClass:Class<Dynamic> = Type.resolveClass(variables[0]);
+			var leCl---:Cl---<Dynamic> = Type.resolveCl---(variables[0]);
 			if(variables.length > 2) {
-				var curProp:Dynamic = Reflect.getProperty(leClass, variables[1]);
+				var curProp:Dynamic = Reflect.getProperty(leCl---, variables[1]);
 				if(variables.length > 3) {
 					for (i in 2...variables.length-1) {
 						curProp = Reflect.getProperty(curProp, variables[i]);
@@ -738,11 +738,11 @@ class FunkinLua {
 				}
 				return Reflect.setProperty(curProp, variables[variables.length-1], value);
 			} else if(variables.length == 2) {
-				return Reflect.setProperty(leClass, variables[variables.length-1], value);
+				return Reflect.setProperty(leCl---, variables[variables.length-1], value);
 			}
 		});*/
 		
-		//stupid bietch ass functions
+		//stupid bietch --- functions
 		Lua_helper.add_callback(lua, "addScore", function(value:Int = 0) {
 			PlayState.instance.songScore += value;
 			PlayState.instance.RecalculateRating();
@@ -1500,9 +1500,9 @@ class FunkinLua {
 			gonnaClose = true;
 		});
 
-		Lua_helper.add_callback(lua, "changePresence", function(details:String, state:Null<String>, ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float) {
+		Lua_helper.add_callback(lua, "changePresence", function(details:String, state:Null<String>, ?smallImageKey:String, ?h---tartTimestamp:Bool, ?endTimestamp:Float) {
 			#if desktop
-			DiscordClient.changePresence(details, state, smallImageKey, hasStartTimestamp, endTimestamp);
+			DiscordClient.changePresence(details, state, smallImageKey, h---tartTimestamp, endTimestamp);
 			#end
 		});
 
@@ -2214,7 +2214,7 @@ class FunkinLua {
 	"; // ---- this, I can't figure out linc_lua, so I'mma set everything in Lua itself - Super
 }
 
-class ModchartSprite extends FlxSprite
+cl--- ModchartSprite extends FlxSprite
 {
 	public var wasAdded:Bool = false;
 	//public var isInFront:Bool = false;
@@ -2226,7 +2226,7 @@ class ModchartSprite extends FlxSprite
 	}
 }
 
-class ModchartText extends FlxText
+cl--- ModchartText extends FlxText
 {
 	public var wasAdded:Bool = false;
 	public function new(x:Float, y:Float, text:String, width:Float)
@@ -2239,7 +2239,7 @@ class ModchartText extends FlxText
 	}
 }
 
-class DebugLuaText extends FlxText
+cl--- DebugLuaText extends FlxText
 {
 	private var disableTime:Float = 6;
 	public var parentGroup:FlxTypedGroup<DebugLuaText>; 

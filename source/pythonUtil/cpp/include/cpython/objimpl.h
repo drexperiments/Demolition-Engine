@@ -8,7 +8,7 @@
    vrbl-size object with nitems items, exclusive of gc overhead (if any).  The
    value is rounded up to the closest multiple of sizeof(void *), in order to
    ensure that pointer fields at the end of the object are correctly aligned
-   for the platform (this is of special importance for subclasses of, e.g.,
+   for the platform (this is of special importance for subcl---es of, e.g.,
    str or int, so that pointers can be stored after the embedded data).
 
    Note that there's no memory wastage in doing this, as malloc has to
@@ -49,7 +49,7 @@
    }
 
    Note that in C++, the use of the new operator usually implies that
-   the 1st step is performed automatically for you, so in a C++ class
+   the 1st step is performed automatically for you, so in a C++ cl---
    constructor you would start directly with PyObject_Init/InitVar. */
 
 /* This function returns the number of allocated memory blocks, regardless of size */
@@ -62,7 +62,7 @@ PyAPI_FUNC(int) _PyObject_DebugMallocStats(FILE *out);
 
 
 typedef struct {
-    /* user context passed as the first argument to the 2 functions */
+    /* user context p---ed as the first argument to the 2 functions */
     void *ctx;
 
     /* allocate an arena of size bytes */

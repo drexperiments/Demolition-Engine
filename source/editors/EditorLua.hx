@@ -33,7 +33,7 @@ import Discord;
 
 using StringTools;
 
-class EditorLua {
+cl--- EditorLua {
 	public static var Function_Stop = 1;
 	public static var Function_Continue = 0;
 

@@ -6,7 +6,7 @@ import flixel.input.keyboard.FlxKey;
 import flixel.graphics.FlxGraphic;
 import Controls;
 
-class ClientPrefs {
+cl--- ClientPrefs {
 	public static var downScroll:Bool = false;
 	public static var smooth:Bool = false;
 	public static var middleScroll:Bool = false;
@@ -20,7 +20,7 @@ class ClientPrefs {
 	public static var iconBounce:String = 'Default';
 	public static var camMove:Bool = true;
 	public static var healthDrain:String = '10%';
-	public static var itemType:String = "Classic";
+	public static var itemType:String = "Cl---ic";
 	public static var hitSound:String = "Default";
 	public static var marvelouses:Bool = true;
 	public static var showFPS:Bool = true;

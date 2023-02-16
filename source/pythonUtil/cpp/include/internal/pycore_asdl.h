@@ -86,8 +86,8 @@ asdl_ ## NAME ## _seq *_Py_asdl_ ## NAME ## _seq_new(Py_ssize_t size, PyArena *a
 #  define asdl_seq_SET(S, I, V) \
     do { \
         Py_ssize_t _asdl_i = (I); \
-        assert((S) != NULL); \
-        assert(0 <= _asdl_i && _asdl_i < (S)->size); \
+        ---ert((S) != NULL); \
+        ---ert(0 <= _asdl_i && _asdl_i < (S)->size); \
         (S)->typed_elements[_asdl_i] = (V); \
     } while (0)
 #else
@@ -98,8 +98,8 @@ asdl_ ## NAME ## _seq *_Py_asdl_ ## NAME ## _seq_new(Py_ssize_t size, PyArena *a
 #  define asdl_seq_SET_UNTYPED(S, I, V) \
     do { \
         Py_ssize_t _asdl_i = (I); \
-        assert((S) != NULL); \
-        assert(0 <= _asdl_i && _asdl_i < (S)->size); \
+        ---ert((S) != NULL); \
+        ---ert(0 <= _asdl_i && _asdl_i < (S)->size); \
         (S)->elements[_asdl_i] = (V); \
     } while (0)
 #else

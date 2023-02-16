@@ -135,30 +135,30 @@ enum demux_query_e
     /* RECORD you are ensured that it is never called twice with the same state
      * you should accept it only if the stream can be recorded without
      * any modification or header addition. */
-    DEMUX_CAN_RECORD,           /* arg1=bool*   res=can fail(assume false) */
+    DEMUX_CAN_RECORD,           /* arg1=bool*   res=can fail(---ume false) */
     DEMUX_SET_RECORD_STATE,     /* arg1=bool    res=can fail */
 
 
     /* II. Specific access_demux queries */
     /* PAUSE you are ensured that it is never called twice with the same state */
-    DEMUX_CAN_PAUSE = 0x1000,   /* arg1= bool*    can fail (assume false)*/
+    DEMUX_CAN_PAUSE = 0x1000,   /* arg1= bool*    can fail (---ume false)*/
     DEMUX_SET_PAUSE_STATE,      /* arg1= bool     can fail */
 
     DEMUX_GET_PTS_DELAY,        /* arg1= int64_t*       cannot fail */
 
     /* DEMUX_CAN_CONTROL_PACE returns true (*pb_pace) if we can read the
      * data at our pace */
-    DEMUX_CAN_CONTROL_PACE,     /* arg1= bool*pb_pace    can fail (assume false) */
+    DEMUX_CAN_CONTROL_PACE,     /* arg1= bool*pb_pace    can fail (---ume false) */
 
     /* DEMUX_CAN_CONTROL_RATE is called only if DEMUX_CAN_CONTROL_PACE has returned false.
      * *pb_rate should be true when the rate can be changed (using DEMUX_SET_RATE)
      * *pb_ts_rescale should be true when the timestamps (pts/dts/pcr) have to be rescaled */
-    DEMUX_CAN_CONTROL_RATE,     /* arg1= bool*pb_rate arg2= bool*pb_ts_rescale  can fail(assume false) */
+    DEMUX_CAN_CONTROL_RATE,     /* arg1= bool*pb_rate arg2= bool*pb_ts_rescale  can fail(---ume false) */
     /* DEMUX_SET_RATE is called only if DEMUX_CAN_CONTROL_RATE has returned true.
      * It should return the value really used in *pi_rate */
     DEMUX_SET_RATE,             /* arg1= int*pi_rate                                        can fail */
 
-    DEMUX_CAN_SEEK,            /* arg1= bool*    can fail (assume false)*/
+    DEMUX_CAN_SEEK,            /* arg1= bool*    can fail (---ume false)*/
 
     /* Navigation */
     DEMUX_NAV_ACTIVATE,        /* res=can fail */

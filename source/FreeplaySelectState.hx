@@ -4,7 +4,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.FlxSprite;
 import flixel.FlxG;
 
-class FreeplaySelectState extends MusicBeatState{
+cl--- FreeplaySelectState extends MusicBeatState{
     var freeplayCats:Array<String> = ['Vanilla', 'Demo Exclusives'];
 	var grpCats:FlxTypedGroup<Alphabet>;
 	var curSelected:Int = 0;

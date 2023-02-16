@@ -70,7 +70,7 @@ PyAPI_FUNC(PyObject *) Py_CompileStringObject(
 #define Py_CompileStringFlags(str, p, s, f) Py_CompileStringExFlags(str, p, s, f, -1)
 
 
-PyAPI_FUNC(const char *) _Py_SourceAsString(
+PyAPI_FUNC(const char *) _Py_Source---tring(
     PyObject *cmd,
     const char *funcname,
     const char *what,

@@ -67,7 +67,7 @@ https://twitter.com/evilsk8r
 
 Pico is created by Tom Fulp
 Skid and Pump are created by SrPelo
-BassetFilms did music for lemon monster songs
+bassetFilms did music for lemon monster songs
 
 
 Final important thing, this is made with the support and love to and from Newgrounds.com.

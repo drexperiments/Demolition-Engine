@@ -3,7 +3,7 @@ package;
 import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
 
-class BackgroundGirls extends FlxSprite
+cl--- BackgroundGirls extends FlxSprite
 {
 	var isPissed:Bool = true;
 	public function new(x:Float, y:Float)

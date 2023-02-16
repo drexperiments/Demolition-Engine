@@ -31,7 +31,7 @@ PYBIND11_NAMESPACE_BEGIN(detail)
 
 /// A life support system for temporary objects created by `type_caster::load()`.
 /// Adding a patient will keep it alive up until the enclosing function returns.
-class loader_life_support {
+cl--- loader_life_support {
 private:
     loader_life_support *parent = nullptr;
     std::unordered_set<PyObject *> keep_alive;
@@ -112,7 +112,7 @@ PYBIND11_NOINLINE void all_type_info_populate(PyTypeObject *t, std::vector<type_
     auto const &type_dict = get_internals().registered_types_py;
     for (size_t i = 0; i < check.size(); i++) {
         auto *type = check[i];
-        // Ignore Python2 old-style class super type:
+        // Ignore Python2 old-style cl--- super type:
         if (!PyType_Check((PyObject *) type)) {
             continue;
         }
@@ -140,7 +140,7 @@ PYBIND11_NOINLINE void all_type_info_populate(PyTypeObject *t, std::vector<type_
                 }
             }
         } else if (type->tp_bases) {
-            // It's some python type, so keep follow its bases classes to look for one or more
+            // It's some python type, so keep follow its bases cl---es to look for one or more
             // registered types
             if (i + 1 == check.size()) {
                 // When we're at the end, we can pop off the current element to avoid growing
@@ -158,10 +158,10 @@ PYBIND11_NOINLINE void all_type_info_populate(PyTypeObject *t, std::vector<type_
 
 /**
  * Extracts vector of type_info pointers of pybind-registered roots of the given Python type.  Will
- * be just 1 pybind type for the Python type of a pybind-registered class, or for any Python-side
- * derived class that uses single inheritance.  Will contain as many types as required for a Python
- * class that uses multiple inheritance to inherit (directly or indirectly) from multiple
- * pybind-registered classes.  Will be empty if neither the type nor any base classes are
+ * be just 1 pybind type for the Python type of a pybind-registered cl---, or for any Python-side
+ * derived cl--- that uses single inheritance.  Will contain as many types as required for a Python
+ * cl--- that uses multiple inheritance to inherit (directly or indirectly) from multiple
+ * pybind-registered cl---es.  Will be empty if neither the type nor any base cl---es are
  * pybind-registered.
  *
  * The value is cached for the lifetime of the Python type.
@@ -427,7 +427,7 @@ PYBIND11_NOINLINE void instance::allocate_layout() {
     } else { // multiple base types or a too-large holder
         // Allocate space to hold: [v1*][h1][v2*][h2]...[bb...] where [vN*] is a value pointer,
         // [hN] is the (uninitialized) holder instance for value N, and [bb...] is a set of bool
-        // values that tracks whether each associated holder has been initialized.  Each [block] is
+        // values that tracks whether each ---ociated holder has been initialized.  Each [block] is
         // padded, if necessary, to an integer multiple of sizeof(void *).
         size_t space = 0;
         for (auto *t : tinfo) {
@@ -570,7 +570,7 @@ inline PyThreadState *get_thread_state_unchecked() {
 void keep_alive_impl(handle nurse, handle patient);
 inline PyObject *make_new_instance(PyTypeObject *type);
 
-class type_caster_generic {
+cl--- type_caster_generic {
 public:
     PYBIND11_NOINLINE explicit type_caster_generic(const std::type_info &type_info)
         : typeinfo(get_type_info(type_info)), cpptype(&type_info) {}
@@ -745,7 +745,7 @@ public:
     }
 
     // Implementation of `load`; this takes the type of `this` so that it can dispatch the relevant
-    // bits of code between here and copyable_holder_caster where the two classes need different
+    // bits of code between here and copyable_holder_caster where the two cl---es need different
     // logic (without having to resort to virtual inheritance).
     template <typename ThisT>
     PYBIND11_NOINLINE bool load_impl(handle src, bool convert) {
@@ -767,13 +767,13 @@ public:
             this_.load_value(reinterpret_cast<instance *>(src.ptr())->get_value_and_holder());
             return true;
         }
-        // Case 2: We have a derived class
+        // Case 2: We have a derived cl---
         if (PyType_IsSubtype(srctype, typeinfo->type)) {
             const auto &bases = all_type_info(srctype);
             bool no_cpp_mi = typeinfo->simple_type;
 
-            // Case 2a: the python type is a Python-inherited derived class that inherits from just
-            // one simple (no MI) pybind11 class, or is an exact match, so the C++ instance is of
+            // Case 2a: the python type is a Python-inherited derived cl--- that inherits from just
+            // one simple (no MI) pybind11 cl---, or is an exact match, so the C++ instance is of
             // the right type and we can use reinterpret_cast.
             // (This is essentially the same as case 2b, but because not using multiple inheritance
             // is extremely common, we handle it specially to avoid the loop iterator and type
@@ -921,23 +921,23 @@ template <typename T1, typename T2>
 struct is_copy_constructible<std::pair<T1, T2>>
     : all_of<is_copy_constructible<T1>, is_copy_constructible<T2>> {};
 
-// The same problems arise with std::is_copy_assignable, so we use the same workaround.
+// The same problems arise with std::is_copy_---ignable, so we use the same workaround.
 template <typename T, typename SFINAE = void>
-struct is_copy_assignable : std::is_copy_assignable<T> {};
+struct is_copy_---ignable : std::is_copy_---ignable<T> {};
 template <typename Container>
-struct is_copy_assignable<Container,
-                          enable_if_t<all_of<std::is_copy_assignable<Container>,
+struct is_copy_---ignable<Container,
+                          enable_if_t<all_of<std::is_copy_---ignable<Container>,
                                              std::is_same<typename Container::value_type &,
                                                           typename Container::reference>>::value>>
-    : is_copy_assignable<typename Container::value_type> {};
+    : is_copy_---ignable<typename Container::value_type> {};
 template <typename T1, typename T2>
-struct is_copy_assignable<std::pair<T1, T2>>
-    : all_of<is_copy_assignable<T1>, is_copy_assignable<T2>> {};
+struct is_copy_---ignable<std::pair<T1, T2>>
+    : all_of<is_copy_---ignable<T1>, is_copy_---ignable<T2>> {};
 
 PYBIND11_NAMESPACE_END(detail)
 
 // polymorphic_type_hook<itype>::get(src, tinfo) determines whether the object pointed
-// to by `src` actually is an instance of some class derived from `itype`.
+// to by `src` actually is an instance of some cl--- derived from `itype`.
 // If so, it sets `tinfo` to point to the std::type_info representing that derived
 // type, and returns a pointer to the start of the most-derived object of that type
 // (in which `src` is a subobject; this will be the same address as `src` in most
@@ -945,7 +945,7 @@ PYBIND11_NAMESPACE_END(detail)
 // and leaves `tinfo` at its default value of nullptr.
 //
 // The default polymorphic_type_hook just returns src. A specialization for polymorphic
-// types determines the runtime type of the passed object and adjusts the this-pointer
+// types determines the runtime type of the p---ed object and adjusts the this-pointer
 // appropriately via dynamic_cast<void*>. This is what enables a C++ Animal* to appear
 // to Python as a Dog (if Dog inherits from Animal, Animal is polymorphic, Dog is
 // registered with pybind11, and this Animal is in fact a Dog).
@@ -975,7 +975,7 @@ PYBIND11_NAMESPACE_BEGIN(detail)
 
 /// Generic type caster for objects stored on the heap
 template <typename type>
-class type_caster_base : public type_caster_generic {
+cl--- type_caster_base : public type_caster_generic {
     using itype = intrinsic_t<type>;
 
 public:

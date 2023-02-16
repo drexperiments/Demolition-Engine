@@ -18,7 +18,7 @@ typedef EventNote = {
 	value3:String
 }
 
-class Note extends FlxSprite
+cl--- Note extends FlxSprite
 {
 	public var strumTime:Float = 0;
 
@@ -219,25 +219,25 @@ class Note extends FlxSprite
 		switch(char.toLowerCase())
 		{
 			case 'dad':
-				skin = 'Skins/DADNOTE_assets';
+				skin = 'Skins/DADNOTE_---ets';
 				antialias = true; //same as before
 			case 'gf' | 'gf-opponent' | 'gf-car' | 'gf-christmas':
-				skin = 'Skins/gfNOTE_assets';
+				skin = 'Skins/gfNOTE_---ets';
 				antialias = true;
 			case 'mom' | 'mom-car':
-				skin = 'Skins/MOMNOTE_assets';
+				skin = 'Skins/MOMNOTE_---ets';
 				antialias = true;
 			case 'parents-christmas':
-				skin = 'Skins/ParentsNOTE_assets';
+				skin = 'Skins/ParentsNOTE_---ets';
 				antialias = true;
 			case 'pico' | 'pico-player':
-				skin = 'Skins/picoNOTE_assets';
+				skin = 'Skins/picoNOTE_---ets';
 				antialias = true;
 			case 'monster' | 'monster-christmas':
-				skin = 'Skins/LemonboiNOTE_assets';
+				skin = 'Skins/LemonboiNOTE_---ets';
 				antialias = true;
 			case 'spooky':
-				skin = 'Skins/SpookyNOTE_assets';
+				skin = 'Skins/SpookyNOTE_---ets';
 				antialias = true;
 			case 'bf-pixel-opponent' /*| 'bf-pixel'*/:
 				/*if(PlayState.isPixelStage) {
@@ -370,7 +370,7 @@ class Note extends FlxSprite
 		
 		var skin:String = texture;
 		if(texture.length < 1) {
-			skin = 'NOTE_assets';
+			skin = 'NOTE_---ets';
 		}
 
 		var animName:String = null;

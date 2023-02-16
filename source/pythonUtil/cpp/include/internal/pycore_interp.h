@@ -158,7 +158,7 @@ struct _Py_context_state {
 };
 
 struct _Py_exc_state {
-    // The dict mapping from errno codes to OSError subclasses
+    // The dict mapping from errno codes to OSError subcl---es
     PyObject *errnomap;
     PyBaseExceptionObject *memerrors_freelist;
     int memerrors_numfree;
@@ -217,7 +217,7 @@ struct _is {
     struct _ts *tstate_head;
 
     /* Reference to the _PyRuntime global variable. This field exists
-       to not have to pass runtime in addition to tstate to a function.
+       to not have to p--- runtime in addition to tstate to a function.
        Get runtime from tstate: tstate->interp->runtime. */
     struct pyruntimestate *runtime;
 
@@ -313,8 +313,8 @@ extern void _PyInterpreterState_Clear(PyThreadState *tstate);
 
 /* cross-interpreter data registry */
 
-/* For now we use a global registry of shareable classes.  An
-   alternative would be to add a tp_* slot for a class's
+/* For now we use a global registry of shareable cl---es.  An
+   alternative would be to add a tp_* slot for a cl---'s
    crossinterpdatafunc. It would be simpler and more efficient. */
 
 struct _xidregitem;

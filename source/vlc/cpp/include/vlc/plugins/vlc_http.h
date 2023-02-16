@@ -5,7 +5,7 @@
  * $Id: ddde13efed1e11a15632f17e1da4437f59750988 $
  *
  * Authors: Laurent Aimar <fenrir@via.ecp.fr>
- *          Christophe Massiot <massiot@via.ecp.fr>
+ *          Christophe M---iot <m---iot@via.ecp.fr>
  *          Rémi Denis-Courmont <rem # videolan.org>
  *          Antoine Cellerier <dionoea at videolan dot org>
  *

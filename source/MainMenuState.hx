@@ -27,7 +27,7 @@ import flixel.input.keyboard.FlxKey;
 
 using StringTools;
 
-class MainMenuState extends MusicBeatState
+cl--- MainMenuState extends MusicBeatState
 {
 	public static var DemoEngineVersion:String = '0.3.0spa'; //Source Pre-Release, idk i suck at acronyms
 	public static var psychEngineVersion:String = '0.5.2h'; //This is also used for Discord RPC
@@ -63,7 +63,7 @@ class MainMenuState extends MusicBeatState
 	{
 		WeekData.loadTheFirstEnabledMod();
 
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition]";
 		
 		#if desktop
 		// Updating Discord Rich Presence
@@ -300,7 +300,7 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollowPos, null, 1);
 		
-		var version----:FlxText = new FlxText(12, FlxG.height - 64, 0, "Demolition Engine v" + DemoEngineVersion, 12);
+		var version----:FlxText = new FlxText(12, FlxG.height - 64, 0, "Demolition Engine [censored edition] v" + DemoEngineVersion, 12);
 		version----.scrollFactor.set();
 		version----.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(version----);

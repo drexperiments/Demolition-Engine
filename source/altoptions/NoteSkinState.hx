@@ -12,7 +12,7 @@ import flixel.util.FlxColor;
 
 using StringTools;
 
-class NoteSkinState extends MusicBeatState {
+cl--- NoteSkinState extends MusicBeatState {
 
     private var grpSkins:FlxTypedGroup<Alphabet>;
     private var skinText:Alphabet;
@@ -41,7 +41,7 @@ class NoteSkinState extends MusicBeatState {
         grpSkins = new FlxTypedGroup<Alphabet>();
 		add(grpSkins);
 
-        var path:String = 'assets/shared/images/playerSkins/';
+        var path:String = '---ets/shared/images/playerSkins/';
 
         if(FileSystem.exists(path)) {
             trace("Note skins found");

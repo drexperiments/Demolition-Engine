@@ -5,7 +5,7 @@
  * Copyright © 2006-2007 Rémi Denis-Courmont
  * $Id: d438642203dcf8b21606b8a5003754223162cc52 $
  *
- * Authors: Christophe Massiot <massiot@via.ecp.fr>
+ * Authors: Christophe M---iot <m---iot@via.ecp.fr>
  *          Laurent Aimar <fenrir@via.ecp.fr>
  *          Rémi Denis-Courmont <rem # videolan.org>
  *
@@ -75,7 +75,7 @@ struct msghdr
 #   undef IPV6_V6ONLY
 #   undef IPV6_MULTICAST_HOPS
 #   undef IPV6_MULTICAST_IF
-#   undef IPV6_TCLASS
+#   undef IPV6_TCL---
 #   undef IPV6_JOIN_GROUP
 #endif
 
@@ -252,7 +252,7 @@ struct addrinfo
     struct addrinfo *ai_next;
 };
 
-# define AI_PASSIVE     1
+# define AI_P---IVE     1
 # define AI_CANONNAME   2
 # define AI_NUMERICHOST 4
 

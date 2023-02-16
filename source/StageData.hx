@@ -4,7 +4,7 @@ package;
 import sys.io.File;
 import sys.FileSystem;
 #else
-import openfl.utils.Assets;
+import openfl.utils.---ets;
 #end
 import haxe.Json;
 import haxe.format.JsonParser;
@@ -28,7 +28,7 @@ typedef StageFile = {
 	var camera_speed:Null<Float>;
 }
 
-class StageData {
+cl--- StageData {
 	public static var forceNextDirectory:String = null;
 	public static function loadDirectory(SONG:SwagSong) {
 		var stage:String = '';
@@ -80,8 +80,8 @@ class StageData {
 			rawJson = File.getContent(path);
 		}
 		#else
-		if(Assets.exists(path)) {
-			rawJson = Assets.getText(path);
+		if(---ets.exists(path)) {
+			rawJson = ---ets.getText(path);
 		}
 		#end
 		else

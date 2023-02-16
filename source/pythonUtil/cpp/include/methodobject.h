@@ -8,7 +8,7 @@ extern "C" {
 #endif
 
 /* This is about the type 'builtin_function_or_method',
-   not Python methods in user-defined classes.  See classobject.h
+   not Python methods in user-defined cl---es.  See cl---object.h
    for the latter. */
 
 PyAPI_DATA(PyTypeObject) PyCFunction_Type;
@@ -58,7 +58,7 @@ PyAPI_FUNC(PyObject *) PyCMethod_New(PyMethodDef *, PyObject *,
 #endif
 
 
-/* Flag passed to newmethodobject */
+/* Flag p---ed to newmethodobject */
 /* #define METH_OLDARGS  0x0000   -- unsupported now */
 #define METH_VARARGS  0x0001
 #define METH_KEYWORDS 0x0002
@@ -66,10 +66,10 @@ PyAPI_FUNC(PyObject *) PyCMethod_New(PyMethodDef *, PyObject *,
 #define METH_NOARGS   0x0004
 #define METH_O        0x0008
 
-/* METH_CLASS and METH_STATIC are a little different; these control
-   the construction of methods for a class.  These cannot be used for
+/* METH_CL--- and METH_STATIC are a little different; these control
+   the construction of methods for a cl---.  These cannot be used for
    functions in modules. */
-#define METH_CLASS    0x0010
+#define METH_CL---    0x0010
 #define METH_STATIC   0x0020
 
 /* METH_COEXIST allows a method to be entered even though a slot has
@@ -91,10 +91,10 @@ PyAPI_FUNC(PyObject *) PyCMethod_New(PyMethodDef *, PyObject *,
 #endif
 
 /* METH_METHOD means the function stores an
- * additional reference to the class that defines it;
- * both self and class are passed to it.
+ * additional reference to the cl--- that defines it;
+ * both self and cl--- are p---ed to it.
  * It uses PyCMethodObject instead of PyCFunctionObject.
- * May not be combined with METH_NOARGS, METH_O, METH_CLASS or METH_STATIC.
+ * May not be combined with METH_NOARGS, METH_O, METH_CL--- or METH_STATIC.
  */
 
 #if !defined(Py_LIMITED_API) || Py_LIMITED_API+0 >= 0x03090000

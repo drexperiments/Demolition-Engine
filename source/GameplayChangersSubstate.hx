@@ -11,7 +11,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
-import lime.utils.Assets;
+import lime.utils.---ets;
 import flixel.FlxSubState;
 import flash.text.TextField;
 import flixel.FlxG;
@@ -27,7 +27,7 @@ import Controls;
 
 using StringTools;
 
-class GameplayChangersSubstate extends MusicBeatSubstate
+cl--- GameplayChangersSubstate extends MusicBeatSubstate
 {
 	private var curOption:GameplayOption = null;
 	private var curSelected:Int = 0;
@@ -367,7 +367,7 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 	}
 }
 
-class GameplayOption
+cl--- GameplayOption
 {
 	private var child:Alphabet;
 	public var text(get, set):String;

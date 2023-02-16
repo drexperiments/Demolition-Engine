@@ -256,7 +256,7 @@ vlm_media_Copy( vlm_media_t *p_dst, const vlm_media_t *p_src )
 }
 
 /**
- * Cleanup and release memory associated with this vlm_media_t instance.
+ * Cleanup and release memory ---ociated with this vlm_media_t instance.
  * You still need to release p_media itself with vlm_media_Delete().
  * \param p_media vlm_media_t to cleanup
  */

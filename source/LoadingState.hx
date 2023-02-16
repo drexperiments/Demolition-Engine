@@ -9,14 +9,14 @@ import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.util.FlxTimer;
 import flixel.math.FlxMath;
 
-import openfl.utils.Assets;
-import lime.utils.Assets as LimeAssets;
-import lime.utils.AssetLibrary;
-import lime.utils.AssetManifest;
+import openfl.utils.---ets;
+import lime.utils.---ets as Lime---ets;
+import lime.utils.---etLibrary;
+import lime.utils.---etManifest;
 
 import haxe.io.Path;
 
-class LoadingState extends MusicBeatState
+cl--- LoadingState extends MusicBeatState
 {
 	inline static var MIN_TIME = 1.0;
 
@@ -84,29 +84,29 @@ class LoadingState extends MusicBeatState
 	
 	function checkLoadSong(path:String)
 	{
-		if (!Assets.cache.hasSound(path))
+		if (!---ets.cache.h---ound(path))
 		{
-			var library = Assets.getLibrary("songs");
+			var library = ---ets.getLibrary("songs");
 			final symbolPath = path.split(":").pop();
 			// @:privateAccess
 			// library.types.set(symbolPath, SOUND);
 			// @:privateAccess
 			// library.pathGroups.set(symbolPath, [library.__cacheBreak(symbolPath)]);
 			var callback = callbacks.add("song:" + path);
-			Assets.loadSound(path).onComplete(function (_) { callback(); });
+			---ets.loadSound(path).onComplete(function (_) { callback(); });
 		}
 	}
 	
 	function checkLibrary(library:String) {
-		trace(Assets.hasLibrary(library));
-		if (Assets.getLibrary(library) == null)
+		trace(---ets.hasLibrary(library));
+		if (---ets.getLibrary(library) == null)
 		{
 			@:privateAccess
-			if (!LimeAssets.libraryPaths.exists(library))
+			if (!Lime---ets.libraryPaths.exists(library))
 				throw "Missing library: " + library;
 
 			var callback = callbacks.add("library:" + library);
-			Assets.loadLibrary(library).onComplete(function (_) { callback(); });
+			---ets.loadLibrary(library).onComplete(function (_) { callback(); });
 		}
 	}
 	
@@ -159,7 +159,7 @@ class LoadingState extends MusicBeatState
 		if(weekDir != null && weekDir.length > 0 && weekDir != '') directory = weekDir;
 
 		Paths.setCurrentLevel(directory);
-		trace('Setting asset folder to ' + directory);
+		trace('Setting ---et folder to ' + directory);
 
 		#if NO_PRELOAD_ALL
 		var loaded:Bool = false;
@@ -179,12 +179,12 @@ class LoadingState extends MusicBeatState
 	#if NO_PRELOAD_ALL
 	static function isSoundLoaded(path:String):Bool
 	{
-		return Assets.cache.hasSound(path);
+		return ---ets.cache.h---ound(path);
 	}
 	
 	static function isLibraryLoaded(library:String):Bool
 	{
-		return Assets.getLibrary(library) != null;
+		return ---ets.getLibrary(library) != null;
 	}
 	#end
 	
@@ -198,9 +198,9 @@ class LoadingState extends MusicBeatState
 	static function initSongsManifest()
 	{
 		var id = "songs";
-		var promise = new Promise<AssetLibrary>();
+		var promise = new Promise<---etLibrary>();
 
-		var library = LimeAssets.getLibrary(id);
+		var library = Lime---ets.getLibrary(id);
 
 		if (library != null)
 		{
@@ -211,7 +211,7 @@ class LoadingState extends MusicBeatState
 		var rootPath = null;
 
 		@:privateAccess
-		var libraryPaths = LimeAssets.libraryPaths;
+		var libraryPaths = Lime---ets.libraryPaths;
 		if (libraryPaths.exists(id))
 		{
 			path = libraryPaths[id];
@@ -229,18 +229,18 @@ class LoadingState extends MusicBeatState
 				rootPath = Path.directory(path);
 			}
 			@:privateAccess
-			path = LimeAssets.__cacheBreak(path);
+			path = Lime---ets.__cacheBreak(path);
 		}
 
-		AssetManifest.loadFromFile(path, rootPath).onComplete(function(manifest)
+		---etManifest.loadFromFile(path, rootPath).onComplete(function(manifest)
 		{
 			if (manifest == null)
 			{
-				promise.error("Cannot parse asset manifest for library \"" + id + "\"");
+				promise.error("Cannot parse ---et manifest for library \"" + id + "\"");
 				return;
 			}
 
-			var library = AssetLibrary.fromManifest(manifest);
+			var library = ---etLibrary.fromManifest(manifest);
 
 			if (library == null)
 			{
@@ -249,20 +249,20 @@ class LoadingState extends MusicBeatState
 			else
 			{
 				@:privateAccess
-				LimeAssets.libraries.set(id, library);
-				library.onChange.add(LimeAssets.onChange.dispatch);
+				Lime---ets.libraries.set(id, library);
+				library.onChange.add(Lime---ets.onChange.dispatch);
 				promise.completeWith(Future.withValue(library));
 			}
 		}).onError(function(_)
 		{
-			promise.error("There is no asset library with an ID of \"" + id + "\"");
+			promise.error("There is no ---et library with an ID of \"" + id + "\"");
 		});
 
 		return promise.future;
 	}
 }
 
-class MultiCallback
+cl--- MultiCallback
 {
 	public var callback:Void->Void;
 	public var logId:String = null;

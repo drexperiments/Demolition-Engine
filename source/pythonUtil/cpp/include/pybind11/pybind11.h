@@ -10,7 +10,7 @@
 
 #pragma once
 
-#include "detail/class.h"
+#include "detail/cl---.h"
 #include "detail/init.h"
 #include "attr.h"
 #include "gil.h"
@@ -78,7 +78,7 @@ inline bool apply_exception_translators(std::forward_list<ExceptionTranslator> &
 PYBIND11_NAMESPACE_END(detail)
 
 /// Wraps an arbitrary C++ function/method/lambda function/.. into a callable Python object
-class cpp_function : public function {
+cl--- cpp_function : public function {
 public:
     cpp_function() = default;
     // NOLINTNEXTLINE(google-explicit-constructor)
@@ -101,47 +101,47 @@ public:
             std::forward<Func>(f), (detail::function_signature_t<Func> *) nullptr, extra...);
     }
 
-    /// Construct a cpp_function from a class method (non-const, no ref-qualifier)
-    template <typename Return, typename Class, typename... Arg, typename... Extra>
+    /// Construct a cpp_function from a cl--- method (non-const, no ref-qualifier)
+    template <typename Return, typename Cl---, typename... Arg, typename... Extra>
     // NOLINTNEXTLINE(google-explicit-constructor)
-    cpp_function(Return (Class::*f)(Arg...), const Extra &...extra) {
+    cpp_function(Return (Cl---::*f)(Arg...), const Extra &...extra) {
         initialize(
-            [f](Class *c, Arg... args) -> Return { return (c->*f)(std::forward<Arg>(args)...); },
-            (Return(*)(Class *, Arg...)) nullptr,
+            [f](Cl--- *c, Arg... args) -> Return { return (c->*f)(std::forward<Arg>(args)...); },
+            (Return(*)(Cl--- *, Arg...)) nullptr,
             extra...);
     }
 
-    /// Construct a cpp_function from a class method (non-const, lvalue ref-qualifier)
+    /// Construct a cpp_function from a cl--- method (non-const, lvalue ref-qualifier)
     /// A copy of the overload for non-const functions without explicit ref-qualifier
     /// but with an added `&`.
-    template <typename Return, typename Class, typename... Arg, typename... Extra>
+    template <typename Return, typename Cl---, typename... Arg, typename... Extra>
     // NOLINTNEXTLINE(google-explicit-constructor)
-    cpp_function(Return (Class::*f)(Arg...) &, const Extra &...extra) {
+    cpp_function(Return (Cl---::*f)(Arg...) &, const Extra &...extra) {
         initialize(
-            [f](Class *c, Arg... args) -> Return { return (c->*f)(std::forward<Arg>(args)...); },
-            (Return(*)(Class *, Arg...)) nullptr,
+            [f](Cl--- *c, Arg... args) -> Return { return (c->*f)(std::forward<Arg>(args)...); },
+            (Return(*)(Cl--- *, Arg...)) nullptr,
             extra...);
     }
 
-    /// Construct a cpp_function from a class method (const, no ref-qualifier)
-    template <typename Return, typename Class, typename... Arg, typename... Extra>
+    /// Construct a cpp_function from a cl--- method (const, no ref-qualifier)
+    template <typename Return, typename Cl---, typename... Arg, typename... Extra>
     // NOLINTNEXTLINE(google-explicit-constructor)
-    cpp_function(Return (Class::*f)(Arg...) const, const Extra &...extra) {
-        initialize([f](const Class *c,
+    cpp_function(Return (Cl---::*f)(Arg...) const, const Extra &...extra) {
+        initialize([f](const Cl--- *c,
                        Arg... args) -> Return { return (c->*f)(std::forward<Arg>(args)...); },
-                   (Return(*)(const Class *, Arg...)) nullptr,
+                   (Return(*)(const Cl--- *, Arg...)) nullptr,
                    extra...);
     }
 
-    /// Construct a cpp_function from a class method (const, lvalue ref-qualifier)
+    /// Construct a cpp_function from a cl--- method (const, lvalue ref-qualifier)
     /// A copy of the overload for const functions without explicit ref-qualifier
     /// but with an added `&`.
-    template <typename Return, typename Class, typename... Arg, typename... Extra>
+    template <typename Return, typename Cl---, typename... Arg, typename... Extra>
     // NOLINTNEXTLINE(google-explicit-constructor)
-    cpp_function(Return (Class::*f)(Arg...) const &, const Extra &...extra) {
-        initialize([f](const Class *c,
+    cpp_function(Return (Cl---::*f)(Arg...) const &, const Extra &...extra) {
+        initialize([f](const Cl--- *c,
                        Arg... args) -> Return { return (c->*f)(std::forward<Arg>(args)...); },
-                   (Return(*)(const Class *, Arg...)) nullptr,
+                   (Return(*)(const Cl--- *, Arg...)) nullptr,
                    extra...);
     }
 
@@ -151,7 +151,7 @@ public:
 protected:
     struct InitializingFunctionRecordDeleter {
         // `destruct(function_record, false)`: `initialize_generic` copies strings and
-        // takes care of cleaning up in case of exceptions. So pass `false` to `free_strings`.
+        // takes care of cleaning up in case of exceptions. So p--- `false` to `free_strings`.
         void operator()(detail::function_record *rec) { destruct(rec, false); }
     };
     using unique_function_record
@@ -215,7 +215,7 @@ protected:
         using cast_out
             = make_caster<conditional_t<std::is_void<Return>::value, void_type, Return>>;
 
-        static_assert(
+        static_---ert(
             expected_num_args<Extra...>(
                 sizeof...(Args), cast_in::args_pos >= 0, cast_in::has_kwargs),
             "The number of argument annotations does not match the number of function arguments");
@@ -270,19 +270,19 @@ protected:
             constexpr bool has_kw_only_args = any_of<std::is_same<kw_only, Extra>...>::value,
                            has_pos_only_args = any_of<std::is_same<pos_only, Extra>...>::value,
                            has_arg_annotations = any_of<is_keyword<Extra>...>::value;
-            static_assert(has_arg_annotations || !has_kw_only_args,
+            static_---ert(has_arg_annotations || !has_kw_only_args,
                           "py::kw_only requires the use of argument annotations");
-            static_assert(has_arg_annotations || !has_pos_only_args,
+            static_---ert(has_arg_annotations || !has_pos_only_args,
                           "py::pos_only requires the use of argument annotations (for docstrings "
                           "and aligning the annotations to the argument)");
 
-            static_assert(constexpr_sum(is_kw_only<Extra>::value...) <= 1,
+            static_---ert(constexpr_sum(is_kw_only<Extra>::value...) <= 1,
                           "py::kw_only may be specified only once");
-            static_assert(constexpr_sum(is_pos_only<Extra>::value...) <= 1,
+            static_---ert(constexpr_sum(is_pos_only<Extra>::value...) <= 1,
                           "py::pos_only may be specified only once");
             constexpr auto kw_only_pos = constexpr_first<is_kw_only, Extra...>();
             constexpr auto pos_only_pos = constexpr_first<is_pos_only, Extra...>();
-            static_assert(!(has_kw_only_args && has_pos_only_args) || pos_only_pos < kw_only_pos,
+            static_---ert(!(has_kw_only_args && has_pos_only_args) || pos_only_pos < kw_only_pos,
                           "py::pos_only must come before py::kw_only");
         }
 
@@ -293,7 +293,7 @@ protected:
         PYBIND11_DESCR_CONSTEXPR auto types = decltype(signature)::types();
 
         /* Register the function with Python from generic (non-templated) code */
-        // Pass on the ownership over the `unique_rec` to `initialize_generic`. `rec` stays valid.
+        // P--- on the ownership over the `unique_rec` to `initialize_generic`. `rec` stays valid.
         initialize_generic(std::move(unique_rec), signature.text, types.data(), sizeof...(Args));
 
         /* Stash some additional information used by an important optimization in 'functional.h' */
@@ -307,10 +307,10 @@ protected:
         }
     }
 
-    // Utility class that keeps track of all duplicated strings, and cleans them up in its
+    // Utility cl--- that keeps track of all duplicated strings, and cleans them up in its
     // destructor, unless they are released. Basically a RAII-solution to deal with exceptions
     // along the way.
-    class strdup_guard {
+    cl--- strdup_guard {
     public:
         ~strdup_guard() {
             for (auto *s : strings) {
@@ -368,11 +368,11 @@ protected:
 
 #if !defined(NDEBUG) && !defined(PYBIND11_DISABLE_NEW_STYLE_INIT_WARNING)
         if (rec->is_constructor && !rec->is_new_style_constructor) {
-            const auto class_name
+            const auto cl---_name
                 = detail::get_fully_qualified_tp_name((PyTypeObject *) rec->scope.ptr());
             const auto func_name = std::string(rec->name);
             PyErr_WarnEx(PyExc_FutureWarning,
-                         ("pybind11-bound class '" + class_name
+                         ("pybind11-bound cl--- '" + cl---_name
                           + "' is using an old-style "
                             "placement-new '"
                           + func_name
@@ -436,7 +436,7 @@ protected:
                                  th.attr("__qualname__").cast<std::string>();
                 } else if (rec->is_new_style_constructor && arg_index == 0) {
                     // A new-style `__init__` takes `self` as `value_and_holder`.
-                    // Rewrite it to the proper class type.
+                    // Rewrite it to the proper cl--- type.
                     signature += rec->scope.attr("__module__").cast<std::string>() + "."
                                  + rec->scope.attr("__qualname__").cast<std::string>();
                 } else {
@@ -477,7 +477,7 @@ protected:
                 capsule rec_capsule = isinstance<capsule>(self) ? reinterpret_borrow<capsule>(self)
                                                                 : capsule(self);
                 chain = (detail::function_record *) rec_capsule;
-                /* Never append a method to an overload chain of a parent class;
+                /* Never append a method to an overload chain of a parent cl---;
                    instead, hide the parent's overloads in this case */
                 if (!chain->scope.is(rec->scope)) {
                     chain = nullptr;
@@ -700,13 +700,13 @@ protected:
         }
 
         try {
-            // We do this in two passes: in the first pass, we load arguments with `convert=false`;
+            // We do this in two p---es: in the first p---, we load arguments with `convert=false`;
             // in the second, we allow conversion (except for arguments with an explicit
             // py::arg().noconvert()).  This lets us prefer calls without conversion, with
             // conversion as a fallback.
-            std::vector<function_call> second_pass;
+            std::vector<function_call> second_p---;
 
-            // However, if there are no overloads, we can just skip the no-convert pass entirely
+            // However, if there are no overloads, we can just skip the no-convert p--- entirely
             const bool overloaded = it != nullptr && it->next != nullptr;
 
             for (; it != nullptr; it = it->next) {
@@ -900,7 +900,7 @@ protected:
                     call.args_ref = std::move(extra_args);
                 }
 
-                // 4b. If we have a py::kwargs, pass on any remaining kwargs
+                // 4b. If we have a py::kwargs, p--- on any remaining kwargs
                 if (func.has_kwargs) {
                     if (!kwargs.ptr()) {
                         kwargs = dict(); // If we didn't get one, send an empty one
@@ -919,13 +919,13 @@ protected:
                 }
 #endif
 
-                std::vector<bool> second_pass_convert;
+                std::vector<bool> second_p---_convert;
                 if (overloaded) {
-                    // We're in the first no-convert pass, so swap out the conversion flags for a
+                    // We're in the first no-convert p---, so swap out the conversion flags for a
                     // set of all-false flags.  If the call fails, we'll swap the flags back in for
                     // the conversion-allowed call below.
-                    second_pass_convert.resize(func.nargs, false);
-                    call.args_convert.swap(second_pass_convert);
+                    second_p---_convert.resize(func.nargs, false);
+                    call.args_convert.swap(second_p---_convert);
                 }
 
                 // 6. Call the function.
@@ -943,23 +943,23 @@ protected:
                 if (overloaded) {
                     // The (overloaded) call failed; if the call has at least one argument that
                     // permits conversion (i.e. it hasn't been explicitly specified `.noconvert()`)
-                    // then add this call to the list of second pass overloads to try.
+                    // then add this call to the list of second p--- overloads to try.
                     for (size_t i = func.is_method ? 1 : 0; i < pos_args; i++) {
-                        if (second_pass_convert[i]) {
+                        if (second_p---_convert[i]) {
                             // Found one: swap the converting flags back in and store the call for
-                            // the second pass.
-                            call.args_convert.swap(second_pass_convert);
-                            second_pass.push_back(std::move(call));
+                            // the second p---.
+                            call.args_convert.swap(second_p---_convert);
+                            second_p---.push_back(std::move(call));
                             break;
                         }
                     }
                 }
             }
 
-            if (overloaded && !second_pass.empty() && result.ptr() == PYBIND11_TRY_NEXT_OVERLOAD) {
-                // The no-conversion pass finished without success, try again with conversion
+            if (overloaded && !second_p---.empty() && result.ptr() == PYBIND11_TRY_NEXT_OVERLOAD) {
+                // The no-conversion p--- finished without success, try again with conversion
                 // allowed
-                for (auto &call : second_pass) {
+                for (auto &call : second_p---) {
                     try {
                         loader_life_support guard{};
                         result = call.func.impl(call);
@@ -969,7 +969,7 @@ protected:
 
                     if (result.ptr() != PYBIND11_TRY_NEXT_OVERLOAD) {
                         // The error reporting logic below expects 'it' to be valid, as it would be
-                        // if we'd encountered this failure in the first-pass loop.
+                        // if we'd encountered this failure in the first-p--- loop.
                         if (!result) {
                             it = &call.func;
                         }
@@ -1142,7 +1142,7 @@ protected:
 };
 
 /// Wrapper for Python extension modules
-class module_ : public object {
+cl--- module_ : public object {
 public:
     PYBIND11_OBJECT_DEFAULT(module_, object, PyModule_Check)
 
@@ -1301,7 +1301,7 @@ object make_simple_namespace(Args &&...args_) {
 
 PYBIND11_NAMESPACE_BEGIN(detail)
 /// Generic support for creating new Python heap types
-class generic_type : public object {
+cl--- generic_type : public object {
 public:
     PYBIND11_OBJECT_DEFAULT(generic_type, object, PyType_Check)
 protected:
@@ -1350,7 +1350,7 @@ protected:
             tinfo->simple_ancestors = false;
         } else if (rec.bases.size() == 1) {
             auto *parent_tinfo = get_type_info((PyTypeObject *) rec.bases[0].ptr());
-            assert(parent_tinfo != nullptr);
+            ---ert(parent_tinfo != nullptr);
             bool parent_simple_ancestors = parent_tinfo->simple_ancestors;
             tinfo->simple_ancestors = parent_simple_ancestors;
             // The parent can no longer be a simple type if it has MI and has a child
@@ -1384,7 +1384,7 @@ protected:
         if (!type->ht_type.tp_as_buffer) {
             pybind11_fail("To be able to register buffer protocol support for the type '"
                           + get_fully_qualified_tp_name(tinfo->type)
-                          + "' the associated class<>(..) invocation must "
+                          + "' the ---ociated cl---<>(..) invocation must "
                             "include the pybind11::buffer_protocol() annotation!");
         }
 
@@ -1431,7 +1431,7 @@ struct has_operator_delete_size<
     T,
     void_t<decltype(static_cast<void (*)(void *, size_t)>(T::operator delete))>> : std::true_type {
 };
-/// Call class-specific delete if it exists or global otherwise. Can also be an overload set.
+/// Call cl----specific delete if it exists or global otherwise. Can also be an overload set.
 template <typename T, enable_if_t<has_operator_delete<T>::value, int> = 0>
 void call_operator_delete(T *p, size_t, size_t) {
     T::operator delete(p);
@@ -1463,7 +1463,7 @@ inline void call_operator_delete(void *p, size_t s, size_t a) {
 #endif
 }
 
-inline void add_class_method(object &cls, const char *name_, const cpp_function &cf) {
+inline void add_cl---_method(object &cls, const char *name_, const cpp_function &cf) {
     cls.attr(cf.name()) = cf;
     if (std::strcmp(name_, "__eq__") == 0 && !cls.attr("__dict__").contains("__hash__")) {
         cls.attr("__hash__") = none();
@@ -1479,24 +1479,24 @@ auto method_adaptor(F &&f) -> decltype(std::forward<F>(f)) {
     return std::forward<F>(f);
 }
 
-template <typename Derived, typename Return, typename Class, typename... Args>
-auto method_adaptor(Return (Class::*pmf)(Args...)) -> Return (Derived::*)(Args...) {
-    static_assert(
-        detail::is_accessible_base_of<Class, Derived>::value,
-        "Cannot bind an inaccessible base class method; use a lambda definition instead");
+template <typename Derived, typename Return, typename Cl---, typename... Args>
+auto method_adaptor(Return (Cl---::*pmf)(Args...)) -> Return (Derived::*)(Args...) {
+    static_---ert(
+        detail::is_accessible_base_of<Cl---, Derived>::value,
+        "Cannot bind an inaccessible base cl--- method; use a lambda definition instead");
     return pmf;
 }
 
-template <typename Derived, typename Return, typename Class, typename... Args>
-auto method_adaptor(Return (Class::*pmf)(Args...) const) -> Return (Derived::*)(Args...) const {
-    static_assert(
-        detail::is_accessible_base_of<Class, Derived>::value,
-        "Cannot bind an inaccessible base class method; use a lambda definition instead");
+template <typename Derived, typename Return, typename Cl---, typename... Args>
+auto method_adaptor(Return (Cl---::*pmf)(Args...) const) -> Return (Derived::*)(Args...) const {
+    static_---ert(
+        detail::is_accessible_base_of<Cl---, Derived>::value,
+        "Cannot bind an inaccessible base cl--- method; use a lambda definition instead");
     return pmf;
 }
 
 template <typename type_, typename... options>
-class class_ : public detail::generic_type {
+cl--- cl---_ : public detail::generic_type {
     template <typename T>
     using is_holder = detail::is_holder_type<type_, T>;
     template <typename T>
@@ -1505,7 +1505,7 @@ class class_ : public detail::generic_type {
     using is_base = detail::is_strict_base_of<T, type_>;
     // struct instead of using here to help MSVC:
     template <typename T>
-    struct is_valid_class_option : detail::any_of<is_holder<T>, is_subtype<T>, is_base<T>> {};
+    struct is_valid_cl---_option : detail::any_of<is_holder<T>, is_subtype<T>, is_base<T>> {};
 
 public:
     using type = type_;
@@ -1513,26 +1513,26 @@ public:
     constexpr static bool has_alias = !std::is_void<type_alias>::value;
     using holder_type = detail::exactly_one_t<is_holder, std::unique_ptr<type>, options...>;
 
-    static_assert(detail::all_of<is_valid_class_option<options>...>::value,
-                  "Unknown/invalid class_ template parameters provided");
+    static_---ert(detail::all_of<is_valid_cl---_option<options>...>::value,
+                  "Unknown/invalid cl---_ template parameters provided");
 
-    static_assert(!has_alias || std::is_polymorphic<type>::value,
-                  "Cannot use an alias class with a non-polymorphic type");
+    static_---ert(!has_alias || std::is_polymorphic<type>::value,
+                  "Cannot use an alias cl--- with a non-polymorphic type");
 
-    PYBIND11_OBJECT(class_, generic_type, PyType_Check)
+    PYBIND11_OBJECT(cl---_, generic_type, PyType_Check)
 
     template <typename... Extra>
-    class_(handle scope, const char *name, const Extra &...extra) {
+    cl---_(handle scope, const char *name, const Extra &...extra) {
         using namespace detail;
 
-        // MI can only be specified via class_ template options, not constructor parameters
-        static_assert(
-            none_of<is_pyobject<Extra>...>::value || // no base class arguments, or:
+        // MI can only be specified via cl---_ template options, not constructor parameters
+        static_---ert(
+            none_of<is_pyobject<Extra>...>::value || // no base cl--- arguments, or:
                 (constexpr_sum(is_pyobject<Extra>::value...) == 1 && // Exactly one base
                  constexpr_sum(is_base<options>::value...) == 0 &&   // no template option bases
                  // no multiple_inheritance attr
                  none_of<std::is_same<multiple_inheritance, Extra>...>::value),
-            "Error: multiple inheritance bases must be specified via class_ template options");
+            "Error: multiple inheritance bases must be specified via cl---_ template options");
 
         type_record record;
         record.scope = scope;
@@ -1547,7 +1547,7 @@ public:
 
         set_operator_new<type>(&record);
 
-        /* Register base classes specified via template arguments to class_, if any */
+        /* Register base cl---es specified via template arguments to cl---_, if any */
         PYBIND11_EXPAND_SIDE_EFFECTS(add_base<options>(record));
 
         /* Process optional arguments, if any */
@@ -1574,19 +1574,19 @@ public:
     static void add_base(detail::type_record &) {}
 
     template <typename Func, typename... Extra>
-    class_ &def(const char *name_, Func &&f, const Extra &...extra) {
+    cl---_ &def(const char *name_, Func &&f, const Extra &...extra) {
         cpp_function cf(method_adaptor<type>(std::forward<Func>(f)),
                         name(name_),
                         is_method(*this),
                         sibling(getattr(*this, name_, none())),
                         extra...);
-        add_class_method(*this, name_, cf);
+        add_cl---_method(*this, name_, cf);
         return *this;
     }
 
     template <typename Func, typename... Extra>
-    class_ &def_static(const char *name_, Func &&f, const Extra &...extra) {
-        static_assert(!std::is_member_function_pointer<Func>::value,
+    cl---_ &def_static(const char *name_, Func &&f, const Extra &...extra) {
+        static_---ert(!std::is_member_function_pointer<Func>::value,
                       "def_static(...) called with a non-static member function pointer");
         cpp_function cf(std::forward<Func>(f),
                         name(name_),
@@ -1598,45 +1598,45 @@ public:
     }
 
     template <detail::op_id id, detail::op_type ot, typename L, typename R, typename... Extra>
-    class_ &def(const detail::op_<id, ot, L, R> &op, const Extra &...extra) {
+    cl---_ &def(const detail::op_<id, ot, L, R> &op, const Extra &...extra) {
         op.execute(*this, extra...);
         return *this;
     }
 
     template <detail::op_id id, detail::op_type ot, typename L, typename R, typename... Extra>
-    class_ &def_cast(const detail::op_<id, ot, L, R> &op, const Extra &...extra) {
+    cl---_ &def_cast(const detail::op_<id, ot, L, R> &op, const Extra &...extra) {
         op.execute_cast(*this, extra...);
         return *this;
     }
 
     template <typename... Args, typename... Extra>
-    class_ &def(const detail::initimpl::constructor<Args...> &init, const Extra &...extra) {
+    cl---_ &def(const detail::initimpl::constructor<Args...> &init, const Extra &...extra) {
         PYBIND11_WORKAROUND_INCORRECT_MSVC_C4100(init);
         init.execute(*this, extra...);
         return *this;
     }
 
     template <typename... Args, typename... Extra>
-    class_ &def(const detail::initimpl::alias_constructor<Args...> &init, const Extra &...extra) {
+    cl---_ &def(const detail::initimpl::alias_constructor<Args...> &init, const Extra &...extra) {
         PYBIND11_WORKAROUND_INCORRECT_MSVC_C4100(init);
         init.execute(*this, extra...);
         return *this;
     }
 
     template <typename... Args, typename... Extra>
-    class_ &def(detail::initimpl::factory<Args...> &&init, const Extra &...extra) {
+    cl---_ &def(detail::initimpl::factory<Args...> &&init, const Extra &...extra) {
         std::move(init).execute(*this, extra...);
         return *this;
     }
 
     template <typename... Args, typename... Extra>
-    class_ &def(detail::initimpl::pickle_factory<Args...> &&pf, const Extra &...extra) {
+    cl---_ &def(detail::initimpl::pickle_factory<Args...> &&pf, const Extra &...extra) {
         std::move(pf).execute(*this, extra...);
         return *this;
     }
 
     template <typename Func>
-    class_ &def_buffer(Func &&func) {
+    cl---_ &def_buffer(Func &&func) {
         struct capture {
             Func func;
         };
@@ -1658,20 +1658,20 @@ public:
         return *this;
     }
 
-    template <typename Return, typename Class, typename... Args>
-    class_ &def_buffer(Return (Class::*func)(Args...)) {
+    template <typename Return, typename Cl---, typename... Args>
+    cl---_ &def_buffer(Return (Cl---::*func)(Args...)) {
         return def_buffer([func](type &obj) { return (obj.*func)(); });
     }
 
-    template <typename Return, typename Class, typename... Args>
-    class_ &def_buffer(Return (Class::*func)(Args...) const) {
+    template <typename Return, typename Cl---, typename... Args>
+    cl---_ &def_buffer(Return (Cl---::*func)(Args...) const) {
         return def_buffer([func](const type &obj) { return (obj.*func)(); });
     }
 
     template <typename C, typename D, typename... Extra>
-    class_ &def_readwrite(const char *name, D C::*pm, const Extra &...extra) {
-        static_assert(std::is_same<C, type>::value || std::is_base_of<C, type>::value,
-                      "def_readwrite() requires a class member (or base class member)");
+    cl---_ &def_readwrite(const char *name, D C::*pm, const Extra &...extra) {
+        static_---ert(std::is_same<C, type>::value || std::is_base_of<C, type>::value,
+                      "def_readwrite() requires a cl--- member (or base cl--- member)");
         cpp_function fget([pm](const type &c) -> const D & { return c.*pm; }, is_method(*this)),
             fset([pm](type &c, const D &value) { c.*pm = value; }, is_method(*this));
         def_property(name, fget, fset, return_value_policy::reference_internal, extra...);
@@ -1679,16 +1679,16 @@ public:
     }
 
     template <typename C, typename D, typename... Extra>
-    class_ &def_readonly(const char *name, const D C::*pm, const Extra &...extra) {
-        static_assert(std::is_same<C, type>::value || std::is_base_of<C, type>::value,
-                      "def_readonly() requires a class member (or base class member)");
+    cl---_ &def_readonly(const char *name, const D C::*pm, const Extra &...extra) {
+        static_---ert(std::is_same<C, type>::value || std::is_base_of<C, type>::value,
+                      "def_readonly() requires a cl--- member (or base cl--- member)");
         cpp_function fget([pm](const type &c) -> const D & { return c.*pm; }, is_method(*this));
         def_property_readonly(name, fget, return_value_policy::reference_internal, extra...);
         return *this;
     }
 
     template <typename D, typename... Extra>
-    class_ &def_readwrite_static(const char *name, D *pm, const Extra &...extra) {
+    cl---_ &def_readwrite_static(const char *name, D *pm, const Extra &...extra) {
         cpp_function fget([pm](const object &) -> const D & { return *pm; }, scope(*this)),
             fset([pm](const object &, const D &value) { *pm = value; }, scope(*this));
         def_property_static(name, fget, fset, return_value_policy::reference, extra...);
@@ -1696,7 +1696,7 @@ public:
     }
 
     template <typename D, typename... Extra>
-    class_ &def_readonly_static(const char *name, const D *pm, const Extra &...extra) {
+    cl---_ &def_readonly_static(const char *name, const D *pm, const Extra &...extra) {
         cpp_function fget([pm](const object &) -> const D & { return *pm; }, scope(*this));
         def_property_readonly_static(name, fget, return_value_policy::reference, extra...);
         return *this;
@@ -1704,7 +1704,7 @@ public:
 
     /// Uses return_value_policy::reference_internal by default
     template <typename Getter, typename... Extra>
-    class_ &def_property_readonly(const char *name, const Getter &fget, const Extra &...extra) {
+    cl---_ &def_property_readonly(const char *name, const Getter &fget, const Extra &...extra) {
         return def_property_readonly(name,
                                      cpp_function(method_adaptor<type>(fget)),
                                      return_value_policy::reference_internal,
@@ -1713,14 +1713,14 @@ public:
 
     /// Uses cpp_function's return_value_policy by default
     template <typename... Extra>
-    class_ &
+    cl---_ &
     def_property_readonly(const char *name, const cpp_function &fget, const Extra &...extra) {
         return def_property(name, fget, nullptr, extra...);
     }
 
     /// Uses return_value_policy::reference by default
     template <typename Getter, typename... Extra>
-    class_ &
+    cl---_ &
     def_property_readonly_static(const char *name, const Getter &fget, const Extra &...extra) {
         return def_property_readonly_static(
             name, cpp_function(fget), return_value_policy::reference, extra...);
@@ -1728,7 +1728,7 @@ public:
 
     /// Uses cpp_function's return_value_policy by default
     template <typename... Extra>
-    class_ &def_property_readonly_static(const char *name,
+    cl---_ &def_property_readonly_static(const char *name,
                                          const cpp_function &fget,
                                          const Extra &...extra) {
         return def_property_static(name, fget, nullptr, extra...);
@@ -1736,12 +1736,12 @@ public:
 
     /// Uses return_value_policy::reference_internal by default
     template <typename Getter, typename Setter, typename... Extra>
-    class_ &
+    cl---_ &
     def_property(const char *name, const Getter &fget, const Setter &fset, const Extra &...extra) {
         return def_property(name, fget, cpp_function(method_adaptor<type>(fset)), extra...);
     }
     template <typename Getter, typename... Extra>
-    class_ &def_property(const char *name,
+    cl---_ &def_property(const char *name,
                          const Getter &fget,
                          const cpp_function &fset,
                          const Extra &...extra) {
@@ -1754,7 +1754,7 @@ public:
 
     /// Uses cpp_function's return_value_policy by default
     template <typename... Extra>
-    class_ &def_property(const char *name,
+    cl---_ &def_property(const char *name,
                          const cpp_function &fget,
                          const cpp_function &fset,
                          const Extra &...extra) {
@@ -1763,7 +1763,7 @@ public:
 
     /// Uses return_value_policy::reference by default
     template <typename Getter, typename... Extra>
-    class_ &def_property_static(const char *name,
+    cl---_ &def_property_static(const char *name,
                                 const Getter &fget,
                                 const cpp_function &fset,
                                 const Extra &...extra) {
@@ -1773,11 +1773,11 @@ public:
 
     /// Uses cpp_function's return_value_policy by default
     template <typename... Extra>
-    class_ &def_property_static(const char *name,
+    cl---_ &def_property_static(const char *name,
                                 const cpp_function &fget,
                                 const cpp_function &fset,
                                 const Extra &...extra) {
-        static_assert(0 == detail::constexpr_sum(std::is_base_of<arg, Extra>::value...),
+        static_---ert(0 == detail::constexpr_sum(std::is_base_of<arg, Extra>::value...),
                       "Argument annotations are not allowed for properties");
         auto rec_fget = get_function_record(fget), rec_fset = get_function_record(fset);
         auto *rec_active = rec_fget;
@@ -1900,7 +1900,7 @@ template <typename... Args>
 detail::initimpl::constructor<Args...> init() {
     return {};
 }
-/// Like `init<Args...>()`, but the instance is always constructed through the alias class (even
+/// Like `init<Args...>()`, but the instance is always constructed through the alias cl--- (even
 /// when not inheriting on the Python side).
 template <typename... Args>
 detail::initimpl::alias_constructor<Args...> init_alias() {
@@ -2146,11 +2146,11 @@ using equivalent_integer_t =
 
 PYBIND11_NAMESPACE_END(detail)
 
-/// Binds C++ enumerations and enumeration classes to Python
+/// Binds C++ enumerations and enumeration cl---es to Python
 template <typename Type>
-class enum_ : public class_<Type> {
+cl--- enum_ : public cl---_<Type> {
 public:
-    using Base = class_<Type>;
+    using Base = cl---_<Type>;
     using Base::attr;
     using Base::def;
     using Base::def_property_readonly;
@@ -2164,7 +2164,7 @@ public:
 
     template <typename... Extra>
     enum_(const handle &scope, const char *name, const Extra &...extra)
-        : class_<Type>(scope, name, extra...), m_base(*this, scope) {
+        : cl---_<Type>(scope, name, extra...), m_base(*this, scope) {
         constexpr bool is_arithmetic = detail::any_of<std::is_same<arithmetic, Extra>...>::value;
         constexpr bool is_convertible = std::is_convertible<Type, Underlying>::value;
         m_base.init(is_arithmetic, is_convertible);
@@ -2222,7 +2222,7 @@ PYBIND11_NOINLINE void keep_alive_impl(handle nurse, handle patient) {
     } else {
         /* Fall back to clever approach based on weak references taken from
          * Boost.Python. This is not used for pybind-registered types because
-         * the objects can be destroyed out-of-order in a GC pass. */
+         * the objects can be destroyed out-of-order in a GC p---. */
         cpp_function disable_lifesupport([patient](handle weakref) {
             patient.dec_ref();
             weakref.dec_ref();
@@ -2268,7 +2268,7 @@ all_type_info_get_cache(PyTypeObject *type) {
         weakref((PyObject *) type, cpp_function([type](handle wr) {
                     get_internals().registered_types_py.erase(type);
 
-                    // TODO consolidate the erasure code in pybind11_meta_dealloc() in class.h
+                    // TODO consolidate the erasure code in pybind11_meta_dealloc() in cl---.h
                     auto &cache = get_internals().inactive_override_cache;
                     for (auto it = cache.begin(), last = cache.end(); it != last;) {
                         if (it->first == reinterpret_cast<PyObject *>(type)) {
@@ -2287,7 +2287,7 @@ all_type_info_get_cache(PyTypeObject *type) {
 }
 
 /* There are a large number of apparently unused template arguments because
- * each combination requires a separate py::class_ registration.
+ * each combination requires a separate py::cl---_ registration.
  */
 template <typename Access,
           return_value_policy Policy,
@@ -2313,7 +2313,7 @@ struct iterator_access {
 };
 
 template <typename Iterator, typename SFINAE = decltype((*std::declval<Iterator &>()).first)>
-class iterator_key_access {
+cl--- iterator_key_access {
 private:
     using pair_type = decltype(*std::declval<Iterator &>());
 
@@ -2335,7 +2335,7 @@ public:
 };
 
 template <typename Iterator, typename SFINAE = decltype((*std::declval<Iterator &>()).second)>
-class iterator_value_access {
+cl--- iterator_value_access {
 private:
     using pair_type = decltype(*std::declval<Iterator &>());
 
@@ -2358,7 +2358,7 @@ iterator make_iterator_impl(Iterator first, Sentinel last, Extra &&...extra) {
     // TODO: state captures only the types of Extra, not the values
 
     if (!detail::get_type_info(typeid(state), false)) {
-        class_<state>(handle(), "iterator", pybind11::module_local())
+        cl---_<state>(handle(), "iterator", pybind11::module_local())
             .def("__iter__", [](state &s) -> state & { return s; })
             .def(
                 "__next__",
@@ -2514,7 +2514,7 @@ inline void register_local_exception_translator(ExceptionTranslator &&translator
  * Template type argument is reserved for future use.
  */
 template <typename type>
-class exception : public object {
+cl--- exception : public object {
 public:
     exception() = default;
     exception(handle scope, const char *name, handle base = PyExc_Exception) {
@@ -2743,11 +2743,11 @@ PYBIND11_NAMESPACE_END(detail)
   this_ptr.
 
   :this_ptr: The pointer to the object the overridden method should be retrieved for. This should
-             be the first non-trampoline class encountered in the inheritance chain.
+             be the first non-trampoline cl--- encountered in the inheritance chain.
   :name: The name of the overridden Python method to retrieve.
   :return: The Python method by this name from the object or an empty function wrapper.
  \endrst */
-template <class T>
+template <cl--- T>
 function get_override(const T *this_ptr, const char *name) {
     auto *tinfo = detail::get_type_info(typeid(T));
     return tinfo ? detail::get_type_override(this_ptr, tinfo, name) : function();
@@ -2769,7 +2769,7 @@ function get_override(const T *this_ptr, const char *name) {
     } while (false)
 
 /** \rst
-    Macro to populate the virtual method in the trampoline class. This macro tries to look up a
+    Macro to populate the virtual method in the trampoline cl---. This macro tries to look up a
     method named 'fn' from the Python side, deals with the :ref:`gil` and necessary argument
     conversions to call this method and return the appropriate type.
     See :ref:`overriding_virtuals` for more information. This macro should be used when the method
@@ -2780,7 +2780,7 @@ function get_override(const T *this_ptr, const char *name) {
       std::string toString() override {
         PYBIND11_OVERRIDE_NAME(
             std::string, // Return type (ret_type)
-            Animal,      // Parent class (cname)
+            Animal,      // Parent cl--- (cname)
             "__str__",   // Name of method in Python (name)
             toString,    // Name of function in C++ (fn)
         );
@@ -2804,7 +2804,7 @@ function get_override(const T *this_ptr, const char *name) {
     } while (false)
 
 /** \rst
-    Macro to populate the virtual method in the trampoline class. This macro tries to look up the
+    Macro to populate the virtual method in the trampoline cl---. This macro tries to look up the
     method from the Python side, deals with the :ref:`gil` and necessary argument conversions to
     call this method and return the appropriate type. This macro should be used if the method name
     in C and in Python are identical.
@@ -2812,7 +2812,7 @@ function get_override(const T *this_ptr, const char *name) {
 
     .. code-block:: cpp
 
-      class PyAnimal : public Animal {
+      cl--- PyAnimal : public Animal {
       public:
           // Inherit the constructors
           using Animal::Animal;
@@ -2821,7 +2821,7 @@ function get_override(const T *this_ptr, const char *name) {
           std::string go(int n_times) override {
               PYBIND11_OVERRIDE_PURE(
                   std::string, // Return type (ret_type)
-                  Animal,      // Parent class (cname)
+                  Animal,      // Parent cl--- (cname)
                   go,          // Name of function in C++ (must match Python name) (fn)
                   n_times      // Argument(s) (...)
               );
@@ -2847,7 +2847,7 @@ get_type_overload(const void *this_ptr, const detail::type_info *this_type, cons
     return detail::get_type_override(this_ptr, this_type, name);
 }
 
-template <class T>
+template <cl--- T>
 inline function get_overload(const T *this_ptr, const char *name) {
     return get_override(this_ptr, name);
 }

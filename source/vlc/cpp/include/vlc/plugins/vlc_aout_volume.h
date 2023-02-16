@@ -4,7 +4,7 @@
  * Copyright (C) 2002-2009 VLC authors and VideoLAN
  * $Id: 051413ba105d5f7ee552679bf7fcd3a053db112c $
  *
- * Authors: Christophe Massiot <massiot@via.ecp.fr>
+ * Authors: Christophe M---iot <m---iot@via.ecp.fr>
  *          Laurent Aimar <fenrir _AT_ videolan _DOT_ org>
  *
  * This program is free software; you can redistribute it and/or modify it

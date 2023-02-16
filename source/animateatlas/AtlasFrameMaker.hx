@@ -3,7 +3,7 @@ import flixel.util.FlxDestroyUtil;
 import openfl.geom.Rectangle;
 import flixel.math.FlxPoint;
 import flixel.math.FlxRect;
-import openfl.Assets;
+import openfl.---ets;
 import haxe.Json;
 import openfl.display.BitmapData;
 import animateatlas.JSONData.AtlasData;
@@ -22,7 +22,7 @@ import js.html.File;
 #end
 
 using StringTools;
-class AtlasFrameMaker extends FlxFramesCollection
+cl--- AtlasFrameMaker extends FlxFramesCollection
 {
 	//public static var widthoffset:Int = 0;
 	//public static var heightoffset:Int = 0;
@@ -86,7 +86,7 @@ class AtlasFrameMaker extends FlxFramesCollection
 		t.currentLabel = animation;
 		var bitMapArray:Array<BitmapData> = [];
 		var daFramez:Array<FlxFrame> = [];
-		var firstPass = true;
+		var firstP--- = true;
 		var frameSize:FlxPoint = new FlxPoint(0, 0);
 
 		for (i in t.getFrame(animation)...t.numFrames)
@@ -99,10 +99,10 @@ class AtlasFrameMaker extends FlxFramesCollection
 				bitmap----.draw(t, null, null, null, null, true);
 				bitMapArray.push(bitmap----);
 
-				if (firstPass)
+				if (firstP---)
 				{
 					frameSize.set(bitmap----.width,bitmap----.height);
-					firstPass = false;
+					firstP--- = false;
 				}
 			}
 			else break;

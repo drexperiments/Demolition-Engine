@@ -9,7 +9,7 @@ typedef enum {
     _Py_ERROR_REPLACE,
     _Py_ERROR_IGNORE,
     _Py_ERROR_BACKSLASHREPLACE,
-    _Py_ERROR_SURROGATEPASS,
+    _Py_ERROR_SURROGATEP---,
     _Py_ERROR_XMLCHARREFREPLACE,
     _Py_ERROR_OTHER
 } _Py_error_handler;

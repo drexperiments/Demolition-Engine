@@ -14,7 +14,7 @@ typedef BPMChangeEvent =
 	var bpm:Float;
 }
 
-class Conductor
+cl--- Conductor
 {
 	public static var bpm:Float = 100;
 	public static var crochet:Float = ((60 / bpm) * 1000); // beats in milliseconds

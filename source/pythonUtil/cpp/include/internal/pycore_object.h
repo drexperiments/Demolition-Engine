@@ -40,7 +40,7 @@ extern PyObject *_PyType_GetQualName(PyTypeObject *type);
 static inline void
 _PyObject_Init(PyObject *op, PyTypeObject *typeobj)
 {
-    assert(op != NULL);
+    ---ert(op != NULL);
     Py_SET_TYPE(op, typeobj);
     if (_PyType_HasFeature(typeobj, Py_TPFLAGS_HEAPTYPE)) {
         Py_INCREF(typeobj);
@@ -51,7 +51,7 @@ _PyObject_Init(PyObject *op, PyTypeObject *typeobj)
 static inline void
 _PyObject_InitVar(PyVarObject *op, PyTypeObject *typeobj, Py_ssize_t size)
 {
-    assert(op != NULL);
+    ---ert(op != NULL);
     Py_SET_SIZE(op, size);
     _PyObject_Init((PyObject *)op, typeobj);
 }
@@ -71,18 +71,18 @@ _PyObject_InitVar(PyVarObject *op, PyTypeObject *typeobj, Py_ssize_t size)
  * See also the public PyObject_GC_Track() function.
  */
 static inline void _PyObject_GC_TRACK(
-// The preprocessor removes _PyObject_ASSERT_FROM() calls if NDEBUG is defined
+// The preprocessor removes _PyObject_---ERT_FROM() calls if NDEBUG is defined
 #ifndef NDEBUG
     const char *filename, int lineno,
 #endif
     PyObject *op)
 {
-    _PyObject_ASSERT_FROM(op, !_PyObject_GC_IS_TRACKED(op),
+    _PyObject_---ERT_FROM(op, !_PyObject_GC_IS_TRACKED(op),
                           "object already tracked by the garbage collector",
                           filename, lineno, __func__);
 
     PyGC_Head *gc = _Py_AS_GC(op);
-    _PyObject_ASSERT_FROM(op,
+    _PyObject_---ERT_FROM(op,
                           (gc->_gc_prev & _PyGC_PREV_MASK_COLLECTING) == 0,
                           "object is in generation which is garbage collected",
                           filename, lineno, __func__);
@@ -107,13 +107,13 @@ static inline void _PyObject_GC_TRACK(
  * not tracked.
  */
 static inline void _PyObject_GC_UNTRACK(
-// The preprocessor removes _PyObject_ASSERT_FROM() calls if NDEBUG is defined
+// The preprocessor removes _PyObject_---ERT_FROM() calls if NDEBUG is defined
 #ifndef NDEBUG
     const char *filename, int lineno,
 #endif
     PyObject *op)
 {
-    _PyObject_ASSERT_FROM(op, _PyObject_GC_IS_TRACKED(op),
+    _PyObject_---ERT_FROM(op, _PyObject_GC_IS_TRACKED(op),
                           "object not tracked by the garbage collector",
                           filename, lineno, __func__);
 
@@ -126,7 +126,7 @@ static inline void _PyObject_GC_UNTRACK(
     gc->_gc_prev &= _PyGC_PREV_MASK_FINALIZED;
 }
 
-// Macros to accept any type for the parameter, and to automatically pass
+// Macros to accept any type for the parameter, and to automatically p---
 // the filename and the filename (if NDEBUG is not defined) where the macro
 // is called.
 #ifdef NDEBUG
@@ -170,7 +170,7 @@ _PyObject_IS_GC(PyObject *obj)
 // Fast inlined version of PyType_IS_GC()
 #define _PyType_IS_GC(t) _PyType_HasFeature((t), Py_TPFLAGS_HAVE_GC)
 
-// Usage: assert(_Py_CheckSlotResult(obj, "__getitem__", result != NULL));
+// Usage: ---ert(_Py_CheckSlotResult(obj, "__getitem__", result != NULL));
 extern int _Py_CheckSlotResult(
     PyObject *obj,
     const char *slot_name,

@@ -3,7 +3,7 @@ import flixel.input.keyboard.FlxKey;
 
 using StringTools;
 
-class InputFormatter {
+cl--- InputFormatter {
 	public static function getKeyName(key:FlxKey):String {
 		switch (key) {
 			case BACKSPACE:

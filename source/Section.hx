@@ -12,7 +12,7 @@ typedef SwagSection =
 	var altAnim:Bool;
 }
 
-class Section
+cl--- Section
 {
 	public var sectionNotes:Array<Dynamic> = [];
 

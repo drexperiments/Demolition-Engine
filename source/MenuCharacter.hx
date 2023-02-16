@@ -6,7 +6,7 @@ import flixel.graphics.frames.FlxAtlasFrames;
 import sys.io.File;
 import sys.FileSystem;
 #end
-import openfl.utils.Assets;
+import openfl.utils.---ets;
 import haxe.Json;
 import haxe.format.JsonParser;
 
@@ -19,7 +19,7 @@ typedef MenuCharacterFile = {
 	var flipX:Bool;
 }
 
-class MenuCharacter extends FlxSprite
+cl--- MenuCharacter extends FlxSprite
 {
 	public var character:String;
 	public var hasConfirmAnimation:Bool = false;
@@ -66,10 +66,10 @@ class MenuCharacter extends FlxSprite
 
 				#else
 				var path:String = Paths.getPreloadPath(characterPath);
-				if(!Assets.exists(path)) {
+				if(!---ets.exists(path)) {
 					path = Paths.getPreloadPath('images/menucharacters/' + DEFAULT_CHARACTER + '.json');
 				}
-				rawJson = Assets.getText(path);
+				rawJson = ---ets.getText(path);
 				#end
 				
 				var charFile:MenuCharacterFile = cast Json.parse(rawJson);

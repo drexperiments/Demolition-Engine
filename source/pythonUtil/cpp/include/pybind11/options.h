@@ -13,12 +13,12 @@
 
 PYBIND11_NAMESPACE_BEGIN(PYBIND11_NAMESPACE)
 
-class options {
+cl--- options {
 public:
     // Default RAII constructor, which leaves settings as they currently are.
     options() : previous_state(global_state()) {}
 
-    // Class is non-copyable.
+    // Cl--- is non-copyable.
     options(const options &) = delete;
     options &operator=(const options &) = delete;
 

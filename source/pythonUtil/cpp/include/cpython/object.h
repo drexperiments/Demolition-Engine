@@ -154,8 +154,8 @@ typedef struct {
     ssizeargfunc sq_repeat;
     ssizeargfunc sq_item;
     void *was_sq_slice;
-    ssizeobjargproc sq_ass_item;
-    void *was_sq_ass_slice;
+    ssizeobjargproc sq_---_item;
+    void *was_sq_---_slice;
     objobjproc sq_contains;
 
     binaryfunc sq_inplace_concat;
@@ -165,7 +165,7 @@ typedef struct {
 typedef struct {
     lenfunc mp_length;
     binaryfunc mp_subscript;
-    objobjargproc mp_ass_subscript;
+    objobjargproc mp_---_subscript;
 } PyMappingMethods;
 
 typedef PySendResult (*sendfunc)(PyObject *iter, PyObject *value, PyObject **result);
@@ -203,7 +203,7 @@ struct _typeobject {
                                     or tp_reserved (Python 3) */
     reprfunc tp_repr;
 
-    /* Method suites for standard classes */
+    /* Method suites for standard cl---es */
 
     PyNumberMethods *tp_as_number;
     PySequenceMethods *tp_as_sequence;
@@ -225,14 +225,14 @@ struct _typeobject {
 
     const char *tp_doc; /* Documentation string */
 
-    /* Assigned meaning in release 2.0 */
+    /* ---igned meaning in release 2.0 */
     /* call function for all accessible objects */
     traverseproc tp_traverse;
 
     /* delete references to contained objects */
     inquiry tp_clear;
 
-    /* Assigned meaning in release 2.1 */
+    /* ---igned meaning in release 2.1 */
     /* rich comparisons */
     richcmpfunc tp_richcompare;
 
@@ -243,7 +243,7 @@ struct _typeobject {
     getiterfunc tp_iter;
     iternextfunc tp_iternext;
 
-    /* Attribute descriptor and subclassing stuff */
+    /* Attribute descriptor and subcl---ing stuff */
     struct PyMethodDef *tp_methods;
     struct PyMemberDef *tp_members;
     struct PyGetSetDef *tp_getset;
@@ -261,7 +261,7 @@ struct _typeobject {
     PyObject *tp_bases;
     PyObject *tp_mro; /* method resolution order */
     PyObject *tp_cache;
-    PyObject *tp_subclasses;
+    PyObject *tp_subcl---es;
     PyObject *tp_weaklist;
     destructor tp_del;
 
@@ -300,7 +300,7 @@ PyAPI_FUNC(const char *) _PyType_Name(PyTypeObject *);
 PyAPI_FUNC(PyObject *) _PyType_Lookup(PyTypeObject *, PyObject *);
 PyAPI_FUNC(PyObject *) _PyType_LookupId(PyTypeObject *, _Py_Identifier *);
 PyAPI_FUNC(PyObject *) _PyObject_LookupSpecial(PyObject *, _Py_Identifier *);
-PyAPI_FUNC(PyTypeObject *) _PyType_CalculateMetaclass(PyTypeObject *, PyObject *);
+PyAPI_FUNC(PyTypeObject *) _PyType_CalculateMetacl---(PyTypeObject *, PyObject *);
 PyAPI_FUNC(PyObject *) _PyType_GetDocFromInternalDoc(const char *, const char *);
 PyAPI_FUNC(PyObject *) _PyType_GetTextSignatureFromInternalDoc(const char *, const char *);
 struct PyModuleDef;
@@ -334,7 +334,7 @@ PyAPI_FUNC(PyObject *) _PyObject_NextNotImplemented(PyObject *);
 PyAPI_FUNC(void) PyObject_CallFinalizer(PyObject *);
 PyAPI_FUNC(int) PyObject_CallFinalizerFromDealloc(PyObject *);
 
-/* Same as PyObject_Generic{Get,Set}Attr, but passing the attributes
+/* Same as PyObject_Generic{Get,Set}Attr, but p---ing the attributes
    dict as the last parameter. */
 PyAPI_FUNC(PyObject *)
 _PyObject_GenericGetAttrWithDict(PyObject *, PyObject *, PyObject *, int);
@@ -392,10 +392,10 @@ _PyDebugAllocatorStats(FILE *out, const char *block_name, int num_blocks,
 PyAPI_FUNC(void)
 _PyObject_DebugTypeStats(FILE *out);
 
-/* Define a pair of assertion macros:
-   _PyObject_ASSERT_FROM(), _PyObject_ASSERT_WITH_MSG() and _PyObject_ASSERT().
+/* Define a pair of ---ertion macros:
+   _PyObject_---ERT_FROM(), _PyObject_---ERT_WITH_MSG() and _PyObject_---ERT().
 
-   These work like the regular C assert(), in that they will abort the
+   These work like the regular C ---ert(), in that they will abort the
    process with a message on stderr if the given condition fails to hold,
    but compile away to nothing if NDEBUG is defined.
 
@@ -407,32 +407,32 @@ _PyObject_DebugTypeStats(FILE *out);
    The WITH_MSG variant allows you to supply an additional message that Python
    will attempt to print to stderr, after the object dump. */
 #ifdef NDEBUG
-   /* No debugging: compile away the assertions: */
-#  define _PyObject_ASSERT_FROM(obj, expr, msg, filename, lineno, func) \
+   /* No debugging: compile away the ---ertions: */
+#  define _PyObject_---ERT_FROM(obj, expr, msg, filename, lineno, func) \
     ((void)0)
 #else
    /* With debugging: generate checks: */
-#  define _PyObject_ASSERT_FROM(obj, expr, msg, filename, lineno, func) \
+#  define _PyObject_---ERT_FROM(obj, expr, msg, filename, lineno, func) \
     ((expr) \
       ? (void)(0) \
-      : _PyObject_AssertFailed((obj), Py_STRINGIFY(expr), \
+      : _PyObject_---ertFailed((obj), Py_STRINGIFY(expr), \
                                (msg), (filename), (lineno), (func)))
 #endif
 
-#define _PyObject_ASSERT_WITH_MSG(obj, expr, msg) \
-    _PyObject_ASSERT_FROM(obj, expr, msg, __FILE__, __LINE__, __func__)
-#define _PyObject_ASSERT(obj, expr) \
-    _PyObject_ASSERT_WITH_MSG(obj, expr, NULL)
+#define _PyObject_---ERT_WITH_MSG(obj, expr, msg) \
+    _PyObject_---ERT_FROM(obj, expr, msg, __FILE__, __LINE__, __func__)
+#define _PyObject_---ERT(obj, expr) \
+    _PyObject_---ERT_WITH_MSG(obj, expr, NULL)
 
-#define _PyObject_ASSERT_FAILED_MSG(obj, msg) \
-    _PyObject_AssertFailed((obj), NULL, (msg), __FILE__, __LINE__, __func__)
+#define _PyObject_---ERT_FAILED_MSG(obj, msg) \
+    _PyObject_---ertFailed((obj), NULL, (msg), __FILE__, __LINE__, __func__)
 
-/* Declare and define _PyObject_AssertFailed() even when NDEBUG is defined,
+/* Declare and define _PyObject_---ertFailed() even when NDEBUG is defined,
    to avoid causing compiler/linker errors when building extensions without
    NDEBUG against a Python built with NDEBUG defined.
 
    msg, expr and function can be NULL. */
-PyAPI_FUNC(void) _Py_NO_RETURN _PyObject_AssertFailed(
+PyAPI_FUNC(void) _Py_NO_RETURN _PyObject_---ertFailed(
     PyObject *obj,
     const char *expr,
     const char *msg,
@@ -443,14 +443,14 @@ PyAPI_FUNC(void) _Py_NO_RETURN _PyObject_AssertFailed(
 /* Check if an object is consistent. For example, ensure that the reference
    counter is greater than or equal to 1, and ensure that ob_type is not NULL.
 
-   Call _PyObject_AssertFailed() if the object is inconsistent.
+   Call _PyObject_---ertFailed() if the object is inconsistent.
 
    If check_content is zero, only check header fields: reduce the overhead.
 
    The function always return 1. The return value is just here to be able to
    write:
 
-   assert(_PyObject_CheckConsistency(obj, 1)); */
+   ---ert(_PyObject_CheckConsistency(obj, 1)); */
 PyAPI_FUNC(int) _PyObject_CheckConsistency(
     PyObject *op,
     int check_content);
@@ -496,11 +496,11 @@ may have been added to the list of deferred deallocations.  In effect, a
 chain of N deallocations is broken into (N-1)/(PyTrash_UNWIND_LEVEL-1) pieces,
 with the call stack never exceeding a depth of PyTrash_UNWIND_LEVEL.
 
-Since the tp_dealloc of a subclass typically calls the tp_dealloc of the base
-class, we need to ensure that the trashcan is only triggered on the tp_dealloc
-of the actual class being deallocated. Otherwise we might end up with a
+Since the tp_dealloc of a subcl--- typically calls the tp_dealloc of the base
+cl---, we need to ensure that the trashcan is only triggered on the tp_dealloc
+of the actual cl--- being deallocated. Otherwise we might end up with a
 partially-deallocated object. To check this, the tp_dealloc function must be
-passed as second argument to Py_TRASHCAN_BEGIN().
+p---ed as second argument to Py_TRASHCAN_BEGIN().
 */
 
 /* This is the old private API, invoked by the macros before 3.2.4.

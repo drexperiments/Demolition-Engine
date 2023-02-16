@@ -53,12 +53,12 @@ typedef struct
 /**
  * It initializes a vlc_epg_t.
  *
- * You must call vlc_epg_Clean to release the associated resource.
+ * You must call vlc_epg_Clean to release the ---ociated resource.
  */
 VLC_API void vlc_epg_Init(vlc_epg_t *p_epg, const char *psz_name);
 
 /**
- * It releases all resources associated to a vlc_epg_t
+ * It releases all resources ---ociated to a vlc_epg_t
  */
 VLC_API void vlc_epg_Clean(vlc_epg_t *p_epg);
 
@@ -72,7 +72,7 @@ VLC_API void vlc_epg_AddEvent(vlc_epg_t *p_epg, int64_t i_start, int i_duration,
 /**
  * It creates a new vlc_epg_t*
  *
- * You must call vlc_epg_Delete to release the associated resource.
+ * You must call vlc_epg_Delete to release the ---ociated resource.
  */
 VLC_API vlc_epg_t * vlc_epg_New(const char *psz_name) VLC_USED;
 

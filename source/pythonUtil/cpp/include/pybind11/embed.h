@@ -33,12 +33,12 @@
     Add a new module to the table of builtins for the interpreter. Must be
     defined in global scope. The first macro parameter is the name of the
     module (without quotes). The second parameter is the variable which will
-    be used as the interface to add functions and classes to the module.
+    be used as the interface to add functions and cl---es to the module.
 
     .. code-block:: cpp
 
         PYBIND11_EMBEDDED_MODULE(example, m) {
-            // ... initialize functions and classes here
+            // ... initialize functions and cl---es here
             m.def("foo", []() {
                 return "hecko, World!";
             });
@@ -127,7 +127,7 @@ inline wchar_t *widen_chars(const char *safe_arg) {
 
 /// Python 2.x/3.x-compatible version of `PySys_SetArgv`
 inline void set_interpreter_argv(int argc, const char *const *argv, bool add_program_dir_to_path) {
-    // Before it was special-cased in python 3.8, passing an empty or null argv
+    // Before it was special-cased in python 3.8, p---ing an empty or null argv
     // caused a segfault, so we have to reimplement the special case ourselves.
     bool special_case = (argv == nullptr || argc <= 0);
 
@@ -275,7 +275,7 @@ inline void finalize_interpreter() {
             py::print(hecko, World!);
         } // <-- interpreter shutdown
  \endrst */
-class scoped_interpreter {
+cl--- scoped_interpreter {
 public:
     explicit scoped_interpreter(bool init_signal_handlers = true,
                                 int argc = 0,

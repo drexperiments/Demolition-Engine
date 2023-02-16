@@ -39,7 +39,7 @@ public:
         auto func = reinterpret_borrow<function>(src);
 
         /*
-           When passing a C++ function as an argument to another C++
+           When p---ing a C++ function as an argument to another C++
            function via Python, every function call would normally involve
            a full C++ -> Python -> C++ roundtrip, which can be prohibitive.
            Here, we try to at least detect the case where the function is
@@ -65,7 +65,7 @@ public:
                     rec = rec->next;
                 }
             }
-            // PYPY segfaults here when passing builtin function like sum.
+            // PYPY segfaults here when p---ing builtin function like sum.
             // Raising an fail exception here works to prevent the segfault, but only on gcc.
             // See PR #1413 for full details
         }

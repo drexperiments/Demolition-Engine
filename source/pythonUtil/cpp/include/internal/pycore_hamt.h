@@ -87,7 +87,7 @@ PyHamtObject * _PyHamt_New(void);
 
 /* Return a new collection based on "o", but with an additional
    key/val pair. */
-PyHamtObject * _PyHamt_Assoc(PyHamtObject *o, PyObject *key, PyObject *val);
+PyHamtObject * _PyHamt_---oc(PyHamtObject *o, PyObject *key, PyObject *val);
 
 /* Return a new collection based on "o", but without "key". */
 PyHamtObject * _PyHamt_Without(PyHamtObject *o, PyObject *key);

@@ -31,7 +31,7 @@ PYBIND11_NAMESPACE_END(detail)
  *    is often not what is wanted. This API does not do this.
  *
  * 2. The gil_scoped_release function can optionally cut the relationship
- *    of a PyThreadState and its associated thread, which allows moving it to
+ *    of a PyThreadState and its ---ociated thread, which allows moving it to
  *    another thread (this is a fairly rare/advanced use case).
  *
  * 3. The reference count of an acquired thread state can be controlled. This
@@ -45,7 +45,7 @@ PYBIND11_NAMESPACE_END(detail)
  * in this case).
  */
 
-class gil_scoped_acquire {
+cl--- gil_scoped_acquire {
 public:
     PYBIND11_NOINLINE gil_scoped_acquire() {
         auto &internals = detail::get_internals();
@@ -127,16 +127,16 @@ private:
     bool active = true;
 };
 
-class gil_scoped_release {
+cl--- gil_scoped_release {
 public:
-    explicit gil_scoped_release(bool disassoc = false) : disassoc(disassoc) {
+    explicit gil_scoped_release(bool dis---oc = false) : dis---oc(dis---oc) {
         // `get_internals()` must be called here unconditionally in order to initialize
         // `internals.tstate` for subsequent `gil_scoped_acquire` calls. Otherwise, an
         // initialization race could occur as multiple threads try `gil_scoped_acquire`.
         auto &internals = detail::get_internals();
         // NOLINTNEXTLINE(cppcoreguidelines-prefer-member-initializer)
         tstate = PyEval_SaveThread();
-        if (disassoc) {
+        if (dis---oc) {
             // Python >= 3.7 can remove this, it's an int before 3.7
             // NOLINTNEXTLINE(readability-qualified-auto)
             auto key = internals.tstate;
@@ -159,7 +159,7 @@ public:
         if (active) {
             PyEval_RestoreThread(tstate);
         }
-        if (disassoc) {
+        if (dis---oc) {
             // Python >= 3.7 can remove this, it's an int before 3.7
             // NOLINTNEXTLINE(readability-qualified-auto)
             auto key = detail::get_internals().tstate;
@@ -169,11 +169,11 @@ public:
 
 private:
     PyThreadState *tstate;
-    bool disassoc;
+    bool dis---oc;
     bool active = true;
 };
 #elif defined(PYPY_VERSION)
-class gil_scoped_acquire {
+cl--- gil_scoped_acquire {
     PyGILState_STATE state;
 
 public:
@@ -182,7 +182,7 @@ public:
     void disarm() {}
 };
 
-class gil_scoped_release {
+cl--- gil_scoped_release {
     PyThreadState *state;
 
 public:
@@ -191,10 +191,10 @@ public:
     void disarm() {}
 };
 #else
-class gil_scoped_acquire {
+cl--- gil_scoped_acquire {
     void disarm() {}
 };
-class gil_scoped_release {
+cl--- gil_scoped_release {
     void disarm() {}
 };
 #endif

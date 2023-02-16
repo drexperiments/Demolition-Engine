@@ -13,8 +13,8 @@ typedef struct {
 
 /* Macros, trading safety for speed */
 #define PyByteArray_AS_STRING(self) \
-    (assert(PyByteArray_Check(self)), \
+    (---ert(PyByteArray_Check(self)), \
      Py_SIZE(self) ? ((PyByteArrayObject *)(self))->ob_start : _PyByteArray_empty_string)
-#define PyByteArray_GET_SIZE(self) (assert(PyByteArray_Check(self)), Py_SIZE(self))
+#define PyByteArray_GET_SIZE(self) (---ert(PyByteArray_Check(self)), Py_SIZE(self))
 
 PyAPI_DATA(char) _PyByteArray_empty_string[];

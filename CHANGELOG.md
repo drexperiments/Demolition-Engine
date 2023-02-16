@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
-- ASSET LOADING OVERHAUL, WAY FASTER LOAD TIMES ON WEB!!! (THANKS TO GEOKURELI WOKE KING)
+- ---ET LOADING OVERHAUL, WAY FASTER LOAD TIMES ON WEB!!! (THANKS TO GEOKURELI WOKE KING)
 ### Fixed
 - That one random note on Bopeebo
 
@@ -43,7 +43,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.6] - 2021-01-20
 ### Added
-- 3 NEW CHRISTMAS SONGS. 2 BY KAWAISPRITE, 1 BY BASSETFILMS!!!!! BF WITH DRIP! SANTA HANGIN OUT!
+- 3 NEW CHRISTMAS SONGS. 2 BY KAWAISPRITE, 1 BY bassETFILMS!!!!! BF WITH DRIP! SANTA HANGIN OUT!
 - Enemy icons change when they you are winning a lot ([Thanks to pahaze for the Pull Request!](https://github.com/ninjamuffin99/Funkin/pull/138))
 - Holding CTRL in charting editor places notes on both sides
 - Q and E changes sustain lengths in note editor
@@ -63,7 +63,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.5] - 2020-12-27
 ### Added
-- MOMMY GF, 3 NEW ASS SONGS BY KAWAISPRITE, NEW ART BY PHANTOMARCADE,WOOOOOOAH!!!!
+- MOMMY GF, 3 NEW --- SONGS BY KAWAISPRITE, NEW ART BY PHANTOMARCADE,WOOOOOOAH!!!!
 - Different icons depending on which character you are against, art by EVILSK8R!!
 - Autosave to chart editor
 - Clear section button to note editor
@@ -81,10 +81,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.2.4] - 2020-12-11
 ### Added
 - 3 NEW SONGS BY KAWAISPRITE. Pico, Philly, and Blammed.
-- NEW CHARACTER, PICO. Based off the classic Flash game "Pico's School" by Tom Fulp
+- NEW CHARACTER, PICO. Based off the cl---ic Flash game "Pico's School" by Tom Fulp
 - NEW LEVEL WOW! PHILLY BABEEEE
 ### Changed
-- Made it less punishing to ATTEMPT to hit a note and miss, rather than let it pass you
+- Made it less punishing to ATTEMPT to hit a note and miss, rather than let it p--- you
 ### Fixed
 - Song desync of you paused and unpaused frequently ([shoutouts SonicBlam](https://github.com/ninjamuffin99/Funkin/issues/37))
 - Animation offsets when GF is scared

@@ -7,7 +7,7 @@ import flixel.util.FlxSignal;
 
 // import ui.DeviceManager;
 // import props.Player;
-class PlayerSettings
+cl--- PlayerSettings
 {
 	static public var numPlayers(default, null) = 0;
 	static public var numAvatars(default, null) = 0;

@@ -11,7 +11,7 @@ import flixel.addons.transition.FlxTransitionableState;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 
-class OutdatedState extends MusicBeatState
+cl--- OutdatedState extends MusicBeatState
 {
 	public static var leftState:Bool = false;
 
@@ -25,7 +25,7 @@ class OutdatedState extends MusicBeatState
 
 		warnText = new FlxText(0, 0, FlxG.width,
 			"Sup bro, looks like you're running an   \n
-			outdated version of Demolition Engine (" + MainMenuState.DemoEngineVersion + "),\n
+			outdated version of Demolition Engine [censored edition] (" + MainMenuState.DemoEngineVersion + "),\n
 			please update to " + TitleState.updateVersion + "!\n
 			Press ENTER to view the latest version.\n
 			Press ESCAPE to proceed anyway.\n

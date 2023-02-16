@@ -75,7 +75,7 @@ typedef enum
     ML_LAST_PLAYED,            /**< Last play UNIX timestamp */
     ML_LAST_SKIPPED,           /**< Time when media was last skipped */
     ML_ORIGINAL_TITLE,         /**< Media original title (if any) */
-    ML_PEOPLE,                 /**< Any People associated with this media */
+    ML_PEOPLE,                 /**< Any People ---ociated with this media */
     ML_PEOPLE_ID,              /**< Id of a person */
     ML_PEOPLE_ROLE,            /**< Person role */
     ML_PLAYED_COUNT,           /**< Media play count */

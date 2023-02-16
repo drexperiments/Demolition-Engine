@@ -13,7 +13,7 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import lime.app.Application;
 import flixel.system.FlxSound;
-import openfl.utils.Assets;
+import openfl.utils.---ets;
 import flixel.addons.ui.FlxInputText;
 import flixel.addons.ui.FlxUI9SliceSprite;
 import flixel.addons.ui.FlxUI;
@@ -36,7 +36,7 @@ import WeekData;
 
 using StringTools;
 
-class WeekEditorState extends MusicBeatState
+cl--- WeekEditorState extends MusicBeatState
 {
 	var txtWeekTitle:FlxText;
 	var bgSprite:FlxSprite;
@@ -60,7 +60,7 @@ class WeekEditorState extends MusicBeatState
 		txtWeekTitle.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, RIGHT);
 		txtWeekTitle.alpha = 0.7;
 		
-		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
+		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_---ets');
 		var bgYellow:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 386, 0xFFF9CF51);
 		bgSprite = new FlxSprite(0, 56);
 		bgSprite.antialiasing = ClientPrefs.globalAntialiasing;
@@ -88,7 +88,7 @@ class WeekEditorState extends MusicBeatState
 		missingFileText.visible = false;
 		add(missingFileText); 
 		
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - Week Editor - Editing: " + weekFileName;
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - Week Editor - Editing: " + weekFileName;
 		
 		var charArray:Array<String> = weekFile.weekCharacters;
 		for (char in 0...3)
@@ -211,7 +211,7 @@ class WeekEditorState extends MusicBeatState
 
 		tab_group.add(new FlxText(songsInputText.x, songsInputText.y - 18, 0, 'Songs:'));
 		tab_group.add(new FlxText(opponentInputText.x, opponentInputText.y - 18, 0, 'Characters:'));
-		tab_group.add(new FlxText(backgroundInputText.x, backgroundInputText.y - 18, 0, 'Background Asset:'));
+		tab_group.add(new FlxText(backgroundInputText.x, backgroundInputText.y - 18, 0, 'Background ---et:'));
 		tab_group.add(new FlxText(displayNameInputText.x, displayNameInputText.y - 18, 0, 'Display Name:'));
 		tab_group.add(new FlxText(weekNameInputText.x, weekNameInputText.y - 18, 0, 'Week Name (for Reset Score Menu):'));
 		tab_group.add(new FlxText(weekFileInputText.x, weekFileInputText.y - 18, 0, 'Week File:'));
@@ -331,13 +331,13 @@ class WeekEditorState extends MusicBeatState
 
 	function reloadBG() {
 		bgSprite.visible = true;
-		var assetName:String = weekFile.weekBackground;
+		var ---etName:String = weekFile.weekBackground;
 
 		var isMissing:Bool = true;
-		if(assetName != null && assetName.length > 0) {
-			if( #if MODS_ALLOWED FileSystem.exists(Paths.modsImages('menubackgrounds/menu_' + assetName)) || #end
-			Assets.exists(Paths.getPath('images/menubackgrounds/menu_' + assetName + '.png', IMAGE), IMAGE)) {
-				bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_' + assetName));
+		if(---etName != null && ---etName.length > 0) {
+			if( #if MODS_ALLOWED FileSystem.exists(Paths.modsImages('menubackgrounds/menu_' + ---etName)) || #end
+			---ets.exists(Paths.getPath('images/menubackgrounds/menu_' + ---etName + '.png', IMAGE), IMAGE)) {
+				bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_' + ---etName));
 				isMissing = false;
 			}
 		}
@@ -350,13 +350,13 @@ class WeekEditorState extends MusicBeatState
 	function reloadWeekThing() {
 		weekThing.visible = true;
 		missingFileText.visible = false;
-		var assetName:String = weekFileInputText.text.trim();
+		var ---etName:String = weekFileInputText.text.trim();
 		
 		var isMissing:Bool = true;
-		if(assetName != null && assetName.length > 0) {
-			if( #if MODS_ALLOWED FileSystem.exists(Paths.modsImages('storymenu/' + assetName)) || #end
-			Assets.exists(Paths.getPath('images/storymenu/' + assetName + '.png', IMAGE), IMAGE)) {
-				weekThing.loadGraphic(Paths.image('storymenu/' + assetName));
+		if(---etName != null && ---etName.length > 0) {
+			if( #if MODS_ALLOWED FileSystem.exists(Paths.modsImages('storymenu/' + ---etName)) || #end
+			---ets.exists(Paths.getPath('images/storymenu/' + ---etName + '.png', IMAGE), IMAGE)) {
+				weekThing.loadGraphic(Paths.image('storymenu/' + ---etName));
 				isMissing = false;
 			}
 		}
@@ -364,7 +364,7 @@ class WeekEditorState extends MusicBeatState
 		if(isMissing) {
 			weekThing.visible = false;
 			missingFileText.visible = true;
-			missingFileText.text = 'MISSING FILE: images/storymenu/' + assetName + '.png';
+			missingFileText.text = 'MISSING FILE: images/storymenu/' + ---etName + '.png';
 		}
 		recalculateStuffPosition();
 
@@ -581,7 +581,7 @@ class WeekEditorState extends MusicBeatState
 	}
 }
 
-class WeekEditorFreeplayState extends MusicBeatState
+cl--- WeekEditorFreeplayState extends MusicBeatState
 {
 	var weekFile:WeekFile = null;
 	public function new(weekFile:WeekFile = null)

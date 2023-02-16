@@ -529,7 +529,7 @@ PyAPI_FUNC(PyObject *) PyNumber_Index(PyObject *o);
    If an overflow error occurs while converting the int to Py_ssize_t, then the
    second argument 'exc' is the error-type to return.  If it is NULL, then the
    overflow error is cleared and the value is clipped. */
-PyAPI_FUNC(Py_ssize_t) PyNumber_AsSsize_t(PyObject *o, PyObject *exc);
+PyAPI_FUNC(Py_ssize_t) PyNumber_---size_t(PyObject *o, PyObject *exc);
 
 /* Returns the object 'o' converted to an integer object on success, or NULL
    on failure.
@@ -672,7 +672,7 @@ PyAPI_FUNC(PyObject *) PySequence_GetItem(PyObject *o, Py_ssize_t i);
    This is the equivalent of the Python expression: o[i1:i2]. */
 PyAPI_FUNC(PyObject *) PySequence_GetSlice(PyObject *o, Py_ssize_t i1, Py_ssize_t i2);
 
-/* Assign object 'v' to the ith element of the sequence 'o'. Raise an exception
+/* ---ign object 'v' to the ith element of the sequence 'o'. Raise an exception
    and return -1 on failure; return 0 on success.
 
    This is the equivalent of the Python statement o[i] = v. */
@@ -683,7 +683,7 @@ PyAPI_FUNC(int) PySequence_SetItem(PyObject *o, Py_ssize_t i, PyObject *v);
    This is the equivalent of the Python statement: del o[i]. */
 PyAPI_FUNC(int) PySequence_DelItem(PyObject *o, Py_ssize_t i);
 
-/* Assign the sequence object 'v' to the slice in sequence object 'o',
+/* ---ign the sequence object 'v' to the slice in sequence object 'o',
    from 'i1' to 'i2'. Returns -1 on failure.
 
    This is the equivalent of the Python statement: o[i1:i2] = v. */
@@ -714,12 +714,12 @@ PyAPI_FUNC(PyObject *) PySequence_List(PyObject *o);
    TypeError exception with 'm' as the message text. */
 PyAPI_FUNC(PyObject *) PySequence_Fast(PyObject *o, const char* m);
 
-/* Return the size of the sequence 'o', assuming that 'o' was returned by
+/* Return the size of the sequence 'o', ---uming that 'o' was returned by
    PySequence_Fast and is not NULL. */
 #define PySequence_Fast_GET_SIZE(o) \
     (PyList_Check(o) ? PyList_GET_SIZE(o) : PyTuple_GET_SIZE(o))
 
-/* Return the 'i'-th element of the sequence 'o', assuming that o was returned
+/* Return the 'i'-th element of the sequence 'o', ---uming that o was returned
    by PySequence_Fast, and that i is within bounds. */
 #define PySequence_Fast_GET_ITEM(o, i)\
      (PyList_Check(o) ? PyList_GET_ITEM(o, i) : PyTuple_GET_ITEM(o, i))
@@ -855,11 +855,11 @@ PyAPI_FUNC(PyObject *) PyMapping_GetItemString(PyObject *o,
 PyAPI_FUNC(int) PyMapping_SetItemString(PyObject *o, const char *key,
                                         PyObject *value);
 
-/* isinstance(object, typeorclass) */
-PyAPI_FUNC(int) PyObject_IsInstance(PyObject *object, PyObject *typeorclass);
+/* isinstance(object, typeorcl---) */
+PyAPI_FUNC(int) PyObject_IsInstance(PyObject *object, PyObject *typeorcl---);
 
-/* issubclass(object, typeorclass) */
-PyAPI_FUNC(int) PyObject_IsSubclass(PyObject *object, PyObject *typeorclass);
+/* issubcl---(object, typeorcl---) */
+PyAPI_FUNC(int) PyObject_IsSubcl---(PyObject *object, PyObject *typeorcl---);
 
 #ifndef Py_LIMITED_API
 #  define Py_CPYTHON_ABSTRACTOBJECT_H

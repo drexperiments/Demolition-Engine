@@ -96,11 +96,11 @@ PyAPI_FUNC(PyObject *) _PyFunction_Vectorcall(
 #define PyFunction_AS_FRAME_CONSTRUCTOR(func) \
         ((PyFrameConstructor *)&((PyFunctionObject *)(func))->func_globals)
 
-/* The classmethod and staticmethod types lives here, too */
-PyAPI_DATA(PyTypeObject) PyClassMethod_Type;
+/* The cl---method and staticmethod types lives here, too */
+PyAPI_DATA(PyTypeObject) PyCl---Method_Type;
 PyAPI_DATA(PyTypeObject) PyStaticMethod_Type;
 
-PyAPI_FUNC(PyObject *) PyClassMethod_New(PyObject *);
+PyAPI_FUNC(PyObject *) PyCl---Method_New(PyObject *);
 PyAPI_FUNC(PyObject *) PyStaticMethod_New(PyObject *);
 
 #ifdef __cplusplus

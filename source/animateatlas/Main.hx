@@ -10,7 +10,7 @@ import animateatlas.HelperEnums.LoopMode;
 import openfl.events.Event;
 import openfl.display.Tilemap;
 import openfl.display.Tileset;
-import openfl.Assets;
+import openfl.---ets;
 import haxe.Json;
 import animateatlas.tilecontainer.TileAnimationLibrary;
 import animateatlas.tilecontainer.TileContainerMovieClip;
@@ -18,7 +18,7 @@ import animateatlas.displayobject.SpriteAnimationLibrary;
 import animateatlas.displayobject.SpriteMovieClip;
 import openfl.display.Sprite;
 
-class Main extends Sprite {
+cl--- Main extends Sprite {
 	var aa:TileAnimationLibrary;
 	var ss:SpriteAnimationLibrary;
 
@@ -34,9 +34,9 @@ class Main extends Sprite {
 		graphics.beginFill(0x333333);
 		graphics.drawRect(0, 0, Lib.current.stage.stageWidth, Lib.current.stage.stageHeight);
 
-		var animationData:AnimationData = Json.parse(Assets.getText("assets/TEST/Animation.json"));
-		var atlasData:AtlasData = Json.parse(Assets.getText("assets/TEST/spritemap.json"));
-		var bitmapData:BitmapData = Assets.getBitmapData("assets/TEST/spritemap.png");
+		var animationData:AnimationData = Json.parse(---ets.getText("---ets/TEST/Animation.json"));
+		var atlasData:AtlasData = Json.parse(---ets.getText("---ets/TEST/spritemap.json"));
+		var bitmapData:BitmapData = ---ets.getBitmapData("---ets/TEST/spritemap.png");
 
 		aa = new TileAnimationLibrary(animationData, atlasData, bitmapData);
 		ss = new SpriteAnimationLibrary(animationData, atlasData, bitmapData);

@@ -18,7 +18,7 @@
 PYBIND11_NAMESPACE_BEGIN(PYBIND11_NAMESPACE)
 PYBIND11_NAMESPACE_BEGIN(detail)
 
-/* SFINAE helper class used by 'is_comparable */
+/* SFINAE helper cl--- used by 'is_comparable */
 template <typename T>
 struct container_traits {
     template <typename T2>
@@ -79,13 +79,13 @@ void vector_if_insertion_operator(const Args &...) {}
 template <typename, typename, typename... Args>
 void vector_modifiers(const Args &...) {}
 
-template <typename Vector, typename Class_>
-void vector_if_copy_constructible(enable_if_t<is_copy_constructible<Vector>::value, Class_> &cl) {
+template <typename Vector, typename Cl---_>
+void vector_if_copy_constructible(enable_if_t<is_copy_constructible<Vector>::value, Cl---_> &cl) {
     cl.def(init<const Vector &>(), "Copy constructor");
 }
 
-template <typename Vector, typename Class_>
-void vector_if_equal_operator(enable_if_t<is_comparable<Vector>::value, Class_> &cl) {
+template <typename Vector, typename Cl---_>
+void vector_if_equal_operator(enable_if_t<is_comparable<Vector>::value, Cl---_> &cl) {
     using T = typename Vector::value_type;
 
     cl.def(self == self);
@@ -121,9 +121,9 @@ void vector_if_equal_operator(enable_if_t<is_comparable<Vector>::value, Class_> 
 // Vector modifiers -- requires a copyable vector_type:
 // (Technically, some of these (pop and __delitem__) don't actually require copyability, but it
 // seems silly to allow deletion but not insertion, so include them here too.)
-template <typename Vector, typename Class_>
+template <typename Vector, typename Cl---_>
 void vector_modifiers(
-    enable_if_t<is_copy_constructible<typename Vector::value_type>::value, Class_> &cl) {
+    enable_if_t<is_copy_constructible<typename Vector::value_type>::value, Cl---_> &cl) {
     using T = typename Vector::value_type;
     using SizeType = typename Vector::size_type;
     using DiffType = typename Vector::difference_type;
@@ -261,7 +261,7 @@ void vector_modifiers(
 
             if (slicelength != value.size()) {
                 throw std::runtime_error(
-                    "Left and right hand size of slice assignment have different sizes!");
+                    "Left and right hand size of slice ---ignment have different sizes!");
             }
 
             for (size_t i = 0; i < slicelength; ++i) {
@@ -269,7 +269,7 @@ void vector_modifiers(
                 start += step;
             }
         },
-        "Assign list elements using a slice object");
+        "---ign list elements using a slice object");
 
     cl.def(
         "__delitem__",
@@ -308,8 +308,8 @@ using vector_needs_copy
                             typename Vector::value_type &>>;
 
 // The usual case: access and iterate by reference
-template <typename Vector, typename Class_>
-void vector_accessor(enable_if_t<!vector_needs_copy<Vector>::value, Class_> &cl) {
+template <typename Vector, typename Cl---_>
+void vector_accessor(enable_if_t<!vector_needs_copy<Vector>::value, Cl---_> &cl) {
     using T = typename Vector::value_type;
     using SizeType = typename Vector::size_type;
     using DiffType = typename Vector::difference_type;
@@ -345,8 +345,8 @@ void vector_accessor(enable_if_t<!vector_needs_copy<Vector>::value, Class_> &cl)
 }
 
 // The case for special objects, like std::vector<bool>, that have to be returned-by-copy:
-template <typename Vector, typename Class_>
-void vector_accessor(enable_if_t<vector_needs_copy<Vector>::value, Class_> &cl) {
+template <typename Vector, typename Cl---_>
+void vector_accessor(enable_if_t<vector_needs_copy<Vector>::value, Cl---_> &cl) {
     using T = typename Vector::value_type;
     using SizeType = typename Vector::size_type;
     using DiffType = typename Vector::difference_type;
@@ -370,8 +370,8 @@ void vector_accessor(enable_if_t<vector_needs_copy<Vector>::value, Class_> &cl) 
     );
 }
 
-template <typename Vector, typename Class_>
-auto vector_if_insertion_operator(Class_ &cl, std::string const &name)
+template <typename Vector, typename Cl---_>
+auto vector_if_insertion_operator(Cl---_ &cl, std::string const &name)
     -> decltype(std::declval<std::ostream &>() << std::declval<typename Vector::value_type>(),
                 void()) {
     using size_type = typename Vector::size_type;
@@ -417,11 +417,11 @@ constexpr bool args_any_are_buffer() {
 // [workaround(msvc)] Can't use constexpr bool in return type
 
 // Add the buffer interface to a vector
-template <typename Vector, typename Class_, typename... Args>
-void vector_buffer_impl(Class_ &cl, std::true_type) {
+template <typename Vector, typename Cl---_, typename... Args>
+void vector_buffer_impl(Cl---_ &cl, std::true_type) {
     using T = typename Vector::value_type;
 
-    static_assert(vector_has_data_and_format<Vector>::value,
+    static_---ert(vector_has_data_and_format<Vector>::value,
                   "There is not an appropriate format descriptor for this vector");
 
     // numpy.h declares this for arbitrary types, but it may raise an exception and crash hard
@@ -465,12 +465,12 @@ void vector_buffer_impl(Class_ &cl, std::true_type) {
     return;
 }
 
-template <typename Vector, typename Class_, typename... Args>
-void vector_buffer_impl(Class_ &, std::false_type) {}
+template <typename Vector, typename Cl---_, typename... Args>
+void vector_buffer_impl(Cl---_ &, std::false_type) {}
 
-template <typename Vector, typename Class_, typename... Args>
-void vector_buffer(Class_ &cl) {
-    vector_buffer_impl<Vector, Class_, Args...>(
+template <typename Vector, typename Cl---_, typename... Args>
+void vector_buffer(Cl---_ &cl) {
+    vector_buffer_impl<Vector, Cl---_, Args...>(
         cl, detail::any_of<std::is_same<Args, buffer_protocol>...>{});
 }
 
@@ -480,8 +480,8 @@ PYBIND11_NAMESPACE_END(detail)
 // std::vector
 //
 template <typename Vector, typename holder_type = std::unique_ptr<Vector>, typename... Args>
-class_<Vector, holder_type> bind_vector(handle scope, std::string const &name, Args &&...args) {
-    using Class_ = class_<Vector, holder_type>;
+cl---_<Vector, holder_type> bind_vector(handle scope, std::string const &name, Args &&...args) {
+    using Cl---_ = cl---_<Vector, holder_type>;
 
     // If the value_type is unregistered (e.g. a converting type) or is itself registered
     // module-local then make the vector binding module-local as well:
@@ -489,27 +489,27 @@ class_<Vector, holder_type> bind_vector(handle scope, std::string const &name, A
     auto *vtype_info = detail::get_type_info(typeid(vtype));
     bool local = !vtype_info || vtype_info->module_local;
 
-    Class_ cl(scope, name.c_str(), pybind11::module_local(local), std::forward<Args>(args)...);
+    Cl---_ cl(scope, name.c_str(), pybind11::module_local(local), std::forward<Args>(args)...);
 
-    // Declare the buffer interface if a buffer_protocol() is passed in
-    detail::vector_buffer<Vector, Class_, Args...>(cl);
+    // Declare the buffer interface if a buffer_protocol() is p---ed in
+    detail::vector_buffer<Vector, Cl---_, Args...>(cl);
 
     cl.def(init<>());
 
     // Register copy constructor (if possible)
-    detail::vector_if_copy_constructible<Vector, Class_>(cl);
+    detail::vector_if_copy_constructible<Vector, Cl---_>(cl);
 
     // Register comparison-related operators and functions (if possible)
-    detail::vector_if_equal_operator<Vector, Class_>(cl);
+    detail::vector_if_equal_operator<Vector, Cl---_>(cl);
 
     // Register stream insertion operator (if possible)
-    detail::vector_if_insertion_operator<Vector, Class_>(cl, name);
+    detail::vector_if_insertion_operator<Vector, Cl---_>(cl, name);
 
     // Modifiers require copyable vector value type
-    detail::vector_modifiers<Vector, Class_>(cl);
+    detail::vector_modifiers<Vector, Cl---_>(cl);
 
     // Accessor and iterator; return by value if copyable, otherwise we return by ref + keep-alive
-    detail::vector_accessor<Vector, Class_>(cl);
+    detail::vector_accessor<Vector, Cl---_>(cl);
 
     cl.def(
         "__bool__",
@@ -571,12 +571,12 @@ PYBIND11_NAMESPACE_BEGIN(detail)
 template <typename, typename, typename... Args>
 void map_if_insertion_operator(const Args &...) {}
 template <typename, typename, typename... Args>
-void map_assignment(const Args &...) {}
+void map_---ignment(const Args &...) {}
 
-// Map assignment when copy-assignable: just copy the value
-template <typename Map, typename Class_>
-void map_assignment(
-    enable_if_t<is_copy_assignable<typename Map::mapped_type>::value, Class_> &cl) {
+// Map ---ignment when copy----ignable: just copy the value
+template <typename Map, typename Cl---_>
+void map_---ignment(
+    enable_if_t<is_copy_---ignable<typename Map::mapped_type>::value, Cl---_> &cl) {
     using KeyType = typename Map::key_type;
     using MappedType = typename Map::mapped_type;
 
@@ -590,12 +590,12 @@ void map_assignment(
     });
 }
 
-// Not copy-assignable, but still copy-constructible: we can update the value by erasing and
+// Not copy----ignable, but still copy-constructible: we can update the value by erasing and
 // reinserting
-template <typename Map, typename Class_>
-void map_assignment(enable_if_t<!is_copy_assignable<typename Map::mapped_type>::value
+template <typename Map, typename Cl---_>
+void map_---ignment(enable_if_t<!is_copy_---ignable<typename Map::mapped_type>::value
                                     && is_copy_constructible<typename Map::mapped_type>::value,
-                                Class_> &cl) {
+                                Cl---_> &cl) {
     using KeyType = typename Map::key_type;
     using MappedType = typename Map::mapped_type;
 
@@ -603,7 +603,7 @@ void map_assignment(enable_if_t<!is_copy_assignable<typename Map::mapped_type>::
         // We can't use m[k] = v; because value type might not be default constructable
         auto r = m.emplace(k, v);
         if (!r.second) {
-            // value type is not copy assignable so the only way to insert it is to erase it
+            // value type is not copy ---ignable so the only way to insert it is to erase it
             // first...
             m.erase(r.first);
             m.emplace(k, v);
@@ -611,8 +611,8 @@ void map_assignment(enable_if_t<!is_copy_assignable<typename Map::mapped_type>::
     });
 }
 
-template <typename Map, typename Class_>
-auto map_if_insertion_operator(Class_ &cl, std::string const &name)
+template <typename Map, typename Cl---_>
+auto map_if_insertion_operator(Cl---_ &cl, std::string const &name)
     -> decltype(std::declval<std::ostream &>() << std::declval<typename Map::key_type>()
                                                << std::declval<typename Map::mapped_type>(),
                 void()) {
@@ -654,13 +654,13 @@ struct items_view {
 PYBIND11_NAMESPACE_END(detail)
 
 template <typename Map, typename holder_type = std::unique_ptr<Map>, typename... Args>
-class_<Map, holder_type> bind_map(handle scope, const std::string &name, Args &&...args) {
+cl---_<Map, holder_type> bind_map(handle scope, const std::string &name, Args &&...args) {
     using KeyType = typename Map::key_type;
     using MappedType = typename Map::mapped_type;
     using KeysView = detail::keys_view<Map>;
     using ValuesView = detail::values_view<Map>;
     using ItemsView = detail::items_view<Map>;
-    using Class_ = class_<Map, holder_type>;
+    using Cl---_ = cl---_<Map, holder_type>;
 
     // If either type is a non-module-local bound type then make the map binding non-local as well;
     // otherwise (e.g. both types are either module-local or converting) the map will be
@@ -672,18 +672,18 @@ class_<Map, holder_type> bind_map(handle scope, const std::string &name, Args &&
         local = !tinfo || tinfo->module_local;
     }
 
-    Class_ cl(scope, name.c_str(), pybind11::module_local(local), std::forward<Args>(args)...);
-    class_<KeysView> keys_view(
+    Cl---_ cl(scope, name.c_str(), pybind11::module_local(local), std::forward<Args>(args)...);
+    cl---_<KeysView> keys_view(
         scope, ("KeysView[" + name + "]").c_str(), pybind11::module_local(local));
-    class_<ValuesView> values_view(
+    cl---_<ValuesView> values_view(
         scope, ("ValuesView[" + name + "]").c_str(), pybind11::module_local(local));
-    class_<ItemsView> items_view(
+    cl---_<ItemsView> items_view(
         scope, ("ItemsView[" + name + "]").c_str(), pybind11::module_local(local));
 
     cl.def(init<>());
 
     // Register stream insertion operator (if possible)
-    detail::map_if_insertion_operator<Map, Class_>(cl, name);
+    detail::map_if_insertion_operator<Map, Cl---_>(cl, name);
 
     cl.def(
         "__bool__",
@@ -736,8 +736,8 @@ class_<Map, holder_type> bind_map(handle scope, const std::string &name, Args &&
     // Fallback for when the object is not of the key type
     cl.def("__contains__", [](Map &, const object &) -> bool { return false; });
 
-    // Assignment provided only if the type is copyable
-    detail::map_assignment<Map, Class_>(cl);
+    // ---ignment provided only if the type is copyable
+    detail::map_---ignment<Map, Cl---_>(cl);
 
     cl.def("__delitem__", [](Map &m, const KeyType &k) {
         auto it = m.find(k);

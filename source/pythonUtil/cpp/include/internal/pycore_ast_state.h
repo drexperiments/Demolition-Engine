@@ -17,14 +17,14 @@ struct ast_state {
     PyObject *Add_type;
     PyObject *And_singleton;
     PyObject *And_type;
-    PyObject *AnnAssign_type;
-    PyObject *Assert_type;
-    PyObject *Assign_type;
+    PyObject *Ann---ign_type;
+    PyObject *---ert_type;
+    PyObject *---ign_type;
     PyObject *AsyncFor_type;
     PyObject *AsyncFunctionDef_type;
     PyObject *AsyncWith_type;
     PyObject *Attribute_type;
-    PyObject *AugAssign_type;
+    PyObject *Aug---ign_type;
     PyObject *Await_type;
     PyObject *BinOp_type;
     PyObject *BitAnd_singleton;
@@ -36,7 +36,7 @@ struct ast_state {
     PyObject *BoolOp_type;
     PyObject *Break_type;
     PyObject *Call_type;
-    PyObject *ClassDef_type;
+    PyObject *Cl---Def_type;
     PyObject *Compare_type;
     PyObject *Constant_type;
     PyObject *Continue_type;
@@ -92,7 +92,7 @@ struct ast_state {
     PyObject *MatMult_singleton;
     PyObject *MatMult_type;
     PyObject *MatchAs_type;
-    PyObject *MatchClass_type;
+    PyObject *MatchCl---_type;
     PyObject *MatchMapping_type;
     PyObject *MatchOr_type;
     PyObject *MatchSequence_type;
@@ -116,7 +116,7 @@ struct ast_state {
     PyObject *Not_type;
     PyObject *Or_singleton;
     PyObject *Or_type;
-    PyObject *Pass_type;
+    PyObject *P---_type;
     PyObject *Pow_singleton;
     PyObject *Pow_type;
     PyObject *RShift_singleton;

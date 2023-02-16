@@ -25,7 +25,7 @@
  *
  * ---
  * Author: Kostya Serebryany
- * Copied to CPython by Jeffrey Yasskin, with all macros renamed to
+ * Copied to CPython by Jeffrey Y---kin, with all macros renamed to
  * start with _Py_ to avoid colliding with users embedding Python, and
  * with deprecated macros removed.
  */
@@ -469,7 +469,7 @@ int RunningOnValgrind(void);
         _Py_ANNOTATE_IGNORE_READS_END();
      one can use
         ... = _Py_ANNOTATE_UNPROTECTED_READ(x); */
-  template <class T>
+  template <cl--- T>
   inline T _Py_ANNOTATE_UNPROTECTED_READ(const volatile T &x) {
     _Py_ANNOTATE_IGNORE_READS_BEGIN();
     T res = x;
@@ -479,7 +479,7 @@ int RunningOnValgrind(void);
   /* Apply _Py_ANNOTATE_BENIGN_RACE_SIZED to a static variable. */
 #define _Py_ANNOTATE_BENIGN_RACE_STATIC(static_var, description)        \
     namespace {                                                       \
-      class static_var ## _annotator {                                \
+      cl--- static_var ## _annotator {                                \
        public:                                                        \
         static_var ## _annotator() {                                  \
           _Py_ANNOTATE_BENIGN_RACE_SIZED(&static_var,                     \

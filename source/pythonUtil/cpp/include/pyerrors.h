@@ -49,16 +49,16 @@ PyAPI_FUNC(void) PyException_SetContext(PyObject *, PyObject *);
 
 /* */
 
-#define PyExceptionClass_Check(x)                                       \
+#define PyExceptionCl---_Check(x)                                       \
     (PyType_Check((x)) &&                                               \
-     PyType_FastSubclass((PyTypeObject*)(x), Py_TPFLAGS_BASE_EXC_SUBCLASS))
+     PyType_FastSubcl---((PyTypeObject*)(x), Py_TPFLAGS_BASE_EXC_SUBCL---))
 
 #define PyExceptionInstance_Check(x)                    \
-    PyType_FastSubclass(Py_TYPE(x), Py_TPFLAGS_BASE_EXC_SUBCLASS)
+    PyType_FastSubcl---(Py_TYPE(x), Py_TPFLAGS_BASE_EXC_SUBCL---)
 
-PyAPI_FUNC(const char *) PyExceptionClass_Name(PyObject *);
+PyAPI_FUNC(const char *) PyExceptionCl---_Name(PyObject *);
 
-#define PyExceptionInstance_Class(x) ((PyObject*)Py_TYPE(x))
+#define PyExceptionInstance_Cl---(x) ((PyObject*)Py_TYPE(x))
 
 
 /* Predefined exceptions */
@@ -73,7 +73,7 @@ PyAPI_DATA(PyObject *) PyExc_GeneratorExit;
 PyAPI_DATA(PyObject *) PyExc_ArithmeticError;
 PyAPI_DATA(PyObject *) PyExc_LookupError;
 
-PyAPI_DATA(PyObject *) PyExc_AssertionError;
+PyAPI_DATA(PyObject *) PyExc_---ertionError;
 PyAPI_DATA(PyObject *) PyExc_AttributeError;
 PyAPI_DATA(PyObject *) PyExc_BufferError;
 PyAPI_DATA(PyObject *) PyExc_EOFError;
@@ -199,7 +199,7 @@ PyAPI_FUNC(PyObject *) PyErr_SetExcFromWindowsErr(PyObject *, int);
 #endif /* MS_WINDOWS */
 
 #if !defined(Py_LIMITED_API) || Py_LIMITED_API+0 >= 0x03060000
-PyAPI_FUNC(PyObject *) PyErr_SetImportErrorSubclass(PyObject *, PyObject *,
+PyAPI_FUNC(PyObject *) PyErr_SetImportErrorSubcl---(PyObject *, PyObject *,
     PyObject *, PyObject *);
 #endif
 #if !defined(Py_LIMITED_API) || Py_LIMITED_API+0 >= 0x03030000
@@ -269,7 +269,7 @@ PyAPI_FUNC(int) PyUnicodeEncodeError_GetStart(PyObject *, Py_ssize_t *);
 PyAPI_FUNC(int) PyUnicodeDecodeError_GetStart(PyObject *, Py_ssize_t *);
 PyAPI_FUNC(int) PyUnicodeTranslateError_GetStart(PyObject *, Py_ssize_t *);
 
-/* assign a new value to the start attribute
+/* ---ign a new value to the start attribute
    return 0 on success, -1 on failure */
 PyAPI_FUNC(int) PyUnicodeEncodeError_SetStart(PyObject *, Py_ssize_t);
 PyAPI_FUNC(int) PyUnicodeDecodeError_SetStart(PyObject *, Py_ssize_t);
@@ -281,7 +281,7 @@ PyAPI_FUNC(int) PyUnicodeEncodeError_GetEnd(PyObject *, Py_ssize_t *);
 PyAPI_FUNC(int) PyUnicodeDecodeError_GetEnd(PyObject *, Py_ssize_t *);
 PyAPI_FUNC(int) PyUnicodeTranslateError_GetEnd(PyObject *, Py_ssize_t *);
 
-/* assign a new value to the end attribute
+/* ---ign a new value to the end attribute
    return 0 on success, -1 on failure */
 PyAPI_FUNC(int) PyUnicodeEncodeError_SetEnd(PyObject *, Py_ssize_t);
 PyAPI_FUNC(int) PyUnicodeDecodeError_SetEnd(PyObject *, Py_ssize_t);
@@ -292,7 +292,7 @@ PyAPI_FUNC(PyObject *) PyUnicodeEncodeError_GetReason(PyObject *);
 PyAPI_FUNC(PyObject *) PyUnicodeDecodeError_GetReason(PyObject *);
 PyAPI_FUNC(PyObject *) PyUnicodeTranslateError_GetReason(PyObject *);
 
-/* assign a new value to the reason attribute
+/* ---ign a new value to the reason attribute
    return 0 on success, -1 on failure */
 PyAPI_FUNC(int) PyUnicodeEncodeError_SetReason(
     PyObject *exc,

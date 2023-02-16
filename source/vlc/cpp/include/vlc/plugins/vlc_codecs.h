@@ -430,7 +430,7 @@ static inline void fourcc_to_wf_tag( vlc_fourcc_t fcc, uint16_t *pi_tag )
 
 /* If wFormatTag is WAVEFORMATEXTENSIBLE, we must look at the SubFormat tag
  * to determine the actual format.  Microsoft has stopped giving out wFormatTag
- * assignments in lieu of letting 3rd parties generate their own GUIDs
+ * ---ignments in lieu of letting 3rd parties generate their own GUIDs
  */
 static const struct
 {

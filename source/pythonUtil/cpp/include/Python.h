@@ -15,7 +15,7 @@
 #endif
 
 #if UCHAR_MAX != 255
-#error "Python's source code assumes C's unsigned char is an 8-bit type."
+#error "Python's source code ---umes C's unsigned char is an 8-bit type."
 #endif
 
 #if defined(__sgi) && !defined(_SGI_MP_SOURCE)
@@ -43,9 +43,9 @@
 
 /* CAUTION:  Build setups should ensure that NDEBUG is defined on the
  * compiler command line when building Python in release mode; else
- * assert() calls won't be removed.
+ * ---ert() calls won't be removed.
  */
-#include <assert.h>
+#include <---ert.h>
 
 #include "pyport.h"
 #include "pymacro.h"
@@ -97,7 +97,7 @@
 #include "methodobject.h"
 #include "moduleobject.h"
 #include "funcobject.h"
-#include "classobject.h"
+#include "cl---object.h"
 #include "fileobject.h"
 #include "pycapsule.h"
 #include "code.h"

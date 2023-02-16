@@ -12,12 +12,12 @@ import flixel.math.FlxMath;
 import flixel.tweens.FlxTween;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
-import lime.utils.Assets;
+import lime.utils.---ets;
 import flixel.system.FlxSound;
 
 using StringTools;
 
-class FreeplayCategoryDemoExclusivesState extends MusicBeatState{
+cl--- FreeplayCategoryDemoExclusivesState extends MusicBeatState{
 	var songs:Array<SongMetadataCool> = [];
 
 	var selector:FlxText;
@@ -139,7 +139,7 @@ class FreeplayCategoryDemoExclusivesState extends MusicBeatState{
 
 		// JUST DOIN THIS ---- FOR TESTING!!!
 		/* 
-			var md:String = Markdown.markdownToHtml(Assets.getText('CHANGELOG.md'));
+			var md:String = Markdown.markdownToHtml(---ets.getText('CHANGELOG.md'));
 			var texFel:TextField = new TextField();
 			texFel.width = FlxG.width;
 			texFel.height = FlxG.height;
@@ -320,7 +320,7 @@ class FreeplayCategoryDemoExclusivesState extends MusicBeatState{
 			/*#if MODS_ALLOWED
 			if(!sys.FileSystem.exists(Paths.modsJson(songLowercase + '/' + poop)) && !sys.FileSystem.exists(Paths.json(songLowercase + '/' + poop))) {
 			#else
-			if(!OpenFlAssets.exists(Paths.json(songLowercase + '/' + poop))) {
+			if(!OpenFl---ets.exists(Paths.json(songLowercase + '/' + poop))) {
 			#end
 				poop = songLowercase;
 				curDifficulty = 1;
@@ -494,7 +494,7 @@ class FreeplayCategoryDemoExclusivesState extends MusicBeatState{
 	}
 }
 
-class SongMetadataCool
+cl--- SongMetadataCool
 {
 	public var songName:String = "";
 	public var week:Int = 0;

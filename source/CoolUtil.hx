@@ -1,20 +1,20 @@
 package;
 
 import flixel.FlxG;
-import openfl.utils.Assets;
-import lime.utils.Assets as LimeAssets;
-import lime.utils.AssetLibrary;
-import lime.utils.AssetManifest;
+import openfl.utils.---ets;
+import lime.utils.---ets as Lime---ets;
+import lime.utils.---etLibrary;
+import lime.utils.---etManifest;
 #if sys
 import sys.io.File;
 import sys.FileSystem;
 #else
-import openfl.utils.Assets;
+import openfl.utils.---ets;
 #end
 
 using StringTools;
 
-class CoolUtil
+cl--- CoolUtil
 {
 	public static var defaultDifficulties:Array<String> = [
 		'Hard', //0
@@ -57,7 +57,7 @@ class CoolUtil
 		#if sys
 		if(FileSystem.exists(path)) daList = File.getContent(path).trim().split('\n');
 		#else
-		if(Assets.exists(path)) daList = Assets.getText(path).trim().split('\n');
+		if(---ets.exists(path)) daList = ---ets.getText(path).trim().split('\n');
 		#end
 
 		for (i in 0...daList.length)
@@ -125,8 +125,8 @@ class CoolUtil
 	}
 
 	private static function precacheSoundFile(file:Dynamic):Void {
-		if (Assets.exists(file, SOUND) || Assets.exists(file, MUSIC))
-			Assets.getSound(file, true);
+		if (---ets.exists(file, SOUND) || ---ets.exists(file, MUSIC))
+			---ets.getSound(file, true);
 	}
 
 	public static function browserLoad(site:String) {

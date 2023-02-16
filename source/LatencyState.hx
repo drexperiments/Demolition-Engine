@@ -6,7 +6,7 @@ import flixel.FlxState;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 
-class LatencyState extends FlxState
+cl--- LatencyState extends FlxState
 {
 	var offsetText:FlxText;
 	var noteGrp:FlxTypedGroup<Note>;

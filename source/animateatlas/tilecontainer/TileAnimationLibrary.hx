@@ -20,7 +20,7 @@ import openfl.errors.ArgumentError;
  * Since we can extract symbols from the exported timeline and instance them separatedly, this keeps track of all symbols.
  * Also, this is a "more readable" way of understanding the AnimationData
  */
-class TileAnimationLibrary {
+cl--- TileAnimationLibrary {
 	public var frameRate:Float;
 
 	private var _atlas:Map<String, SpriteData>;
@@ -58,12 +58,12 @@ class TileAnimationLibrary {
 	}
 
 	public function hasAnimation(name:String):Bool {
-		return hasSymbol(name);
+		return h---ymbol(name);
 	}
 
 	public function createAnimation(symbol:String = null):TileContainerMovieClip {
 		symbol = (symbol != null) ? symbol : _defaultSymbolName;
-		if (!hasSymbol(symbol)) {
+		if (!h---ymbol(symbol)) {
 			throw new ArgumentError("Symbol not found: " + symbol);
 		}
 		return new TileContainerMovieClip(getSymbol(symbol));
@@ -97,7 +97,7 @@ class TileAnimationLibrary {
 		return _atlas.get(name);
 	}
 
-	private function hasSymbol(name:String):Bool {
+	private function h---ymbol(name:String):Bool {
 		return _symbolData.exists(name);
 	}
 

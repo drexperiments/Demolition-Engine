@@ -6,7 +6,7 @@ import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.math.FlxMath;
 import flixel.util.FlxColor;
 
-class MenuItem extends FlxSprite
+cl--- MenuItem extends FlxSprite
 {
 	public var targetY:Float = 0;
 	public var flashingInt:Int = 0;

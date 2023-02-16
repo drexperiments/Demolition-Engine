@@ -45,7 +45,7 @@ struct is_fmt_numeric<std::complex<T>, detail::enable_if_t<std::is_floating_poin
 };
 
 template <typename T>
-class type_caster<std::complex<T>> {
+cl--- type_caster<std::complex<T>> {
 public:
     bool load(handle src, bool convert) {
         if (!src) {

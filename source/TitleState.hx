@@ -36,7 +36,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.app.Application;
-import openfl.Assets;
+import openfl.---ets;
 
 using StringTools;
 typedef TitleData =
@@ -51,7 +51,7 @@ typedef TitleData =
 	backgroundSprite:String,
 	bpm:Int
 }
-class TitleState extends MusicBeatState
+cl--- TitleState extends MusicBeatState
 {
 	public static var muteKeys:Array<FlxKey> = [FlxKey.ZERO];
 	public static var volumeDownKeys:Array<FlxKey> = [FlxKey.NUMPADMINUS, FlxKey.MINUS];
@@ -242,14 +242,14 @@ class TitleState extends MusicBeatState
 	{
 		if (!initialized)
 		{
-			/*var diamond:FlxGraphic = FlxGraphic.fromClass(GraphicTransTileDiamond);
+			/*var diamond:FlxGraphic = FlxGraphic.fromCl---(GraphicTransTileDiamond);
 			diamond.persist = true;
 			diamond.destroyOnNoUse = false;
 
-			FlxTransitionableState.defaultTransIn = new TransitionData(FADE, FlxColor.BLACK, 1, new FlxPoint(0, -1), {asset: diamond, width: 32, height: 32},
+			FlxTransitionableState.defaultTransIn = new TransitionData(FADE, FlxColor.BLACK, 1, new FlxPoint(0, -1), {---et: diamond, width: 32, height: 32},
 				new FlxRect(-300, -300, FlxG.width * 1.8, FlxG.height * 1.8));
 			FlxTransitionableState.defaultTransOut = new TransitionData(FADE, FlxColor.BLACK, 0.7, new FlxPoint(0, 1),
-				{asset: diamond, width: 32, height: 32}, new FlxRect(-300, -300, FlxG.width * 1.8, FlxG.height * 1.8));
+				{---et: diamond, width: 32, height: 32}, new FlxRect(-300, -300, FlxG.width * 1.8, FlxG.height * 1.8));
 				
 			transIn = FlxTransitionableState.defaultTransIn;
 			transOut = FlxTransitionableState.defaultTransOut;*/
@@ -345,7 +345,7 @@ class TitleState extends MusicBeatState
 		}
 		//trace(path, FileSystem.exists(path));
 		if (!FileSystem.exists(path)){
-			path = "assets/images/titleEnter.png";
+			path = "---ets/images/titleEnter.png";
 		}
 		//trace(path, FileSystem.exists(path));
 		titleText.frames = FlxAtlasFrames.fromSparrow(BitmapData.fromFile(path),File.getContent(StringTools.replace(path,".png",".xml")));
@@ -424,7 +424,7 @@ class TitleState extends MusicBeatState
 
 	function getIntroText----():Array<Array<String>>
 	{
-		var fullText:String = Assets.getText(Paths.txt('introText'));
+		var fullText:String = ---ets.getText(Paths.txt('introText'));
 
 		var firstArray:Array<String> = fullText.split('\n');
 		var swagGoodArray:Array<Array<String>> = [];
@@ -494,10 +494,10 @@ class TitleState extends MusicBeatState
 				new FlxTimer().start(1, function(tmr:FlxTimer)
 				{
 					if (mustUpdate) {
-						Application.current.window.title = "Friday Night Funkin': Demolition Engine - OUTDATED VERSION";
+						Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - OUTDATED VERSION";
 						MusicBeatState.switchState(new OutdatedState());
 					} else {
-						Application.current.window.title = "Friday Night Funkin': Demolition Engine";
+						Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition]";
 						MusicBeatState.switchState(new MainMenuState());
 					}
 					closedState = true;
@@ -566,54 +566,54 @@ class TitleState extends MusicBeatState
 			if(controls.UI_RIGHT) swagShader.hue += elapsed * 0.1;
 		}
 		
-		openfl.Lib.application.window.title = "Friday Night Funkin': Demolition Engine - " + theFuni[FlxG.random.int(0, theFuni.length - 1)];
+		openfl.Lib.application.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - " + theFuni[FlxG.random.int(0, theFuni.length - 1)];
 
 		/*switch randomWindowText {
 		case 0:
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - Also try Your Mom Simulator";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - Also try Your Mom Simulator";
 		case 1:
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - Imagine making yet another modded Psych Engine?";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - Imagine making yet another modded Psych Engine?";
 		case 2:
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - Comically Large Spoon";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - Comically Large Spoon";
 		case 3:
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - snas uddertail";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - snas uddertail";
 		case 4:
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - K i l l .";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - K i l l .";
 		case 5:
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - GYR Demo when?";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - GYR Demo when?";
 		case 6:
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - Fun Fact: This fact is literally useless and serves no purpose.";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - Fun Fact: This fact is literally useless and serves no purpose.";
 		case 7:
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - omfg, stop beggin' for new releases, just wait >:(";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - omfg, stop beggin' for new releases, just wait >:(";
 		case 8:
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - Sample Text";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - Sample Text";
 		case 9:
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - We don't talk about SNS";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - We don't talk about SNS";
 		case 10:
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - Stfu, I'm playing Minecraft";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - Stfu, I'm playing Minecraft";
 		case 11:
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - Stfu, I'm playing Fortnite";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - Stfu, I'm playing Fortnite";
 		case 12:
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - Erect Difficulty is fun, ngl.";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - Erect Difficulty is fun, ngl.";
 		case 13:
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - Why can't BF & GF do ---- about the bs the parents are putting them in?";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - Why can't BF & GF do ---- about the bs the parents are putting them in?";
 		case 14:
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - Pico funi.";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - Pico funi.";
 		case 15:
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - stfu about Dave & Bambi, I don't wanna hear about it.";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - stfu about Dave & Bambi, I don't wanna hear about it.";
 		case 16:
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - ur adopted *epic roast 2022*";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - ur adopted *epic roast 2022*";
 		case 17:
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - MOUSE RAP. MOUSE RAP";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - MOUSE RAP. MOUSE RAP";
 		case 18:
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - I'm shutting down your game now, ---- you";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - I'm shutting down your game now, ---- you";
 		new FlxTimer().start(1.5, function(tmr:FlxTimer){
 			System.exit(0);
 		});
 		case 19:
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - How's life, buddy?";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - How's life, buddy?";
 		case 20:
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - mmmm, B E A N S .";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - mmmm, B E A N S .";
 	}*/
 		super.update(elapsed);
 	}
@@ -681,7 +681,7 @@ class TitleState extends MusicBeatState
 			switch (sickBeats)
 			{
 				case 1:
-					createCoolText(['Demolition Engine by'], 15);
+					createCoolText(['Demolition Engine [censored edition] by'], 15);
 				// credText----.visible = true;
 				case 3:
 					addMoreText('These Guys Lol', 15);
@@ -692,7 +692,7 @@ class TitleState extends MusicBeatState
 					deleteCoolText();
 					creditsGrid.visible = false;
 				// credText----.visible = false;
-				// credText----.text = 'In association \nwith';
+				// credText----.text = 'In ---ociation \nwith';
 				// credText----.screenCenter();
 				case 5:
 					createCoolText(['A Modified version of'], -40);
@@ -757,7 +757,7 @@ class TitleState extends MusicBeatState
 					case 'BBPANZU':
 						sound = FlxG.sound.play(Paths.sound('JingleBB'));
 					
-					default: //Go back to normal ugly ass boring GF
+					default: //Go back to normal ugly --- boring GF
 						remove(ngSpr);
 						remove(credGroup);
 						FlxG.camera.flash(FlxColor.WHITE, 2);

@@ -4,8 +4,8 @@ package;
 import sys.io.File;
 import sys.FileSystem;
 #end
-import lime.utils.Assets;
-import openfl.utils.Assets as OpenFlAssets;
+import lime.utils.---ets;
+import openfl.utils.---ets as OpenFl---ets;
 import haxe.Json;
 import haxe.format.JsonParser;
 import sys.io.File;
@@ -29,7 +29,7 @@ typedef WeekFile =
 	var difficulties:String;
 }
 
-class WeekData {
+cl--- WeekData {
 	public static var weeksLoaded:Map<String, WeekData> = new Map<String, WeekData>();
 	public static var weeksList:Array<String> = [];
 	public var folder:String = '';
@@ -214,8 +214,8 @@ class WeekData {
 			rawJson = File.getContent(path);
 		}
 		#else
-		if(OpenFlAssets.exists(path)) {
-			rawJson = Assets.getText(path);
+		if(OpenFl---ets.exists(path)) {
+			rawJson = ---ets.getText(path);
 		}
 		#end
 

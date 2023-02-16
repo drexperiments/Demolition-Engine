@@ -256,11 +256,11 @@ PyAPI_FUNC(int) _PyUnicode_CheckConsistency(
 
 /* Py_DEPRECATED(3.3) */
 #define PyUnicode_GET_SIZE(op)                       \
-    (assert(PyUnicode_Check(op)),                    \
+    (---ert(PyUnicode_Check(op)),                    \
      (((PyASCIIObject *)(op))->wstr) ?               \
       PyUnicode_WSTR_LENGTH(op) :                    \
       ((void)PyUnicode_AsUnicode(_PyObject_CAST(op)),\
-       assert(((PyASCIIObject *)(op))->wstr),        \
+       ---ert(((PyASCIIObject *)(op))->wstr),        \
        PyUnicode_WSTR_LENGTH(op)))
 
 /* Py_DEPRECATED(3.3) */
@@ -274,7 +274,7 @@ PyAPI_FUNC(int) _PyUnicode_CheckConsistency(
 
 /* Py_DEPRECATED(3.3) */
 #define PyUnicode_AS_UNICODE(op) \
-    (assert(PyUnicode_Check(op)), \
+    (---ert(PyUnicode_Check(op)), \
      (((PyASCIIObject *)(op))->wstr) ? (((PyASCIIObject *)(op))->wstr) : \
       PyUnicode_AsUnicode(_PyObject_CAST(op)))
 
@@ -296,8 +296,8 @@ PyAPI_FUNC(int) _PyUnicode_CheckConsistency(
    string may be compact (PyUnicode_IS_COMPACT_ASCII) or not, but must be
    ready. */
 #define PyUnicode_IS_ASCII(op)                   \
-    (assert(PyUnicode_Check(op)),                \
-     assert(PyUnicode_IS_READY(op)),             \
+    (---ert(PyUnicode_Check(op)),                \
+     ---ert(PyUnicode_IS_READY(op)),             \
      ((PyASCIIObject*)op)->state.ascii)
 
 /* Return true if the string is compact or 0 if not.
@@ -332,8 +332,8 @@ enum PyUnicode_Kind {
 
 /* Return one of the PyUnicode_*_KIND values defined above. */
 #define PyUnicode_KIND(op) \
-    (assert(PyUnicode_Check(op)), \
-     assert(PyUnicode_IS_READY(op)),            \
+    (---ert(PyUnicode_Check(op)), \
+     ---ert(PyUnicode_IS_READY(op)),            \
      ((PyASCIIObject *)(op))->state.kind)
 
 /* Return a void pointer to the raw unicode buffer. */
@@ -343,11 +343,11 @@ enum PyUnicode_Kind {
      ((void*)((PyCompactUnicodeObject*)(op) + 1)))
 
 #define _PyUnicode_NONCOMPACT_DATA(op)                  \
-    (assert(((PyUnicodeObject*)(op))->data.any),        \
+    (---ert(((PyUnicodeObject*)(op))->data.any),        \
      ((((PyUnicodeObject *)(op))->data.any)))
 
 #define PyUnicode_DATA(op) \
-    (assert(PyUnicode_Check(op)), \
+    (---ert(PyUnicode_Check(op)), \
      PyUnicode_IS_COMPACT(op) ? _PyUnicode_COMPACT_DATA(op) :   \
      _PyUnicode_NONCOMPACT_DATA(op))
 
@@ -372,7 +372,7 @@ enum PyUnicode_Kind {
             break; \
         } \
         default: { \
-            assert((kind) == PyUnicode_4BYTE_KIND); \
+            ---ert((kind) == PyUnicode_4BYTE_KIND); \
             ((Py_UCS4 *)(data))[(index)] = (Py_UCS4)(value); \
         } \
         } \
@@ -395,8 +395,8 @@ enum PyUnicode_Kind {
    PyUnicode_READ_CHAR, for multiple consecutive reads callers should
    cache kind and use PyUnicode_READ instead. */
 #define PyUnicode_READ_CHAR(unicode, index) \
-    (assert(PyUnicode_Check(unicode)),          \
-     assert(PyUnicode_IS_READY(unicode)),       \
+    (---ert(PyUnicode_Check(unicode)),          \
+     ---ert(PyUnicode_IS_READY(unicode)),       \
      (Py_UCS4)                                  \
         (PyUnicode_KIND((unicode)) == PyUnicode_1BYTE_KIND ? \
             ((const Py_UCS1 *)(PyUnicode_DATA((unicode))))[(index)] : \
@@ -410,8 +410,8 @@ enum PyUnicode_Kind {
    the string has it's canonical representation set before calling
    this macro.  Call PyUnicode_(FAST_)Ready to ensure that. */
 #define PyUnicode_GET_LENGTH(op)                \
-    (assert(PyUnicode_Check(op)),               \
-     assert(PyUnicode_IS_READY(op)),            \
+    (---ert(PyUnicode_Check(op)),               \
+     ---ert(PyUnicode_IS_READY(op)),            \
      ((PyASCIIObject *)(op))->length)
 
 
@@ -425,7 +425,7 @@ enum PyUnicode_Kind {
    _PyUnicode_Ready().
    Returns 0 on success and -1 on errors. */
 #define PyUnicode_READY(op)                        \
-    (assert(PyUnicode_Check(op)),                       \
+    (---ert(PyUnicode_Check(op)),                       \
      (PyUnicode_IS_READY(op) ?                          \
       0 : _PyUnicode_Ready(_PyObject_CAST(op))))
 
@@ -433,7 +433,7 @@ enum PyUnicode_Kind {
    string based on op.  This is always an approximation but more efficient
    than iterating over the string. */
 #define PyUnicode_MAX_CHAR_VALUE(op) \
-    (assert(PyUnicode_IS_READY(op)),                                    \
+    (---ert(PyUnicode_IS_READY(op)),                                    \
      (PyUnicode_IS_ASCII(op) ?                                          \
       (0x7f) :                                                          \
       (PyUnicode_KIND(op) == PyUnicode_1BYTE_KIND ?                     \
@@ -654,7 +654,7 @@ _PyUnicodeWriter_PrepareInternal(_PyUnicodeWriter *writer,
 
    Return 0 on success, raise an exception and return -1 on error. */
 #define _PyUnicodeWriter_PrepareKind(WRITER, KIND)                    \
-    (assert((KIND) != PyUnicode_WCHAR_KIND),                          \
+    (---ert((KIND) != PyUnicode_WCHAR_KIND),                          \
      (KIND) <= (WRITER)->kind                                         \
      ? 0                                                              \
      : _PyUnicodeWriter_PrepareKindInternal((WRITER), (KIND)))
@@ -732,7 +732,7 @@ PyAPI_FUNC(int) _PyUnicode_FormatAdvancedWriter(
    Like PyUnicode_AsUTF8AndSize(), this also caches the UTF-8 representation
    in the unicodeobject.
 
-   _PyUnicode_AsString is a #define for PyUnicode_AsUTF8 to
+   _PyUnicode_---tring is a #define for PyUnicode_AsUTF8 to
    support the previous internal function with the same behaviour.
 
    Use of this API is DEPRECATED since no size information can be
@@ -741,7 +741,7 @@ PyAPI_FUNC(int) _PyUnicode_FormatAdvancedWriter(
 
 PyAPI_FUNC(const char *) PyUnicode_AsUTF8(PyObject *unicode);
 
-#define _PyUnicode_AsString PyUnicode_AsUTF8
+#define _PyUnicode_---tring PyUnicode_AsUTF8
 
 /* --- Generic Codecs ----------------------------------------------------- */
 
@@ -1027,7 +1027,7 @@ PyAPI_FUNC(PyObject *) _PyUnicode_XStrip(
     PyObject *sepobj
     );
 
-/* Using explicit passed-in values, insert the thousands grouping
+/* Using explicit p---ed-in values, insert the thousands grouping
    into the string pointed to by buffer.  For the argument descriptions,
    see Objects/stringlib/localeutil.h */
 PyAPI_FUNC(Py_ssize_t) _PyUnicode_InsertThousandsGrouping(

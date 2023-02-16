@@ -35,7 +35,7 @@ import sys.io.File;
 
 using StringTools;
 
-class DialogueCharacterEditorState extends MusicBeatState
+cl--- DialogueCharacterEditorState extends MusicBeatState
 {
 	var box:FlxSprite;
 	var daText:Alphabet = null;

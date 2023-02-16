@@ -2,7 +2,7 @@ import flixel.FlxSprite;
 import flixel.util.FlxColor;
 import flixel.FlxG;
 
-class PhillyGlowParticle extends FlxSprite
+cl--- PhillyGlowParticle extends FlxSprite
 {
 	var lifeTime:Float = 0;
 	var decay:Float = 0;
@@ -41,7 +41,7 @@ class PhillyGlowParticle extends FlxSprite
 	}
 }
 
-class PhillyGlowGradient extends FlxSprite
+cl--- PhillyGlowGradient extends FlxSprite
 {
 	public var originalY:Float;
 	public var originalHeight:Int = 400;

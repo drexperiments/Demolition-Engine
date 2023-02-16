@@ -101,7 +101,7 @@ PyAPI_FUNC(int) _PyTime_FromMillisecondsObject(_PyTime_t *t,
     _PyTime_round_t round);
 
 /* Convert a timestamp to a number of seconds as a C double. */
-PyAPI_FUNC(double) _PyTime_AsSecondsDouble(_PyTime_t t);
+PyAPI_FUNC(double) _PyTime_---econdsDouble(_PyTime_t t);
 
 /* Convert timestamp to a number of milliseconds (10^-3 seconds). */
 PyAPI_FUNC(_PyTime_t) _PyTime_AsMilliseconds(_PyTime_t t,
@@ -215,7 +215,7 @@ PyAPI_FUNC(int) _PyTime_GetMonotonicClockWithInfo(
    Return 0 on success, raise an exception and return -1 on error. */
 PyAPI_FUNC(int) _PyTime_localtime(time_t t, struct tm *tm);
 
-/* Converts a timestamp to the Gregorian time, assuming UTC.
+/* Converts a timestamp to the Gregorian time, ---uming UTC.
    Return 0 on success, raise an exception and return -1 on error. */
 PyAPI_FUNC(int) _PyTime_gmtime(time_t t, struct tm *tm);
 

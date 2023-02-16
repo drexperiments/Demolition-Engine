@@ -174,13 +174,13 @@ struct _mod {
     } v;
 };
 
-enum _stmt_kind {FunctionDef_kind=1, AsyncFunctionDef_kind=2, ClassDef_kind=3,
-                  Return_kind=4, Delete_kind=5, Assign_kind=6,
-                  AugAssign_kind=7, AnnAssign_kind=8, For_kind=9,
+enum _stmt_kind {FunctionDef_kind=1, AsyncFunctionDef_kind=2, Cl---Def_kind=3,
+                  Return_kind=4, Delete_kind=5, ---ign_kind=6,
+                  Aug---ign_kind=7, Ann---ign_kind=8, For_kind=9,
                   AsyncFor_kind=10, While_kind=11, If_kind=12, With_kind=13,
                   AsyncWith_kind=14, Match_kind=15, Raise_kind=16, Try_kind=17,
-                  Assert_kind=18, Import_kind=19, ImportFrom_kind=20,
-                  Global_kind=21, Nonlocal_kind=22, Expr_kind=23, Pass_kind=24,
+                  ---ert_kind=18, Import_kind=19, ImportFrom_kind=20,
+                  Global_kind=21, Nonlocal_kind=22, Expr_kind=23, P---_kind=24,
                   Break_kind=25, Continue_kind=26};
 struct _stmt {
     enum _stmt_kind kind;
@@ -209,7 +209,7 @@ struct _stmt {
             asdl_keyword_seq *keywords;
             asdl_stmt_seq *body;
             asdl_expr_seq *decorator_list;
-        } ClassDef;
+        } Cl---Def;
 
         struct {
             expr_ty value;
@@ -223,20 +223,20 @@ struct _stmt {
             asdl_expr_seq *targets;
             expr_ty value;
             string type_comment;
-        } Assign;
+        } ---ign;
 
         struct {
             expr_ty target;
             operator_ty op;
             expr_ty value;
-        } AugAssign;
+        } Aug---ign;
 
         struct {
             expr_ty target;
             expr_ty annotation;
             expr_ty value;
             int simple;
-        } AnnAssign;
+        } Ann---ign;
 
         struct {
             expr_ty target;
@@ -298,7 +298,7 @@ struct _stmt {
         struct {
             expr_ty test;
             expr_ty msg;
-        } Assert;
+        } ---ert;
 
         struct {
             asdl_alias_seq *names;
@@ -561,7 +561,7 @@ struct _match_case {
 
 enum _pattern_kind {MatchValue_kind=1, MatchSingleton_kind=2,
                      MatchSequence_kind=3, MatchMapping_kind=4,
-                     MatchClass_kind=5, MatchStar_kind=6, MatchAs_kind=7,
+                     MatchCl---_kind=5, MatchStar_kind=6, MatchAs_kind=7,
                      MatchOr_kind=8};
 struct _pattern {
     enum _pattern_kind kind;
@@ -589,7 +589,7 @@ struct _pattern {
             asdl_pattern_seq *patterns;
             asdl_identifier_seq *kwd_attrs;
             asdl_pattern_seq *kwd_patterns;
-        } MatchClass;
+        } MatchCl---;
 
         struct {
             identifier name;
@@ -641,7 +641,7 @@ stmt_ty _PyAST_AsyncFunctionDef(identifier name, arguments_ty args,
                                 decorator_list, expr_ty returns, string
                                 type_comment, int lineno, int col_offset, int
                                 end_lineno, int end_col_offset, PyArena *arena);
-stmt_ty _PyAST_ClassDef(identifier name, asdl_expr_seq * bases,
+stmt_ty _PyAST_Cl---Def(identifier name, asdl_expr_seq * bases,
                         asdl_keyword_seq * keywords, asdl_stmt_seq * body,
                         asdl_expr_seq * decorator_list, int lineno, int
                         col_offset, int end_lineno, int end_col_offset, PyArena
@@ -650,13 +650,13 @@ stmt_ty _PyAST_Return(expr_ty value, int lineno, int col_offset, int
                       end_lineno, int end_col_offset, PyArena *arena);
 stmt_ty _PyAST_Delete(asdl_expr_seq * targets, int lineno, int col_offset, int
                       end_lineno, int end_col_offset, PyArena *arena);
-stmt_ty _PyAST_Assign(asdl_expr_seq * targets, expr_ty value, string
+stmt_ty _PyAST_---ign(asdl_expr_seq * targets, expr_ty value, string
                       type_comment, int lineno, int col_offset, int end_lineno,
                       int end_col_offset, PyArena *arena);
-stmt_ty _PyAST_AugAssign(expr_ty target, operator_ty op, expr_ty value, int
+stmt_ty _PyAST_Aug---ign(expr_ty target, operator_ty op, expr_ty value, int
                          lineno, int col_offset, int end_lineno, int
                          end_col_offset, PyArena *arena);
-stmt_ty _PyAST_AnnAssign(expr_ty target, expr_ty annotation, expr_ty value, int
+stmt_ty _PyAST_Ann---ign(expr_ty target, expr_ty annotation, expr_ty value, int
                          simple, int lineno, int col_offset, int end_lineno,
                          int end_col_offset, PyArena *arena);
 stmt_ty _PyAST_For(expr_ty target, expr_ty iter, asdl_stmt_seq * body,
@@ -688,7 +688,7 @@ stmt_ty _PyAST_Try(asdl_stmt_seq * body, asdl_excepthandler_seq * handlers,
                    asdl_stmt_seq * orelse, asdl_stmt_seq * finalbody, int
                    lineno, int col_offset, int end_lineno, int end_col_offset,
                    PyArena *arena);
-stmt_ty _PyAST_Assert(expr_ty test, expr_ty msg, int lineno, int col_offset,
+stmt_ty _PyAST_---ert(expr_ty test, expr_ty msg, int lineno, int col_offset,
                       int end_lineno, int end_col_offset, PyArena *arena);
 stmt_ty _PyAST_Import(asdl_alias_seq * names, int lineno, int col_offset, int
                       end_lineno, int end_col_offset, PyArena *arena);
@@ -702,7 +702,7 @@ stmt_ty _PyAST_Nonlocal(asdl_identifier_seq * names, int lineno, int
                         *arena);
 stmt_ty _PyAST_Expr(expr_ty value, int lineno, int col_offset, int end_lineno,
                     int end_col_offset, PyArena *arena);
-stmt_ty _PyAST_Pass(int lineno, int col_offset, int end_lineno, int
+stmt_ty _PyAST_P---(int lineno, int col_offset, int end_lineno, int
                     end_col_offset, PyArena *arena);
 stmt_ty _PyAST_Break(int lineno, int col_offset, int end_lineno, int
                      end_col_offset, PyArena *arena);
@@ -820,7 +820,7 @@ pattern_ty _PyAST_MatchMapping(asdl_expr_seq * keys, asdl_pattern_seq *
                                patterns, identifier rest, int lineno, int
                                col_offset, int end_lineno, int end_col_offset,
                                PyArena *arena);
-pattern_ty _PyAST_MatchClass(expr_ty cls, asdl_pattern_seq * patterns,
+pattern_ty _PyAST_MatchCl---(expr_ty cls, asdl_pattern_seq * patterns,
                              asdl_identifier_seq * kwd_attrs, asdl_pattern_seq
                              * kwd_patterns, int lineno, int col_offset, int
                              end_lineno, int end_col_offset, PyArena *arena);

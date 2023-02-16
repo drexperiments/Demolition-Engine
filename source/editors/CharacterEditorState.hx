@@ -44,7 +44,7 @@ using StringTools;
 /**
 	*DEBUG MODE
  */
-class CharacterEditorState extends MusicBeatState
+cl--- CharacterEditorState extends MusicBeatState
 {
 	var char:Character;
 	var ghostChar:Character;
@@ -99,7 +99,7 @@ class CharacterEditorState extends MusicBeatState
 		charLayer = new FlxTypedGroup<Character>();
 		add(charLayer);
 
-		var pointer:FlxGraphic = FlxGraphic.fromClass(GraphicCursorCross);
+		var pointer:FlxGraphic = FlxGraphic.fromCl---(GraphicCursorCross);
 		cameraFollowPointer = new FlxSprite().loadGraphic(pointer);
 		cameraFollowPointer.setGraphicSize(40, 40);
 		cameraFollowPointer.updateHitbox();
@@ -113,7 +113,7 @@ class CharacterEditorState extends MusicBeatState
 		});
 		changeBGbutton.cameras = [camMenu];
 		
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - Character Editor - Editing: " + char + " - Animation: " + daAnim;
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - Character Editor - Editing: " + char + " - Animation: " + daAnim;
 		
 		loadChar(!daAnim.startsWith('bf'), false);
 

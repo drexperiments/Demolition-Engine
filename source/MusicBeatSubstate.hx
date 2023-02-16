@@ -6,7 +6,7 @@ import flixel.FlxSubState;
 import flixel.FlxBasic;
 import flixel.FlxSprite;
 
-class MusicBeatSubstate extends FlxSubState
+cl--- MusicBeatSubstate extends FlxSubState
 {
 	public function new()
 	{

@@ -85,7 +85,7 @@ WIN32 is still required for the locale module.
 
 /* We want COMPILER to expand to a string containing _MSC_VER's *value*.
  * This is horridly tricky, because the stringization operator only works
- * on macro arguments, and doesn't evaluate macros passed *as* arguments.
+ * on macro arguments, and doesn't evaluate macros p---ed *as* arguments.
  * Attempts simpler than the following appear doomed to produce "_MSC_VER"
  * literally in the string.
  */

@@ -41,12 +41,12 @@ import flixel.util.FlxStringUtil;
 import flixel.util.FlxTimer;
 // everything else
 import haxe.Json;
-import lime.utils.Assets;
+import lime.utils.---ets;
 import openfl.Lib;
 import openfl.display.BlendMode;
 import openfl.display.StageQuality;
 import openfl.filters.BitmapFilter;
-import openfl.utils.Assets as OpenFlAssets;
+import openfl.utils.---ets as OpenFl---ets;
 import editors.ChartingState;
 import editors.OpenSong;
 import editors.CharacterEditorState;
@@ -75,7 +75,7 @@ import sys.FileSystem;
 
 using StringTools;
 
-class PlayState extends MusicBeatState
+cl--- PlayState extends MusicBeatState
 {
 	public static var STRUM_X = 42;
 	public static var STRUM_X_MIDDLESCROLL = -278;
@@ -295,7 +295,7 @@ class PlayState extends MusicBeatState
 
 	public var defaultCamZoom:Float = 1.05;
 
-	// how big to stretch the pixel art assets
+	// how big to stretch the pixel art ---ets
 	public static var daPixelZoom:Float = 6;
 	private var singAnimations:Array<String> = ['singLEFT', 'singDOWN', 'singUP', 'singRIGHT'];
 
@@ -553,7 +553,7 @@ class PlayState extends MusicBeatState
 				phillyTrain = new BGSprite('philly/train', 2000, 360);
 				add(phillyTrain);
 
-				trainSound = new FlxSound().loadEmbedded(Paths.sound('train_passes'));
+				trainSound = new FlxSound().loadEmbedded(Paths.sound('train_p---es'));
 				FlxG.sound.list.add(trainSound);
 
 				phillyStreet = new BGSprite('philly/street', -40, 50);
@@ -984,12 +984,12 @@ class PlayState extends MusicBeatState
 		}
 
 		var file:String = Paths.json(songName + '/dialogue'); //Checks for json/Psych Engine dialogue
-		if (OpenFlAssets.exists(file)) {
+		if (OpenFl---ets.exists(file)) {
 			dialogueJson = DialogueBoxPsych.parseDialogue(file);
 		}
 
 		var file:String = Paths.txt(songName + '/' + songName + 'Dialogue'); //Checks for vanilla/Senpai dialogue
-		if (OpenFlAssets.exists(file)) {
+		if (OpenFl---ets.exists(file)) {
 			dialogue = CoolUtil.coolTextFile(file);
 		}
 		var doof:DialogueBox = new DialogueBox(false, dialogue);
@@ -1165,15 +1165,15 @@ class PlayState extends MusicBeatState
 		/*switch(PlayState.SONG.song)
 				{
 					case 'Atrocity':
-					Application.current.window.title = "Friday Night Funkin': Demolition Engine - " + WeekData.getCurrentWeek().weekName + ": " + PlayState.SONG.song + " [" + CoolUtil.difficultyString() + "] - Composed by: Saster";
+					Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - " + WeekData.getCurrentWeek().weekName + ": " + PlayState.SONG.song + " [" + CoolUtil.difficultyString() + "] - Composed by: Saster";
 					case 'Tutorial' | 'Bopeebo' | 'Fresh' | 'Dad Battle' | 'Spookeez' | 'South' | 'Pico' | 'Philly Nice' | 'Blammed' | 'Satin Panties' | 'High' | 'Milf' | 'Cocoa' | 'Eggnog' | 'Senpai' | 'Roses' | 'Thorns' | 'Ugh' | 'Guns' | 'Stress':
-					Application.current.window.title = "Friday Night Funkin': Demolition Engine - " + WeekData.getCurrentWeek().weekName + ": " + PlayState.SONG.song + " [" + CoolUtil.difficultyString() + "] - Composed by: Kawai Sprite";
+					Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - " + WeekData.getCurrentWeek().weekName + ": " + PlayState.SONG.song + " [" + CoolUtil.difficultyString() + "] - Composed by: Kawai Sprite";
 					case 'Monster' | 'Winter Horrorland':
-					Application.current.window.title = "Friday Night Funkin': Demolition Engine - " + WeekData.getCurrentWeek().weekName + ": " + PlayState.SONG.song + " [" + CoolUtil.difficultyString() + "] - Composed by: Kawai Sprite & Bassetfilms";
+					Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - " + WeekData.getCurrentWeek().weekName + ": " + PlayState.SONG.song + " [" + CoolUtil.difficultyString() + "] - Composed by: Kawai Sprite & bassetfilms";
 					default:
-					Application.current.window.title = "Friday Night Funkin': Demolition Engine - " + WeekData.getCurrentWeek().weekName + ": " + PlayState.SONG.song + " [" + CoolUtil.difficultyString() + "]";
+					Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - " + WeekData.getCurrentWeek().weekName + ": " + PlayState.SONG.song + " [" + CoolUtil.difficultyString() + "]";
 				}*/
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - " + WeekData.getCurrentWeek().weekName + ": " + PlayState.SONG.song + " [" + CoolUtil.difficultyString() + "] - Composed by: " + PlayState.SONG.composer;
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - " + WeekData.getCurrentWeek().weekName + ": " + PlayState.SONG.song + " [" + CoolUtil.difficultyString() + "] - Composed by: " + PlayState.SONG.composer;
 
 		if(ClientPrefs.longBar)
 		{
@@ -1241,7 +1241,7 @@ class PlayState extends MusicBeatState
                 peWatermark.setFormat(Paths.font("Retro Gaming.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		}
 		peWatermark.scrollFactor.set();
-		peWatermark.text = "Demolition Engine v" + MainMenuState.DemoEngineVersion + " | " + curSong + " " + storyDifficultyText;
+		peWatermark.text = "Demolition Engine [censored edition] v" + MainMenuState.DemoEngineVersion + " | " + curSong + " " + storyDifficultyText;
 		peWatermark.visible = ClientPrefs.showWatermarks;
 		peWatermark.cameras = [camOther]; // This sould be part of the hud, else the thing won't be included in shaders if they are used - theo; yeah, that's the whole point, dude, i know what i'm doing - don
 		add(peWatermark);
@@ -1698,7 +1698,7 @@ class PlayState extends MusicBeatState
 			#if sys
 			if(FileSystem.exists(fileName)) {
 			#else
-			if(OpenFlAssets.exists(fileName)) {
+			if(OpenFl---ets.exists(fileName)) {
 			#end
 				foundFile = true;
 			}
@@ -2022,7 +2022,7 @@ class PlayState extends MusicBeatState
 				gfCutscene.alpha = 0.00001;
 
 				picoCutscene.frames = AtlasFrameMaker.construct('cutscenes/stressPico');
-				picoCutscene.animation.addByPrefix('anim', 'Pico Badass', 24, false);
+				picoCutscene.animation.addByPrefix('anim', 'Pico Bad---', 24, false);
 				insert(members.indexOf(gfGroup) + 1, picoCutscene);
 				picoCutscene.alpha = 0.00001;
 
@@ -2224,14 +2224,14 @@ class PlayState extends MusicBeatState
 					dad.dance();
 				}
 
-				var introAssets:Map<String, Array<String>> = new Map<String, Array<String>>();
-				introAssets.set('default', ['ready', 'set', 'go']);
-				introAssets.set('pixel', ['pixelUI/ready-pixel', 'pixelUI/set-pixel', 'pixelUI/date-pixel']);
+				var intro---ets:Map<String, Array<String>> = new Map<String, Array<String>>();
+				intro---ets.set('default', ['ready', 'set', 'go']);
+				intro---ets.set('pixel', ['pixelUI/ready-pixel', 'pixelUI/set-pixel', 'pixelUI/date-pixel']);
 
-				var introAlts:Array<String> = introAssets.get('default');
+				var introAlts:Array<String> = intro---ets.get('default');
 				var antialias:Bool = ClientPrefs.globalAntialiasing;
 				if(isPixelStage) {
-					introAlts = introAssets.get('pixel');
+					introAlts = intro---ets.get('pixel');
 					antialias = false;
 				}
 
@@ -2485,7 +2485,7 @@ class PlayState extends MusicBeatState
 		#if sys
 		if (FileSystem.exists(Paths.modsJson(songName + '/events')) || FileSystem.exists(file)) {
 		#else
-		if (OpenFlAssets.exists(file)) {
+		if (OpenFl---ets.exists(file)) {
 		#end
 			var eventsData:Array<Dynamic> = Song.loadFromJson('events', songName).events;
 			for (event in eventsData) //Event Notes
@@ -3550,7 +3550,7 @@ class PlayState extends MusicBeatState
 
 				// MusicBeatState.switchState(new GameOverState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 				
-				Application.current.window.title = "Friday Night Funkin': Demolition Engine - " + WeekData.getCurrentWeek().weekName + " - Game Over";
+				Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - " + WeekData.getCurrentWeek().weekName + " - Game Over";
 
 				#if desktop
 				// Game Over doesn't get his own variable because it's only used here
@@ -4801,7 +4801,7 @@ class PlayState extends MusicBeatState
 	public var totalPlayed:Int = 0;
 	public var totalNote----:Float = 0.0;
 
-	public static function getUiSkin(?uiSkin:String = 'classic', ?file:String = '', ?alt:String = '', ?numSkin:Bool = false, ?num:Int = 0)
+	public static function getUiSkin(?uiSkin:String = 'cl---ic', ?file:String = '', ?alt:String = '', ?numSkin:Bool = false, ?num:Int = 0)
 	{
 		var path:String = 'judgements/'
 			+ (numSkin ? 'numbers/' : '')
@@ -4813,7 +4813,7 @@ class PlayState extends MusicBeatState
 		if (!Paths.fileExists('images/' + path + '.png', IMAGE))
 			path = 'judgements/'
 				+ (numSkin ? 'numbers/' : '')
-				+ 'classic/'
+				+ 'cl---ic/'
 				+ (numSkin ? 'num' : file)
 				+ (numSkin ? Std.string(num) : '')
 				+ alt;
@@ -4952,8 +4952,8 @@ class PlayState extends MusicBeatState
 
 		switch (ClientPrefs.uiSkin)
 		{
-			case 'Classic':
-				uiSkin = 'classic';
+			case 'Cl---ic':
+				uiSkin = 'cl---ic';
 			case 'Bedrock':
 				uiSkin = 'bedrock';
 			case 'BEAT!':
@@ -5727,7 +5727,7 @@ class PlayState extends MusicBeatState
 	function fastCarDrive()
 	{
 		//trace('Car drive');
-		FlxG.sound.play(Paths.soundRandom('carPass', 0, 1), 0.7);
+		FlxG.sound.play(Paths.soundRandom('carP---', 0, 1), 0.7);
 
 		fastCar.velocity.x = (FlxG.random.int(170, 220) / FlxG.elapsed) * 3;
 		fastCarCanDrive = false;

@@ -33,7 +33,7 @@ PYBIND11_NAMESPACE_BEGIN(PYBIND11_NAMESPACE)
 PYBIND11_NAMESPACE_BEGIN(detail)
 
 template <typename type>
-class duration_caster {
+cl--- duration_caster {
 public:
     using rep = typename type::rep;
     using period = typename type::period;
@@ -60,7 +60,7 @@ public:
                 + microseconds(PyDateTime_DELTA_GET_MICROSECONDS(src.ptr()))));
             return true;
         }
-        // If invoked with a float we assume it is seconds and convert
+        // If invoked with a float we ---ume it is seconds and convert
         if (PyFloat_Check(src.ptr())) {
             value = type(duration_cast<duration<rep, period>>(
                 duration<double>(PyFloat_AsDouble(src.ptr()))));
@@ -128,7 +128,7 @@ inline std::tm *localtime_thread_safe(const std::time_t *time, std::tm *buf) {
 
 // This is for casting times on the system clock into datetime.datetime instances
 template <typename Duration>
-class type_caster<std::chrono::time_point<std::chrono::system_clock, Duration>> {
+cl--- type_caster<std::chrono::time_point<std::chrono::system_clock, Duration>> {
 public:
     using type = std::chrono::time_point<std::chrono::system_clock, Duration>;
     bool load(handle src, bool) {
@@ -223,13 +223,13 @@ public:
 
 // Other clocks that are not the system clock are not measured as datetime.datetime objects
 // since they are not measured on calendar time. So instead we just make them timedeltas
-// Or if they have passed us a time as a float we convert that
+// Or if they have p---ed us a time as a float we convert that
 template <typename Clock, typename Duration>
-class type_caster<std::chrono::time_point<Clock, Duration>>
+cl--- type_caster<std::chrono::time_point<Clock, Duration>>
     : public duration_caster<std::chrono::time_point<Clock, Duration>> {};
 
 template <typename Rep, typename Period>
-class type_caster<std::chrono::duration<Rep, Period>>
+cl--- type_caster<std::chrono::duration<Rep, Period>>
     : public duration_caster<std::chrono::duration<Rep, Period>> {};
 
 PYBIND11_NAMESPACE_END(detail)

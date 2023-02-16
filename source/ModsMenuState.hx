@@ -14,9 +14,9 @@ import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.tweens.FlxTween;
-import lime.utils.Assets;
+import lime.utils.---ets;
 import flixel.system.FlxSound;
-import openfl.utils.Assets as OpenFlAssets;
+import openfl.utils.---ets as OpenFl---ets;
 import sys.io.File;
 import sys.FileSystem;
 import haxe.Json;
@@ -33,7 +33,7 @@ import haxe.zip.Writer;*/
 
 using StringTools;
 
-class ModsMenuState extends MusicBeatState
+cl--- ModsMenuState extends MusicBeatState
 {
 	var mods:Array<ModMetadata> = [];
 	static var changedAThing = false;
@@ -712,7 +712,7 @@ class ModsMenuState extends MusicBeatState
 	}*/
 }
 
-class ModMetadata
+cl--- ModMetadata
 {
 	public var folder:String;
 	public var name:String;

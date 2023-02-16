@@ -8,10 +8,10 @@ import openfl.text.TextField;
 import openfl.text.TextFormat;
 // thank you verwex for saving me time :blush:
 /**
- * FPS class extension to display memory usage.
+ * FPS cl--- extension to display memory usage.
  * @author Kirill Poletaev
  */
-class MemoryCounter extends TextField
+cl--- MemoryCounter extends TextField
 {
 	private var times:Array<Float>;
 	private var memPeak:Float = 0;

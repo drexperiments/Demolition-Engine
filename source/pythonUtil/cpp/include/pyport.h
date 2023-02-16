@@ -309,13 +309,13 @@ extern "C" {
 
 /* Py_SAFE_DOWNCAST(VALUE, WIDE, NARROW)
  * Cast VALUE to type NARROW from type WIDE.  In Py_DEBUG mode, this
- * assert-fails if any information is lost.
+ * ---ert-fails if any information is lost.
  * Caution:
  *    VALUE may be evaluated more than once.
  */
 #ifdef Py_DEBUG
 #define Py_SAFE_DOWNCAST(VALUE, WIDE, NARROW) \
-    (assert((WIDE)(NARROW)(VALUE) == (VALUE)), (NARROW)(VALUE))
+    (---ert((WIDE)(NARROW)(VALUE) == (VALUE)), (NARROW)(VALUE))
 #else
 #define Py_SAFE_DOWNCAST(VALUE, WIDE, NARROW) (NARROW)(VALUE)
 #endif
@@ -324,7 +324,7 @@ extern "C" {
  * If a libm function did not set errno, but it looks like the result
  * overflowed or not-a-number, set errno to ERANGE or EDOM.  Set errno
  * to 0 before calling a libm function, and invoke this macro after,
- * passing the function result.
+ * p---ing the function result.
  * Caution:
  *    This isn't reliable.  See Py_OVERFLOWED comments.
  *    X is evaluated more than once.
@@ -351,7 +351,7 @@ extern "C" {
 /* Py_ADJUST_ERANGE1(x)
  * Py_ADJUST_ERANGE2(x, y)
  * Set errno to 0 before calling a libm function, and invoke one of these
- * macros after, passing the function result(s) (Py_ADJUST_ERANGE2 is useful
+ * macros after, p---ing the function result(s) (Py_ADJUST_ERANGE2 is useful
  * for functions returning complex results).  This makes two kinds of
  * adjustments to errno:  (A) If it looks like the platform libm set
  * errno=ERANGE due to underflow, clear errno. (B) If it looks like the
@@ -802,7 +802,7 @@ extern char * _getpty(int *, int, mode_t, int);
 
 #ifdef Py_BUILD_CORE
 /*
- * Macros to protect CRT calls against instant termination when passed an
+ * Macros to protect CRT calls against instant termination when p---ed an
  * invalid parameter (issue23524).
  */
 #if defined _MSC_VER && _MSC_VER >= 1900

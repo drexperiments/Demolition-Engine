@@ -1,5 +1,5 @@
 /*
-    pybind11/iostream.h -- Tools to assist with redirecting cout and cerr to Python
+    pybind11/iostream.h -- Tools to ---ist with redirecting cout and cerr to Python
 
     Copyright (c) 2017 Henry F. Schreiner
 
@@ -35,7 +35,7 @@ PYBIND11_NAMESPACE_BEGIN(PYBIND11_NAMESPACE)
 PYBIND11_NAMESPACE_BEGIN(detail)
 
 // Buffer that writes to Python instead of C++
-class pythonbuf : public std::streambuf {
+cl--- pythonbuf : public std::streambuf {
 private:
     using traits_type = std::streambuf::traits_type;
 
@@ -145,7 +145,7 @@ PYBIND11_NAMESPACE_END(detail)
             std::cout << "hecko, World!"; // Python stdout
         } // <-- return std::cout to normal
 
-    You can explicitly pass the c++ stream and the python object,
+    You can explicitly p--- the c++ stream and the python object,
     for example to guard stderr instead.
 
     .. code-block:: cpp
@@ -156,7 +156,7 @@ PYBIND11_NAMESPACE_END(detail)
             std::cout << "hecko, World!";
         }
  \endrst */
-class scoped_ostream_redirect {
+cl--- scoped_ostream_redirect {
 protected:
     std::streambuf *old;
     std::ostream &costream;
@@ -179,7 +179,7 @@ public:
 };
 
 /** \rst
-    Like `scoped_ostream_redirect`, but redirects cerr by default. This class
+    Like `scoped_ostream_redirect`, but redirects cerr by default. This cl---
     is provided primary to make ``py::call_guard`` easier to make.
 
     .. code-block:: cpp
@@ -189,7 +189,7 @@ public:
                           scoped_estream_redirect>());
 
 \endrst */
-class scoped_estream_redirect : public scoped_ostream_redirect {
+cl--- scoped_estream_redirect : public scoped_ostream_redirect {
 public:
     explicit scoped_estream_redirect(std::ostream &costream = std::cerr,
                                      const object &pyostream
@@ -199,8 +199,8 @@ public:
 
 PYBIND11_NAMESPACE_BEGIN(detail)
 
-// Class to redirect output as a context manager. C++ backend.
-class OstreamRedirect {
+// Cl--- to redirect output as a context manager. C++ backend.
+cl--- OstreamRedirect {
     bool do_stdout_;
     bool do_stderr_;
     std::unique_ptr<scoped_ostream_redirect> redirect_stdout;
@@ -254,9 +254,9 @@ PYBIND11_NAMESPACE_END(detail)
             m.noisy_function_with_error_printing()
 
  \endrst */
-inline class_<detail::OstreamRedirect>
+inline cl---_<detail::OstreamRedirect>
 add_ostream_redirect(module_ m, const std::string &name = "ostream_redirect") {
-    return class_<detail::OstreamRedirect>(std::move(m), name.c_str(), module_local())
+    return cl---_<detail::OstreamRedirect>(std::move(m), name.c_str(), module_local())
         .def(init<bool, bool>(), arg("stdout") = true, arg("stderr") = true)
         .def("__enter__", &detail::OstreamRedirect::enter)
         .def("__exit__", [](detail::OstreamRedirect &self_, const args &) { self_.exit(); });

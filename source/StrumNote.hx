@@ -7,7 +7,7 @@ import flixel.graphics.frames.FlxAtlasFrames;
 
 using StringTools;
 
-class StrumNote extends FlxSprite
+cl--- StrumNote extends FlxSprite
 {
 	private var colorSwap:ColorSwap;
 	public var resetAnim:Float = 0;
@@ -38,31 +38,31 @@ class StrumNote extends FlxSprite
 		super(x, y);
 
 		var skin:String;
-		skin = 'NOTE_assets';
+		skin = 'NOTE_---ets';
 		
 		if(PlayState.SONG.arrowSkin != null && PlayState.SONG.arrowSkin.length > 1) skin = PlayState.SONG.arrowSkin;
 		switch(char)
 		{
 			case 'dad':
-				skin = 'Skins/DADNOTE_assets';
+				skin = 'Skins/DADNOTE_---ets';
 				doAntialiasing = true; //same as before
 			case 'gf' | 'gf-opponent' | 'gf-car' | 'gf-christmas':
-				skin = 'Skins/gfNOTE_assets';
+				skin = 'Skins/gfNOTE_---ets';
 				doAntialiasing = true;
 			case 'mom' | 'mom-car':
-				skin = 'Skins/MOMNOTE_assets';
+				skin = 'Skins/MOMNOTE_---ets';
 				doAntialiasing = true;
 			case 'parents-christmas':
-				skin = 'Skins/ParentsNOTE_assets';
+				skin = 'Skins/ParentsNOTE_---ets';
 				doAntialiasing = true;
 			case 'pico' | 'pico-player':
-				skin = 'Skins/picoNOTE_assets';
+				skin = 'Skins/picoNOTE_---ets';
 				doAntialiasing = true;
 			case 'monster' | 'monster-christmas':
-				skin = 'Skins/LemonboiNOTE_assets';
+				skin = 'Skins/LemonboiNOTE_---ets';
 				doAntialiasing = true;
 			case 'spooky':
-				skin = 'Skins/SpookyNOTE_assets';
+				skin = 'Skins/SpookyNOTE_---ets';
 				doAntialiasing = true;
 			case 'bf-pixel-opponent' /*| 'bf-pixel'*/:
 				/*if(PlayState.isPixelStage) {

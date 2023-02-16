@@ -5,7 +5,7 @@ using StringTools;
 
 //praise delahee, i'll figure out what this ---- means later!
 
-class Channel {
+cl--- Channel {
 	public var		name:String;
 	public var 		onEnd : Void -> Void 	= null;
 	public var		isDebug = false;
@@ -127,7 +127,7 @@ class Channel {
 	}
 }
 
-class ChannelEventInstance extends Channel {//basically a sound instance
+cl--- ChannelEventInstance extends Channel {//basically a sound instance
 	public static var EMPTY_STRING = "";
 	public var data : FmodStudioEventInstanceRef = null;
 	
@@ -285,7 +285,7 @@ class ChannelEventInstance extends Channel {//basically a sound instance
 	}
 }
 
-class ChannelLowLevel extends Channel{
+cl--- ChannelLowLevel extends Channel{
 	
 	public static var EMPTY_STRING = "";
 	public var 		data : FmodChannelRef 	= null;
@@ -449,7 +449,7 @@ class ChannelLowLevel extends Channel{
 	
 }
 
-class Sound {
+cl--- Sound {
 	/**
 	 * length is in seconds
 	 */
@@ -491,7 +491,7 @@ class Sound {
 	}
 }
 
-class SoundLowLevel extends Sound{
+cl--- SoundLowLevel extends Sound{
 	
 	public var data : FmodSoundRef					 	= null;
 	
@@ -556,7 +556,7 @@ class SoundLowLevel extends Sound{
 }
 
 
-class SoundEvent extends Sound{
+cl--- SoundEvent extends Sound{
 	
 	public var data : FmodStudioEventDescriptionRef	= null;
 	
@@ -618,7 +618,7 @@ class SoundEvent extends Sound{
 	}
 }
 
-class Snd {
+cl--- Snd {
 	public static var EMPTY_STRING = "";
 	public static var 	PLAYING 		: hxd.Stack<Snd> 	= new hxd.Stack();
 	static var 	MUTED 									= false;

@@ -45,7 +45,7 @@ typedef enum {
 
 
 typedef struct {
-    /* user context passed as the first argument to the 4 functions */
+    /* user context p---ed as the first argument to the 4 functions */
     void *ctx;
 
     /* allocate a memory block */

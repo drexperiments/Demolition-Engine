@@ -88,7 +88,7 @@ VLC_API subpicture_t * spu_Render( spu_t *, const vlc_fourcc_t *p_chroma_list, c
 VLC_API int spu_RegisterChannel( spu_t * );
 
 /**
- * It clears all subpictures associated to a SPU channel.
+ * It clears all subpictures ---ociated to a SPU channel.
  */
 VLC_API void spu_ClearChannel( spu_t *, int );
 

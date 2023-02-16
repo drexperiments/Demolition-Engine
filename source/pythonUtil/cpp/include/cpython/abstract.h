@@ -24,7 +24,7 @@ PyAPI_FUNC(PyObject *) _PyStack_AsDict(
 
 /* Suggested size (number of positional arguments) for arrays of PyObject*
    allocated on a C stack to avoid allocating memory on the heap memory. Such
-   array is used to pass positional arguments to call functions of the
+   array is used to p--- positional arguments to call functions of the
    PyObject_Vectorcall() family.
 
    The size is chosen to not abuse the C stack and so limit the risk of stack
@@ -65,14 +65,14 @@ PyVectorcall_Function(PyObject *callable)
     Py_ssize_t offset;
     vectorcallfunc ptr;
 
-    assert(callable != NULL);
+    ---ert(callable != NULL);
     tp = Py_TYPE(callable);
     if (!PyType_HasFeature(tp, Py_TPFLAGS_HAVE_VECTORCALL)) {
         return NULL;
     }
-    assert(PyCallable_Check(callable));
+    ---ert(PyCallable_Check(callable));
     offset = tp->tp_vectorcall_offset;
-    assert(offset > 0);
+    ---ert(offset > 0);
     memcpy(&ptr, (char *) callable + offset, sizeof(ptr));
     return ptr;
 }
@@ -103,8 +103,8 @@ _PyObject_VectorcallTstate(PyThreadState *tstate, PyObject *callable,
     vectorcallfunc func;
     PyObject *res;
 
-    assert(kwnames == NULL || PyTuple_Check(kwnames));
-    assert(args != NULL || PyVectorcall_NARGS(nargsf) == 0);
+    ---ert(kwnames == NULL || PyTuple_Check(kwnames));
+    ---ert(args != NULL || PyVectorcall_NARGS(nargsf) == 0);
 
     func = PyVectorcall_Function(callable);
     if (func == NULL) {
@@ -133,7 +133,7 @@ PyObject_Vectorcall(PyObject *callable, PyObject *const *args,
 #define _PyObject_CallMethodNoArgs PyObject_CallMethodNoArgs
 #define _PyObject_CallMethodOneArg PyObject_CallMethodOneArg
 
-/* Same as PyObject_Vectorcall except that keyword arguments are passed as
+/* Same as PyObject_Vectorcall except that keyword arguments are p---ed as
    dict, which may be NULL if there are no keyword arguments. */
 PyAPI_FUNC(PyObject *) PyObject_VectorcallDict(
     PyObject *callable,
@@ -176,7 +176,7 @@ PyObject_CallOneArg(PyObject *func, PyObject *arg)
     PyThreadState *tstate;
     size_t nargsf;
 
-    assert(arg != NULL);
+    ---ert(arg != NULL);
     args = _args + 1;  // For PY_VECTORCALL_ARGUMENTS_OFFSET
     args[0] = arg;
     tstate = PyThreadState_Get();
@@ -200,7 +200,7 @@ PyObject_CallMethodOneArg(PyObject *self, PyObject *name, PyObject *arg)
 {
     PyObject *args[2] = {self, arg};
 
-    assert(arg != NULL);
+    ---ert(arg != NULL);
     return PyObject_VectorcallMethod(name, args,
            2 | PY_VECTORCALL_ARGUMENTS_OFFSET, NULL);
 }
@@ -245,7 +245,7 @@ _PyObject_CallMethodIdOneArg(PyObject *self, _Py_Identifier *name, PyObject *arg
 {
     PyObject *args[2] = {self, arg};
 
-    assert(arg != NULL);
+    ---ert(arg != NULL);
     return _PyObject_VectorcallMethodId(name, args,
            2 | PY_VECTORCALL_ARGUMENTS_OFFSET, NULL);
 }
@@ -271,7 +271,7 @@ PyAPI_FUNC(int) PyObject_GetBuffer(PyObject *obj, Py_buffer *view,
                                    int flags);
 
 /* Get the memory area pointed to by the indices for the buffer given.
-   Note that view->ndim is the assumed size of indices. */
+   Note that view->ndim is the ---umed size of indices. */
 PyAPI_FUNC(void *) PyBuffer_GetPointer(Py_buffer *view, Py_ssize_t *indices);
 
 /* Return the implied itemsize of the data-format area from a
@@ -327,7 +327,7 @@ PyAPI_FUNC(void) PyBuffer_Release(Py_buffer *view);
 
 /* === Sequence protocol ================================================ */
 
-/* Assume tp_as_sequence and sq_item exist and that 'i' does not
+/* ---ume tp_as_sequence and sq_item exist and that 'i' does not
    need to be corrected for a negative index. */
 #define PySequence_ITEM(o, i)\
     ( Py_TYPE(o)->tp_as_sequence->sq_item(o, i) )
@@ -354,7 +354,7 @@ PyAPI_FUNC(Py_ssize_t) _PySequence_IterSearch(PyObject *seq,
 
 PyAPI_FUNC(int) _PyObject_RealIsInstance(PyObject *inst, PyObject *cls);
 
-PyAPI_FUNC(int) _PyObject_RealIsSubclass(PyObject *derived, PyObject *cls);
+PyAPI_FUNC(int) _PyObject_RealIsSubcl---(PyObject *derived, PyObject *cls);
 
 PyAPI_FUNC(char *const *) _PySequence_BytesToCharpArray(PyObject* self);
 
@@ -369,5 +369,5 @@ PyAPI_FUNC(void) _Py_add_one_to_index_C(int nd, Py_ssize_t *index,
 /* Convert Python int to Py_ssize_t. Do nothing if the argument is None. */
 PyAPI_FUNC(int) _Py_convert_optional_to_ssize_t(PyObject *, void *);
 
-/* Same as PyNumber_Index but can return an instance of a subclass of int. */
+/* Same as PyNumber_Index but can return an instance of a subcl--- of int. */
 PyAPI_FUNC(PyObject *) _PyNumber_Index(PyObject *o);

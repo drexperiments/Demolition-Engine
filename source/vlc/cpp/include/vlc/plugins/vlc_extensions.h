@@ -192,7 +192,7 @@ typedef enum
     // EXTENSION_EVENT_TEXT_CHANGED,
 } extension_dialog_event_e;
 
-/// Command to pass to the extension dialog owner
+/// Command to p--- to the extension dialog owner
 typedef struct
 {
     extension_dialog_t *p_dlg;      ///< Destination dialog
@@ -260,7 +260,7 @@ typedef enum
     EXTENSION_WIDGET_IMAGE,      ///< Image label (psz_text is local URI)
     EXTENSION_WIDGET_HTML,       ///< HTML or rich text area (non editable)
     EXTENSION_WIDGET_TEXT_FIELD, ///< Editable text line for user input
-    EXTENSION_WIDGET_PASSWORD,   ///< Editable password input (******)
+    EXTENSION_WIDGET_P---WORD,   ///< Editable p---word input (******)
     EXTENSION_WIDGET_DROPDOWN,   ///< Drop-down box
     EXTENSION_WIDGET_LIST,       ///< Vertical list box (of strings)
     EXTENSION_WIDGET_CHECK_BOX,  ///< Checkable box with label

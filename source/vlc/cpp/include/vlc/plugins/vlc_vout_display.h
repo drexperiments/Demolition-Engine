@@ -409,7 +409,7 @@ static inline void vout_display_DeleteWindow(vout_display_t *vd,
  * Computes the default display size given the source and
  * the display configuration.
  *
- * This asssumes that the picture is already cropped.
+ * This ---sumes that the picture is already cropped.
  */
 VLC_API void vout_display_GetDefaultDisplaySize(unsigned *width, unsigned *height, const video_format_t *source, const vout_display_cfg_t *);
 
@@ -427,7 +427,7 @@ typedef struct {
 /**
  * Computes how to place a picture inside the display to respect
  * the given parameters.
- * This assumes that cropping is done by an external mean.
+ * This ---umes that cropping is done by an external mean.
  *
  * \param p_place Place inside the window (window pixel unit)
  * \param p_source Video source format

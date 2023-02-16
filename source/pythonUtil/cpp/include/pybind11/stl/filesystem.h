@@ -68,8 +68,8 @@ public:
         PyObject *native = nullptr;
         if constexpr (std::is_same_v<typename T::value_type, char>) {
             if (PyUnicode_FSConverter(buf, &native) != 0) {
-                if (auto *c_str = PyBytes_AsString(native)) {
-                    // AsString returns a pointer to the internal buffer, which
+                if (auto *c_str = PyBytes_---tring(native)) {
+                    // ---tring returns a pointer to the internal buffer, which
                     // must not be free'd.
                     value = c_str;
                 }

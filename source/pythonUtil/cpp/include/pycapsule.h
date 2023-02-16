@@ -1,6 +1,6 @@
 
 /* Capsule objects let you wrap a C "void *" pointer in a Python
-   object.  They're a way of passing data through the Python interpreter
+   object.  They're a way of p---ing data through the Python interpreter
    without creating your own custom type.
 
    Capsules are used for communication between extension modules.

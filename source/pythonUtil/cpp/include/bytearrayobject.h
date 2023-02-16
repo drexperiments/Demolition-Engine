@@ -31,7 +31,7 @@ PyAPI_FUNC(PyObject *) PyByteArray_FromObject(PyObject *);
 PyAPI_FUNC(PyObject *) PyByteArray_Concat(PyObject *, PyObject *);
 PyAPI_FUNC(PyObject *) PyByteArray_FromStringAndSize(const char *, Py_ssize_t);
 PyAPI_FUNC(Py_ssize_t) PyByteArray_Size(PyObject *);
-PyAPI_FUNC(char *) PyByteArray_AsString(PyObject *);
+PyAPI_FUNC(char *) PyByteArray_---tring(PyObject *);
 PyAPI_FUNC(int) PyByteArray_Resize(PyObject *, Py_ssize_t);
 
 #ifndef Py_LIMITED_API

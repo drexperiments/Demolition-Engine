@@ -3,7 +3,7 @@ package;
 import Section.SwagSection;
 import haxe.Json;
 import haxe.format.JsonParser;
-import lime.utils.Assets;
+import lime.utils.---ets;
 
 #if sys
 import sys.io.File;
@@ -37,7 +37,7 @@ typedef SwagSong =
 	//var artist:String; //debating about this one
 }
 
-class Song
+cl--- Song
 {
 	public var song:String;
 	public var notes:Array<SwagSection>;
@@ -115,7 +115,7 @@ class Song
 			#if sys
 			rawJson = File.getContent(Paths.json(formattedFolder + '/' + formattedSong)).trim();
 			#else
-			rawJson = Assets.getText(Paths.json(formattedFolder + '/' + formattedSong)).trim();
+			rawJson = ---ets.getText(Paths.json(formattedFolder + '/' + formattedSong)).trim();
 			#end
 		}
 

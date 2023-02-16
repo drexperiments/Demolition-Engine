@@ -22,7 +22,7 @@ import openfl.display.DisplayObjectContainer;
 import openfl.display.TileContainer;
 import openfl.display.Tile;
 
-class TileContainerSymbol extends TileContainer {
+cl--- TileContainerSymbol extends TileContainer {
 	public var currentLabel(get, never):String;
 	public var currentFrame(get, set):Int;
 	public var type(get, set):String;
@@ -152,7 +152,7 @@ class TileContainerSymbol extends TileContainer {
 			var newSymbol:TileContainerSymbol = null;
 			var symbolName:String = elementData.SYMBOL_name;
 
-			if (!_library.hasSymbol(symbolName)) {
+			if (!_library.h---ymbol(symbolName)) {
 				symbolName = TileAnimationLibrary.BITMAP_SYMBOL_NAME;
 			}
 

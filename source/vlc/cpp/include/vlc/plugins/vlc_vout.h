@@ -108,7 +108,7 @@ VLC_API vout_thread_t * vout_Request( vlc_object_t *object, const vout_configura
 
 /**
  * This function will close a vout created by vout_Request.
- * The associated vout module is closed.
+ * The ---ociated vout module is closed.
  * Note: It is not released yet, you'll have to call vlc_object_release()
  * or use the convenient vout_CloseAndRelease().
  *

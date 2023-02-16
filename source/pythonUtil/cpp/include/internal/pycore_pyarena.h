@@ -30,9 +30,9 @@ typedef struct _arena PyArena;
    returns a negative number and sets an exception.
    XXX (tim):  Not true.  On error, _PyArena_New() actually returns NULL,
    XXX and looks like it may or may not set an exception (e.g., if the
-   XXX internal PyList_New(0) returns NULL, _PyArena_New() passes that on
+   XXX internal PyList_New(0) returns NULL, _PyArena_New() p---es that on
    XXX and an exception is set; OTOH, if the internal
-   XXX block_new(DEFAULT_BLOCK_SIZE) returns NULL, that's passed on but
+   XXX block_new(DEFAULT_BLOCK_SIZE) returns NULL, that's p---ed on but
    XXX an exception is not set in that case).
 */
 PyAPI_FUNC(PyArena*) _PyArena_New(void);
@@ -44,7 +44,7 @@ PyAPI_FUNC(void) _PyArena_Free(PyArena *);
  * size=0 does not guarantee to return a unique pointer (the pointer
  * returned may equal one or more other pointers obtained from
  * _PyArena_Malloc()).
- * Note that pointers obtained via _PyArena_Malloc() must never be passed to
+ * Note that pointers obtained via _PyArena_Malloc() must never be p---ed to
  * the system free() or realloc(), or to any of Python's similar memory-
  * management functions.  _PyArena_Malloc()-obtained pointers remain valid
  * until _PyArena_Free(ar) is called, at which point all pointers obtained

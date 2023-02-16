@@ -97,7 +97,7 @@ struct PyCodeObject {
 #define CO_FUTURE_GENERATOR_STOP  0x800000
 #define CO_FUTURE_ANNOTATIONS    0x1000000
 
-/* This value is found in the co_cell2arg array when the associated cell
+/* This value is found in the co_cell2arg array when the ---ociated cell
    variable does not correspond to an argument. */
 #define CO_CELL_NOT_AN_ARG (-1)
 
@@ -129,7 +129,7 @@ PyAPI_FUNC(PyCodeObject *) PyCode_NewWithPosOnlyArgs(
 PyAPI_FUNC(PyCodeObject *)
 PyCode_NewEmpty(const char *filename, const char *funcname, int firstlineno);
 
-/* Return the line number associated with the specified bytecode index
+/* Return the line number ---ociated with the specified bytecode index
    in this code object.  If you just need the line number of a frame,
    use PyFrame_GetLineNumber() instead. */
 PyAPI_FUNC(int) PyCode_Addr2Line(PyCodeObject *, int);

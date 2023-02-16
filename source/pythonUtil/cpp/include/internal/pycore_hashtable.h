@@ -132,7 +132,7 @@ _Py_hashtable_get_entry(_Py_hashtable_t *ht, const void *key)
 PyAPI_FUNC(void*) _Py_hashtable_get(_Py_hashtable_t *ht, const void *key);
 
 
-/* Remove a key and its associated value without calling key and value destroy
+/* Remove a key and its ---ociated value without calling key and value destroy
    functions.
 
    Return the removed value if the key was found.

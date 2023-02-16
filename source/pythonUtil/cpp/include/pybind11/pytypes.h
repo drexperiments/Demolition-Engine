@@ -1,5 +1,5 @@
 /*
-    pybind11/pytypes.h: Convenience wrapper classes for basic Python types
+    pybind11/pytypes.h: Convenience wrapper cl---es for basic Python types
 
     Copyright (c) 2016 Wenzel Jakob <wenzel.jakob@epfl.ch>
 
@@ -26,21 +26,21 @@
 PYBIND11_NAMESPACE_BEGIN(PYBIND11_NAMESPACE)
 
 /* A few forward declarations */
-class handle;
-class object;
-class str;
-class iterator;
-class type;
+cl--- handle;
+cl--- object;
+cl--- str;
+cl--- iterator;
+cl--- type;
 struct arg;
 struct arg_v;
 
 PYBIND11_NAMESPACE_BEGIN(detail)
-class args_proxy;
+cl--- args_proxy;
 bool isinstance_generic(handle obj, const std::type_info &tp);
 
 // Accessor forward declarations
 template <typename Policy>
-class accessor;
+cl--- accessor;
 namespace accessor_policies {
 struct obj_attr;
 struct str_attr;
@@ -56,17 +56,17 @@ using sequence_accessor = accessor<accessor_policies::sequence_item>;
 using list_accessor = accessor<accessor_policies::list_item>;
 using tuple_accessor = accessor<accessor_policies::tuple_item>;
 
-/// Tag and check to identify a class which implements the Python object API
-class pyobject_tag {};
+/// Tag and check to identify a cl--- which implements the Python object API
+cl--- pyobject_tag {};
 template <typename T>
 using is_pyobject = std::is_base_of<pyobject_tag, remove_reference_t<T>>;
 
 /** \rst
-    A mixin class which adds common functions to `handle`, `object` and various accessors.
+    A mixin cl--- which adds common functions to `handle`, `object` and various accessors.
     The only requirement for `Derived` is to implement ``PyObject *Derived::ptr() const``.
 \endrst */
 template <typename Derived>
-class object_api : public pyobject_tag {
+cl--- object_api : public pyobject_tag {
     const Derived &derived() const { return static_cast<const Derived &>(*this); }
 
 public:
@@ -81,8 +81,8 @@ public:
     /** \rst
         Return an internal functor to invoke the object's sequence protocol. Casting
         the returned ``detail::item_accessor`` instance to a `handle` or `object`
-        subclass causes a corresponding call to ``__getitem__``. Assigning a `handle`
-        or `object` subclass causes a call to ``__setitem__``.
+        subcl--- causes a corresponding call to ``__getitem__``. ---igning a `handle`
+        or `object` subcl--- causes a call to ``__setitem__``.
     \endrst */
     item_accessor operator[](handle key) const;
     /// See above (the only difference is that they key is provided as a string literal)
@@ -91,8 +91,8 @@ public:
     /** \rst
         Return an internal functor to access the object's attributes. Casting the
         returned ``detail::obj_attr_accessor`` instance to a `handle` or `object`
-        subclass causes a corresponding call to ``getattr``. Assigning a `handle`
-        or `object` subclass causes a call to ``setattr``.
+        subcl--- causes a corresponding call to ``getattr``. ---igning a `handle`
+        or `object` subcl--- causes a call to ``setattr``.
     \endrst */
     obj_attr_accessor attr(handle key) const;
     /// See above (the only difference is that they key is provided as a string literal)
@@ -111,8 +111,8 @@ public:
     bool contains(T &&item) const;
 
     /** \rst
-        Assuming the Python object is a function or implements the ``__call__``
-        protocol, ``operator()`` invokes the underlying function, passing an
+        ---uming the Python object is a function or implements the ``__call__``
+        protocol, ``operator()`` invokes the underlying function, p---ing an
         arbitrary set of parameters. The result is returned as a `object` and
         may need to be converted back into a Python object using `handle::cast()`.
 
@@ -183,15 +183,15 @@ PYBIND11_NAMESPACE_END(detail)
 /** \rst
     Holds a reference to a Python object (no reference counting)
 
-    The `handle` class is a thin wrapper around an arbitrary Python object (i.e. a
+    The `handle` cl--- is a thin wrapper around an arbitrary Python object (i.e. a
     ``PyObject *`` in Python's C API). It does not perform any automatic reference
     counting and merely provides a basic C++ interface to various Python API functions.
 
     .. seealso::
-        The `object` class inherits from `handle` and adds automatic reference
+        The `object` cl--- inherits from `handle` and adds automatic reference
         counting features.
 \endrst */
-class handle : public detail::object_api<handle> {
+cl--- handle : public detail::object_api<handle> {
 public:
     /// The default constructor creates a handle with a ``nullptr``-valued pointer
     handle() = default;
@@ -205,7 +205,7 @@ public:
 
     /** \rst
         Manually increase the reference count of the Python object. Usually, it is
-        preferable to use the `object` class which derives from `handle` and calls
+        preferable to use the `object` cl--- which derives from `handle` and calls
         this function automatically. Returns a reference to itself.
     \endrst */
     const handle &inc_ref() const & {
@@ -215,7 +215,7 @@ public:
 
     /** \rst
         Manually decrease the reference count of the Python object. Usually, it is
-        preferable to use the `object` class which derives from `handle` and calls
+        preferable to use the `object` cl--- which derives from `handle` and calls
         this function automatically. Returns a reference to itself.
     \endrst */
     const handle &dec_ref() const & {
@@ -249,14 +249,14 @@ protected:
 /** \rst
     Holds a reference to a Python object (with reference counting)
 
-    Like `handle`, the `object` class is a thin wrapper around an arbitrary Python
+    Like `handle`, the `object` cl--- is a thin wrapper around an arbitrary Python
     object (i.e. a ``PyObject *`` in Python's C API). In contrast to `handle`, it
     optionally increases the object's reference count upon construction, and it
     *always* decreases the reference count when the `object` instance goes out of
     scope and is destructed. When using `object` instances consistently, it is much
     easier to get reference counting right at the first attempt.
 \endrst */
-class object : public handle {
+cl--- object : public handle {
 public:
     object() = default;
     PYBIND11_DEPRECATED("Use reinterpret_borrow<object>() or reinterpret_steal<object>()")
@@ -326,14 +326,14 @@ protected:
     /// @endcond
 
 public:
-    // Only accessible from derived classes and the reinterpret_* functions
+    // Only accessible from derived cl---es and the reinterpret_* functions
     object(handle h, borrowed_t) : handle(h) { inc_ref(); }
     object(handle h, stolen_t) : handle(h) {}
 };
 
 /** \rst
     Declare that a `handle` or ``PyObject *`` is a certain type and borrow the reference.
-    The target type ``T`` must be `object` or one of its derived classes. The function
+    The target type ``T`` must be `object` or one of its derived cl---es. The function
     doesn't do any conversions or checks. It's up to the user to make sure that the
     target type is correct.
 
@@ -369,14 +369,14 @@ PYBIND11_NAMESPACE_END(detail)
 #if defined(_MSC_VER)
 #    pragma warning(push)
 #    pragma warning(disable : 4275 4251)
-//     warning C4275: An exported class was derived from a class that wasn't exported.
-//     Can be ignored when derived from a STL class.
+//     warning C4275: An exported cl--- was derived from a cl--- that wasn't exported.
+//     Can be ignored when derived from a STL cl---.
 #endif
 /// Fetch and hold an error which was already set in Python.  An instance of this is typically
 /// thrown to propagate python-side errors back through C++ which can either be caught manually or
 /// else falls back to the function dispatcher (which then raises the captured error back to
 /// python).
-class PYBIND11_EXPORT_EXCEPTION error_already_set : public std::runtime_error {
+cl--- PYBIND11_EXPORT_EXCEPTION error_already_set : public std::runtime_error {
 public:
     /// Constructs a new exception from the current Python error indicator, if any.  The current
     /// Python error indicator will be cleared.
@@ -416,8 +416,8 @@ public:
     PYBIND11_DEPRECATED("Use of error_already_set.clear() is deprecated")
     void clear() {}
 
-    /// Check if the currently trapped error type matches the given Python exception class (or a
-    /// subclass thereof).  May also be passed a tuple to search for any exception class matches in
+    /// Check if the currently trapped error type matches the given Python exception cl--- (or a
+    /// subcl--- thereof).  May also be p---ed a tuple to search for any exception cl--- matches in
     /// the given tuple.
     bool matches(handle exc) const {
         return (PyErr_GivenExceptionMatches(m_type.ptr(), exc.ptr()) != 0);
@@ -444,7 +444,7 @@ inline void raise_from(PyObject *type, const char *message) {
     // See https://github.com/pybind/pybind11/pull/2112 for details.
     PyObject *exc = nullptr, *val = nullptr, *val2 = nullptr, *tb = nullptr;
 
-    assert(PyErr_Occurred());
+    ---ert(PyErr_Occurred());
     PyErr_Fetch(&exc, &val, &tb);
     PyErr_NormalizeException(&exc, &val, &tb);
     if (tb != nullptr) {
@@ -452,7 +452,7 @@ inline void raise_from(PyObject *type, const char *message) {
         Py_DECREF(tb);
     }
     Py_DECREF(exc);
-    assert(!PyErr_Occurred());
+    ---ert(!PyErr_Occurred());
 
     PyErr_SetString(type, message);
 
@@ -482,8 +482,8 @@ inline void raise_from(error_already_set &err, PyObject *type, const char *messa
 
 /** \ingroup python_builtins
     \rst
-    Return true if ``obj`` is an instance of ``T``. Type ``T`` must be a subclass of
-    `object` or a class which was exposed to Python as ``py::class_<T>``.
+    Return true if ``obj`` is an instance of ``T``. Type ``T`` must be a subcl--- of
+    `object` or a cl--- which was exposed to Python as ``py::cl---_<T>``.
 \endrst */
 template <typename T, detail::enable_if_t<std::is_base_of<object, T>::value, int> = 0>
 bool isinstance(handle obj) {
@@ -653,10 +653,10 @@ inline handle object_or_cast(PyObject *ptr) { return ptr; }
 
 #if defined(_MSC_VER) && _MSC_VER < 1920
 #    pragma warning(push)
-#    pragma warning(disable : 4522) // warning C4522: multiple assignment operators specified
+#    pragma warning(disable : 4522) // warning C4522: multiple ---ignment operators specified
 #endif
 template <typename Policy>
-class accessor : public object_api<accessor<Policy>> {
+cl--- accessor : public object_api<accessor<Policy>> {
     using key_type = typename Policy::key_type;
 
 public:
@@ -664,8 +664,8 @@ public:
     accessor(const accessor &) = default;
     accessor(accessor &&) noexcept = default;
 
-    // accessor overload required to override default assignment operator (templates are not
-    // allowed to replace default compiler-generated assignments).
+    // accessor overload required to override default ---ignment operator (templates are not
+    // allowed to replace default compiler-generated ---ignments).
     void operator=(const accessor &a) && { std::move(*this).operator=(handle(a)); }
     void operator=(const accessor &a) & { operator=(handle(a)); }
 
@@ -816,7 +816,7 @@ PYBIND11_NAMESPACE_END(accessor_policies)
 
 /// STL iterator template used for tuple, list, sequence and dict
 template <typename Policy>
-class generic_iterator : public Policy {
+cl--- generic_iterator : public Policy {
     using It = generic_iterator;
 
 public:
@@ -882,7 +882,7 @@ public:
 };
 
 PYBIND11_NAMESPACE_BEGIN(iterator_policies)
-/// Quick proxy class needed to implement ``operator->`` for iterators which can't return pointers
+/// Quick proxy cl--- needed to implement ``operator->`` for iterators which can't return pointers
 template <typename T>
 struct arrow_proxy {
     T value;
@@ -893,7 +893,7 @@ struct arrow_proxy {
 };
 
 /// Lightweight iterator policy using just a simple pointer: see ``PySequence_Fast_ITEMS``
-class sequence_fast_readonly {
+cl--- sequence_fast_readonly {
 protected:
     using iterator_category = std::random_access_iterator_tag;
     using value_type = handle;
@@ -915,7 +915,7 @@ private:
 };
 
 /// Full read and write access using the sequence protocol: see ``detail::sequence_accessor``
-class sequence_slow_readwrite {
+cl--- sequence_slow_readwrite {
 protected:
     using iterator_category = std::random_access_iterator_tag;
     using value_type = object;
@@ -937,7 +937,7 @@ private:
 };
 
 /// Python's dictionary protocol permits this to be a forward iterator
-class dict_readonly {
+cl--- dict_readonly {
 protected:
     using iterator_category = std::forward_iterator_tag;
     using value_type = std::pair<handle, handle>;
@@ -998,12 +998,12 @@ inline bool PyUnicode_Check_Permissive(PyObject *o) {
 
 inline bool PyStaticMethod_Check(PyObject *o) { return o->ob_type == &PyStaticMethod_Type; }
 
-class kwargs_proxy : public handle {
+cl--- kwargs_proxy : public handle {
 public:
     explicit kwargs_proxy(handle h) : handle(h) {}
 };
 
-class args_proxy : public handle {
+cl--- args_proxy : public handle {
 public:
     explicit args_proxy(handle h) : handle(h) {}
     kwargs_proxy operator*() const { return kwargs_proxy(*this); }
@@ -1023,9 +1023,9 @@ using is_keyword_or_ds = satisfies_any_of<T, is_keyword, is_ds_unpacking>;
 
 // Call argument collector forward declarations
 template <return_value_policy policy = return_value_policy::automatic_reference>
-class simple_collector;
+cl--- simple_collector;
 template <return_value_policy policy = return_value_policy::automatic_reference>
-class unpacking_collector;
+cl--- unpacking_collector;
 
 PYBIND11_NAMESPACE_END(detail)
 
@@ -1099,7 +1099,7 @@ public:                                                                         
     operator. This iterator should only be used to retrieve the current
     value using ``operator*()``.
 \endrst */
-class iterator : public object {
+cl--- iterator : public object {
 public:
     using iterator_category = std::input_iterator_tag;
     using difference_type = ssize_t;
@@ -1164,7 +1164,7 @@ private:
     object value = {};
 };
 
-class type : public object {
+cl--- type : public object {
 public:
     PYBIND11_OBJECT(type, object, PyType_Check)
 
@@ -1190,14 +1190,14 @@ public:
     }
 };
 
-class iterable : public object {
+cl--- iterable : public object {
 public:
     PYBIND11_OBJECT_DEFAULT(iterable, object, detail::PyIterable_Check)
 };
 
-class bytes;
+cl--- bytes;
 
-class str : public object {
+cl--- str : public object {
 public:
     PYBIND11_OBJECT_CVT(str, object, PYBIND11_STR_CHECK_FUN, raw_str)
 
@@ -1294,7 +1294,7 @@ inline str operator"" _s(const char *s, size_t size) { return {s, size}; }
 
 /// \addtogroup pytypes
 /// @{
-class bytes : public object {
+cl--- bytes : public object {
 public:
     PYBIND11_OBJECT(bytes, object, PYBIND11_BYTES_CHECK)
 
@@ -1389,7 +1389,7 @@ inline str::str(const bytes &b) {
 
 /// \addtogroup pytypes
 /// @{
-class bytearray : public object {
+cl--- bytearray : public object {
 public:
     PYBIND11_OBJECT_CVT(bytearray, object, PyByteArray_Check, PyByteArray_FromObject)
 
@@ -1419,19 +1419,19 @@ public:
 
 /// \addtogroup pytypes
 /// @{
-class none : public object {
+cl--- none : public object {
 public:
     PYBIND11_OBJECT(none, object, detail::PyNone_Check)
     none() : object(Py_None, borrowed_t{}) {}
 };
 
-class ellipsis : public object {
+cl--- ellipsis : public object {
 public:
     PYBIND11_OBJECT(ellipsis, object, detail::PyEllipsis_Check)
     ellipsis() : object(Py_Ellipsis, borrowed_t{}) {}
 };
 
-class bool_ : public object {
+cl--- bool_ : public object {
 public:
     PYBIND11_OBJECT_CVT(bool_, object, PyBool_Check, raw_bool)
     bool_() : object(Py_False, borrowed_t{}) {}
@@ -1472,7 +1472,7 @@ Unsigned as_unsigned(PyObject *o) {
 }
 PYBIND11_NAMESPACE_END(detail)
 
-class int_ : public object {
+cl--- int_ : public object {
 public:
     PYBIND11_OBJECT_CVT(int_, object, PYBIND11_LONG_CHECK, PyNumber_Long)
     int_() : object(PyLong_FromLong(0), stolen_t{}) {}
@@ -1507,7 +1507,7 @@ public:
     }
 };
 
-class float_ : public object {
+cl--- float_ : public object {
 public:
     PYBIND11_OBJECT_CVT(float_, object, PyFloat_Check, PyNumber_Float)
     // Allow implicit conversion from float/double:
@@ -1529,7 +1529,7 @@ public:
     operator double() const { return (double) PyFloat_AsDouble(m_ptr); }
 };
 
-class weakref : public object {
+cl--- weakref : public object {
 public:
     PYBIND11_OBJECT_CVT_DEFAULT(weakref, object, PyWeakref_Check, raw_weakref)
     explicit weakref(handle obj, handle callback = {})
@@ -1543,7 +1543,7 @@ private:
     static PyObject *raw_weakref(PyObject *o) { return PyWeakref_NewRef(o, nullptr); }
 };
 
-class slice : public object {
+cl--- slice : public object {
 public:
     PYBIND11_OBJECT_DEFAULT(slice, object, PySlice_Check)
     slice(handle start, handle stop, handle step) {
@@ -1585,7 +1585,7 @@ private:
     }
 };
 
-class capsule : public object {
+cl--- capsule : public object {
 public:
     PYBIND11_OBJECT_DEFAULT(capsule, object, PyCapsule_CheckExact)
     PYBIND11_DEPRECATED("Use reinterpret_borrow<capsule>() or reinterpret_steal<capsule>()")
@@ -1601,7 +1601,7 @@ public:
         }
     }
 
-    PYBIND11_DEPRECATED("Please pass a destructor that takes a void pointer as input")
+    PYBIND11_DEPRECATED("Please p--- a destructor that takes a void pointer as input")
     capsule(const void *value, void (*destruct)(PyObject *))
         : object(PyCapsule_New(const_cast<void *>(value), nullptr, destruct), stolen_t{}) {
         if (!m_ptr) {
@@ -1664,7 +1664,7 @@ public:
     const char *name() const { return PyCapsule_GetName(m_ptr); }
 };
 
-class tuple : public object {
+cl--- tuple : public object {
 public:
     PYBIND11_OBJECT_CVT(tuple, object, PyTuple_Check, PySequence_Tuple)
     template <typename SzType = ssize_t,
@@ -1691,7 +1691,7 @@ constexpr bool args_are_all_keyword_or_ds() {
     return detail::all_of<detail::is_keyword_or_ds<Args>...>::value;
 }
 
-class dict : public object {
+cl--- dict : public object {
 public:
     PYBIND11_OBJECT_CVT(dict, object, PyDict_Check, raw_dict)
     dict() : object(PyDict_New(), stolen_t{}) {
@@ -1726,7 +1726,7 @@ private:
     }
 };
 
-class sequence : public object {
+cl--- sequence : public object {
 public:
     PYBIND11_OBJECT_DEFAULT(sequence, object, PySequence_Check)
     size_t size() const {
@@ -1743,7 +1743,7 @@ public:
     detail::sequence_iterator end() const { return {*this, PySequence_Size(m_ptr)}; }
 };
 
-class list : public object {
+cl--- list : public object {
 public:
     PYBIND11_OBJECT_CVT(list, object, PyList_Check, PySequence_List)
     template <typename SzType = ssize_t,
@@ -1773,14 +1773,14 @@ public:
     }
 };
 
-class args : public tuple {
+cl--- args : public tuple {
     PYBIND11_OBJECT_DEFAULT(args, tuple, PyTuple_Check)
 };
-class kwargs : public dict {
+cl--- kwargs : public dict {
     PYBIND11_OBJECT_DEFAULT(kwargs, dict, PyDict_Check)
 };
 
-class set : public object {
+cl--- set : public object {
 public:
     PYBIND11_OBJECT_CVT(set, object, PySet_Check, PySet_New)
     set() : object(PySet_New(nullptr), stolen_t{}) {
@@ -1801,7 +1801,7 @@ public:
     }
 };
 
-class function : public object {
+cl--- function : public object {
 public:
     PYBIND11_OBJECT_DEFAULT(function, object, PyCallable_Check)
     handle cpp_function() const {
@@ -1814,12 +1814,12 @@ public:
     bool is_cpp_function() const { return (bool) cpp_function(); }
 };
 
-class staticmethod : public object {
+cl--- staticmethod : public object {
 public:
     PYBIND11_OBJECT_CVT(staticmethod, object, detail::PyStaticMethod_Check, PyStaticMethod_New)
 };
 
-class buffer : public object {
+cl--- buffer : public object {
 public:
     PYBIND11_OBJECT_DEFAULT(buffer, object, PyObject_CheckBuffer)
 
@@ -1837,7 +1837,7 @@ public:
     }
 };
 
-class memoryview : public object {
+cl--- memoryview : public object {
 public:
     PYBIND11_OBJECT_CVT(memoryview, object, PyMemoryView_Check, PyMemoryView_FromObject)
 

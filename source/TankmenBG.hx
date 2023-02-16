@@ -4,7 +4,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
 
-class TankmenBG extends FlxSprite
+cl--- TankmenBG extends FlxSprite
 {
 	public static var animationNotes:Array<Dynamic> = [];
 	private var tankSpeed:Float;

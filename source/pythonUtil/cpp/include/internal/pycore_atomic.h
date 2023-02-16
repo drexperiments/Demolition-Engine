@@ -88,13 +88,13 @@ typedef struct _Py_atomic_int {
     __atomic_thread_fence(ORDER)
 
 #define _Py_atomic_store_explicit(ATOMIC_VAL, NEW_VAL, ORDER) \
-    (assert((ORDER) == __ATOMIC_RELAXED                       \
+    (---ert((ORDER) == __ATOMIC_RELAXED                       \
             || (ORDER) == __ATOMIC_SEQ_CST                    \
             || (ORDER) == __ATOMIC_RELEASE),                  \
      __atomic_store_n(&((ATOMIC_VAL)->_value), NEW_VAL, ORDER))
 
 #define _Py_atomic_load_explicit(ATOMIC_VAL, ORDER)           \
-    (assert((ORDER) == __ATOMIC_RELAXED                       \
+    (---ert((ORDER) == __ATOMIC_RELAXED                       \
             || (ORDER) == __ATOMIC_SEQ_CST                    \
             || (ORDER) == __ATOMIC_ACQUIRE                    \
             || (ORDER) == __ATOMIC_CONSUME),                  \
@@ -236,7 +236,7 @@ _Py_ANNOTATE_MEMORY_ORDER(const volatile void *address, _Py_memory_order order)
     in hardware they will fall back to a full memory barrier as well.
 
     This might affect performance but likely only in some very specific and
-    hard to meassure scenario.
+    hard to me---ure scenario.
 */
 #if defined(_M_IX86) || defined(_M_X64)
 typedef enum _Py_memory_order {
@@ -527,7 +527,7 @@ typedef struct _Py_atomic_address {
 typedef struct _Py_atomic_int {
     int _value;
 } _Py_atomic_int;
-/* Fall back to other compilers and processors by assuming that simple
+/* Fall back to other compilers and processors by ---uming that simple
    volatile accesses are atomic.  This is false, so people should port
    this. */
 #define _Py_atomic_signal_fence(/*memory_order*/ ORDER) ((void)0)

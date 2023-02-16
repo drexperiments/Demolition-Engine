@@ -8,7 +8,7 @@ enum TVVar{
 }
 
 @:publicFields
-class TweenV {
+cl--- TweenV {
 	static var GUID = 0;
 	var uid 		= 0;
 	
@@ -123,7 +123,7 @@ class TweenV {
 /**
  * tween order is not respected
  */
-class SndTV {
+cl--- SndTV {
 	static var DEFAULT_DURATION = DateTools.seconds(1);
 	public var fps 				= 60.0;
 	public var isDebug			= false;
@@ -213,7 +213,7 @@ class SndTV {
 		}
 
 		if( t.from==t.to )
-			t.ln = 1; // tweening inutile : mais on s'assure ainsi qu'un update() et un end() seront bien appelés
+			t.ln = 1; // tweening inutile : mais on s'---ure ainsi qu'un update() et un end() seront bien appelés
 
 		t.man = this;
 		tlist.push(t);

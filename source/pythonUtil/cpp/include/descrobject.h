@@ -73,7 +73,7 @@ typedef struct {
 } PyWrapperDescrObject;
 #endif /* Py_LIMITED_API */
 
-PyAPI_DATA(PyTypeObject) PyClassMethodDescr_Type;
+PyAPI_DATA(PyTypeObject) PyCl---MethodDescr_Type;
 PyAPI_DATA(PyTypeObject) PyGetSetDescr_Type;
 PyAPI_DATA(PyTypeObject) PyMemberDescr_Type;
 PyAPI_DATA(PyTypeObject) PyMethodDescr_Type;
@@ -84,7 +84,7 @@ PyAPI_DATA(PyTypeObject) _PyMethodWrapper_Type;
 #endif /* Py_LIMITED_API */
 
 PyAPI_FUNC(PyObject *) PyDescr_NewMethod(PyTypeObject *, PyMethodDef *);
-PyAPI_FUNC(PyObject *) PyDescr_NewClassMethod(PyTypeObject *, PyMethodDef *);
+PyAPI_FUNC(PyObject *) PyDescr_NewCl---Method(PyTypeObject *, PyMethodDef *);
 struct PyMemberDef; /* forward declaration for following prototype */
 PyAPI_FUNC(PyObject *) PyDescr_NewMember(PyTypeObject *,
                                                struct PyMemberDef *);

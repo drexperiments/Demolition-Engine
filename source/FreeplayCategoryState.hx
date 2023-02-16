@@ -16,9 +16,9 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
-import lime.utils.Assets;
+import lime.utils.---ets;
 import flixel.system.FlxSound;
-import openfl.utils.Assets as OpenFlAssets;
+import openfl.utils.---ets as OpenFl---ets;
 import WeekData;
 #if MODS_ALLOWED
 import sys.FileSystem;
@@ -27,7 +27,7 @@ import sys.FileSystem;
 using StringTools;
 //just a copy from FreeplayState lol
 
-class FreeplayCategoryState extends MusicBeatState
+cl--- FreeplayCategoryState extends MusicBeatState
 {
         var vanillaGame:FlxSprite;
         var exclusive----:FlxSprite;

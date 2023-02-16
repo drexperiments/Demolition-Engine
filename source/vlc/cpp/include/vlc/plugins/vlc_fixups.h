@@ -237,9 +237,9 @@ static inline locale_t newlocale(int mask, const char * locale, locale_t base)
 }
 #endif
 
-#if !defined (HAVE_STATIC_ASSERT)
-# define _Static_assert(x, s) ((void) sizeof (struct { unsigned:-!(x); }))
-# define static_assert _Static_assert
+#if !defined (HAVE_STATIC_---ERT)
+# define _Static_---ert(x, s) ((void) sizeof (struct { unsigned:-!(x); }))
+# define static_---ert _Static_---ert
 #endif
 
 /* Alignment of critical static data structures */

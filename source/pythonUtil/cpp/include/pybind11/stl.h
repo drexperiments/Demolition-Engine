@@ -348,11 +348,11 @@ struct variant_caster_visitor {
     }
 };
 
-/// Helper class which abstracts away variant's `visit` function. `std::variant` and similar
+/// Helper cl--- which abstracts away variant's `visit` function. `std::variant` and similar
 /// `namespace::variant` types which provide a `namespace::visit()` function are handled here
 /// automatically using argument-dependent lookup. Users can provide specializations for other
-/// variant-like classes, e.g. `boost::variant` and `boost::apply_visitor`.
-template <template <typename...> class Variant>
+/// variant-like cl---es, e.g. `boost::variant` and `boost::apply_visitor`.
+template <template <typename...> cl--- Variant>
 struct visit_helper {
     template <typename... Args>
     static auto call(Args &&...args) -> decltype(visit(std::forward<Args>(args)...)) {
@@ -364,9 +364,9 @@ struct visit_helper {
 template <typename Variant>
 struct variant_caster;
 
-template <template <typename...> class V, typename... Ts>
+template <template <typename...> cl--- V, typename... Ts>
 struct variant_caster<V<Ts...>> {
-    static_assert(sizeof...(Ts) > 0, "Variant must consist of at least one alternative.");
+    static_---ert(sizeof...(Ts) > 0, "Variant must consist of at least one alternative.");
 
     template <typename U, typename... Us>
     bool load_alternative(handle src, bool convert, type_list<U, Us...>) {
@@ -381,9 +381,9 @@ struct variant_caster<V<Ts...>> {
     bool load_alternative(handle, bool, type_list<>) { return false; }
 
     bool load(handle src, bool convert) {
-        // Do a first pass without conversions to improve constructor resolution.
+        // Do a first p--- without conversions to improve constructor resolution.
         // E.g. `py::int_(1).cast<variant<double, int>>()` needs to fill the `int`
-        // slot of the variant. Without two-pass loading `double` would be filled
+        // slot of the variant. Without two-p--- loading `double` would be filled
         // because it appears first and a conversion is possible.
         if (convert && load_alternative(src, false, type_list<Ts...>{})) {
             return true;

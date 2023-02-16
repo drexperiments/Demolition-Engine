@@ -42,7 +42,7 @@ static inline bool vlc_xlib_init (vlc_object_t *obj)
         /* (_XErrorFunction != NULL) => Xlib already in use */
         fprintf (stderr, "%s:%u:%s: Xlib not initialized for threads.\n"
                  "This process is probably using LibVLC incorrectly.\n"
-                 "Pass \"--no-xlib\" to libvlc_new() to fix this.\n",
+                 "P--- \"--no-xlib\" to libvlc_new() to fix this.\n",
                  __FILE__, __LINE__, __func__);
     else if (XInitThreads ())
         ok = true;

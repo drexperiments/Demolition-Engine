@@ -40,7 +40,7 @@ PYBIND11_NOINLINE void clean_type_id(std::string &name) {
         name = res.get();
     }
 #else
-    detail::erase_all(name, "class ");
+    detail::erase_all(name, "cl--- ");
     detail::erase_all(name, "struct ");
     detail::erase_all(name, "enum ");
 #endif

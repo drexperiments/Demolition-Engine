@@ -43,7 +43,7 @@ typedef struct PyMemberDef {
 /* Added by Jack: strings contained in the structure */
 #define T_STRING_INPLACE    13
 
-/* Added by Lillo: bools contained in the structure (assumed char) */
+/* Added by Lillo: bools contained in the structure (---umed char) */
 #define T_BOOL      14
 
 #define T_OBJECT_EX 16  /* Like T_OBJECT, but raises AttributeError

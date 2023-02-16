@@ -37,13 +37,13 @@ import flixel.ui.FlxSpriteButton;
 import flixel.util.FlxColor;
 import haxe.Json;
 import haxe.format.JsonParser;
-import lime.utils.Assets;
+import lime.utils.---ets;
 import openfl.events.Event;
 import openfl.events.IOErrorEvent;
 import openfl.media.Sound;
 import openfl.net.FileReference;
 import openfl.utils.ByteArray;
-import openfl.utils.Assets as OpenFlAssets;
+import openfl.utils.---ets as OpenFl---ets;
 import lime.media.AudioBuffer;
 import haxe.io.Bytes;
 import flash.geom.Rectangle;
@@ -56,7 +56,7 @@ import flash.media.Sound;
 
 using StringTools;
 
-class ChartingState extends MusicBeatState
+cl--- ChartingState extends MusicBeatState
 {
 	public static var noteTypeList:Array<String> = //Used for backwards compatibility with 0.1 - 0.3.2 charts, though, you should add your hardcoded custom note types here too.
 	[
@@ -237,7 +237,7 @@ class ChartingState extends MusicBeatState
 				arrowSkin: '', //Arrow skin
 				splashSkin: 'noteSplashes',//idk it would crash if i didn't
 				player1: 'bf', //bf
-				player2: 'dad', //bitch bad ass
+				player2: 'dad', //bitch bad ---
 				player3: null, //removed
 				gfVersion: 'gf', //*insert bobs joke
 				speed: 2, //speed
@@ -255,7 +255,7 @@ class ChartingState extends MusicBeatState
 		DiscordClient.changePresence("Chart Editor", StringTools.replace(_song.song, '-', ' '));
 		#end
 			
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine - Chart Editor - Editing: " + StringTools.replace(_song.song, '-', ' ');
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition] - Chart Editor - Editing: " + StringTools.replace(_song.song, '-', ' ');
 
 		vortex = FlxG.save.data.chart_vortex;
 		ignoreWarnings = FlxG.save.data.ignoreWarnings;
@@ -471,7 +471,7 @@ class ChartingState extends MusicBeatState
 			#if sys
 			if (#if MODS_ALLOWED FileSystem.exists(Paths.modsJson(songName + '/events')) || #end FileSystem.exists(file))
 			#else
-			if (OpenFlAssets.exists(file))
+			if (OpenFl---ets.exists(file))
 			#end
 			{
 				clearEvents();
@@ -1357,7 +1357,7 @@ class ChartingState extends MusicBeatState
 
 		var file:Dynamic = Paths.voices(currentSongName);
 		vocals = new FlxSound();
-		if (Std.isOfType(file, Sound) || OpenFlAssets.exists(file)) {
+		if (Std.isOfType(file, Sound) || OpenFl---ets.exists(file)) {
 			vocals.loadEmbedded(file);
 			FlxG.sound.list.add(vocals);
 		}
@@ -1565,7 +1565,7 @@ class ChartingState extends MusicBeatState
 			{
 				//trace(curStep);
 				//trace((_song.notes[curSection].lengthInSteps) * (curSection + 1));
-				//trace('DUMB----');
+				//trace('DUMbass-');
 
 				if (_song.notes[curSection + 1] == null)
 				{
@@ -1782,7 +1782,7 @@ class ChartingState extends MusicBeatState
 				}
 			}
 
-			//ARROW VORTEX ---- NO DEADASS
+			//ARROW VORTEX ---- NO DEAD---
 			
 			
 			
@@ -2060,7 +2060,7 @@ class ChartingState extends MusicBeatState
  		#end
 		else { #end
 			var leVocals:String = Paths.getPath(currentSongName + '/Inst.' + Paths.SOUND_EXT, SOUND, 'songs');
-			if (OpenFlAssets.exists(leVocals)) { //Vanilla inst
+			if (OpenFl---ets.exists(leVocals)) { //Vanilla inst
 				audioBuffers[0] = AudioBuffer.fromFile('./' + leVocals.substr(6));
 				//trace('Inst found');
 			}
@@ -2090,7 +2090,7 @@ class ChartingState extends MusicBeatState
  		#end
  			else { #end
 			var leVocals:String = Paths.getPath(currentSongName + '/Voices.' + Paths.SOUND_EXT, SOUND, 'songs');
-			if (OpenFlAssets.exists(leVocals)) { //Vanilla voices
+			if (OpenFl---ets.exists(leVocals)) { //Vanilla voices
 				audioBuffers[1] = AudioBuffer.fromFile('./' + leVocals.substr(6));
 				//trace('Voices found, LETS ----ING GOOOO');
 			}
@@ -2346,7 +2346,7 @@ class ChartingState extends MusicBeatState
 		if (!FileSystem.exists(path))
 		#else
 		var path:String = Paths.getPreloadPath(characterPath);
-		if (!OpenFlAssets.exists(path))
+		if (!OpenFl---ets.exists(path))
 		#end
 		{
 			path = Paths.getPreloadPath('characters/' + Character.DEFAULT_CHARACTER + '.json'); //If a character couldn't be found, change him to BF just to prevent a crash
@@ -2355,7 +2355,7 @@ class ChartingState extends MusicBeatState
 		#if MODS_ALLOWED
 		var rawJson = File.getContent(path);
 		#else
-		var rawJson = OpenFlAssets.getText(path);
+		var rawJson = OpenFl---ets.getText(path);
 		#end
 
 		var json:Character.CharacterFile = cast Json.parse(rawJson);
@@ -2941,7 +2941,7 @@ class ChartingState extends MusicBeatState
 	}
 }
 
-class AttachedFlxText extends FlxText
+cl--- AttachedFlxText extends FlxText
 {
 	public var sprTracker:FlxSprite;
 	public var xAdd:Float = 0;

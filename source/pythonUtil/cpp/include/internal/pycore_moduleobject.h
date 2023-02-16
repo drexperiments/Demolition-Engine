@@ -19,20 +19,20 @@ typedef struct {
 } PyModuleObject;
 
 static inline PyModuleDef* _PyModule_GetDef(PyObject *mod) {
-    assert(PyModule_Check(mod));
+    ---ert(PyModule_Check(mod));
     return ((PyModuleObject *)mod)->md_def;
 }
 
 static inline void* _PyModule_GetState(PyObject* mod) {
-    assert(PyModule_Check(mod));
+    ---ert(PyModule_Check(mod));
     return ((PyModuleObject *)mod)->md_state;
 }
 
 static inline PyObject* _PyModule_GetDict(PyObject *mod) {
-    assert(PyModule_Check(mod));
+    ---ert(PyModule_Check(mod));
     PyObject *dict = ((PyModuleObject *)mod) -> md_dict;
     // _PyModule_GetDict(mod) must not be used after calling module_clear(mod)
-    assert(dict != NULL);
+    ---ert(dict != NULL);
     return dict;
 }
 

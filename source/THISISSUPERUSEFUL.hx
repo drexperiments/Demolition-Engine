@@ -7,7 +7,7 @@ var btsFan:Bool = false;
 var pickme:Bool = false;
 var meena:Bool = false;
 
-class THISISSUPERUSEFUL {/* extends yourMom */
+cl--- THISISSUPERUSEFUL {/* extends yourMom */
   if(father){
     slaying = true;
     father = true;

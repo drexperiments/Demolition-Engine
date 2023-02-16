@@ -55,10 +55,10 @@ extern "C" {
 #define GET_ITER                 68
 #define GET_YIELD_FROM_ITER      69
 #define PRINT_EXPR               70
-#define LOAD_BUILD_CLASS         71
+#define LOAD_BUILD_CL---         71
 #define YIELD_FROM               72
 #define GET_AWAITABLE            73
-#define LOAD_ASSERTION_ERROR     74
+#define LOAD_---ERTION_ERROR     74
 #define INPLACE_LSHIFT           75
 #define INPLACE_RSHIFT           76
 #define INPLACE_AND              77
@@ -123,8 +123,8 @@ extern "C" {
 #define LIST_APPEND             145
 #define SET_ADD                 146
 #define MAP_ADD                 147
-#define LOAD_CLASSDEREF         148
-#define MATCH_CLASS             152
+#define LOAD_CL---DEREF         148
+#define MATCH_CL---             152
 #define SETUP_ASYNC_WITH        154
 #define FORMAT_VALUE            155
 #define BUILD_CONST_KEY_MAP     156

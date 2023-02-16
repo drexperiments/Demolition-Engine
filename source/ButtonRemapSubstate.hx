@@ -2,7 +2,7 @@ package;
 
 import flixel.FlxSubState;
 
-class ButtonRemapSubstate extends FlxSubState
+cl--- ButtonRemapSubstate extends FlxSubState
 {
 	public function new()
 	{

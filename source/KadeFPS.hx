@@ -18,14 +18,14 @@ import openfl.Lib;
 //sowwry kadey wadey :<
 
 /**
-	The FPS class provides an easy-to-use monitor to display
+	The FPS cl--- provides an easy-to-use monitor to display
 	the current frame rate of an OpenFL project
 **/
 #if !openfl_debug
 @:fileXml('tags="haxe,release"')
 @:noDebug
 #end
-class KadeEngineFPS extends TextField
+cl--- KadeEngineFPS extends TextField
 {
 	/**
 		The current frame rate, expressed using frames-per-second
@@ -48,7 +48,7 @@ class KadeEngineFPS extends TextField
 		currentFPS = 0;
 		selectable = false;
 		mouseEnabled = false;
-		defaultTextFormat = new TextFormat(openfl.utils.Assets.getFont("assets/fonts/vcr.ttf").fontName, 14, color);
+		defaultTextFormat = new TextFormat(openfl.utils.---ets.getFont("---ets/fonts/vcr.ttf").fontName, 14, color);
 		text = "FPS: ";
 		width += 200;
 

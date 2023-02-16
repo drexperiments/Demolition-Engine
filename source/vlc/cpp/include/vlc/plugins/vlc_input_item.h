@@ -4,7 +4,7 @@
  * Copyright (C) 1999-2009 VLC authors and VideoLAN
  * $Id: 0f9800da4dd2cd7febdca74b4787054d6baa5dee $
  *
- * Authors: Christophe Massiot <massiot@via.ecp.fr>
+ * Authors: Christophe M---iot <m---iot@via.ecp.fr>
  *          Laurent Aimar <fenrir@via.ecp.fr>
  *
  * This program is free software; you can redistribute it and/or modify it
@@ -174,7 +174,7 @@ enum input_item_option_e
      * By default options are untrusted */
     VLC_INPUT_OPTION_TRUSTED = 0x2,
 
-    /* Change the value associated to an option if already present, otherwise
+    /* Change the value ---ociated to an option if already present, otherwise
      * add the option */
     VLC_INPUT_OPTION_UNIQUE  = 0x100,
 };

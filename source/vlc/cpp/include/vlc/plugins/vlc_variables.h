@@ -42,7 +42,7 @@
  */
 
 #define VLC_VAR_TYPE      0x00ff
-#define VLC_VAR_CLASS     0x00f0
+#define VLC_VAR_CL---     0x00f0
 #define VLC_VAR_FLAGS     0xff00
 
 /**
@@ -70,7 +70,7 @@
 #define VLC_VAR_HASCHOICE 0x0100
 #define VLC_VAR_HASMIN    0x0200
 #define VLC_VAR_HASMAX    0x0400
-#define VLC_VAR_HASSTEP   0x0800
+#define VLC_VAR_H---TEP   0x0800
 
 #define VLC_VAR_ISCOMMAND 0x2000
 

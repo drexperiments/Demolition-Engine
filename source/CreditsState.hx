@@ -17,11 +17,11 @@ import flixel.tweens.FlxEase;
 import sys.FileSystem;
 import sys.io.File;
 #end
-import lime.utils.Assets;
+import lime.utils.---ets;
 
 using StringTools;
 
-class CreditsState extends MusicBeatState
+cl--- CreditsState extends MusicBeatState
 {
 	var curSelected:Int = -1;
 
@@ -83,7 +83,7 @@ class CreditsState extends MusicBeatState
 		#end
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
-			['Demolition Engine Team'],
+			['Demolition Engine [censored edition] Team'],
 			['DEMOLITIONDON96',		'demolitiondon96',	'Creator of the Engine',			'https://youtube.com/c/DEMOLITIONDON96',	'03C6FC'],
 			['Jsa010',       	'jsa010',	        "Secondary Coder of the Engine", 'https://twitter.com/_Jsa010_',   	'FF0000'],
 			['Tony Time!',				'matt',				'Epic Coder \n(Did Lots of Cool ----)',											'https://github.com/TonyTimee',			'444444'],

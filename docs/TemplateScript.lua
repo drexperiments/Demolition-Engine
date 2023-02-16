@@ -173,7 +173,7 @@ function onCheckForAchievement(name)
   if name == 'bad-health-finish' and getProperty('health') < 0.01 and getProperty('endingSong') then
     return Function_Continue
   end
-  if name == 'halfway' and getSongPosition >  getPropertyFromClass('flixel.FlxG','sound.music.length')/2 then
+  if name == 'halfway' and getSongPosition >  getPropertyFromCl---('flixel.FlxG','sound.music.length')/2 then
     return Function_Continue
   end
 	

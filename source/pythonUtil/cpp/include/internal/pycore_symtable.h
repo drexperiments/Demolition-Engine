@@ -10,7 +10,7 @@ extern "C" {
 
 struct _mod;   // Type defined in pycore_ast.h
 
-typedef enum _block_type { FunctionBlock, ClassBlock, ModuleBlock, AnnotationBlock }
+typedef enum _block_type { FunctionBlock, Cl---Block, ModuleBlock, AnnotationBlock }
     _Py_block_ty;
 
 typedef enum _comprehension_type {
@@ -34,7 +34,7 @@ struct symtable {
     int st_nblocks;                 /* number of blocks used. kept for
                                        consistency with the corresponding
                                        compiler structure */
-    PyObject *st_private;           /* name of current class or NULL */
+    PyObject *st_private;           /* name of current cl--- or NULL */
     PyFutureFeatures *st_future;    /* module's future features that affect
                                        the symbol table */
     int recursion_depth;            /* current recursion depth */
@@ -49,7 +49,7 @@ typedef struct _symtable_entry {
     PyObject *ste_varnames;  /* list of function parameters */
     PyObject *ste_children;  /* list of child blocks */
     PyObject *ste_directives;/* locations of global and nonlocal statements */
-    _Py_block_ty ste_type;   /* module, class or function */
+    _Py_block_ty ste_type;   /* module, cl--- or function */
     int ste_nested;      /* true if block is nested */
     unsigned ste_free : 1;        /* true if block has free variables */
     unsigned ste_child_free : 1;  /* true if a child block has free vars,
@@ -61,8 +61,8 @@ typedef struct _symtable_entry {
     unsigned ste_varkeywords : 1; /* true if block has varkeywords */
     unsigned ste_returns_value : 1;  /* true if namespace uses return with
                                         an argument */
-    unsigned ste_needs_class_closure : 1; /* for class scopes, true if a
-                                             closure over __class__
+    unsigned ste_needs_cl---_closure : 1; /* for cl--- scopes, true if a
+                                             closure over __cl---__
                                              should be created */
     unsigned ste_comp_iter_target : 1; /* true if visiting comprehension target */
     int ste_comp_iter_expr; /* non-zero if visiting a comprehension range expression */
@@ -92,13 +92,13 @@ extern void _PySymtable_Free(struct symtable *);
 /* Flags for def-use information */
 
 #define DEF_GLOBAL 1           /* global stmt */
-#define DEF_LOCAL 2            /* assignment in code block */
+#define DEF_LOCAL 2            /* ---ignment in code block */
 #define DEF_PARAM 2<<1         /* formal parameter */
 #define DEF_NONLOCAL 2<<2      /* nonlocal stmt */
 #define USE 2<<3               /* name is used */
 #define DEF_FREE 2<<4          /* name used but not defined in nested block */
-#define DEF_FREE_CLASS 2<<5    /* free variable from class's method */
-#define DEF_IMPORT 2<<6        /* assignment occurred via import */
+#define DEF_FREE_CL--- 2<<5    /* free variable from cl---'s method */
+#define DEF_IMPORT 2<<6        /* ---ignment occurred via import */
 #define DEF_ANNOT 2<<7         /* this name is annotated */
 #define DEF_COMP_ITER 2<<8     /* this name is a comprehension iteration variable */
 

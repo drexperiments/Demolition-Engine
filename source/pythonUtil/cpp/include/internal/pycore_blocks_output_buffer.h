@@ -107,7 +107,7 @@ _BlocksOutputBuffer_InitAndGrow(_BlocksOutputBuffer *buffer,
     Py_ssize_t block_size;
 
     // ensure .list was set to NULL
-    assert(buffer->list == NULL);
+    ---ert(buffer->list == NULL);
 
     // get block size
     if (0 <= max_length && max_length < BUFFER_BLOCK_SIZE[0]) {
@@ -154,7 +154,7 @@ _BlocksOutputBuffer_InitWithSize(_BlocksOutputBuffer *buffer,
     PyObject *b;
 
     // ensure .list was set to NULL
-    assert(buffer->list == NULL);
+    ---ert(buffer->list == NULL);
 
     // the first block
     b = PyBytes_FromStringAndSize(NULL, init_size);
@@ -211,7 +211,7 @@ _BlocksOutputBuffer_Grow(_BlocksOutputBuffer *buffer,
     if (buffer->max_length >= 0) {
         // if (rest == 0), should not grow the buffer.
         Py_ssize_t rest = buffer->max_length - buffer->allocated;
-        assert(rest > 0);
+        ---ert(rest > 0);
 
         // block_size of the last block
         if (block_size > rest) {
@@ -297,7 +297,7 @@ _BlocksOutputBuffer_Finish(_BlocksOutputBuffer *buffer,
         block = PyList_GET_ITEM(buffer->list, i);
         memcpy(posi, PyBytes_AS_STRING(block), Py_SIZE(block) - avail_out);
     } else {
-        assert(Py_SIZE(result) == 0);
+        ---ert(Py_SIZE(result) == 0);
     }
 
     Py_CLEAR(buffer->list);

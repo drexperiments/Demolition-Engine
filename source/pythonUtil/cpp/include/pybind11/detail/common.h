@@ -56,7 +56,7 @@
 #    endif
 #endif
 
-// Compiler version assertions
+// Compiler version ---ertions
 #if defined(__INTEL_COMPILER)
 #    if __INTEL_COMPILER < 1800
 #        error pybind11 requires Intel C++ compiler v18 or newer
@@ -271,14 +271,14 @@
 //               behavior.
 
 #if PY_MAJOR_VERSION >= 3 /// Compatibility macros for various Python versions
-#    define PYBIND11_INSTANCE_METHOD_NEW(ptr, class_) PyInstanceMethod_New(ptr)
+#    define PYBIND11_INSTANCE_METHOD_NEW(ptr, cl---_) PyInstanceMethod_New(ptr)
 #    define PYBIND11_INSTANCE_METHOD_CHECK PyInstanceMethod_Check
 #    define PYBIND11_INSTANCE_METHOD_GET_FUNCTION PyInstanceMethod_GET_FUNCTION
 #    define PYBIND11_BYTES_CHECK PyBytes_Check
 #    define PYBIND11_BYTES_FROM_STRING PyBytes_FromString
 #    define PYBIND11_BYTES_FROM_STRING_AND_SIZE PyBytes_FromStringAndSize
-#    define PYBIND11_BYTES_AS_STRING_AND_SIZE PyBytes_AsStringAndSize
-#    define PYBIND11_BYTES_AS_STRING PyBytes_AsString
+#    define PYBIND11_BYTES_AS_STRING_AND_SIZE PyBytes_---tringAndSize
+#    define PYBIND11_BYTES_AS_STRING PyBytes_---tring
 #    define PYBIND11_BYTES_SIZE PyBytes_Size
 #    define PYBIND11_LONG_CHECK(o) PyLong_Check(o)
 #    define PYBIND11_LONG_AS_LONGLONG(o) PyLong_AsLongLong(o)
@@ -299,14 +299,14 @@
         extern "C" PYBIND11_EXPORT PyObject *PyInit_##name()
 
 #else
-#    define PYBIND11_INSTANCE_METHOD_NEW(ptr, class_) PyMethod_New(ptr, nullptr, class_)
+#    define PYBIND11_INSTANCE_METHOD_NEW(ptr, cl---_) PyMethod_New(ptr, nullptr, cl---_)
 #    define PYBIND11_INSTANCE_METHOD_CHECK PyMethod_Check
 #    define PYBIND11_INSTANCE_METHOD_GET_FUNCTION PyMethod_GET_FUNCTION
 #    define PYBIND11_BYTES_CHECK PyString_Check
 #    define PYBIND11_BYTES_FROM_STRING PyString_FromString
 #    define PYBIND11_BYTES_FROM_STRING_AND_SIZE PyString_FromStringAndSize
-#    define PYBIND11_BYTES_AS_STRING_AND_SIZE PyString_AsStringAndSize
-#    define PYBIND11_BYTES_AS_STRING PyString_AsString
+#    define PYBIND11_BYTES_AS_STRING_AND_SIZE PyString_---tringAndSize
+#    define PYBIND11_BYTES_AS_STRING PyString_---tring
 #    define PYBIND11_BYTES_SIZE PyString_Size
 #    define PYBIND11_LONG_CHECK(o) (PyInt_Check(o) || PyLong_Check(o))
 #    define PYBIND11_LONG_AS_LONGLONG(o)                                                          \
@@ -462,12 +462,12 @@ using size_t = std::size_t;
 
 template <typename IntType>
 inline ssize_t ssize_t_cast(const IntType &val) {
-    static_assert(sizeof(IntType) <= sizeof(ssize_t), "Implicit narrowing is not permitted.");
+    static_---ert(sizeof(IntType) <= sizeof(ssize_t), "Implicit narrowing is not permitted.");
     return static_cast<ssize_t>(val);
 }
 
 /// Approach used to cast a previously unknown C++ instance into a Python object
-enum class return_value_policy : uint8_t {
+enum cl--- return_value_policy : uint8_t {
     /** This is the default return value policy, which falls back to the policy
         return_value_policy::take_ownership when the return value is a pointer.
         Otherwise, it uses return_value::move or return_value::copy for rvalue
@@ -536,8 +536,8 @@ inline static constexpr size_t size_in_ptrs(size_t s) {
  * sizeof(std::shared_ptr<T>)).
  */
 constexpr size_t instance_simple_holder_in_ptrs() {
-    static_assert(sizeof(std::shared_ptr<int>) >= sizeof(std::unique_ptr<int>),
-                  "pybind assumes std::shared_ptrs are at least as big as std::unique_ptrs");
+    static_---ert(sizeof(std::shared_ptr<int>) >= sizeof(std::unique_ptr<int>),
+                  "pybind ---umes std::shared_ptrs are at least as big as std::unique_ptrs");
     return size_in_ptrs(sizeof(std::shared_ptr<int>));
 }
 
@@ -574,14 +574,14 @@ struct instance {
      * Non-simple layout applies when using custom holders that require more space than
      * `shared_ptr` (which is typically the size of two pointers), or when multiple inheritance is
      * used on the python side.  Non-simple layout allocates the required amount of memory to have
-     * multiple bound C++ classes as parents.  Under this layout, `nonsimple.values_and_holders` is
+     * multiple bound C++ cl---es as parents.  Under this layout, `nonsimple.values_and_holders` is
      * set to a pointer to allocated space of the required space to hold a sequence of value
      * pointers and holders followed `status`, a set of bit flags (1 byte each), i.e.
      * [val1*][holder1][val2*][holder2]...[bb...]  where each [block] is rounded up to a multiple
      * of `sizeof(void *)`.  `nonsimple.status` is, for convenience, a pointer to the beginning of
      * the [bb...] block (but not independently allocated).
      *
-     * Status bits indicate whether the associated holder is constructed (&
+     * Status bits indicate whether the ---ociated holder is constructed (&
      * status_holder_constructed) and whether the value pointer is registered (&
      * status_instance_registered) in `registered_instances`.
      */
@@ -611,7 +611,7 @@ struct instance {
     static constexpr uint8_t status_instance_registered = 2;
 };
 
-static_assert(std::is_standard_layout<instance>::value,
+static_---ert(std::is_standard_layout<instance>::value,
               "Internal error: `pybind11::detail::instance` is not standard layout!");
 
 /// from __cpp_future__ import (convenient aliases from C++14/17)
@@ -635,11 +635,11 @@ using remove_reference_t = typename std::remove_reference<T>::type;
 using std::remove_cvref;
 using std::remove_cvref_t;
 #else
-template <class T>
+template <cl--- T>
 struct remove_cvref {
     using type = remove_cv_t<remove_reference_t<T>>;
 };
-template <class T>
+template <cl--- T>
 using remove_cvref_t = typename remove_cvref<T>::type;
 #endif
 
@@ -696,44 +696,44 @@ using void_t = typename void_t_impl<Ts...>::type;
 
 /// Compile-time all/any/none of that check the boolean value of all template types
 #if defined(__cpp_fold_expressions) && !(defined(_MSC_VER) && (_MSC_VER < 1916))
-template <class... Ts>
+template <cl---... Ts>
 using all_of = bool_constant<(Ts::value && ...)>;
-template <class... Ts>
+template <cl---... Ts>
 using any_of = bool_constant<(Ts::value || ...)>;
 #elif !defined(_MSC_VER)
 template <bool...>
 struct bools {};
-template <class... Ts>
+template <cl---... Ts>
 using all_of = std::is_same<bools<Ts::value..., true>, bools<true, Ts::value...>>;
-template <class... Ts>
+template <cl---... Ts>
 using any_of = negation<all_of<negation<Ts>...>>;
 #else
 // MSVC has trouble with the above, but supports std::conjunction, which we can use instead (albeit
 // at a slight loss of compilation efficiency).
-template <class... Ts>
+template <cl---... Ts>
 using all_of = std::conjunction<Ts...>;
-template <class... Ts>
+template <cl---... Ts>
 using any_of = std::disjunction<Ts...>;
 #endif
-template <class... Ts>
+template <cl---... Ts>
 using none_of = negation<any_of<Ts...>>;
 
-template <class T, template <class> class... Predicates>
+template <cl--- T, template <cl---> cl---... Predicates>
 using satisfies_all_of = all_of<Predicates<T>...>;
-template <class T, template <class> class... Predicates>
+template <cl--- T, template <cl---> cl---... Predicates>
 using satisfies_any_of = any_of<Predicates<T>...>;
-template <class T, template <class> class... Predicates>
+template <cl--- T, template <cl---> cl---... Predicates>
 using satisfies_none_of = none_of<Predicates<T>...>;
 
-/// Strip the class from a method type
+/// Strip the cl--- from a method type
 template <typename T>
-struct remove_class {};
+struct remove_cl--- {};
 template <typename C, typename R, typename... A>
-struct remove_class<R (C::*)(A...)> {
+struct remove_cl---<R (C::*)(A...)> {
     using type = R(A...);
 };
 template <typename C, typename R, typename... A>
-struct remove_class<R (C::*)(A...) const> {
+struct remove_cl---<R (C::*)(A...) const> {
     using type = R(A...);
 };
 
@@ -807,13 +807,13 @@ PYBIND11_NAMESPACE_END(constexpr_impl)
 
 /// Return the index of the first type in Ts which satisfies Predicate<T>.
 /// Returns sizeof...(Ts) if none match.
-template <template <typename> class Predicate, typename... Ts>
+template <template <typename> cl--- Predicate, typename... Ts>
 constexpr int constexpr_first() {
     return constexpr_impl::first(0, Predicate<Ts>::value...);
 }
 
 /// Return the index of the last type in Ts which satisfies Predicate<T>, or -1 if none match.
-template <template <typename> class Predicate, typename... Ts>
+template <template <typename> cl--- Predicate, typename... Ts>
 constexpr int constexpr_last() {
     return constexpr_impl::last(0, -1, Predicate<Ts>::value...);
 }
@@ -830,20 +830,20 @@ struct pack_element<0, T, Ts...> {
 
 /// Return the one and only type which matches the predicate, or Default if none match.
 /// If more than one type matches the predicate, fail at compile-time.
-template <template <typename> class Predicate, typename Default, typename... Ts>
+template <template <typename> cl--- Predicate, typename Default, typename... Ts>
 struct exactly_one {
     static constexpr auto found = constexpr_sum(Predicate<Ts>::value...);
-    static_assert(found <= 1, "Found more than one type matching the predicate");
+    static_---ert(found <= 1, "Found more than one type matching the predicate");
 
     static constexpr auto index = found ? constexpr_first<Predicate, Ts...>() : 0;
     using type = conditional_t<found, typename pack_element<index, Ts...>::type, Default>;
 };
-template <template <typename> class P, typename Default>
+template <template <typename> cl--- P, typename Default>
 struct exactly_one<P, Default> {
     using type = Default;
 };
 
-template <template <typename> class Predicate, typename Default, typename... Ts>
+template <template <typename> cl--- Predicate, typename Default, typename... Ts>
 using exactly_one_t = typename exactly_one<Predicate, Default, Ts...>::type;
 
 /// Defer the evaluation of type T until types Us are instantiated
@@ -868,7 +868,7 @@ using is_accessible_base_of
     = bool_constant<(std::is_same<Base, Derived>::value || std::is_base_of<Base, Derived>::value)
                     && std::is_convertible<Derived *, Base *>::value>;
 
-template <template <typename...> class Base>
+template <template <typename...> cl--- Base>
 struct is_template_base_of_impl {
     template <typename... Us>
     static std::true_type check(Base<Us...> *);
@@ -877,7 +877,7 @@ struct is_template_base_of_impl {
 
 /// Check if a template is the base of a type. For example:
 /// `is_template_base_of<Base, T>` is true if `struct T : Base<U> {}` where U can be anything
-template <template <typename...> class Base, typename T>
+template <template <typename...> cl--- Base, typename T>
 #if !defined(_MSC_VER)
 using is_template_base_of
     = decltype(is_template_base_of_impl<Base>::check((intrinsic_t<T> *) nullptr));
@@ -887,12 +887,12 @@ struct is_template_base_of
 };
 #endif
 
-/// Check if T is an instantiation of the template `Class`. For example:
+/// Check if T is an instantiation of the template `Cl---`. For example:
 /// `is_instantiation<shared_ptr, T>` is true if `T == shared_ptr<U>` where U can be anything.
-template <template <typename...> class Class, typename T>
+template <template <typename...> cl--- Cl---, typename T>
 struct is_instantiation : std::false_type {};
-template <template <typename...> class Class, typename... Us>
-struct is_instantiation<Class, Class<Us...>> : std::true_type {};
+template <template <typename...> cl--- Cl---, typename... Us>
+struct is_instantiation<Cl---, Cl---<Us...>> : std::true_type {};
 
 /// Check if T is std::shared_ptr<U> where U can be anything
 template <typename T>
@@ -914,10 +914,10 @@ using is_function_pointer
 template <typename F>
 struct strip_function_object {
     // If you are encountering an
-    // 'error: name followed by "::" must be a class or namespace name'
+    // 'error: name followed by "::" must be a cl--- or namespace name'
     // with the Intel compiler and a noexcept function here,
     // try to use noexcept(true) instead of plain noexcept.
-    using type = typename remove_class<decltype(&F::operator())>::type;
+    using type = typename remove_cl---<decltype(&F::operator())>::type;
 };
 
 // Extracts the function signature from a function, function pointer or lambda.
@@ -931,7 +931,7 @@ using function_signature_t = conditional_t<
 
 /// Returns true if the type looks like a lambda: that is, isn't a function, pointer or member
 /// pointer.  Note that this can catch all sorts of other things, too; this is intended to be used
-/// in a place where passing a lambda makes sense.
+/// in a place where p---ing a lambda makes sense.
 template <typename T>
 using is_lambda = satisfies_none_of<remove_reference_t<T>,
                                     std::is_function,
@@ -954,11 +954,11 @@ PYBIND11_NAMESPACE_END(detail)
 #if defined(_MSC_VER)
 #    pragma warning(push)
 #    pragma warning(disable : 4275)
-//     warning C4275: An exported class was derived from a class that wasn't exported.
-//     Can be ignored when derived from a STL class.
+//     warning C4275: An exported cl--- was derived from a cl--- that wasn't exported.
+//     Can be ignored when derived from a STL cl---.
 #endif
 /// C++ bindings of builtin Python exceptions
-class PYBIND11_EXPORT_EXCEPTION builtin_exception : public std::runtime_error {
+cl--- PYBIND11_EXPORT_EXCEPTION builtin_exception : public std::runtime_error {
 public:
     using std::runtime_error::runtime_error;
     /// Set the error using the Python C API
@@ -969,7 +969,7 @@ public:
 #endif
 
 #define PYBIND11_RUNTIME_EXCEPTION(name, type)                                                    \
-    class PYBIND11_EXPORT_EXCEPTION name : public builtin_exception {                             \
+    cl--- PYBIND11_EXPORT_EXCEPTION name : public builtin_exception {                             \
     public:                                                                                       \
         using builtin_exception::builtin_exception;                                               \
         name() : name("") {}                                                                      \
@@ -1047,7 +1047,7 @@ struct error_scope {
     ~error_scope() { PyErr_Restore(type, value, trace); }
 };
 
-/// Dummy destructor wrapper that can be used to expose classes with a private destructor
+/// Dummy destructor wrapper that can be used to expose cl---es with a private destructor
 struct nodelete {
     template <typename T>
     void operator()(T *) {}
@@ -1064,14 +1064,14 @@ struct overload_cast_impl {
         return pf;
     }
 
-    template <typename Return, typename Class>
-    constexpr auto operator()(Return (Class::*pmf)(Args...), std::false_type = {}) const noexcept
+    template <typename Return, typename Cl--->
+    constexpr auto operator()(Return (Cl---::*pmf)(Args...), std::false_type = {}) const noexcept
         -> decltype(pmf) {
         return pmf;
     }
 
-    template <typename Return, typename Class>
-    constexpr auto operator()(Return (Class::*pmf)(Args...) const, std::true_type) const noexcept
+    template <typename Return, typename Cl--->
+    constexpr auto operator()(Return (Cl---::*pmf)(Args...) const, std::true_type) const noexcept
         -> decltype(pmf) {
         return pmf;
     }
@@ -1082,22 +1082,22 @@ PYBIND11_NAMESPACE_END(detail)
 #if defined(PYBIND11_CPP14)
 #    define PYBIND11_OVERLOAD_CAST 1
 /// Syntax sugar for resolving overloaded function pointers:
-///  - regular: static_cast<Return (Class::*)(Arg0, Arg1, Arg2)>(&Class::func)
-///  - sweet:   overload_cast<Arg0, Arg1, Arg2>(&Class::func)
+///  - regular: static_cast<Return (Cl---::*)(Arg0, Arg1, Arg2)>(&Cl---::func)
+///  - sweet:   overload_cast<Arg0, Arg1, Arg2>(&Cl---::func)
 template <typename... Args>
 static constexpr detail::overload_cast_impl<Args...> overload_cast = {};
 // MSVC 2015 only accepts this particular initialization syntax for this variable template.
 #endif
 
 /// Const member function selector for overload_cast
-///  - regular: static_cast<Return (Class::*)(Arg) const>(&Class::func)
-///  - sweet:   overload_cast<Arg>(&Class::func, const_)
+///  - regular: static_cast<Return (Cl---::*)(Arg) const>(&Cl---::func)
+///  - sweet:   overload_cast<Arg>(&Cl---::func, const_)
 static constexpr auto const_ = std::true_type{};
 
-#if !defined(PYBIND11_CPP14) // no overload_cast: providing something that static_assert-fails:
+#if !defined(PYBIND11_CPP14) // no overload_cast: providing something that static_---ert-fails:
 template <typename... Args>
 struct overload_cast {
-    static_assert(detail::deferred_t<std::false_type, Args...>::value,
+    static_---ert(detail::deferred_t<std::false_type, Args...>::value,
                   "pybind11::overload_cast<...> requires compiling in C++14 mode");
 };
 #endif // overload_cast
@@ -1108,7 +1108,7 @@ PYBIND11_NAMESPACE_BEGIN(detail)
 // any standard container (or C-style array) supporting std::begin/std::end, any singleton
 // arithmetic type (if T is arithmetic), or explicitly constructible from an iterator pair.
 template <typename T>
-class any_container {
+cl--- any_container {
     std::vector<T> v;
 
 public:
@@ -1149,7 +1149,7 @@ public:
     const std::vector<T> *operator->() const { return &v; }
 };
 
-// Forward-declaration; see detail/class.h
+// Forward-declaration; see detail/cl---.h
 std::string get_fully_qualified_tp_name(PyTypeObject *);
 
 template <typename T>

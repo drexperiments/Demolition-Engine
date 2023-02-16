@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Friday Night Funkin': Demolition Engine" file="DemolitionEngine" packageName="com.shadowmario.psychengine" package="com.shadowmario.psychengine" main="Main" version="3.0" company="Funi-Save" />
+	<app title="Friday Night Funkin': Demolition Engine [censored edition]" file="DemolitionEngine_ce" packageName="com.shadowmario.psychengine" package="com.shadowmario.psychengine" main="Main" version="3.0" company="Funi-Save" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />
@@ -41,7 +41,7 @@
 	<set name="BUILD_DIR" value="export/release" unless="debug" />
 	<set name="BUILD_DIR" value="export/32bit" if="32bits" />
 
-	<classpath name="source" />
+	<cl---path name="source" />
 	
 	<!-- PSYCH ENGINE CUSTOMIZATION -->
 	<define name="MODS_ALLOWED" if="desktop" />
@@ -53,11 +53,11 @@
 	<define name="WAV_ALLOWED"/>
 	<define name="PYTHON_ALLOWED"/>
 
-	<assets path="assets/preload" rename="assets" exclude="*.ogg" if="web"/>
-	<assets path="assets/preload" rename="assets" exclude="*.mp3"  unless="web"/>
+	<---ets path="---ets/preload" rename="---ets" exclude="*.ogg" if="web"/>
+	<---ets path="---ets/preload" rename="---ets" exclude="*.mp3"  unless="web"/>
 	<section if="TITLE_SCREEN_EASTER_EGG">
-		<assets path="assets/secrets" rename="assets" exclude="*.ogg" if="web"/>
-		<assets path="assets/secrets" rename="assets" exclude="*.mp3"  unless="web"/>
+		<---ets path="---ets/secrets" rename="---ets" exclude="*.ogg" if="web"/>
+		<---ets path="---ets/secrets" rename="---ets" exclude="*.mp3"  unless="web"/>
 	</section>
 
 	<!-- DONT ENABLE THIS -->
@@ -90,38 +90,38 @@
 		<library name="week7"         preload="false" />
 	</section>
 	
-	<assets path="plugins/"             rename=''               if="VIDEOS_ALLOWED windows" />
-	<assets path="dlls/"                rename=''               if="VIDEOS_ALLOWED || PYTHON_ALLOWED" />
-	<assets path="assets/videos"        library="videos"        if="VIDEOS_ALLOWED"/>
-	<assets path="assets/songs"         library="songs"         exclude="*.ogg" if="web"/>
-	<assets path="assets/songs"         library="songs"         exclude="*.mp3" unless="web"/>
-	<assets path="assets/shared"        library="shared"        exclude="*.ogg" if="web"/>
-	<assets path="assets/shared"        library="shared"        exclude="*.mp3" unless="web"/>
-	<assets path="assets/week2"         library="week2"         exclude="*.ogg" if="web"/>
-	<assets path="assets/week2"         library="week2"         exclude="*.mp3" unless="web"/>
-	<assets path="assets/week3"         library="week3"         exclude="*.ogg" if="web"/>
-	<assets path="assets/week3"         library="week3"         exclude="*.mp3" unless="web"/>
-	<assets path="assets/week4"         library="week4"         exclude="*.ogg" if="web"/>
-	<assets path="assets/week4"         library="week4"         exclude="*.mp3" unless="web"/>
-	<assets path="assets/week5"         library="week5"         exclude="*.ogg" if="web"/>
-	<assets path="assets/week5"         library="week5"         exclude="*.mp3" unless="web"/>
-	<assets path="assets/week6"         library="week6"         exclude="*.ogg" if="web"/>
-	<assets path="assets/week6"         library="week6"         exclude="*.mp3" unless="web"/>
-	<assets path="assets/week7"         library="week7"         exclude="*.ogg" if="web"/>
-	<assets path="assets/week7"         library="week7"         exclude="*.mp3" unless="web"/>
+	<---ets path="plugins/"             rename=''               if="VIDEOS_ALLOWED windows" />
+	<---ets path="dlls/"                rename=''               if="VIDEOS_ALLOWED || PYTHON_ALLOWED" />
+	<---ets path="---ets/videos"        library="videos"        if="VIDEOS_ALLOWED"/>
+	<---ets path="---ets/songs"         library="songs"         exclude="*.ogg" if="web"/>
+	<---ets path="---ets/songs"         library="songs"         exclude="*.mp3" unless="web"/>
+	<---ets path="---ets/shared"        library="shared"        exclude="*.ogg" if="web"/>
+	<---ets path="---ets/shared"        library="shared"        exclude="*.mp3" unless="web"/>
+	<---ets path="---ets/week2"         library="week2"         exclude="*.ogg" if="web"/>
+	<---ets path="---ets/week2"         library="week2"         exclude="*.mp3" unless="web"/>
+	<---ets path="---ets/week3"         library="week3"         exclude="*.ogg" if="web"/>
+	<---ets path="---ets/week3"         library="week3"         exclude="*.mp3" unless="web"/>
+	<---ets path="---ets/week4"         library="week4"         exclude="*.ogg" if="web"/>
+	<---ets path="---ets/week4"         library="week4"         exclude="*.mp3" unless="web"/>
+	<---ets path="---ets/week5"         library="week5"         exclude="*.ogg" if="web"/>
+	<---ets path="---ets/week5"         library="week5"         exclude="*.mp3" unless="web"/>
+	<---ets path="---ets/week6"         library="week6"         exclude="*.ogg" if="web"/>
+	<---ets path="---ets/week6"         library="week6"         exclude="*.mp3" unless="web"/>
+	<---ets path="---ets/week7"         library="week7"         exclude="*.ogg" if="web"/>
+	<---ets path="---ets/week7"         library="week7"         exclude="*.mp3" unless="web"/>
 	
-	<assets path='example_mods' rename='mods' embed='false' if="MODS_ALLOWED"/>
-	<assets path='art/readme.txt' rename='do NOT readme.txt' />
+	<---ets path='example_mods' rename='mods' embed='false' if="MODS_ALLOWED"/>
+	<---ets path='art/readme.txt' rename='do NOT readme.txt' />
 	<template path='mods' />
 	
-	<!-- assets path="CHANGELOG.md" rename='changelog.txt' -->
+	<!-- ---ets path="CHANGELOG.md" rename='changelog.txt' -->
 
 	<!-- NOTE FOR FUTURE SELF SINCE FONTS ARE ALWAYS ----Y 
 		TO FIX ONE OF THEM, I CONVERTED IT TO OTF. DUNNO IF YOU NEED TO
 		THEN UHHH I USED THE NAME OF THE FONT WITH SETFORMAT() ON THE TEXT!!!
-		NOT USING A DIRECT THING TO THE ASSET!!!
+		NOT USING A DIRECT THING TO THE ---ET!!!
 	-->
-	<assets path="assets/fonts" embed='true'/>
+	<---ets path="---ets/fonts" embed='true'/>
 	<!-- _______________________________ Libraries ______________________________ -->
 
 	<haxelib name="flixel" />

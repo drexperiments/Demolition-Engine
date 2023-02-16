@@ -39,8 +39,8 @@ PYBIND11_NAMESPACE_BEGIN(detail)
 
 // Forward declarations
 inline PyTypeObject *make_static_property_type();
-inline PyTypeObject *make_default_metaclass();
-inline PyObject *make_object_base_type(PyTypeObject *metaclass);
+inline PyTypeObject *make_default_metacl---();
+inline PyObject *make_object_base_type(PyTypeObject *metacl---);
 
 // The old Python Thread Local Storage (TLS) API is deprecated in Python 3.7 in favor of the new
 // Thread Specific Storage (TSS) API.
@@ -166,7 +166,7 @@ struct internals {
     std::forward_list<std::string> static_strings; // Stores the std::strings backing
                                                    // detail::c_str()
     PyTypeObject *static_property_type;
-    PyTypeObject *default_metaclass;
+    PyTypeObject *default_metacl---;
     PyObject *instance_base;
 #if defined(WITH_THREAD)
     PYBIND11_TLS_KEY_INIT(tstate)
@@ -207,7 +207,7 @@ struct type_info {
     void *get_buffer_data = nullptr;
     void *(*module_local_load)(PyObject *, const type_info *) = nullptr;
     /* A simple type never occurs as a (direct or indirect) parent
-     * of a class that makes use of multiple inheritance.
+     * of a cl--- that makes use of multiple inheritance.
      * A type can be simple even if it has non-simple ancestors as long as it has no descendants.
      */
     bool simple_type : 1;
@@ -226,7 +226,7 @@ struct type_info {
 #    define PYBIND11_BUILD_TYPE ""
 #endif
 
-/// Let's assume that different compilers are ABI-incompatible.
+/// Let's ---ume that different compilers are ABI-incompatible.
 /// A user can manually set this string if they know their
 /// compiler is compatible.
 #ifndef PYBIND11_COMPILER_TYPE
@@ -298,7 +298,7 @@ inline internals **&get_internals_pp() {
 // forward decl
 inline void translate_exception(std::exception_ptr);
 
-template <class T,
+template <cl--- T,
           enable_if_t<std::is_same<std::nested_exception, remove_cvref_t<T>>::value, int> = 0>
 bool handle_nested_exception(const T &exc, const std::exception_ptr &p) {
     std::exception_ptr nested = exc.nested_ptr();
@@ -309,7 +309,7 @@ bool handle_nested_exception(const T &exc, const std::exception_ptr &p) {
     return false;
 }
 
-template <class T,
+template <cl--- T,
           enable_if_t<!std::is_same<std::nested_exception, remove_cvref_t<T>>::value, int> = 0>
 bool handle_nested_exception(const T &exc, const std::exception_ptr &p) {
     if (const auto *nep = dynamic_cast<const std::nested_exception *>(std::addressof(exc))) {
@@ -320,7 +320,7 @@ bool handle_nested_exception(const T &exc, const std::exception_ptr &p) {
 
 #else
 
-template <class T>
+template <cl--- T>
 bool handle_nested_exception(const T &, std::exception_ptr &) {
     return false;
 }
@@ -348,7 +348,7 @@ inline void translate_exception(std::exception_ptr p) {
         e.restore();
         return;
     } catch (const builtin_exception &e) {
-        // Could not use template since it's an abstract class.
+        // Could not use template since it's an abstract cl---.
         if (const auto *nep = dynamic_cast<const std::nested_exception *>(std::addressof(e))) {
             handle_nested_exception(*nep, p);
         }
@@ -433,8 +433,8 @@ PYBIND11_NOINLINE internals &get_internals() {
         internals_pp = static_cast<internals **>(capsule(builtins[id]));
 
         // We loaded builtins through python's builtins, which means that our `error_already_set`
-        // and `builtin_exception` may be different local classes than the ones set up in the
-        // initial exception translator, below, so add another for our local exception classes.
+        // and `builtin_exception` may be different local cl---es than the ones set up in the
+        // initial exception translator, below, so add another for our local exception cl---es.
         //
         // libstdc++ doesn't require this (types there are identified only by name)
         // libc++ with CPython doesn't require this (types are explicitly exported)
@@ -470,8 +470,8 @@ PYBIND11_NOINLINE internals &get_internals() {
         builtins[id] = capsule(internals_pp);
         internals_ptr->registered_exception_translators.push_front(&translate_exception);
         internals_ptr->static_property_type = make_static_property_type();
-        internals_ptr->default_metaclass = make_default_metaclass();
-        internals_ptr->instance_base = make_object_base_type(internals_ptr->default_metaclass);
+        internals_ptr->default_metacl--- = make_default_metacl---();
+        internals_ptr->instance_base = make_object_base_type(internals_ptr->default_metacl---);
     }
     return **internals_pp;
 }

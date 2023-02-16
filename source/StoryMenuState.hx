@@ -23,7 +23,7 @@ import WeekData;
 
 using StringTools;
 
-class StoryMenuState extends MusicBeatState
+cl--- StoryMenuState extends MusicBeatState
 {
 	public static var weekCompleted:Map<String, Bool> = new Map<String, Bool>();
 
@@ -75,7 +75,7 @@ class StoryMenuState extends MusicBeatState
 		rankText.size = scoreText.size;
 		rankText.screenCenter(X);
 
-		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
+		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_---ets');
 		var bgYellow:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 386, 0xFFF9CF51);
 		bgSprite = new FlxSprite(0, 56);
 		bgSprite.antialiasing = ClientPrefs.globalAntialiasing;
@@ -96,7 +96,7 @@ class StoryMenuState extends MusicBeatState
 		DiscordClient.changePresence("In Story Mode", null);
 		#end
 			
-		Application.current.window.title = "Friday Night Funkin': Demolition Engine";
+		Application.current.window.title = "Friday Night Funkin': Demolition Engine [censored edition]";
 
 		var num:Int = 0;
 		for (i in 0...WeekData.weeksList.length)
@@ -399,11 +399,11 @@ class StoryMenuState extends MusicBeatState
 		}
 
 		bgSprite.visible = true;
-		var assetName:String = leWeek.weekBackground;
-		if(assetName == null || assetName.length < 1) {
+		var ---etName:String = leWeek.weekBackground;
+		if(---etName == null || ---etName.length < 1) {
 			bgSprite.visible = false;
 		} else {
-			bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_' + assetName));
+			bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_' + ---etName));
 		}
 		PlayState.storyWeek = curWeek;
 

@@ -4,7 +4,7 @@ import flixel.util.FlxStringUtil;
 
 using StringTools;
 
-class ChartParser
+cl--- ChartParser
 {
 	static public function parse(songName:String, section:Int):Array<Dynamic>
 	{

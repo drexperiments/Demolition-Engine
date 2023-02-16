@@ -2,7 +2,7 @@ package flixel.system.ui;
 
 #if FLX_SOUND_SYSTEM
 import flixel.FlxG;
-import flixel.system.FlxAssets;
+import flixel.system.Flx---ets;
 import flixel.util.FlxColor;
 import openfl.Lib;
 import openfl.display.Bitmap;
@@ -19,7 +19,7 @@ import flash.text.GridFitType;
 /**
  * The flixel sound tray, the little volume meter that pops down sometimes.
  */
-class FlxSoundTray extends Sprite
+cl--- FlxSoundTray extends Sprite
 {
 	/**
 	 * Because reading any data from DisplayObject is insanely expensive in hxcpp, keep track of whether we need to update it or not.
@@ -74,7 +74,7 @@ class FlxSoundTray extends Sprite
 		text.gridFitType = GridFitType.PIXEL;
 		#else
 		#end
-		var dtf:TextFormat = new TextFormat(FlxAssets.FONT_DEFAULT, 10, 0xFFFFFFFF); //use "Paths.font()" to change the font
+		var dtf:TextFormat = new TextFormat(Flx---ets.FONT_DEFAULT, 10, 0xFFFFFFFF); //use "Paths.font()" to change the font
 		dtf.align = TextFormatAlign.CENTER;
 		text.defaultTextFormat = dtf;
 		addChild(text);
@@ -138,7 +138,7 @@ class FlxSoundTray extends Sprite
 	{
 		if (!silent)
 		{
-			var sound = FlxAssets.getSound("flixel/sounds/beep"); //if you wish to change this, use "Paths.sound()"
+			var sound = Flx---ets.getSound("flixel/sounds/beep"); //if you wish to change this, use "Paths.sound()"
 			if (sound != null)
 				FlxG.sound.load(sound).play();
             trace(up);

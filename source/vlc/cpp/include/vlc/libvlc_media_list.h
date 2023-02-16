@@ -71,7 +71,7 @@ LIBVLC_DEPRECATED int
                                         const char * psz_uri );
 
 /**
- * Associate media instance with this media list instance.
+ * ---ociate media instance with this media list instance.
  * If another media instance was present it will be released.
  * The libvlc_media_list_lock should NOT be held upon entering this function.
  *

@@ -124,7 +124,7 @@ enum vlc_module_properties
 #define CONFIG_ITEM_RGB                     0x41  /* RGB color option */
 #define CONFIG_ITEM_BOOL                    0x60  /* Bool option */
 #define CONFIG_ITEM_STRING                  0x80  /* String option */
-#define CONFIG_ITEM_PASSWORD                0x81  /* Password option (*) */
+#define CONFIG_ITEM_P---WORD                0x81  /* P---word option (*) */
 #define CONFIG_ITEM_KEY                     0x82  /* Hot key option */
 #define CONFIG_ITEM_MODULE                  0x84  /* Module option */
 #define CONFIG_ITEM_MODULE_CAT              0x85  /* Module option */
@@ -375,8 +375,8 @@ VLC_METADATA_EXPORTS
     add_string_inner( CONFIG_ITEM_STRING, name, text, longtext, advc, \
                       value )
 
-#define add_password( name, value, text, longtext, advc ) \
-    add_string_inner( CONFIG_ITEM_PASSWORD, name, text, longtext, advc, \
+#define add_p---word( name, value, text, longtext, advc ) \
+    add_string_inner( CONFIG_ITEM_P---WORD, name, text, longtext, advc, \
                       value )
 
 #define add_loadfile( name, value, text, longtext, advc ) \

@@ -16,7 +16,7 @@ extern "C" {
 
    Type 'digit' should be able to hold 2*PyLong_BASE-1, and type 'twodigits'
    should be an unsigned integer type able to hold all integers up to
-   PyLong_BASE*PyLong_BASE-1.  x_sub assumes that 'digit' is an unsigned type,
+   PyLong_BASE*PyLong_BASE-1.  x_sub ---umes that 'digit' is an unsigned type,
    and that overflow is handled by taking the result modulo 2**N for some N >
    PyLong_SHIFT.  The majority of the code doesn't care about the precise
    value of PyLong_SHIFT, but there are some notable exceptions:

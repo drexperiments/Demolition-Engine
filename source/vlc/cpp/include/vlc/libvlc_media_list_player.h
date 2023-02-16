@@ -109,7 +109,7 @@ LIBVLC_API void
                                      libvlc_media_player_t * p_mi );
 
 /**
- * Set the media list associated with the player
+ * Set the media list ---ociated with the player
  *
  * \param p_mlp media list player instance
  * \param p_mlist list of media

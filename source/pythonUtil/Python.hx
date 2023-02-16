@@ -7,7 +7,7 @@ using StringTools;
 @:unreflective
 @:keep
 @:native("PythonHandler*")
-extern class Python
+extern cl--- Python
 {
 	@:native("doFile")
 	public static function doFile(str:String):Void;

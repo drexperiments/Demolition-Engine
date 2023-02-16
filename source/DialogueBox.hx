@@ -12,7 +12,7 @@ import flixel.util.FlxTimer;
 
 using StringTools;
 
-class DialogueBox extends FlxSpriteGroup
+cl--- DialogueBox extends FlxSpriteGroup
 {
 	var box:FlxSprite;
 

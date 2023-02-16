@@ -188,8 +188,8 @@ LIBVLC_API void libvlc_media_player_set_media( libvlc_media_player_t *p_mi,
  * Get the media used by the media_player.
  *
  * \param p_mi the Media Player
- * \return the media associated with p_mi, or NULL if no
- *         media is associated
+ * \return the media ---ociated with p_mi, or NULL if no
+ *         media is ---ociated
  */
 LIBVLC_API libvlc_media_t * libvlc_media_player_get_media( libvlc_media_player_t *p_mi );
 
@@ -197,7 +197,7 @@ LIBVLC_API libvlc_media_t * libvlc_media_player_get_media( libvlc_media_player_t
  * Get the Event Manager from which the media player send event.
  *
  * \param p_mi the Media Player
- * \return the event manager associated with p_mi
+ * \return the event manager ---ociated with p_mi
  */
 LIBVLC_API libvlc_event_manager_t * libvlc_media_player_event_manager ( libvlc_media_player_t *p_mi );
 
@@ -251,7 +251,7 @@ LIBVLC_API void libvlc_media_player_stop ( libvlc_media_player_t *p_mi );
  * adequate dimensions must be returned via the second parameter. Those
  * planes must be aligned on 32-bytes boundaries.
  *
- * \param opaque private pointer as passed to libvlc_video_set_callbacks() [IN]
+ * \param opaque private pointer as p---ed to libvlc_video_set_callbacks() [IN]
  * \param planes start address of the pixel planes (LibVLC allocates the array
  *             of void pointers, this callback must initialize the array) [OUT]
  * \return a private pointer for the display and unlock callbacks to identify
@@ -269,7 +269,7 @@ typedef void *(*libvlc_video_lock_cb)(void *opaque, void **planes);
  * \warning A picture buffer is unlocked after the picture is decoded,
  * but before the picture is displayed.
  *
- * \param opaque private pointer as passed to libvlc_video_set_callbacks() [IN]
+ * \param opaque private pointer as p---ed to libvlc_video_set_callbacks() [IN]
  * \param picture private pointer returned from the @ref libvlc_video_lock_cb
  *                callback [IN]
  * \param planes pixel planes as defined by the @ref libvlc_video_lock_cb
@@ -284,7 +284,7 @@ typedef void (*libvlc_video_unlock_cb)(void *opaque, void *picture,
  * When the video frame needs to be shown, as determined by the media playback
  * clock, the display callback is invoked.
  *
- * \param opaque private pointer as passed to libvlc_video_set_callbacks() [IN]
+ * \param opaque private pointer as p---ed to libvlc_video_set_callbacks() [IN]
  * \param picture private pointer returned from the @ref libvlc_video_lock_cb
  *                callback [IN]
  */
@@ -297,7 +297,7 @@ typedef void (*libvlc_video_display_cb)(void *opaque, void *picture);
  * as it needs. In that case, LibVLC will attempt to convert the video format
  * (rescaling and chroma conversion) but these operations can be CPU intensive.
  *
- * \param opaque pointer to the private pointer passed to
+ * \param opaque pointer to the private pointer p---ed to
  *               libvlc_video_set_callbacks() [IN/OUT]
  * \param chroma pointer to the 4 bytes video format identifier [IN/OUT]
  * \param width pointer to the pixel width [IN/OUT]
@@ -313,7 +313,7 @@ typedef void (*libvlc_video_display_cb)(void *opaque, void *picture);
  * Similarly, the number of scanlines must be bigger than of equal to
  * the pixel height.
  * Furthermore, we recommend that pitches and lines be multiple of 32
- * to not break assumption that might be made by various optimizations
+ * to not break ---umption that might be made by various optimizations
  * in the video decoders, video filters and/or video converters.
  */
 typedef unsigned (*libvlc_video_format_cb)(void **opaque, char *chroma,
@@ -324,7 +324,7 @@ typedef unsigned (*libvlc_video_format_cb)(void **opaque, char *chroma,
 /**
  * Callback prototype to configure picture buffers format.
  *
- * \param opaque private pointer as passed to libvlc_video_set_callbacks()
+ * \param opaque private pointer as p---ed to libvlc_video_set_callbacks()
  *               (and possibly modified by @ref libvlc_video_format_cb) [IN]
  */
 typedef void (*libvlc_video_cleanup_cb)(void *opaque);
@@ -450,7 +450,7 @@ LIBVLC_API uint32_t libvlc_media_player_get_agl ( libvlc_media_player_t *p_mi );
  * video output. If LibVLC was built without X11 output support, then this has
  * no effects.
  *
- * The specified identifier must correspond to an existing Input/Output class
+ * The specified identifier must correspond to an existing Input/Output cl---
  * X11 window. Pixmaps are <b>not</b> supported. The caller shall ensure that
  * the X11 server is the same as the one the VLC instance has been configured
  * with. This function must be called before video playback is started;
@@ -494,7 +494,7 @@ LIBVLC_API void *libvlc_media_player_get_hwnd ( libvlc_media_player_t *p_mi );
 
 /**
  * Callback prototype for audio playback.
- * \param data data pointer as passed to libvlc_audio_set_callbacks() [IN]
+ * \param data data pointer as p---ed to libvlc_audio_set_callbacks() [IN]
  * \param samples pointer to the first audio sample to play back [IN]
  * \param count number of audio samples to play back
  * \param pts expected play time stamp (see libvlc_delay())
@@ -505,7 +505,7 @@ typedef void (*libvlc_audio_play_cb)(void *data, const void *samples,
 /**
  * Callback prototype for audio pause.
  * \note The pause callback is never called if the audio is already paused.
- * \param data data pointer as passed to libvlc_audio_set_callbacks() [IN]
+ * \param data data pointer as p---ed to libvlc_audio_set_callbacks() [IN]
  * \param pts time stamp of the pause request (should be elapsed already)
  */
 typedef void (*libvlc_audio_pause_cb)(void *data, int64_t pts);
@@ -513,7 +513,7 @@ typedef void (*libvlc_audio_pause_cb)(void *data, int64_t pts);
 /**
  * Callback prototype for audio resumption (i.e. restart from pause).
  * \note The resume callback is never called if the audio is not paused.
- * \param data data pointer as passed to libvlc_audio_set_callbacks() [IN]
+ * \param data data pointer as p---ed to libvlc_audio_set_callbacks() [IN]
  * \param pts time stamp of the resumption request (should be elapsed already)
  */
 typedef void (*libvlc_audio_resume_cb)(void *data, int64_t pts);
@@ -521,20 +521,20 @@ typedef void (*libvlc_audio_resume_cb)(void *data, int64_t pts);
 /**
  * Callback prototype for audio buffer flush
  * (i.e. discard all pending buffers and stop playback as soon as possible).
- * \param data data pointer as passed to libvlc_audio_set_callbacks() [IN]
+ * \param data data pointer as p---ed to libvlc_audio_set_callbacks() [IN]
  */
 typedef void (*libvlc_audio_flush_cb)(void *data, int64_t pts);
 
 /**
  * Callback prototype for audio buffer drain
  * (i.e. wait for pending buffers to be played).
- * \param data data pointer as passed to libvlc_audio_set_callbacks() [IN]
+ * \param data data pointer as p---ed to libvlc_audio_set_callbacks() [IN]
  */
 typedef void (*libvlc_audio_drain_cb)(void *data);
 
 /**
  * Callback prototype for audio volume change.
- * \param data data pointer as passed to libvlc_audio_set_callbacks() [IN]
+ * \param data data pointer as p---ed to libvlc_audio_set_callbacks() [IN]
  * \param volume software volume (1. = nominal, 0. = mute)
  * \param mute muted flag
  */
@@ -581,7 +581,7 @@ void libvlc_audio_set_volume_callback( libvlc_media_player_t *mp,
 /**
  * Callback prototype to setup the audio playback.
  * This is called when the media player needs to create a new audio output.
- * \param opaque pointer to the data pointer passed to
+ * \param opaque pointer to the data pointer p---ed to
  *               libvlc_audio_set_callbacks() [IN/OUT]
  * \param format 4 bytes sample format [IN/OUT]
  * \param rate sample rate [IN/OUT]
@@ -594,7 +594,7 @@ typedef int (*libvlc_audio_setup_cb)(void **data, char *format, unsigned *rate,
 /**
  * Callback prototype for audio playback cleanup.
  * This is called when the media player no longer needs an audio output.
- * \param opaque data pointer as passed to libvlc_audio_set_callbacks() [IN]
+ * \param opaque data pointer as p---ed to libvlc_audio_set_callbacks() [IN]
  */
 typedef void (*libvlc_audio_cleanup_cb)(void *data);
 
@@ -1287,7 +1287,7 @@ LIBVLC_API int libvlc_video_get_logo_int( libvlc_media_player_t *p_mi,
 /**
  * Set logo option as integer. Options that take a different type value
  * are ignored.
- * Passing libvlc_logo_enable as option value has the side effect of
+ * P---ing libvlc_logo_enable as option value has the side effect of
  * starting (arg !0) or stopping (arg 0) the logo filter.
  *
  * \param p_mi libvlc media player instance
@@ -1332,7 +1332,7 @@ LIBVLC_API int libvlc_video_get_adjust_int( libvlc_media_player_t *p_mi,
 /**
  * Set adjust option as integer. Options that take a different type value
  * are ignored.
- * Passing libvlc_adjust_enable as option value has the side effect of
+ * P---ing libvlc_adjust_enable as option value has the side effect of
  * starting (arg !0) or stopping (arg 0) the adjust filter.
  *
  * \param p_mi libvlc media player instance
@@ -1553,7 +1553,7 @@ LIBVLC_API int libvlc_audio_get_mute( libvlc_media_player_t *p_mi );
  * \param status If status is true then mute, otherwise unmute
  * \warning This function does not always work. If there are no active audio
  * playback stream, the mute status might not be available. If digital
- * pass-through (S/PDIF, HDMI...) is in use, muting may be unapplicable. Also
+ * p----through (S/PDIF, HDMI...) is in use, muting may be unapplicable. Also
  * some audio output plugins do not support muting at all.
  * \note To force silent playback, disable all audio tracks. This is more
  * efficient and reliable than mute.

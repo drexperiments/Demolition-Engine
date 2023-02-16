@@ -425,7 +425,7 @@
 #define VLC_CODEC_MP3       VLC_FOURCC('m','p','3',' ')
 
 /**
- * It returns the codec associated to a fourcc within a ES category.
+ * It returns the codec ---ociated to a fourcc within a ES category.
  *
  * If not found, it will return the given fourcc.
  * If found, it will always be one of the VLC_CODEC_ defined above.
@@ -435,7 +435,7 @@
 VLC_API vlc_fourcc_t vlc_fourcc_GetCodec( int i_cat, vlc_fourcc_t i_fourcc );
 
 /**
- * It returns the codec associated to a fourcc store in a zero terminated
+ * It returns the codec ---ociated to a fourcc store in a zero terminated
  * string.
  *
  * If the string is NULL or does not have exactly 4 charateres, it will

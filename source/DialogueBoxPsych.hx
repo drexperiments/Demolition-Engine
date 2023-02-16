@@ -16,7 +16,7 @@ import haxe.format.JsonParser;
 import sys.FileSystem;
 import sys.io.File;
 #end
-import openfl.utils.Assets;
+import openfl.utils.---ets;
 
 using StringTools;
 
@@ -53,7 +53,7 @@ typedef DialogueLine = {
 	var sound:Null<String>;
 }
 
-class DialogueCharacter extends FlxSprite
+cl--- DialogueCharacter extends FlxSprite
 {
 	private static var IDLE_SUFFIX:String = '-IDLE';
 	public static var DEFAULT_CHARACTER:String = 'bf';
@@ -103,7 +103,7 @@ class DialogueCharacter extends FlxSprite
 
 		#else
 		var path:String = Paths.getPreloadPath(characterPath);
-		rawJson = Assets.getText(path);
+		rawJson = ---ets.getText(path);
 		#end
 		
 		jsonFile = cast Json.parse(rawJson);
@@ -162,7 +162,7 @@ class DialogueCharacter extends FlxSprite
 }
 
 // TO DO: Clean code? Maybe? idk
-class DialogueBoxPsych extends FlxSpriteGroup
+cl--- DialogueBoxPsych extends FlxSpriteGroup
 {
 	var dialogue:Alphabet;
 	var dialogueList:DialogueFile = null;
@@ -522,7 +522,7 @@ class DialogueBoxPsych extends FlxSpriteGroup
 			return cast Json.parse(File.getContent(path));
 		}
 		#end
-		return cast Json.parse(Assets.getText(path));
+		return cast Json.parse(---ets.getText(path));
 	}
 
 	public static function updateBoxOffsets(box:FlxSprite) { //Had to make it static because of the editors

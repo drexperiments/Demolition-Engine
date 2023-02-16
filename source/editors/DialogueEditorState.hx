@@ -33,7 +33,7 @@ import sys.io.File;
 
 using StringTools;
 
-class DialogueEditorState extends MusicBeatState
+cl--- DialogueEditorState extends MusicBeatState
 {
 	var character:DialogueCharacter;
 	var box:FlxSprite;

@@ -1,11 +1,11 @@
 package;
 
 // STOLEN FROM HAXEFLIXEL DEMO AND FROM PSYCH ENGINE 0.5.1 WITH SHADERS LOL
-import flixel.system.FlxAssets.FlxShader;
+import flixel.system.Flx---ets.FlxShader;
 import openfl.display.BitmapData;
 import openfl.display.Shader;
 import openfl.display.ShaderInput;
-import openfl.utils.Assets;
+import openfl.utils.---ets;
 import flixel.FlxG;
 import openfl.Lib;
 using StringTools;
@@ -13,7 +13,7 @@ typedef ShaderEffect = {
   var shader:Dynamic;
 }
 
-class BuildingEffect {
+cl--- BuildingEffect {
   public var shader:BuildingShader = new BuildingShader();
   public function new(){
     shader.alpha----.value = [0];
@@ -27,7 +27,7 @@ class BuildingEffect {
   }
 }
 
-class BuildingShader extends FlxShader
+cl--- BuildingShader extends FlxShader
 {
   @:glFragmentSource('
     #pragma header
@@ -48,7 +48,7 @@ class BuildingShader extends FlxShader
   }
 }
 
-class ChromaticAberrationShader extends FlxShader
+cl--- ChromaticAberrationShader extends FlxShader
 {
 	@:glFragmentSource('
 		#pragma header
@@ -76,7 +76,7 @@ class ChromaticAberrationShader extends FlxShader
 	}
 }
 
-class ChromaticAberrationEffect extends Effect
+cl--- ChromaticAberrationEffect extends Effect
 {
 	public var shader:ChromaticAberrationShader;
   public function new(offset:Float = 0.00){
@@ -96,7 +96,7 @@ class ChromaticAberrationEffect extends Effect
 }
 
 
-class ScanlineEffect extends Effect
+cl--- ScanlineEffect extends Effect
 {
 	
 	public var shader:Scanline;
@@ -109,7 +109,7 @@ class ScanlineEffect extends Effect
 }
 
 
-class Scanline extends FlxShader
+cl--- Scanline extends FlxShader
 {
 	@:glFragmentSource('
 		#pragma header
@@ -133,7 +133,7 @@ class Scanline extends FlxShader
 	}
 }
 
-class TiltshiftEffect extends Effect{
+cl--- TiltshiftEffect extends Effect{
 	
 	public var shader:Tiltshift;
 	public function new (blurAmount:Float, center:Float){
@@ -145,24 +145,24 @@ class TiltshiftEffect extends Effect{
 	
 }
 
-class Tiltshift extends FlxShader
+cl--- Tiltshift extends FlxShader
 {
 	@:glFragmentSource('
 		#pragma header
 
-		// Modified version of a tilt shift shader from Martin Jonasson (http://grapefrukt.com/)
+		// Modified version of a tilt shift shader from Martin Jon---on (http://grapefrukt.com/)
 		// Read http://notes.underscorediscovery.com/ for context on shaders and this file
 		// License : MIT
 		 
 			/*
-				Take note that blurring in a single pass (the two for loops below) is more expensive than separating
-				the x and the y blur into different passes. This was used where bleeding edge performance
+				Take note that blurring in a single p--- (the two for loops below) is more expensive than separating
+				the x and the y blur into different p---es. This was used where bleeding edge performance
 				was not crucial and is to illustrate a point. 
 		 
-				The reason two passes is cheaper? 
+				The reason two p---es is cheaper? 
 				   texture2D is a fairly high cost call, sampling a texture.
 		 
-				   So, in a single pass, like below, there are 3 steps, per x and y. 
+				   So, in a single p---, like below, there are 3 steps, per x and y. 
 		 
 				   That means a total of 9 "taps", it touches the texture to sample 9 times.
 		 
@@ -176,12 +176,12 @@ class Tiltshift extends FlxShader
 				   (128 * 128) * 6 =  98,304
 		 
 				   That\'s 33.33..% cheaper for splitting them up.
-				   That\'s with 3 steps, with higher steps (more taps per pass...)
+				   That\'s with 3 steps, with higher steps (more taps per p---...)
 		 
-				   A really smooth, 6 steps, 6*6 = 36 taps for one pass, 12 taps for two pass
+				   A really smooth, 6 steps, 6*6 = 36 taps for one p---, 12 taps for two p---
 				   You will notice, the curve is not linear, at 12 steps it\'s 144 vs 24 taps
-				   It becomes orders of magnitude slower to do single pass!
-				   Therefore, you split them up into two passes, one for x, one for y.
+				   It becomes orders of magnitude slower to do single p---!
+				   Therefore, you split them up into two p---es, one for x, one for y.
 			*/
 		 
 		// I am hardcoding the constants like a jerk
@@ -231,7 +231,7 @@ class Tiltshift extends FlxShader
 		super();
 	}
 }
-class GreyscaleEffect extends Effect{
+cl--- GreyscaleEffect extends Effect{
 	
 	public var shader:GreyscaleShader = new GreyscaleShader();
 	
@@ -241,7 +241,7 @@ class GreyscaleEffect extends Effect{
 	
 	
 }
-class GreyscaleShader extends FlxShader{
+cl--- GreyscaleShader extends FlxShader{
 	@:glFragmentSource('
 	#pragma header
 	void main() {
@@ -267,7 +267,7 @@ class GreyscaleShader extends FlxShader{
 
 
 
-class GrainEffect extends Effect {
+cl--- GrainEffect extends Effect {
 	
 	public var shader:Grain;
 	public function new (grainsize, lumamount,lockAlpha){
@@ -288,7 +288,7 @@ class GrainEffect extends Effect {
 }
 
 
-class Grain extends FlxShader
+cl--- Grain extends FlxShader
 {
 	@:glFragmentSource('
 		#pragma header
@@ -444,7 +444,7 @@ class Grain extends FlxShader
 	
 }
 
-class VCRDistortionEffect extends Effect
+cl--- VCRDistortionEffect extends Effect
 {
   public var shader:VCRDistortionShader = new VCRDistortionShader();
   public function new(glitchFactor:Float,distortion:Bool=true,perspectiveOn:Bool=true,vignetteMoving:Bool=true){
@@ -456,7 +456,7 @@ class VCRDistortionEffect extends Effect
     shader.vignetteMoving.value = [vignetteMoving];
     shader.glitchModifier.value = [glitchFactor];
     shader.iResolution.value = [Lib.current.stage.stageWidth,Lib.current.stage.stageHeight];
-   // var noise = Assets.getBitmapData(Paths.image("noise2"));
+   // var noise = ---ets.getBitmapData(Paths.image("noise2"));
    // shader.noiseTex.input = noise;
    PlayState.instance.shaderUpdates.push(update);
   }
@@ -491,7 +491,7 @@ class VCRDistortionEffect extends Effect
   }
 }
 
-class VCRDistortionShader extends FlxShader // https://www.shadertoy.com/view/ldjGzV and https://www.shadertoy.com/view/Ms23DR and https://www.shadertoy.com/view/MsXGD4 and https://www.shadertoy.com/view/Xtccz4
+cl--- VCRDistortionShader extends FlxShader // https://www.shadertoy.com/view/ldjGzV and https://www.shadertoy.com/view/Ms23DR and https://www.shadertoy.com/view/MsXGD4 and https://www.shadertoy.com/view/Xtccz4
 {
 
   @:glFragmentSource('
@@ -622,7 +622,7 @@ class VCRDistortionShader extends FlxShader // https://www.shadertoy.com/view/ld
 
 
 
-class ThreeDEffect extends Effect{
+cl--- ThreeDEffect extends Effect{
 	
 	public var shader:ThreeDShader = new ThreeDShader();
 	public function new(xrotation:Float=0,yrotation:Float=0,zrotation:Float=0,depth:Float=0){
@@ -637,7 +637,7 @@ class ThreeDEffect extends Effect{
 //coding is like hitting on women, you never start with the number
 //               -naether
 
-class ThreeDShader extends FlxShader{
+cl--- ThreeDShader extends FlxShader{
 	@:glFragmentSource('
 	#pragma header
 	uniform float xrot = 0.0;
@@ -720,7 +720,7 @@ void main() {
 
 //Boing! by ThaeHan
 
-class ----ingTriangleEffect extends Effect{
+cl--- ----ingTriangleEffect extends Effect{
 	
 	public var shader:----ingTriangle = new ----ingTriangle();
 	
@@ -733,7 +733,7 @@ class ----ingTriangleEffect extends Effect{
 }
 
 
-class ----ingTriangle extends FlxShader{
+cl--- ----ingTriangle extends FlxShader{
 	
 	@:glFragmentSource('
 	
@@ -878,7 +878,7 @@ void main()
 	
 	
 }
-class BloomEffect extends Effect{
+cl--- BloomEffect extends Effect{
 	
 	public var shader:BloomShader = new BloomShader();
 	public function new(blurSize:Float, intensity:Float){
@@ -891,7 +891,7 @@ class BloomEffect extends Effect{
 }
 
 
-class BloomShader extends FlxShader{
+cl--- BloomShader extends FlxShader{
 	
 	
 	@:glFragmentSource('
@@ -985,7 +985,7 @@ _/__________\_
 
 
 
-class GlitchEffect extends Effect
+cl--- GlitchEffect extends Effect
 {
     public var shader:GlitchShader = new GlitchShader();
 
@@ -1031,7 +1031,7 @@ class GlitchEffect extends Effect
 
 }
 
-class DistortBGEffect extends Effect
+cl--- DistortBGEffect extends Effect
 {
     public var shader:DistortBGShader = new DistortBGShader();
 
@@ -1078,7 +1078,7 @@ class DistortBGEffect extends Effect
 }
 
 
-class PulseEffect extends Effect
+cl--- PulseEffect extends Effect
 {
     public var shader:PulseShader = new PulseShader();
 
@@ -1135,7 +1135,7 @@ class PulseEffect extends Effect
 }
 
 
-class InvertColorsEffect extends Effect
+cl--- InvertColorsEffect extends Effect
 {
     public var shader:InvertShader = new InvertShader();
 	public function new(lockAlpha){
@@ -1144,7 +1144,7 @@ class InvertColorsEffect extends Effect
 
 }
 
-class GlitchShader extends FlxShader
+cl--- GlitchShader extends FlxShader
 {
     @:glFragmentSource('
     #pragma header
@@ -1193,7 +1193,7 @@ class GlitchShader extends FlxShader
     }
 }
 
-class InvertShader extends FlxShader
+cl--- InvertShader extends FlxShader
 {
     @:glFragmentSource('
     #pragma header
@@ -1219,7 +1219,7 @@ class InvertShader extends FlxShader
 
 
 
-class DistortBGShader extends FlxShader
+cl--- DistortBGShader extends FlxShader
 {
     @:glFragmentSource('
     #pragma header
@@ -1274,7 +1274,7 @@ class DistortBGShader extends FlxShader
 }
 
 
-class PulseShader extends FlxShader
+cl--- PulseShader extends FlxShader
 {
     @:glFragmentSource('
     #pragma header
@@ -1328,7 +1328,7 @@ class PulseShader extends FlxShader
     }
 }
 
-class NewVCRDistortionEffect extends Effect{
+cl--- NewVCRDistortionEffect extends Effect{
 	
 	public var shader:NewVCRDistortionShader = new NewVCRDistortionShader();
 	
@@ -1337,7 +1337,7 @@ class NewVCRDistortionEffect extends Effect{
 	}
 }
 
-class NewVCRDistortionShader extends FlxShader // https://www.shadertoy.com/view/ldjGzV and https://www.shadertoy.com/view/Ms23DR and https://www.shadertoy.com/view/MsXGD4 and https://www.shadertoy.com/view/Xtccz4
+cl--- NewVCRDistortionShader extends FlxShader // https://www.shadertoy.com/view/ldjGzV and https://www.shadertoy.com/view/Ms23DR and https://www.shadertoy.com/view/MsXGD4 and https://www.shadertoy.com/view/Xtccz4
 {
 
   @:glFragmentSource('
@@ -1466,7 +1466,7 @@ class NewVCRDistortionShader extends FlxShader // https://www.shadertoy.com/view
   }
 }
 
-class VhsHandler extends Effect
+cl--- VhsHandler extends Effect
 {
     public var shader:VhsShader;
     public var noise(default, set):Float = 0.0;
@@ -1498,7 +1498,7 @@ class VhsHandler extends Effect
 	}
 }
 
-class VhsShader extends FlxShader {
+cl--- VhsShader extends FlxShader {
     @:glFragmentSource('
     #pragma header
     
@@ -1582,7 +1582,7 @@ class VhsShader extends FlxShader {
     }
 }
 
-class Effect {
+cl--- Effect {
 	public function setValue(shader:FlxShader, variable:String, value:Float){
 		Reflect.setProperty(Reflect.getProperty(shader, 'variable'), 'value', [value]);
 	}

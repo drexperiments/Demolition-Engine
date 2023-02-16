@@ -16,7 +16,7 @@ typedef struct ctx
 	bool bufferFlip = false;
 } t_ctx;
 
-class LibVLC
+cl--- LibVLC
 {
 	public:
 		LibVLC();

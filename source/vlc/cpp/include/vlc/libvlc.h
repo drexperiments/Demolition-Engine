@@ -124,7 +124,7 @@ LIBVLC_API const char *libvlc_printerr (const char *fmt, ...);
  * main(). These arguments affect the LibVLC instance default configuration.
  *
  * \version
- * Arguments are meant to be passed from the command line to LibVLC, just like
+ * Arguments are meant to be p---ed from the command line to LibVLC, just like
  * VLC media player does. The list of valid arguments depends on the LibVLC
  * version, the operating system and platform, and set of available LibVLC
  * plugins. Invalid or unsupported arguments will cause the function to fail
@@ -202,7 +202,7 @@ LIBVLC_DEPRECATED LIBVLC_API
 void libvlc_wait( libvlc_instance_t *p_instance );
 
 /**
- * Sets the application name. LibVLC passes this as the user agent string
+ * Sets the application name. LibVLC p---es this as the user agent string
  * when a protocol requires it.
  *
  * \param p_instance LibVLC instance
@@ -359,7 +359,7 @@ typedef struct vlc_log_t libvlc_log_t;
  * The returned module name and file name will be NULL if unknown.
  * The returned line number will similarly be zero if unknown.
  *
- * \param ctx message context (as passed to the @ref libvlc_log_cb callback)
+ * \param ctx message context (as p---ed to the @ref libvlc_log_cb callback)
  * \param module module name storage (or NULL) [OUT]
  * \param file source code file name storage (or NULL) [OUT]
  * \param line source code file line number storage (or NULL) [OUT]
@@ -380,10 +380,10 @@ LIBVLC_API void libvlc_log_get_context(const libvlc_log_t *ctx,
  * The returned type name may be "generic" if unknown, but it cannot be NULL.
  * The returned header will be NULL if unset; in current versions, the header
  * is used to distinguish for VLM inputs.
- * The returned object ID will be zero if the message is not associated with
+ * The returned object ID will be zero if the message is not ---ociated with
  * any VLC object.
  *
- * \param ctx message context (as passed to the @ref libvlc_log_cb callback)
+ * \param ctx message context (as p---ed to the @ref libvlc_log_cb callback)
  * \param name object name storage (or NULL) [OUT]
  * \param header object header (or NULL) [OUT]
  * \param line source code file line number storage (or NULL) [OUT]

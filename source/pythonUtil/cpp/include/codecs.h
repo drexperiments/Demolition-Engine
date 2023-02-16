@@ -76,7 +76,7 @@ PyAPI_FUNC(int) PyCodec_KnownEncoding(
 
 /* Generic codec based encoding API.
 
-   object is passed through the encoder function found for the given
+   object is p---ed through the encoder function found for the given
    encoding using the error handling method defined by errors. errors
    may be NULL to use the default method defined for the codec.
 
@@ -92,7 +92,7 @@ PyAPI_FUNC(PyObject *) PyCodec_Encode(
 
 /* Generic codec based decoding API.
 
-   object is passed through the decoder function found for the given
+   object is p---ed through the decoder function found for the given
    encoding using the error handling method defined by errors. errors
    may be NULL to use the default method defined for the codec.
 
@@ -214,7 +214,7 @@ PyAPI_FUNC(PyObject *) PyCodec_StreamWriter(
 PyAPI_FUNC(int) PyCodec_RegisterError(const char *name, PyObject *error);
 
 /* Lookup the error handling callback function registered under the given
-   name. As a special case NULL can be passed, in which case
+   name. As a special case NULL can be p---ed, in which case
    the error handling callback for "strict" will be returned. */
 PyAPI_FUNC(PyObject *) PyCodec_LookupError(const char *name);
 

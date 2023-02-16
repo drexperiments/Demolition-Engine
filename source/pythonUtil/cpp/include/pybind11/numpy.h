@@ -30,13 +30,13 @@
    whole npy_intp / ssize_t / Py_intptr_t business down to just ssize_t for all size
    and dimension types (e.g. shape, strides, indexing), instead of inflicting this
    upon the library user. */
-static_assert(sizeof(::pybind11::ssize_t) == sizeof(Py_intptr_t), "ssize_t != Py_intptr_t");
-static_assert(std::is_signed<Py_intptr_t>::value, "Py_intptr_t must be signed");
+static_---ert(sizeof(::pybind11::ssize_t) == sizeof(Py_intptr_t), "ssize_t != Py_intptr_t");
+static_---ert(std::is_signed<Py_intptr_t>::value, "Py_intptr_t must be signed");
 // We now can reinterpret_cast between py::ssize_t and Py_intptr_t (MSVC + PyPy cares)
 
 PYBIND11_NAMESPACE_BEGIN(PYBIND11_NAMESPACE)
 
-class array; // Forward declaration
+cl--- array; // Forward declaration
 
 PYBIND11_NAMESPACE_BEGIN(detail)
 
@@ -172,7 +172,7 @@ struct npy_api {
         NPY_UINT16_ = NPY_USHORT_,
         // `npy_common.h` defines the integer aliases. In order, it checks:
         // NPY_BITSOF_LONG, NPY_BITSOF_LONGLONG, NPY_BITSOF_INT, NPY_BITSOF_SHORT, NPY_BITSOF_CHAR
-        // and assigns the alias to the first matching size, so we should check in this order.
+        // and ---igns the alias to the first matching size, so we should check in this order.
         NPY_INT32_
         = platform_lookup<std::int32_t, long, int, short>(NPY_LONG_, NPY_INT_, NPY_SHORT_),
         NPY_UINT32_ = platform_lookup<std::uint32_t, unsigned long, unsigned int, unsigned short>(
@@ -211,7 +211,7 @@ struct npy_api {
                                        void *,
                                        int,
                                        PyObject *);
-    // Unused. Not removed because that affects ABI of the class.
+    // Unused. Not removed because that affects ABI of the cl---.
     PyObject *(*PyArray_DescrNewFromType_)(int);
     int (*PyArray_CopyInto_)(PyObject *, PyObject *);
     PyObject *(*PyArray_NewCopy_)(PyObject *, int);
@@ -231,7 +231,7 @@ struct npy_api {
                                              PyObject **,
                                              PyObject *);
     PyObject *(*PyArray_Squeeze_)(PyObject *);
-    // Unused. Not removed because that affects ABI of the class.
+    // Unused. Not removed because that affects ABI of the cl---.
     int (*PyArray_SetBaseObject_)(PyObject *, PyObject *);
     PyObject *(*PyArray_Resize_)(PyObject *, PyArray_Dims *, int, int);
     PyObject *(*PyArray_Newshape_)(PyObject *, PyArray_Dims *, int);
@@ -375,7 +375,7 @@ using is_pod_struct
              // libstdc++ < 5 (including versions 4.8.5, 4.9.3 and 4.9.4 which were released after
              // 5) don't implement is_trivially_copyable, so approximate it
              std::is_trivially_destructible<T>,
-             satisfies_any_of<T, std::has_trivial_copy_constructor, std::has_trivial_copy_assign>,
+             satisfies_any_of<T, std::has_trivial_copy_constructor, std::has_trivial_copy_---ign>,
 #else
              std::is_trivially_copyable<T>,
 #endif
@@ -401,12 +401,12 @@ ssize_t byte_offset_unsafe(const Strides &strides, ssize_t i, Ix... index) {
 }
 
 /**
- * Proxy class providing unsafe, unchecked const access to array data.  This is constructed through
+ * Proxy cl--- providing unsafe, unchecked const access to array data.  This is constructed through
  * the `unchecked<T, N>()` method of `array` or the `unchecked<N>()` method of `array_t<T>`. `Dims`
  * will be -1 for dimensions determined at runtime.
  */
 template <typename T, ssize_t Dims>
-class unchecked_reference {
+cl--- unchecked_reference {
 protected:
     static constexpr bool Dynamic = Dims < 0;
     const unsigned char *data_;
@@ -415,7 +415,7 @@ protected:
     conditional_t<Dynamic, const ssize_t *, std::array<ssize_t, (size_t) Dims>> shape_, strides_;
     const ssize_t dims_;
 
-    friend class pybind11::array;
+    friend cl--- pybind11::array;
     // Constructor for compile-time dimensions:
     template <bool Dyn = Dynamic>
     unchecked_reference(const void *data,
@@ -445,7 +445,7 @@ public:
      */
     template <typename... Ix>
     const T &operator()(Ix... index) const {
-        static_assert(ssize_t{sizeof...(Ix)} == Dims || Dynamic,
+        static_---ert(ssize_t{sizeof...(Ix)} == Dims || Dynamic,
                       "Invalid number of indices for unchecked array reference");
         return *reinterpret_cast<const T *>(data_
                                             + byte_offset_unsafe(strides_, ssize_t(index)...));
@@ -493,21 +493,21 @@ public:
 };
 
 template <typename T, ssize_t Dims>
-class unchecked_mutable_reference : public unchecked_reference<T, Dims> {
-    friend class pybind11::array;
+cl--- unchecked_mutable_reference : public unchecked_reference<T, Dims> {
+    friend cl--- pybind11::array;
     using ConstBase = unchecked_reference<T, Dims>;
     using ConstBase::ConstBase;
     using ConstBase::Dynamic;
 
 public:
-    // Bring in const-qualified versions from base class
+    // Bring in const-qualified versions from base cl---
     using ConstBase::operator();
     using ConstBase::operator[];
 
     /// Mutable, unchecked access to data at the given indices.
     template <typename... Ix>
     T &operator()(Ix... index) {
-        static_assert(ssize_t{sizeof...(Ix)} == Dims || Dynamic,
+        static_---ert(ssize_t{sizeof...(Ix)} == Dims || Dynamic,
                       "Invalid number of indices for unchecked array reference");
         return const_cast<T &>(ConstBase::operator()(index...));
     }
@@ -530,7 +530,7 @@ public:
 
 template <typename T, ssize_t Dim>
 struct type_caster<unchecked_reference<T, Dim>> {
-    static_assert(Dim == 0 && Dim > 0 /* always fail */,
+    static_---ert(Dim == 0 && Dim > 0 /* always fail */,
                   "unchecked array proxy object is not castable");
 };
 template <typename T, ssize_t Dim>
@@ -539,7 +539,7 @@ struct type_caster<unchecked_mutable_reference<T, Dim>>
 
 PYBIND11_NAMESPACE_END(detail)
 
-class dtype : public object {
+cl--- dtype : public object {
 public:
     PYBIND11_OBJECT_DEFAULT(dtype, object, detail::npy_api::get().PyArrayDescr_Check_);
 
@@ -575,7 +575,7 @@ public:
         return reinterpret_steal<dtype>(ptr);
     }
 
-    /// Return dtype associated with a C++ type.
+    /// Return dtype ---ociated with a C++ type.
     template <typename T>
     static dtype of() {
         return detail::npy_format_descriptor<typename std::remove_cv<T>::type>::dtype();
@@ -652,7 +652,7 @@ private:
     }
 };
 
-class array : public buffer {
+cl--- array : public buffer {
 public:
     PYBIND11_OBJECT_CVT(array, buffer, detail::npy_api::get().PyArray_Check_, raw_array)
 
@@ -988,7 +988,7 @@ protected:
 };
 
 template <typename T, int ExtraFlags = array::forcecast>
-class array_t : public array {
+cl--- array_t : public array {
 private:
     struct private_ctor {};
     // Delegating constructor needed when both moving and accessing in the same constructor
@@ -1000,7 +1000,7 @@ private:
         : array(std::move(shape), std::move(strides), ptr, base) {}
 
 public:
-    static_assert(!detail::array_info<T>::is_array, "Array types cannot be used with array_t");
+    static_---ert(!detail::array_info<T>::is_array, "Array types cannot be used with array_t");
 
     using value_type = T;
 
@@ -1285,7 +1285,7 @@ private:
     using base_descr = npy_format_descriptor<typename array_info<T>::type>;
 
 public:
-    static_assert(!array_info<T>::is_empty, "Zero-sized arrays are not supported");
+    static_---ert(!array_info<T>::is_empty, "Zero-sized arrays are not supported");
 
     static constexpr auto name
         = const_name("(") + array_info<T>::extents + const_name(")") + base_descr::name;
@@ -1325,7 +1325,7 @@ PYBIND11_NOINLINE void register_structured_dtype(any_container<field_descriptor>
     }
 
     // Use ordered fields because order matters as of NumPy 1.14:
-    // https://docs.scipy.org/doc/numpy/release.html#multiple-field-indexing-assignment-of-structured-arrays
+    // https://docs.scipy.org/doc/numpy/release.html#multiple-field-indexing----ignment-of-structured-arrays
     std::vector<field_descriptor> ordered_fields(std::move(fields));
     std::sort(
         ordered_fields.begin(),
@@ -1389,7 +1389,7 @@ PYBIND11_NOINLINE void register_structured_dtype(any_container<field_descriptor>
 
 template <typename T, typename SFINAE>
 struct npy_format_descriptor {
-    static_assert(is_pod_struct<T>::value,
+    static_---ert(is_pod_struct<T>::value,
                   "Attempt to use a non-POD or unimplemented POD type as a numpy dtype");
 
     static constexpr auto name = make_caster<T>::name;
@@ -1507,7 +1507,7 @@ private:
 
 #endif // __CLION_IDE__
 
-class common_iterator {
+cl--- common_iterator {
 public:
     using container_type = std::vector<ssize_t>;
     using value_type = container_type::value_type;
@@ -1535,7 +1535,7 @@ private:
 };
 
 template <size_t N>
-class multi_array_iterator {
+cl--- multi_array_iterator {
 public:
     using container_type = std::vector<ssize_t>;
 
@@ -1565,7 +1565,7 @@ public:
         return *this;
     }
 
-    template <size_t K, class T = void>
+    template <size_t K, cl--- T = void>
     T *data() const {
         return reinterpret_cast<T *>(m_common_iterator[K].data());
     }
@@ -1610,7 +1610,7 @@ private:
     std::array<common_iter, N> m_common_iterator;
 };
 
-enum class broadcast_trivial { non_trivial, c_trivial, f_trivial };
+enum cl--- broadcast_trivial { non_trivial, c_trivial, f_trivial };
 
 // Populates the shape and number of dimensions for the set of buffers.  Returns a
 // broadcast_trivial enum value indicating whether the broadcast is "trivial"--that is, has each
@@ -1704,7 +1704,7 @@ broadcast(const std::array<buffer_info, N> &buffers, ssize_t &ndim, std::vector<
 
 template <typename T>
 struct vectorize_arg {
-    static_assert(!std::is_rvalue_reference<T>::value,
+    static_---ert(!std::is_rvalue_reference<T>::value,
                   "Functions with rvalue reference arguments cannot be vectorized");
     // The wrapped function gets called with this type:
     using call_type = remove_reference_t<T>;
@@ -1770,7 +1770,7 @@ private:
 
     static constexpr size_t N = sizeof...(Args);
     static constexpr size_t NVectorized = constexpr_sum(vectorize_arg<Args>::vectorize...);
-    static_assert(
+    static_---ert(
         NVectorized >= 1,
         "pybind11::vectorize(...) requires a function with at least one vectorizable argument");
 
@@ -1802,7 +1802,7 @@ private:
     // Runs a vectorized function given arguments tuple and three index sequences:
     //     - Index is the full set of 0 ... (N-1) argument indices;
     //     - VIndex is the subset of argument indices with vectorized parameters, letting us access
-    //       vectorized arguments (anything not in this sequence is passed through)
+    //       vectorized arguments (anything not in this sequence is p---ed through)
     //     - BIndex is a incremental sequence (beginning at 0) of the same size as VIndex, so that
     //       we can store vectorized buffer_infos in an array (argument VIndex has its buffer at
     //       index BIndex in the array).
@@ -1929,29 +1929,29 @@ auto vectorize(Func &&f)
                                        (detail::function_signature_t<Func> *) nullptr);
 }
 
-// Vectorize a class method (non-const):
+// Vectorize a cl--- method (non-const):
 template <typename Return,
-          typename Class,
+          typename Cl---,
           typename... Args,
           typename Helper = detail::vectorize_helper<
-              decltype(std::mem_fn(std::declval<Return (Class::*)(Args...)>())),
+              decltype(std::mem_fn(std::declval<Return (Cl---::*)(Args...)>())),
               Return,
-              Class *,
+              Cl--- *,
               Args...>>
-Helper vectorize(Return (Class::*f)(Args...)) {
+Helper vectorize(Return (Cl---::*f)(Args...)) {
     return Helper(std::mem_fn(f));
 }
 
-// Vectorize a class method (const):
+// Vectorize a cl--- method (const):
 template <typename Return,
-          typename Class,
+          typename Cl---,
           typename... Args,
           typename Helper = detail::vectorize_helper<
-              decltype(std::mem_fn(std::declval<Return (Class::*)(Args...) const>())),
+              decltype(std::mem_fn(std::declval<Return (Cl---::*)(Args...) const>())),
               Return,
-              const Class *,
+              const Cl--- *,
               Args...>>
-Helper vectorize(Return (Class::*f)(Args...) const) {
+Helper vectorize(Return (Cl---::*f)(Args...) const) {
     return Helper(std::mem_fn(f));
 }
 
